@@ -1,0 +1,9 @@
+### The linear referencing system (LRS) kilometerpoint is used to establish the location of the bridge on the Bse Highway Network - see item 12. It must be from the same LRS Inventory Route and kilometerpoint system as reported in the Highway Performance Monitoring System (HPMS). The kilometerpoint coded in this item directly relates to item 13 - LRS Invetory Route, Subroute Number
+
+### This item must be coded for all structures located on or overpassing the Base Highway Network. Code a 7 digit number to represent the LRS kilometerpoint distance in kilometers to the nearest thousandth (With an assumed decimal point). For structures carrying the LRS Inventory Route, code the kilometerpoint at the beginning of the structure (i.e. the lowest kilometerpoint on the bridge). When the LRS Inventory Route goes under the structure (Item 5A coded 2 or A-Z), then code the kilometerpoint on the underpassing route where the structure is first encountered.
+
+### Code all zeros in this field for all records where kilometerpoints are not provided.  Kilometerpoints may be coded for bridges that are not located on the Base highway Network, however Item 12 - Base Highway Netowrk shall be coded 0 for these records.
+
+### The kilometerpoint is coded aligned to the assumed decimal point and zero filled where needed to fill the 7 digits.
+
+### Example  Kilometerpoint is 130.34 = 0130340

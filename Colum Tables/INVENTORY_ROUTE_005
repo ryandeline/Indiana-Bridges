@@ -1,0 +1,16 @@
+### The inventory route is a 9-digit code composed of 5 segments.
+
+CREATE SCHEMA Invetory_Route;
+
+CREATE TABLE Invetory_Route.Route (
+	Segment text,
+	Description text,
+	Length int
+);
+
+INSERT INTO Route (Segment, Description, Length) VALUES
+	('5A', 'Record Type', 1),
+	('5B', 'Route Signing Prefix', 1),
+	('5C', 'Designated Level of Service', 1),
+	('5D', 'Route Number', 5),
+	(5E, 'Directional Suffix', 1);

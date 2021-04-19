@@ -1,0 +1,15 @@
+### In the last position, code the directional suffix to the route number of the inventory route when it is part of the route nuber, using one of the following codes:
+
+CREATE SCHEMA Directional_Suffix;
+
+CREATE TABLE Directional_Suffix.Direction (
+	Code int,
+	Description
+);
+
+INSERT INTO Direction (Code, Description) VALUES
+	(0, 'Not applicable'),
+	(1, 'North'),
+	(2, 'East'),
+	(3, 'South'),
+	(4, 'West');

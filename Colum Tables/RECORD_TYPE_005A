@@ -1,0 +1,38 @@
+### There are two types of National Bridge Inventory records: "on" and "under", Code the fist int (leftmost) using one of the following codes:
+
+CREATE SCHEMA Record_Type;
+
+CREATE TABLE Record_Type.Verticle (
+	Code text
+	Description text
+);
+
+INSERT INTO Verticle (Code, Description) VALUES
+	('1', 'Route carried "on" the structure'),
+	('2', 'Single route goes "under" the structure'),
+	('A', 'Signifies the first of multiple routes under the structue'),
+	('B', 'Signifies the second of multiple routes under the structure'),
+	('C', 'Signifies the third of multiple routes under the structure'),
+	('D', 'Signifies the fourth of multiple routes under the structure'),
+	('E', 'Signifies the fifth of multiple routes under the structure'),
+	('F', 'Signifies the sixth of multiple routes under the structure'),
+	('G', 'Sifnifies the seventh of multiple routes under the structure'),
+	('H', 'Signifies the eigth of multiple routes under the structure'),
+	('I', 'Signifies the ninth of multiple routes under the structure'),
+	('J', 'Signifies the tenth of multiple routes under the structure'),
+	('K', 'Signifies the eleventh of multiple routes under the structure'),
+	('L', 'Signifies the twelfth of multiple routes under the structure'),
+	('M', 'Signifies the thirteenth of multiple routes under the structure'),
+	('N', 'Signifies the fourteenth of multiple routes under the structure'),
+	('O', 'Signifies the fifteenth of multiple routes under the structure'),
+	('P', 'Signifies the sixteenth of multiple routes under the structure'),
+	('Q', 'Signifies the seventeenth of multiple routes under the structure'),
+	('R', 'Signifies the eighteenth of multiple routes under the structure'),
+	('S', 'Signifies the nineteenth of multiple routes under the structure'),
+	('T', 'Signifies the twentieth of multiple routes under the structure'),
+	('U', 'Signifies the twentifirst of multiple routes under the structure'),
+	('V', 'Signifies the twentisecond of multiple routes under the structure'),
+	('W', 'Signifies the twentithird of multiple routes under the structure'),
+	('X', 'Signifies the twentifourth of multiple routes under the structure'),
+	('Y', 'Signifies the twentififth of multiple routes under the structure'),
+	('Z', 'Signifies the twentisixth of multiple routes under the structure');

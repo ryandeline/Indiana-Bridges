@@ -1,0 +1,13 @@
+### If Item 12 - Base Highway Network has been coded 1, the information to be recorded for this item is inventory route for the State's linear referencing system (LRS). This item is a 12 digit code composed of 2 segments
+
+CREATE SCHEMA LRS_INV_ROUTE;
+
+CREATE TABLE LRS_INV_ROUTE.LRS_ROUTE (
+	Segment text,
+	Description text,
+	Length text
+);
+
+INSERT INPUT LRS_ROUTE (Segment, Descriptioin, Length) VALUES
+	('13A', 'LRS Inventory Route', '10 Digits'),
+	('13B', 'Subroute Number', '2 Digits');

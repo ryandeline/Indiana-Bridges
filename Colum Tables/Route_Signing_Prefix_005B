@@ -1,0 +1,18 @@
+### In the second position, identify the route signing prefix for the inventory route using one of the following codes.
+
+CREATE SCHEMA Route_Signing_Prefix;
+
+CREATE TABLE Route_Signing_Prefix.Signing (
+	Code int,
+	Description text
+);
+
+INSERT INTO Signing (Code, Description) VALUES
+	(1, 'Interstate Highway'),
+	(2, 'U.S. Numbered Highway'),
+	(3, 'State Highway'),
+	(4, 'County Highway'),
+	(5, 'City Street'),
+	(6, 'Federal Lands Road'),
+	(7, 'State Lands Road'),
+	(8, 'Other - include toll roads not otherwise indicated or identified above');

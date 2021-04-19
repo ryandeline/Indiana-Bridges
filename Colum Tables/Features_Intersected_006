@@ -1,0 +1,15 @@
+### This iten contains a description of the features intersected by the structure and a critical facility indicator. When Item 5A indicates and "under" record, this item describes the inventory route and/or features under the structure.  There are 25 digits divided into 2 segments.
+
+### Will need Tables A and B added ###
+
+CREATE SCHEMA Features_Intersected;
+
+CREATE TABLE Features_Intersected.Intersections (
+	Segment text,
+	Description text,
+	Length text
+);
+
+INSERT INTO Intersections (Segment, Description, Length) VALUES
+	('6A', 'Features Intersected', '24 char'),
+	('6B', 'No Longer Codded - Blank', '1 char');
