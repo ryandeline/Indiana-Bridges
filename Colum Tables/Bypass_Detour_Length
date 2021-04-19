@@ -1,0 +1,12 @@
+### Indicate the actual length to the nearest kilometer of the detour length.  The detour length should represent the total additional travel for a vehicle which would result from closing of the bridge.  The facto to consider when determining if a bypassis available at the site is the potential for moving vehicles, including military vehicles, around the structure.  This is particularly true when the structure is an interchange.  For instance, a bypass likely would be available in the case of diamond interchanges, interchanges where there are service roads available, or other interchanges where the positioning and layout of the ramps is such that they could be used without difficulty to get around the structure.  If a ground level bypass is available at the structure site for the inventory route, record and code the detour length as 000.
+
+### If the bridge is one of twin bridges and is not at an interchange, code 001 where the other twin bridge can be used as a temporary bypass with a reasonable amount of crossover grading.  The detour route will be established following allowable criteria determined by the governing authority.  (Some authorities will not allow a designated detour over a road or bridge of lesser "quality.")  Code 199 for 100 kilometers or more.
+
+### Examples
+
+	Diamond interchange, structure bypassable		000
+	Cloverleaf, no bypassable; 18-kilometer detour	018
+	Structure over river; 121-kilometer detour		121
+	Structure over highway, no interchange,
+		bypassable at ground level					000
+	Structure on dead end roads 					199

@@ -1,0 +1,7 @@
+### For bridges on STRAHNET and STRAHNET Connector highways and on the NHS, record and code the latitude of each in degrees, minuts and seconds to the nearest hundredth of a second (with an assumed decimal point). The point of the coordinate may be the beginning of the bridge in the direction of the inventory or any other consisten point of reference on the bridge which is compatible with the LRS. If the bridge is not on a STRAHNET highway or the NHS, a code of all zeros is acceptable, but it is preferable to code the latitiude if abailable.
+
+### The reason for the increased precision is to facilitate the use of Global Positioning System (GPS) datadirectly into this item. The increased precision is not currently mandatory and, if GPS readings are not available, the current measuring methods and levelo of precision may continue to be used. the minimum precision should be to the nearest minute, but the preferred precision is to the nearest hundredth of a second using GPS methods.
+
+### Example  Longitude is 	81°5.8' 	(current precisions) 	081054800
+										(acceptable coding)		081060000
+							81°5' 50.65"	(GPS Reading)		081055065

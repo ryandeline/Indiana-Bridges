@@ -1,0 +1,22 @@
+### For the inventory route, code the functional classification using one of the following codes:
+
+CREATE SCHEMA FC;
+
+CREATE TABLE FC (
+	Code int,
+	Description text
+);
+
+INSERT INTO FC (Code, Description) Values
+	(01, 'Rural - Principal Arterial - Interstate'),
+	(02, 'Rural - Principal Arterial - Other'),
+	(06, 'Rural - Minor Arterial'),
+	(07, 'Rural - Major Collector'),
+	(08, 'Rural - Minor Collector'),
+	(09, 'Rural - Local'),
+	(11, 'Urban - Principal Arterial - Interstate'),
+	(12, 'Urban - Principal Arterial - Other Freeways or Expressways'),
+	(14, 'Urban - Other Principal Arterial'),
+	(16, 'Urban - Minor Arterial'),
+	(17, 'Urban - Collector'),
+	(19, 'Urban - Local');

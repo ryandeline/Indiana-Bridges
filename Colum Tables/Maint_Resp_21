@@ -1,0 +1,39 @@
+### The actual name(s) of the agency(s) responsible for the maintenacne of the structure shall be recorded on the inspection form.  The codes below shall be used to represent the type of agency that has primary responsibility for maintaining the structure.  If more than one agency has equal maintenance responsibility, code one agency in the hierarchy of State, Federal, county, city, railroad, and other private.
+
+CREATE SCHEMA Maint_Resp;
+
+CREATE TABLE Maint_Resp (
+	Code int,
+	Description text
+);
+
+INSERT INTO Maint_Resp (Code, Description) VALUES
+	(01, 'State Highway Agency'),
+	(02, 'County Highway Agency'),
+	(03, 'Town or Township Highway Agency'),
+	(04, 'City of Municipal Highway Agency'),
+	(11, 'State Park, Forest, of Reservation Agency'),
+	(12, 'Local Park, Forest, of Reservation Agency'),
+	(21, 'Other State Agencies'),
+	(25, 'Other Local Agencies'),
+	(26, 'Private (other than railroad'),
+	(27, 'Railroad'),
+	(31, 'State Toll Authority'),
+	(32, 'Local Toll Authority'),
+	(60, 'Other Federal Agencies (not listed below'),
+	(61, 'Indian Tribal Government'),
+	(62, 'Bureau of Indian Affairs'),
+	(63, 'Bureau of Fish and Wildlife'),
+	(64, 'U.S. Forest Service'),
+	(66, 'National Park Service'),
+	(67, 'Tennessee Valley Authority'),
+	(68, 'Bureau of Land Management'),
+	(69, 'Bureau of Reclamation'),
+	(70, 'Corps of Engineers (Civil)'),
+	(71, 'Corps of Engineers (Military)'),
+	(72, 'Air Force'),
+	(73, 'Navy/Marines'),
+	(74, 'Army'),
+	(75, 'NASA'),
+	(76, 'Metropolitan Washington Airports Service'),
+	(80, 'Unknown');

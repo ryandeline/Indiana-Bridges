@@ -1,0 +1,15 @@
+### The toll status of the structure is indicated by this item.  Interstate toll segments under Secretarilal Agreement (Title 23 - United States Code - Highways Section 129 as amended by 1991 ISTEA and prior legislation) shall be identified seperately.  Use one of the following codes:
+
+CREATE SCHEMA Toll;
+
+CREATE TABLE Toll (
+	Code int,
+	Description text
+);
+
+INSERT INTO Toll (Code, Description) VALUES
+	(1, 'Toll Bridge.  Tolls are paid specifically to use the structure.'),
+	(2, 'On toll road.  The structure carries a toll road, that is, tolls are paid to use the facility, which includes both the highway and the structure,'),
+	(3, 'On free road.  The structure is toll-free and carries a toll-free highway.'),
+	(4, On Interstate toll segment under Secretarial Agreement.  Structure functions as a part of the toll segment.),
+	(5, Toll bridge is a segment under Secretarial Agreement. Structure is separate agreement from highway segment.);
