@@ -1,0 +1,12 @@
+### Code this item to indicate if the structure is flared (i.e. the width of the structure varies).  Generally, such variance will result from ramps converging with or diverging form the through lanes on the structure, but there may be other causes.  Minor flares at ends of structures should be ignored.
+
+CREATE SCHEMA Struct_Flared;
+
+CREATE TABLE Struct_Flared (
+	Code int,
+	Description text
+);
+
+INSERT INTO Struct_Flared (Code, Description) VALUES
+	(0, 'No Flare'),
+	(1, 'Yes, Flared');

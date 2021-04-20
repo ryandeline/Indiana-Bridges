@@ -1,0 +1,6 @@
+### The skew angle is the angle between the centerliine of a pier and a line normal to the roadway centerline.  When plans are available, the skew angle can be taken directly from the plans.  If no plans are available, the angle is to be field measured if possible.  Record the skew angle to the nearest degree.  If the skew angle is 0E, it should be so coded.  When the structure is on a curve or if the skew varies for some other reason, the average skew should be recorded, if reasonable.  Otherwise, record 99 to indicate a major variation in skews of substructure units.  A 2-Digit number should be coded.
+
+### Example		Skew angle	0°		00
+							10°		10
+							8°		08
+							29°		29

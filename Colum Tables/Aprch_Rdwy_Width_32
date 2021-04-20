@@ -1,0 +1,12 @@
+### Code a 4-digit number to represent the normal width of usable roadway approaching the structure measured to the nearest tenth of a meter (with an assumed decimal point).  Usabel roadway width will include the width of traffic lands and the widths of shoulders where shoulders are defined as follows:
+
+	Shoulders must be constructed and normally maintained flush with the adjacent traffic lane, and must be structurally adequate for all weather and traffic conditions consistent with the facility carried.
+
+### Unstabilized grass or dirt, with no base course, flush with and beside the traffic lane is not to be considered a shoulder for this item.
+
+### For structures with medians of any type and double-decked structures, this item should be coded as the sum of the usabel roadway widths for the approach roadways (i.e. all median widths which do not qualify as shoulders should not be included in this dimension).  When there is a variation between the approaches at either end of the structure, record and code the most restrictive of the opproach conditions.
+
+### Example	LS 		LR		MS 		RR 		RS 		Code
+			1.2		0		0		4.8		1.8		0078
+			1.8		0		0		10.8	3.6		0162
+			3.6		14.4	9.0		14.4	3.6		0450

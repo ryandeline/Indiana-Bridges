@@ -1,1 +1,9 @@
 ### Record and code the number of lanes being carried by the strucuture and being crossed over by the structure as a 4-digit number composed of 2 segments.  The number of lanes should be right justified in each segment with leading zero(s) coded as required.
+
+### Include all lanes carrying highway traffic (i.e. cars, trucks, buses) which are striped or otherwise operated as a full width traffic lane for the entire length of the structure or under the structure by the owning/maintaining authority.  This shall include any full width merge lanes and ramp lanes, and shall be independent of directionality of usage (i.e. a 1-lane bridge carrying 2-directional traffic is still considered to cary only one lane of the structure).  It should be noted here that for the purpose of evelauating the Deck Geometry - Item 68, any "1-lane" bridge, not coded as a ramp (Item 5C = 7), which has a Bridge Roadway Width, Curb-to-Curb - Item 51 coded 4.9 meters or greater shall be evaluated as 2 lanes.
+
+### When the inventory route is 'on' the bridge (the first digit of Item 5 - Inventory Route is coded 1), the sum of the total number of lanes on all inventoried routes under the bridge shall be coded.  When the inventory route is 'under' the brideg (the first digit of Item 5 - Inventory Route is coded 2 or A throguh Z), only the number of lanes being identified by that 'under' record shall be coded in Item 28B.
+
+### When the inventory rout is 'under' the structure, the obstruciton over teh inventory route may be other than a highway bridge (railroad, pedestrian, pipeline, etc.).  Code 00 for these cases if there are no highway lanes on the obstructing structure.
+
+### Double deck bridges may be coded as 1 or 2 structures.  Either method is acceptable, however, all related data must be compatible with the method selected.

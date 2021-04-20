@@ -1,0 +1,14 @@
+### Indicate with a 1-digit code if the median is non-existent, open or closed.  The median is closed when the area between the 2 roadways at the structure is bridged over and is capable of supporting traffic.  All bridges that carry either 1-way traffic or 2-way traffic separated onlyl by a centerline will be coded 0 for no median.
+
+CREATE SCHEMA Bridge_Median;
+
+CREATE TABLE Bridge_Median (
+	Code int,
+	Description text
+);
+
+INSERT INTO Bridge_Median (Code, Description) VALUES
+	(0, 'No Median'),
+	(1, 'Open Median'),
+	(2, 'Closed Median (no barrier)'),
+	(3, 'Closed Median with non-mountable barriers');

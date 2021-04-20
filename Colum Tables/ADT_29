@@ -1,0 +1,7 @@
+###  Code a 6-digit number that shows the average daily traffic volume for the inventory route identified in Item 5.  Make certain the unit's position is coded even if estimates of ADT are determined to tens or hundreds of vehicles; that is, appropriate trailing zeros shall be coded.  The ADT coded should be the most recent ADT counts available.  Included in this item are the trucks referred to in Item 109 - Average Daily Truck Traffic.  if the bridge is closed, code the actual ADT from before the closure occured.
+
+###  The ADT must be compatible with the other items coded for the bridge.  For example, parallel bridges with an open median are coded as follows:  if Item 28 - Lanes On and Under the Structure and Item 51 - Bridge Roadway Width, Curb-to-Curb are coded for each bridge separately, then the ADT must be coded for each bridge separately (not the total ADT for the route).
+
+### Examples	Average Daily Traffic 	540		000540
+									 15,600		015600
+									 24,000		024000

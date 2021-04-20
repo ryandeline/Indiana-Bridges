@@ -1,0 +1,5 @@
+### If Item 38 - Navigation Contral has been coded 1, record the horizontal clearance measurement imposed at the site that is shown on the navigation permit.  This may be less than the structure geometry allows.  If a navigation permit is required but not available, us the minimum horizontal clearance between fenders, if any, or the clear distance between piers or bents.  Code the clearance as a 5-digit number truncated to the tenth of a meter (with an assumed decimal point).  If Item 38 - Navigation Control has been coded 0 or N, code 000 to indicate not applicable.
+
+### Example		53.57 meters	00535
+				95.00 meters	00950
+				202.09 meters	02020

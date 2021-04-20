@@ -1,0 +1,18 @@
+### This item provides information about the actual operational status of a structure.  The field review could show that a structure is posted, but Item 70 - Bridge Posting may indicate that posting is not required.  This is possible and acceptable coding since Item 70 is based on the operating stress level and the governiing agency's posting procedures may specify posting at some stress level less than the operating rating.
+
+CREATE SCHEMA Struct_OPC_Traff;
+
+CREATE TABLE Struct_OPC_Traff (
+	Code text,
+	Description text
+);
+
+INSERT INTO Struct_OPC_Traff (Code, Description) VALUES
+	('A', 'Open, no restriction'),
+	('B', 'Open, posting recommended but not legally implemented (all signs not in place or correctlyl implemented)'),
+	('D', 'Open, would be posted or closed except for temporary shoring, etc. to allow for unrestricted traffic'),
+	('E', 'Open, temporary structure in place to carry legal loads while original structure is closed and awaiting replacement or rehabilitation'),
+	('G', 'New structure not yet open to traffic'),
+	('K', 'Bridge closed to all traffic'),
+	('P', 'Posted for load (may include other restrictions such as temporary bridges which are load posted)'),
+	('R', 'Posted for other load-capacity restriction (speed, number of vehicles on bridge, etc.)')

@@ -1,0 +1,15 @@
+### The historical significance of a bridge involves a variety of characteristics:  the crossing itself might be significant; the bridge might be associated with a historical property or area; or historical significance could be derived from the fact that bridge was associated with significant events or circumstances.
+
+CREATE SCHEMA Hist_Sig;
+
+CREATE TABLE Hist_Sig (
+	Code int,
+	Description text
+);
+
+INSERT INTO Hist_Sig (Code, Description) VALUES
+	(1, 'Bridge is on the National Register of Historic Places.'),
+	(2, 'Bridge is eligible for the National Register of Historic Places'),
+	(3, 'Bridge is possibly eligible for the National Register of Historic Places (requires further investigation before determination can be made) or bridge is on a State or local historic register.'),
+	(4, 'Historical significance is not determinable at this time.'),
+	(5, 'Bridge is not eligible for the National Register of Historic Places');

@@ -1,0 +1,31 @@
+### Bridge inspection shall include the recording of information on the following traffic safety features so that the evealuation of their adequacy can be made.
+	
+	(A) Bridge railings: Some factors that affect the proper functioning of bridge railings are height, material, strength, and geometric features.  Railings must be capable of smoothly redirecting an impactinve vehicle. Bridge railings should be evalued using te current AASHTO Standard Specifications for Highway Bridges, which calls for railings to meet specific geometric criteria and to resist specified static loads without exceeding the allowable stresses in their elements.  Bridge railings should be crash tested per FHWA policy.  Railings that meet these criteria and loading conditions are considered acceptable.  Other railings that have been successfully crash tested are considered acceptable even though they may not meet the static loading analysis and geometric requirements.  Acceptable guidelines for bridge railing design and testing are also found in the AASHTO Guide Specifications for Bridge Railings 1989.  Additional guidance for testing is found in National COoperative Highway Research Program - Report 350 Recommended Procedures for the Safety Performance Evaluations of Highway Features 1993.
+
+	(B) Transitions: The transitions from approach guardrail to bridge railing requires that the approach guardrail be firmly attached to the bridge railing.  It aslo requires that the approach guardrail be gradually stiffened as it comes closer to the bridge railing.  The ends of curbs and safety walks need to be gradually tapered out or shielded.
+
+	(C) Approach guardrail : The structural adequacy and compatibility of approach guardrail with transitions designs should be determined.  Rarely does the need for a barrier stop at the end of a brideg.  Thus an approach guardrail with adequate length and structural qualities to shield motorists from the hazards at the bridge site needs to be installed.  In addition to being capable of safely redirecting and impacting vehicle, the approach guardrail must also facilitate a transition to the bridge railing that will not cause snagging or pocketing of an impacting vehicle.  Acceptable guardrail design suggestions are contained in the AASHTO Roadside Desing Guide and subsequent FHWA or AASHTO guidelines.
+
+	(D) Approach guardrail ends: As with guardrail ends in general, the ends of approach guardrails to bridges should be flared, buried, made breakaway or shielded.  Design treatment of guardrail ends is given in the AASHTO Roadside Design Guide.
+
+### The data collected shall apply onthe to the route on th bridge.  Collision damage or deterioration of the elements are not considered when coding this item.  Traffic safety features is a 4-digit code composed of 4 segments.
+
+Segment 	Description
+36A			Bridge Railings
+36B			Transitions
+36C			Approach guardrail
+36D			Approach guardrail ends
+
+### The reporting features shall be as follows:
+
+CREATE SCHEMA Traff_Safe_Feat;
+
+CREATE TABLE Traff_Safe_Feat (
+	Code text,
+	Description text
+);
+
+INSERT INTO Traff_Safe_Feat (Code, Description) VALUES
+	('0', 'Inspected feature does not meet curerently acceptable standards or a safety feature is require and none is provided'),
+	('1', 'Inspected feature meets currently acceptable standards'),
+	('N', 'Not applicable or a safety feature is not required');

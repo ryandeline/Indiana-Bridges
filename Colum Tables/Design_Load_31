@@ -1,0 +1,20 @@
+### Use the codes below to indicate the live load for which teh structure was designed.  The numerical values of the railroad loading should be recorded on the form.  Classify any other loading, when feasible, using the nearest equivalent of the loadings given below.
+
+CREATE SCHEMA Design_Load;
+
+CREATE TABLE Design_Load (
+	Code int,
+	Description, text
+);
+
+INSERT INTO Design_Load (Code, Description) VALUES
+	(1, 'H 10'),
+	(2, 'H 15'),
+	(3, 'HS 15'),
+	(4, 'H 20'),
+	(5, 'HS 20'),
+	(6, 'HS 20+ Mod'),
+	(7, 'Pedestrian'),
+	(8, 'Railroad'),
+	(9, 'HS 25'),
+	(0, 'Unkown');

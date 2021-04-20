@@ -1,0 +1,5 @@
+### If Item 38 - Navigation Control has been coded 1, record the minimum vertical clearance imposed at the sitee as measured above a datum that is specified on a navigation permit issued by a control agency.  The measurement shall be coded as a 4-digit number truncated to the tenth of a meter (with an assumed decimal point).  This measurement will show the clearance that is allowable for navigational purposes.  In the case of a swing or bascule bridge, the vertical clearance shall be measured with the bridge in the raised or open position.  Also, Item 116 - Minimum Navigation Bertical Clearance Vertical Lift Bridge shall be coded to provide clearance in closed posistion.  If Item 38 - Navigation Control has been coded 0 or N, code 000 to indicate not applicable.
+
+### Example		50.00 meters	0500
+				20.65 meters	0206
+				24.28 meters	0242

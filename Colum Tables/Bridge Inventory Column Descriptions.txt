@@ -1,0 +1,551 @@
+######  Created by Ryan DeLine 04/19/2021
+
+######  This document is to aid in the understanding of the columns in the National Bridge Inventory (NBI) column structure.  Nearly all 116 fields are coded in the document.  Below you will find descritptions of the fields and appropriate coding to utilize in table creation.  Further information regarding the inventory can be found on the Federal Highway Administrations Website https://www.fhwa.dot.gov/bridge/nbi.cfm
+
+
+###### Beging Table Description ######
+
+----- State Code 1
+
+### The first 2 ints in the Code are teh Federal Information Processing Standards (FIPS)
+### code for States, and the third int is the FHWA region code.
+
+CREATE SCHEMA State_Code;
+
+CREATE TABLE State_Code.State (
+	Code	int,
+	State	text
+);
+
+INSERT INTO State (Code, State) VALUES 
+	(014, 'Alabama'),
+	(020, 'Alaska'),
+	(049, 'Arizona'),
+	(056, 'Arkansas'),
+	(069, 'California'),
+	(088, 'Colorado'),
+	(091, 'Connecticut'),
+	(103, 'Delaware'),
+	(113, 'District of Columbia'),
+	(124, 'Florida'),
+	(134, 'Georgia'),
+	(159, 'Hawaii'),
+	(160, 'Idaho'),
+	(175, 'Illinois'),
+	(185, 'Indiana'),
+	(197, 'Iowa'),
+	(207, 'Kansas'),
+	(214, 'Kentucky'),
+	(226, 'Louisiana'),
+	(231, 'Maine'),
+	(243, 'Maryland'),
+	(251, 'Massachusetts'),
+	(265, 'Michigan'),
+	(275, 'Minnesota'),
+	(284, 'Mississippi'),
+	(297, 'Missouri'),
+	(308, 'Montana'),
+	(317, 'Nebraska'),
+	(329, 'Nevada'),
+	(331, 'New Hampshire'),
+	(342, 'New Jersey'),
+	(356, 'New Mexico'),
+	(374, 'North Carolina'),
+	(388, 'North Dakota'),
+	(395, 'Ohio'),
+	(406, 'Oklahoma'),
+	(410, 'Oregon'),
+	(423, 'Pennsylvania'),
+	(441, 'Rhode Island'),
+	(454, 'South Carolina'),
+	(468, 'South Dakota'),
+	(474, 'Tennessee'),
+	(486, 'Texas'),
+	(498, 'Utah'),
+	(501, 'Vermont'),
+	(513, 'Washington'),
+	(530, 'Washington'),
+	(543, 'West Virginia'),
+	(555, 'Wisconsin'),
+	(568, 'Wyoming'),
+	(721, 'Puerto Rico'); 
+
+
+----- Features Intersected 6
+
+### This iten contains a description of the features intersected by the structure and a critical facility indicator. When Item 5A indicates and "under" record, this item describes the inventory route and/or features under the structure.  There are 25 digits divided into 2 segments.
+
+### Will need Tables A and B added ###
+
+CREATE SCHEMA Features_Intersected;
+
+CREATE TABLE Features_Intersected.Intersections (
+	Segment text,
+	Description text,
+	Length text
+);
+
+INSERT INTO Intersections (Segment, Description, Length) VALUES
+	('6A', 'Features Intersected', '24 char'),
+	('6B', 'No Longer Codded - Blank', '1 char');
+
+
+----- Facility Carried by Structure 7
+
+### The facility being carried by the structure shall be recorded and coded. In all situations this iten describes the us "on" the structure. This item shall be left Justified without trailing zeros.
+
+### Need to establish how to enter into DB ###
+
+
+----- Structure Number 8
+
+### It is required that the official structure number be recorded. It is not necessary to code this number according to and arbitrary national standard. Each agency should code the structure number according to its own internal processing procedures. When recording and coding for this item and following items, any structure or structures with a closed median should be considered as one structure, not two. Closed medians may have either a mountabloe or non-mountable curds or barriers.
+
+### The structure number must be unique for each bridge within the State, and once established should preferable never change for the life of the bridge. If it is essential that the structure number must be changed, all 15 digits are to be filled.  For any structure number changes, a complete cross reference of corresponding "old" and "new" numbers must be provided to the FHWA Bridge Division. The cross reference shall include both a computer tape or diskette and a printed listing in the FHWA required format.
+
+
+----- Location 9
+
+### This item contains a narrative description of the bridge location.  It is recommended dthat the location be keyed to a distinguishable feature of an official highway department map such as road junctions and topographical features. This item shall be left justified without trailing zeros
+
+
+----- Inventory Route 5
+
+### The inventory route is a 9-digit code composed of 5 segments.
+
+CREATE SCHEMA Invetory_Route;
+
+CREATE TABLE Invetory_Route.Route (
+	Segment text,
+	Description text,
+	Length int
+);
+
+INSERT INTO Route (Segment, Description, Length) VALUES
+	('5A', 'Record Type', 1),
+	('5B', 'Route Signing Prefix', 1),
+	('5C', 'Designated Level of Service', 1),
+	('5D', 'Route Number', 5),
+	(5E, 'Directional Suffix', 1);
+
+
+----- Lattitude 16
+
+### For bridges on STRAHNET and STRAHNET Connector highways and on the NHS, record and code the latitude of each in degrees, minuts and seconds to the nearest hundredth of a second (with an assumed decimal point). The point of the coordinate may be the beginning of the bridge in the direction of the inventory or any other consisten point of reference on the bridge which is compatible with the LRS. If the bridge is not on a STRAHNET highway or the NHS, a code of all zeros is acceptable, but it is preferable to code the latitiude if abailable.
+
+### The reason for the increased precision is to facilitate the use of Global Positioning System (GPS) datadirectly into this item. The increased precision is not currently mandatory and, if GPS readings are not available, the current measuring methods and levelo of precision may continue to be used. the minimum precision should be to the nearest minute, but the preferred precision is to the nearest hundredth of a second using GPS methods.
+
+### Example  Latitude is 35°27.3' (current presision)  35271800
+### 							  (acceptable coding)  35270000
+###					 35°27'18.55" (GPS Reading)		   35271855
+
+
+----- Longitude 17
+
+### For bridges on STRAHNET and STRAHNET Connector highways and on the NHS, record and code the latitude of each in degrees, minuts and seconds to the nearest hundredth of a second (with an assumed decimal point). The point of the coordinate may be the beginning of the bridge in the direction of the inventory or any other consisten point of reference on the bridge which is compatible with the LRS. If the bridge is not on a STRAHNET highway or the NHS, a code of all zeros is acceptable, but it is preferable to code the latitiude if abailable.
+
+### The reason for the increased precision is to facilitate the use of Global Positioning System (GPS) datadirectly into this item. The increased precision is not currently mandatory and, if GPS readings are not available, the current measuring methods and levelo of precision may continue to be used. the minimum precision should be to the nearest minute, but the preferred precision is to the nearest hundredth of a second using GPS methods.
+
+### Example  Longitude is 	81°5.8' 	(current precisions) 	081054800
+										(acceptable coding)		081060000
+							81°5' 50.65"	(GPS Reading)		081055065
+
+
+----- Bypass Detour Length 19
+
+### Indicate the actual length to the nearest kilometer of the detour length.  The detour length should represent the total additional travel for a vehicle which would result from closing of the bridge.  The facto to consider when determining if a bypassis available at the site is the potential for moving vehicles, including military vehicles, around the structure.  This is particularly true when the structure is an interchange.  For instance, a bypass likely would be available in the case of diamond interchanges, interchanges where there are service roads available, or other interchanges where the positioning and layout of the ramps is such that they could be used without difficulty to get around the structure.  If a ground level bypass is available at the structure site for the inventory route, record and code the detour length as 000.
+
+### If the bridge is one of twin bridges and is not at an interchange, code 001 where the other twin bridge can be used as a temporary bypass with a reasonable amount of crossover grading.  The detour route will be established following allowable criteria determined by the governing authority.  (Some authorities will not allow a designated detour over a road or bridge of lesser "quality.")  Code 199 for 100 kilometers or more.
+
+### Examples
+
+	Diamond interchange, structure bypassable		000
+	Cloverleaf, no bypassable; 18-kilometer detour	018
+	Structure over river; 121-kilometer detour		121
+	Structure over highway, no interchange,
+		bypassable at ground level					000
+	Structure on dead end roads 					199
+
+
+----- Toll 20 
+
+### The toll status of the structure is indicated by this item.  Interstate toll segments under Secretarilal Agreement (Title 23 - United States Code - Highways Section 129 as amended by 1991 ISTEA and prior legislation) shall be identified seperately.  Use one of the following codes:
+
+CREATE SCHEMA Toll;
+
+CREATE TABLE Toll (
+	Code int,
+	Description text
+);
+
+INSERT INTO Toll (Code, Description) VALUES
+	(1, 'Toll Bridge.  Tolls are paid specifically to use the structure.'),
+	(2, 'On toll road.  The structure carries a toll road, that is, tolls are paid to use the facility, which includes both the highway and the structure,'),
+	(3, 'On free road.  The structure is toll-free and carries a toll-free highway.'),
+	(4, On Interstate toll segment under Secretarial Agreement.  Structure functions as a part of the toll segment.),
+	(5, Toll bridge is a segment under Secretarial Agreement. Structure is separate agreement from highway segment.);
+
+
+----- Maintenance Responsibility 21
+
+### The actual name(s) of the agency(s) responsible for the maintenacne of the structure shall be recorded on the inspection form.  The codes below shall be used to represent the type of agency that has primary responsibility for maintaining the structure.  If more than one agency has equal maintenance responsibility, code one agency in the hierarchy of State, Federal, county, city, railroad, and other private.
+
+CREATE SCHEMA Maint_Resp;
+
+CREATE TABLE Maint_Resp (
+	Code int,
+	Description text
+);
+
+INSERT INTO Maint_Resp (Code, Description) VALUES
+	(01, 'State Highway Agency'),
+	(02, 'County Highway Agency'),
+	(03, 'Town or Township Highway Agency'),
+	(04, 'City of Municipal Highway Agency'),
+	(11, 'State Park, Forest, of Reservation Agency'),
+	(12, 'Local Park, Forest, of Reservation Agency'),
+	(21, 'Other State Agencies'),
+	(25, 'Other Local Agencies'),
+	(26, 'Private (other than railroad'),
+	(27, 'Railroad'),
+	(31, 'State Toll Authority'),
+	(32, 'Local Toll Authority'),
+	(60, 'Other Federal Agencies (not listed below'),
+	(61, 'Indian Tribal Government'),
+	(62, 'Bureau of Indian Affairs'),
+	(63, 'Bureau of Fish and Wildlife'),
+	(64, 'U.S. Forest Service'),
+	(66, 'National Park Service'),
+	(67, 'Tennessee Valley Authority'),
+	(68, 'Bureau of Land Management'),
+	(69, 'Bureau of Reclamation'),
+	(70, 'Corps of Engineers (Civil)'),
+	(71, 'Corps of Engineers (Military)'),
+	(72, 'Air Force'),
+	(73, 'Navy/Marines'),
+	(74, 'Army'),
+	(75, 'NASA'),
+	(76, 'Metropolitan Washington Airports Service'),
+	(80, 'Unknown');
+
+
+----- Functional Classification 26
+
+### For the inventory route, code the functional classification using one of the following codes:
+
+CREATE SCHEMA FC;
+
+CREATE TABLE FC (
+	Code int,
+	Description text
+);
+
+INSERT INTO FC (Code, Description) Values
+	(01, 'Rural - Principal Arterial - Interstate'),
+	(02, 'Rural - Principal Arterial - Other'),
+	(06, 'Rural - Minor Arterial'),
+	(07, 'Rural - Major Collector'),
+	(08, 'Rural - Minor Collector'),
+	(09, 'Rural - Local'),
+	(11, 'Urban - Principal Arterial - Interstate'),
+	(12, 'Urban - Principal Arterial - Other Freeways or Expressways'),
+	(14, 'Urban - Other Principal Arterial'),
+	(16, 'Urban - Minor Arterial'),
+	(17, 'Urban - Collector'),
+	(19, 'Urban - Local');
+
+
+----- Year Built 27
+
+### Record and code the year of constrution of the structure.  Code all 4 digits of the year in which construction of the structure was completed. If the year built is unknown provide a best estimae.  See also Item 106 - Year Reconstructed
+
+### Examples  Construction completed 	1956	1956
+										1892	189
+
+
+----- Lanes On and Unders the Structure 28, 28A & 28B
+
+### Record and code the number of lanes being carried by the strucuture and being crossed over by the structure as a 4-digit number composed of 2 segments.  The number of lanes should be right justified in each segment with leading zero(s) coded as required.
+
+### Include all lanes carrying highway traffic (i.e. cars, trucks, buses) which are striped or otherwise operated as a full width traffic lane for the entire length of the structure or under the structure by the owning/maintaining authority.  This shall include any full width merge lanes and ramp lanes, and shall be independent of directionality of usage (i.e. a 1-lane bridge carrying 2-directional traffic is still considered to cary only one lane of the structure).  It should be noted here that for the purpose of evelauating the Deck Geometry - Item 68, any "1-lane" bridge, not coded as a ramp (Item 5C = 7), which has a Bridge Roadway Width, Curb-to-Curb - Item 51 coded 4.9 meters or greater shall be evaluated as 2 lanes.
+
+### When the inventory route is 'on' the bridge (the first digit of Item 5 - Inventory Route is coded 1), the sum of the total number of lanes on all inventoried routes under the bridge shall be coded.  When the inventory route is 'under' the brideg (the first digit of Item 5 - Inventory Route is coded 2 or A throguh Z), only the number of lanes being identified by that 'under' record shall be coded in Item 28B.
+
+### When the inventory rout is 'under' the structure, the obstruciton over teh inventory route may be other than a highway bridge (railroad, pedestrian, pipeline, etc.).  Code 00 for these cases if there are no highway lanes on the obstructing structure.
+
+### Double deck bridges may be coded as 1 or 2 structures.  Either method is acceptable, however, all related data must be compatible with the method selected.
+
+### Record and code the number of lanes being carried by the strucuture and being crossed over by the structure as a 4-digit number composed of 2 segments.  The number of lanes should be right justified in each segment with leading zero(s) coded as required.
+
+
+----- Average Daily Traffic 29
+
+###  Code a 6-digit number that shows the average daily traffic volume for the inventory route identified in Item 5.  Make certain the unit's position is coded even if estimates of ADT are determined to tens or hundreds of vehicles; that is, appropriate trailing zeros shall be coded.  The ADT coded should be the most recent ADT counts available.  Included in this item are the trucks referred to in Item 109 - Average Daily Truck Traffic.  if the bridge is closed, code the actual ADT from before the closure occured.
+
+###  The ADT must be compatible with the other items coded for the bridge.  For example, parallel bridges with an open median are coded as follows:  if Item 28 - Lanes On and Under the Structure and Item 51 - Bridge Roadway Width, Curb-to-Curb are coded for each bridge separately, then the ADT must be coded for each bridge separately (not the total ADT for the route).
+
+### Examples	Average Daily Traffic 	540		000540
+									 15,600		015600
+									 24,000		024000
+
+
+----- Year of Average Daily Traffic 30
+
+### Record the year represendted by the ADT in Item 29.  Code all four digits of the year so recorded.
+
+### Example	Year of ADT is 1994		1994
+
+
+----- Design Load 31
+
+### Use the codes below to indicate the live load for which teh structure was designed.  The numerical values of the railroad loading should be recorded on the form.  Classify any other loading, when feasible, using the nearest equivalent of the loadings given below.
+
+CREATE SCHEMA Design_Load;
+
+CREATE TABLE Design_Load (
+	Code int,
+	Description, text
+);
+
+INSERT INTO Design_Load (Code, Description) VALUES
+	(1, 'H 10'),
+	(2, 'H 15'),
+	(3, 'HS 15'),
+	(4, 'H 20'),
+	(5, 'HS 20'),
+	(6, 'HS 20+ Mod'),
+	(7, 'Pedestrian'),
+	(8, 'Railroad'),
+	(9, 'HS 25'),
+	(0, 'Unkown');
+
+
+----- Approach Roadway Width 32
+
+### Code a 4-digit number to represent the normal width of usable roadway approaching the structure measured to the nearest tenth of a meter (with an assumed decimal point).  Usabel roadway width will include the width of traffic lands and the widths of shoulders where shoulders are defined as follows:
+
+	Shoulders must be constructed and normally maintained flush with the adjacent traffic lane, and must be structurally adequate for all weather and traffic conditions consistent with the facility carried.
+
+### Unstabilized grass or dirt, with no base course, flush with and beside the traffic lane is not to be considered a shoulder for this item.
+
+### For structures with medians of any type and double-decked structures, this item should be coded as the sum of the usabel roadway widths for the approach roadways (i.e. all median widths which do not qualify as shoulders should not be included in this dimension).  When there is a variation between the approaches at either end of the structure, record and code the most restrictive of the opproach conditions.
+
+### Example	LS 		LR		MS 		RR 		RS 		Code
+			1.2		0		0		4.8		1.8		0078
+			1.8		0		0		10.8	3.6		0162
+			3.6		14.4	9.0		14.4	3.6		0450
+
+
+----- Bridge Median 33
+
+### Indicate with a 1-digit code if the median is non-existent, open or closed.  The median is closed when the area between the 2 roadways at the structure is bridged over and is capable of supporting traffic.  All bridges that carry either 1-way traffic or 2-way traffic separated onlyl by a centerline will be coded 0 for no median.
+
+CREATE SCHEMA Bridge_Median;
+
+CREATE TABLE Bridge_Median (
+	Code int,
+	Description text
+);
+
+INSERT INTO Bridge_Median (Code, Description) VALUES
+	(0, 'No Median'),
+	(1, 'Open Median'),
+	(2, 'Closed Median (no barrier)'),
+	(3, 'Closed Median with non-mountable barriers');
+
+
+----- Skew 34
+
+### The skew angle is the angle between the centerliine of a pier and a line normal to the roadway centerline.  When plans are available, the skew angle can be taken directly from the plans.  If no plans are available, the angle is to be field measured if possible.  Record the skew angle to the nearest degree.  If the skew angle is 0E, it should be so coded.  When the structure is on a curve or if the skew varies for some other reason, the average skew should be recorded, if reasonable.  Otherwise, record 99 to indicate a major variation in skews of substructure units.  A 2-Digit number should be coded.
+
+### Example		Skew angle	0°		00
+							10°		10
+							8°		08
+							29°		29
+
+
+----- Structure Flared 35
+
+### Code this item to indicate if the structure is flared (i.e. the width of the structure varies).  Generally, such variance will result from ramps converging with or diverging form the through lanes on the structure, but there may be other causes.  Minor flares at ends of structures should be ignored.
+
+CREATE SCHEMA Struct_Flared;
+
+CREATE TABLE Struct_Flared (
+	Code int,
+	Description text
+);
+
+INSERT INTO Struct_Flared (Code, Description) VALUES
+	(0, 'No Flare'),
+	(1, 'Yes, Flared');
+
+
+----- Traffic Safety Features 36
+
+### Bridge inspection shall include the recording of information on the following traffic safety features so that the evealuation of their adequacy can be made.
+	
+	(A) Bridge railings: Some factors that affect the proper functioning of bridge railings are height, material, strength, and geometric features.  Railings must be capable of smoothly redirecting an impactinve vehicle. Bridge railings should be evalued using te current AASHTO Standard Specifications for Highway Bridges, which calls for railings to meet specific geometric criteria and to resist specified static loads without exceeding the allowable stresses in their elements.  Bridge railings should be crash tested per FHWA policy.  Railings that meet these criteria and loading conditions are considered acceptable.  Other railings that have been successfully crash tested are considered acceptable even though they may not meet the static loading analysis and geometric requirements.  Acceptable guidelines for bridge railing design and testing are also found in the AASHTO Guide Specifications for Bridge Railings 1989.  Additional guidance for testing is found in National COoperative Highway Research Program - Report 350 Recommended Procedures for the Safety Performance Evaluations of Highway Features 1993.
+
+	(B) Transitions: The transitions from approach guardrail to bridge railing requires that the approach guardrail be firmly attached to the bridge railing.  It aslo requires that the approach guardrail be gradually stiffened as it comes closer to the bridge railing.  The ends of curbs and safety walks need to be gradually tapered out or shielded.
+
+	(C) Approach guardrail : The structural adequacy and compatibility of approach guardrail with transitions designs should be determined.  Rarely does the need for a barrier stop at the end of a brideg.  Thus an approach guardrail with adequate length and structural qualities to shield motorists from the hazards at the bridge site needs to be installed.  In addition to being capable of safely redirecting and impacting vehicle, the approach guardrail must also facilitate a transition to the bridge railing that will not cause snagging or pocketing of an impacting vehicle.  Acceptable guardrail design suggestions are contained in the AASHTO Roadside Desing Guide and subsequent FHWA or AASHTO guidelines.
+
+	(D) Approach guardrail ends: As with guardrail ends in general, the ends of approach guardrails to bridges should be flared, buried, made breakaway or shielded.  Design treatment of guardrail ends is given in the AASHTO Roadside Design Guide.
+
+### The data collected shall apply onthe to the route on th bridge.  Collision damage or deterioration of the elements are not considered when coding this item.  Traffic safety features is a 4-digit code composed of 4 segments.
+
+Segment 	Description
+36A			Bridge Railings
+36B			Transitions
+36C			Approach guardrail
+36D			Approach guardrail ends
+
+### The reporting features shall be as follows:
+
+CREATE SCHEMA Traff_Safe_Feat;
+
+CREATE TABLE Traff_Safe_Feat (
+	Code text,
+	Description text
+);
+
+INSERT INTO Traff_Safe_Feat (Code, Description) VALUES
+	('0', 'Inspected feature does not meet curerently acceptable standards or a safety feature is require and none is provided'),
+	('1', 'Inspected feature meets currently acceptable standards'),
+	('N', 'Not applicable or a safety feature is not required');
+
+
+----- Historical Significance 37
+
+### The historical significance of a bridge involves a variety of characteristics:  the crossing itself might be significant; the bridge might be associated with a historical property or area; or historical significance could be derived from the fact that bridge was associated with significant events or circumstances.
+
+CREATE SCHEMA Hist_Sig;
+
+CREATE TABLE Hist_Sig (
+	Code int,
+	Description text
+);
+
+INSERT INTO Hist_Sig (Code, Description) VALUES
+	(1, 'Bridge is on the National Register of Historic Places.'),
+	(2, 'Bridge is eligible for the National Register of Historic Places'),
+	(3, 'Bridge is possibly eligible for the National Register of Historic Places (requires further investigation before determination can be made) or bridge is on a State or local historic register.'),
+	(4, 'Historical significance is not determinable at this time.'),
+	(5, 'Bridge is not eligible for the National Register of Historic Places');
+
+
+----- Navigation Control 38
+
+### Indicate for this item whether or not navigation control (a bridge permit for navigation) is required.
+
+CREATE SCHEMA Nav_Cont;
+
+CREATE TABLE Nav_Cont (
+	Code text,
+	Description text
+);
+
+INSERT INTO Nav_Cont (Code, Description) VALUES
+	('N', 'Not applicable, no waterway.'),
+	('0', 'No navigation control on waterway (bridge permit not required)'),
+	('1', 'Navigation control on waterway (Bridge permit required)');
+
+
+----- Navigation Vertical Clearance 39
+
+### If Item 38 - Navigation Control has been coded 1, record the minimum vertical clearance imposed at the sitee as measured above a datum that is specified on a navigation permit issued by a control agency.  The measurement shall be coded as a 4-digit number truncated to the tenth of a meter (with an assumed decimal point).  This measurement will show the clearance that is allowable for navigational purposes.  In the case of a swing or bascule bridge, the vertical clearance shall be measured with the bridge in the raised or open position.  Also, Item 116 - Minimum Navigation Bertical Clearance Vertical Lift Bridge shall be coded to provide clearance in closed posistion.  If Item 38 - Navigation Control has been coded 0 or N, code 000 to indicate not applicable.
+
+### Example		50.00 meters	0500
+				20.65 meters	0206
+				24.28 meters	0242
+
+
+----- Navigation Horizontal Clearance 40
+
+### If Item 38 - Navigation Contral has been coded 1, record the horizontal clearance measurement imposed at the site that is shown on the navigation permit.  This may be less than the structure geometry allows.  If a navigation permit is required but not available, us the minimum horizontal clearance between fenders, if any, or the clear distance between piers or bents.  Code the clearance as a 5-digit number truncated to the tenth of a meter (with an assumed decimal point).  If Item 38 - Navigation Control has been coded 0 or N, code 000 to indicate not applicable.
+
+### Example		53.57 meters	00535
+				95.00 meters	00950
+				202.09 meters	02020
+
+
+----- Structure Open, Posted, or Closed to Traffic 41
+
+### This item provides information about the actual operational status of a structure.  The field review could show that a structure is posted, but Item 70 - Bridge Posting may indicate that posting is not required.  This is possible and acceptable coding since Item 70 is based on the operating stress level and the governiing agency's posting procedures may specify posting at some stress level less than the operating rating.
+
+CREATE SCHEMA Struct_OPC_Traff;
+
+CREATE TABLE Struct_OPC_Traff (
+	Code text,
+	Description text
+);
+
+INSERT INTO Struct_OPC_Traff (Code, Description) VALUES
+	('A', 'Open, no restriction'),
+	('B', 'Open, posting recommended but not legally implemented (all signs not in place or correctlyl implemented)'),
+	('D', 'Open, would be posted or closed except for temporary shoring, etc. to allow for unrestricted traffic'),
+	('E', 'Open, temporary structure in place to carry legal loads while original structure is closed and awaiting replacement or rehabilitation'),
+	('G', 'New structure not yet open to traffic'),
+	('K', 'Bridge closed to all traffic'),
+	('P', 'Posted for load (may include other restrictions such as temporary bridges which are load posted)'),
+	('R', 'Posted for other load-capacity restriction (speed, number of vehicles on bridge, etc.)')
+
+
+----- Type of Service, On 42A
+
+### The type of service on the bridge and under the bridge is indicated by a 2-digit code composed of 2 segments
+
+### 	Segment 	Description 					Length
+		42A			Type of service on bridge		1 digit
+		42B			Type of service under bridge	1 digit
+
+### The first digit indicates the type of service 'on' the bridge.
+
+CREATE SCHEMA 42A_Type_Serv;
+
+CREATE TABLE 42A_Type_Serv (
+	Code int,
+	Description text
+);
+
+INSERT INTO 42A_Type_Serv (Code, Description) VALUES
+	(1, 'Highway'),
+	(2, 'Railroad'),
+	(3, 'Pedestrian-bicycle'),
+	(4, 'Highway-railroad'),
+	(5, 'Highway-pedestrian'),
+	(6, 'Overpass structure at an interchange or second level of multilevel interchange'),
+	(7, 'Third level (Interchange)'),
+	(8, 'Fourth level (Interchange)'),
+	(9, 'Building or plaza'),
+	(0, 'Other');
+
+
+----- Type of Service, Under 42B
+
+### The type of service on the bridge and under the bridge is indicated by a 2-digit code composed of 2 segments
+
+### 	Segment 	Description 					Length
+		42A			Type of service on bridge		1 digit
+		42B			Type of service under bridge	1 digit
+
+### The first digit indicates the type of service 'under' the bridge.
+
+CREATE SCHEMA 42B_Type_Serv;
+
+CREATE TABLE 42B_Type_Serv (
+	Code int,
+	Description text
+);
+
+INSERT INTO 42B_Type_Serv (Code, Description) VALUES
+	(1, 'Highway, with or without pedestrian'),
+	(2, 'Railroad'),
+	(3, 'Pedestrian-Bicycle'),
+	(4, 'Highway-Railroad'),
+	(5, 'Waterway'),
+	(6, 'Highway-Waterway'),
+	(7, 'Railroad-Waterway'),
+	(8, 'Highway-Waterway-Railroad'),
+	(9, 'Relief for Waterway'),
+	(0, 'Other');

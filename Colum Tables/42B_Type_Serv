@@ -1,0 +1,26 @@
+### The type of service on the bridge and under the bridge is indicated by a 2-digit code composed of 2 segments
+
+### 	Segment 	Description 					Length
+		42A			Type of service on bridge		1 digit
+		42B			Type of service under bridge	1 digit
+
+### The first digit indicates the type of service 'under' the bridge.
+
+CREATE SCHEMA 42B_Type_Serv;
+
+CREATE TABLE 42B_Type_Serv (
+	Code int,
+	Description text
+);
+
+INSERT INTO 42B_Type_Serv (Code, Description) VALUES
+	(1, 'Highway, with or without pedestrian'),
+	(2, 'Railroad'),
+	(3, 'Pedestrian-Bicycle'),
+	(4, 'Highway-Railroad'),
+	(5, 'Waterway'),
+	(6, 'Highway-Waterway'),
+	(7, 'Railroad-Waterway'),
+	(8, 'Highway-Waterway-Railroad'),
+	(9, 'Relief for Waterway'),
+	(0, 'Other');

@@ -1,0 +1,5 @@
+### Record the description on the inspeciton form and indicate the type of structure for the main span(s) with a 3-digit code composed of 2 segments.
+
+###		Segment 	Description 						Length
+		43A			Kind of material and/or design		1 digit
+		43B			Type of design and/or construction	2 digits

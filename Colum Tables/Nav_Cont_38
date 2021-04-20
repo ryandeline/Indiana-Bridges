@@ -1,0 +1,13 @@
+### Indicate for this item whether or not navigation control (a bridge permit for navigation) is required.
+
+CREATE SCHEMA Nav_Cont;
+
+CREATE TABLE Nav_Cont (
+	Code text,
+	Description text
+);
+
+INSERT INTO Nav_Cont (Code, Description) VALUES
+	('N', 'Not applicable, no waterway.'),
+	('0', 'No navigation control on waterway (bridge permit not required)'),
+	('1', 'Navigation control on waterway (Bridge permit required)');
