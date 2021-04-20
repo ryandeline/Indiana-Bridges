@@ -1,0 +1,8 @@
+### Record and code a 6-digit number to represent the length of the structure to the neearest tenth of a meter (with an assumed decimal).  This shall be the length of roadway which is supported on the bridge structure.  The length should be measured back to back of the backwalls of abutments or from paving notch to paving notch.
+
+### Culvert lengths should be measured along the center line of the roadway regarless of their depth below grade.  Measurement should be made between inside faces of exterior walls.  Tunnel length should be measured along the centerline of the roadway.  Be sure to code Item 5A as 2 for are tunnels.
+
+### Example		35.5 meters		000355
+				542.1 meters	005421
+				333.0 meters	003330
+				10,123.5 meters	101235

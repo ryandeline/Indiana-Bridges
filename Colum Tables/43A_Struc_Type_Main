@@ -3,3 +3,24 @@
 ###		Segment 	Description 						Length
 		43A			Kind of material and/or design		1 digit
 		43B			Type of design and/or construction	2 digits
+
+### The first digit indicates the kind of material and/or design
+
+CREATE SCHEMA 43A_Struc_Type_Main;
+
+CREATE TABLE 43A_Struc_Type_Main (
+	Code int,
+	Description text
+);
+
+INSERT INTO 43A_Struc_Type_Main (Code, Description) VALUES
+	(1, 'Concrete'),
+	(2, 'Concrete Continuous'),
+	(3, 'Steel'),
+	(4, 'Steel Continuous'),
+	(5, 'Prestressed Concrete'),
+	(6, 'Prestressed Concrete Continuous'),
+	(7, 'Wood or Timber'),
+	(8, 'Masonry'),
+	(9, 'Aluminum, Wrought Iron, or Cast Iron'),
+	(0, 'Other');

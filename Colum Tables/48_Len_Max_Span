@@ -1,0 +1,5 @@
+### The length of the maximum span shall be recorded.  It shall be noted whether the measurement is center to center of bearing points or clear open distance between piers, bents, or abutments. The measurement shall be along the centerline of the bridge.  For this item, code a 5-digit number to represent the measurement to the nearest tenth of a meter (with an assumed decimal point).
+
+### Example		35.5 meters		00355
+				117.0 meters	01170
+				1219.2 meters	12192

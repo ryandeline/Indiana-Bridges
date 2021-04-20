@@ -549,3 +549,189 @@ INSERT INTO 42B_Type_Serv (Code, Description) VALUES
 	(8, 'Highway-Waterway-Railroad'),
 	(9, 'Relief for Waterway'),
 	(0, 'Other');
+
+
+----- Structure Type, Main 43A
+
+### Record the description on the inspeciton form and indicate the type of structure for the main span(s) with a 3-digit code composed of 2 segments.
+
+###		Segment 	Description 						Length
+		43A			Kind of material and/or design		1 digit
+		43B			Type of design and/or construction	2 digits
+
+### The first digit indicates the kind of material and/or design
+
+CREATE SCHEMA 43A_Struc_Type_Main;
+
+CREATE TABLE 43A_Struc_Type_Main (
+	Code int,
+	Description text
+);
+
+INSERT INTO 43A_Struc_Type_Main (Code, Description) VALUES
+	(1, 'Concrete'),
+	(2, 'Concrete Continuous'),
+	(3, 'Steel'),
+	(4, 'Steel Continuous'),
+	(5, 'Prestressed Concrete'),
+	(6, 'Prestressed Concrete Continuous'),
+	(7, 'Wood or Timber'),
+	(8, 'Masonry'),
+	(9, 'Aluminum, Wrought Iron, or Cast Iron'),
+	(0, 'Other');
+
+
+----- Structure Type, Main 43B
+
+### ### Record the description on the inspeciton form and indicate the type of structure for the main span(s) with a 3-digit code composed of 2 segments.
+
+###		Segment 	Description 						Length
+		43A			Kind of material and/or design		1 digit
+		43B			Type of design and/or construction	2 digits
+
+### The second and third digits indicate the predominant type of design and/or type of construction
+
+CREATE SCHEMA 43B_Stuc_Type_Main;
+
+CREATE TABLE 43B_Stuc_Type_Main (
+	Code int,
+	Description text
+);
+
+INSERT INTO 43B_Stuc_Type_Main (Code, Description) VALUES
+	(01, 'Slab'),
+	(02, 'Stringer/Multi-beam or Girder'),
+	(03, 'Girder and Floorbeam System'),
+	(04, 'Tee Beam'),
+	(05, 'Box Beam or Girders - Multiple'),
+	(06, 'Box Beam or Girders - Single or Spread'),
+	(07, 'Frame (except fram culverts)')
+	(08, 'Orthotropic'),
+	(09, 'Truss - Deck'),
+	(10, 'Truss - Thru'),
+	(11, 'Arch - Deck'),
+	(12, 'Arch - Thru'),
+	(13, 'Suspension'),
+	(14, 'Stayed Girder'),
+	(15, 'Movable - Lift'),
+	(16, 'Movable - Bascule'),
+	(17, 'Movable - Swing'),
+	(18, 'Tunnel'),
+	(19, 'Culvert (includes frame culverts)'),
+	(20, 'Mixed Types'),
+	(21, 'Segmental Box Girder'),
+	(22, 'Channel Beam'),
+	(00, 'Other');
+
+
+----- Structure Type, Approach Spans 44A
+
+### Indicate with a 3-digit code composed of 2 segments, the type of structure for the approach spans to a major bridge or for the spans where the structural material is different.  The codes are the same as for Item 43 preceding.  However, code 000 if this item is not applicable.  Use code 20 (Item 44B) when no one type of design and/or material (Item 44A) is varied, code the most predominant.
+
+### 	Segment 	Description 							Length
+		44A			Kind of material and/or design			1 digit
+		44B			Type of design and/or construction		2 digits
+
+CREATE SCHEMA 44A_Struc_Type_AprSpan;
+
+CREATE TABLE 44A_Struc_Type_AprSpan (
+	Code int,
+	Description text
+);
+
+INSERT INTO 44A_Struc_Type_AprSpan (Code, Description) VALUES
+	(1, 'Concrete'),
+	(2, 'Concrete Continuous'),
+	(3, 'Steel'),
+	(4, 'Steel Continuous'),
+	(5, 'Prestressed Concrete'),
+	(6, 'Prestressed Concrete Continuous'),
+	(7, 'Wood or Timber'),
+	(8, 'Masonry'),
+	(9, 'Aluminum, Wrought Iron, or Cast Iron'),
+	(0, 'Other');	
+
+
+----- Sturcture Type, Approach Spans 44B
+
+### Indicate with a 3-digit code composed of 2 segments, the type of structure for the approach spans to a major bridge or for the spans where the structural material is different.  The codes are the same as for Item 43 preceding.  However, code 000 if this item is not applicable.  Use code 20 (Item 44B) when no one type of design and/or material (Item 44A) is varied, code the most predominant.
+
+### 	Segment 	Description 							Length
+		44A			Kind of material and/or design			1 digit
+		44B			Type of design and/or construction		2 digits
+
+CREATE SCHEMA 44B_Struc_Type_AprSpan;
+
+CREATE TABLE 44B_Struc_Type_AprSpan (
+	Code int,
+	Description text
+);
+
+INSERT INTO 44B_Struc_Type_AprSpan (Code, Description) VALUES
+	(01, 'Slab'),
+	(02, 'Stringer/Multi-beam or Girder'),
+	(03, 'Girder and Floorbeam System'),
+	(04, 'Tee Beam'),
+	(05, 'Box Beam or Girders - Multiple'),
+	(06, 'Box Beam or Girders - Single or Spread'),
+	(07, 'Frame (except fram culverts)')
+	(08, 'Orthotropic'),
+	(09, 'Truss - Deck'),
+	(10, 'Truss - Thru'),
+	(11, 'Arch - Deck'),
+	(12, 'Arch - Thru'),
+	(13, 'Suspension'),
+	(14, 'Stayed Girder'),
+	(15, 'Movable - Lift'),
+	(16, 'Movable - Bascule'),
+	(17, 'Movable - Swing'),
+	(18, 'Tunnel'),
+	(19, 'Culvert (includes frame culverts)'),
+	(20, 'Mixed Types'),
+	(21, 'Segmental Box Girder'),
+	(22, 'Channel Beam'),
+	(00, 'Other');
+
+
+----- Number of Spans in Main Unit 45
+
+### Record the number and indicate with a 3-digit number the number of spans in the main or major unit.  This item will include all spans of most bridges, the major unit only of a sizable structure, or a unit of material or design different from that of the approach spans.
+
+
+----- Number of Approach Spans 46
+
+### Record the number and indicate with a 4-digit number the number of spans in the approach spans to the major bridge, or the number of spans of material different from that of the major bridge.
+
+
+----- Inventory Route, Total Horizontal Clearance 47
+
+### The total horizontal clearance for the inventory route identified in Item 5 should be measured and recorded.  The clearance should be the available clearance measured between the restrictive features -- curbs, rails, walls, piers or other structural features limiting the roadway (surface and shoulders).  The measurement should be recorded and coded as a 3-digit number truncated to the nearest tenth of a meter (with an assumed decimal point).  When the restriction is 100 meters or greater, code 999.
+
+### The purpose of this item is to give the largest available clearances for the movement of wide loads.  Flush and mountable medians are not considered to be restrictions.  This clearance is defined in 2 ways; use the most applicable:
+
+	1. Clear distance between restrictions of hte inventory route either 'on' or 'under' the structure.
+
+	2. Roadway surface and shoulders - when there are no restrictions.
+
+### For a divided facility with a raised or non-mountable median, or an 'under' route divided by piers, record the greater of the restricted widths in either direction, not both directions.
+
+
+----- Length of Maximum Span 48
+
+### The length of the maximum span shall be recorded.  It shall be noted whether the measurement is center to center of bearing points or clear open distance between piers, bents, or abutments. The measurement shall be along the centerline of the bridge.  For this item, code a 5-digit number to represent the measurement to the nearest tenth of a meter (with an assumed decimal point).
+
+### Example		35.5 meters		00355
+				117.0 meters	01170
+				1219.2 meters	12192
+
+
+----- Structure Length 49
+
+### Record and code a 6-digit number to represent the length of the structure to the neearest tenth of a meter (with an assumed decimal).  This shall be the length of roadway which is supported on the bridge structure.  The length should be measured back to back of the backwalls of abutments or from paving notch to paving notch.
+
+### Culvert lengths should be measured along the center line of the roadway regarless of their depth below grade.  Measurement should be made between inside faces of exterior walls.  Tunnel length should be measured along the centerline of the roadway.  Be sure to code Item 5A as 2 for are tunnels.
+
+### Example		35.5 meters		000355
+				542.1 meters	005421
+				333.0 meters	003330
+				10,123.5 meters	101235

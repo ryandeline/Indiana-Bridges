@@ -1,0 +1,24 @@
+### Indicate with a 3-digit code composed of 2 segments, the type of structure for the approach spans to a major bridge or for the spans where the structural material is different.  The codes are the same as for Item 43 preceding.  However, code 000 if this item is not applicable.  Use code 20 (Item 44B) when no one type of design and/or material (Item 44A) is varied, code the most predominant.
+
+### 	Segment 	Description 							Length
+		44A			Kind of material and/or design			1 digit
+		44B			Type of design and/or construction		2 digits
+
+CREATE SCHEMA 44A_Struc_Type_AprSpan;
+
+CREATE TABLE 44A_Struc_Type_AprSpan (
+	Code int,
+	Description text
+);
+
+INSERT INTO 44A_Struc_Type_AprSpan (Code, Description) VALUES
+	(1, 'Concrete'),
+	(2, 'Concrete Continuous'),
+	(3, 'Steel'),
+	(4, 'Steel Continuous'),
+	(5, 'Prestressed Concrete'),
+	(6, 'Prestressed Concrete Continuous'),
+	(7, 'Wood or Timber'),
+	(8, 'Masonry'),
+	(9, 'Aluminum, Wrought Iron, or Cast Iron'),
+	(0, 'Other');	
