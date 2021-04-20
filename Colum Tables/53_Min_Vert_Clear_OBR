@@ -1,0 +1,6 @@
+### The information to be recorded for this item is the actual minimum vertical clearance over the bridge roadway, including shoulders, to any superstructure restriction, rounded down to the nearest hundredth of a meter (with an assumed decimal point).  For double decked structures code the minimum, regardless whether it is pertaining to the top or bottom deck.  When no superstructure restriction exists above the bridge roadway, or when a restirction is 30 meters or greater, code 9999.  Coding of actual clearances between 30 meters to 99.99 meters to an exact measuremnt is optional.  A 4-digit number should be coded to represent the clearance to the nearest hundredth of a meter (with an assumed decimal point).
+
+### Example		No restirction 	9999
+				5.25 meters		0525
+				23.00 meters	2300
+				38.50 meters	9999

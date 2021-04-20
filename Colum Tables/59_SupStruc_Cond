@@ -1,0 +1,29 @@
+### This item describes the physical condition of all structural members.  Rate and code the condition in accordance with the previously described general condition ratings.  Code N for all culverts.
+
+### The structural members should be inspected for signs of distress which may include cracking, deterioration, section loss, and malfunction and misalignment of bearings.
+
+### The condition of bearings, joints, paint systm, etc. shall not be included in this rating, except in extreme situations, but should be not on the inspection form.
+
+### On bridges where the deck is integral with the superstructure, the superstructure condition rating may be affected by the deck condition.  The sesultant superstruture condition rating may be lower than the deck condition rating where girders have deteriorated or been damaged.
+
+### Fracture critical components should recieve careful attention because failure could lead to collapse of a span or the bridge.
+
+CREATE SCHEMA 59_SupStruc_Cond;
+
+CREATE TABLE 59_SupStruc_Cond (
+	Code text,
+	Description text
+);
+
+INSERT INTO 59_SupStruc_Cond (Code, Description) VALUES
+	('N', 'Not Applicable'),
+	('9', 'Excellent Condition'),
+	('8', 'Very Good Condition'),
+	('7', 'Good Condition'),
+	('6', 'Satisfactory Condition'),
+	('5', 'Fair Condition'),
+	('4', 'Poor Condition'),
+	('3', 'Serious Condition'),
+	('2', 'Critical Condition'),
+	('1', 'Imminent Failure Condition'),
+	('0', 'Failed Condition')

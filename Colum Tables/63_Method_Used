@@ -1,0 +1,13 @@
+CREATE SCHEMA 63_Method_Used;
+
+CREATE TABLE 63_Method_Used (
+	Code int,
+	Description text
+);
+
+INSERT INTO 63_Method_Used (Code, Description) VALUES
+	(1, 'Load Factor (LF)'),
+	(2, 'Allowable Stress (AS)'),
+	(3, 'Load and Resistance Factor (LRFR)'),
+	(4, 'Load Testing'),
+	(5, 'No rating analysis performed');

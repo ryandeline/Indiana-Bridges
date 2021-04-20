@@ -1,0 +1,27 @@
+This item describes the physical condition of piers, abutments, piles, fenders, footings, or other components.  Rate and code the condition in accordance with the previously described general condition ratings.  Code N for all culverts.
+
+### All substructure elements should be inspected for visible signs of distress including evidence of cracking, section loss, settlement, misalignment, scour, collision damage, and corrosion.  The rating given by Item 113 - Scour Critical Bridges, may have a significant effect on Item 60 if scour has substantially affected the overal condition of the substructure.
+
+### The subestructure condition rating shall be made independent of the deck and superstructure.
+
+### Integral-abutment wingwalls to the first construction or expansion joint shall be included in the evealuation.  For non-integral superstructure and substructure units, the substructure shall be considered as teh portion below the bearings.  For structures where the substructure and superstructure are integral, the substructure shall be considered aas the portion below the superstructure.
+
+CREATE SCHEMA 60_SubStruc_Cond;
+
+CREATE TABLE 60_SubStruc_Cond (
+	Code text,
+	Description text
+);
+
+INSERT INTO 60_SubStruc_Cond (Code, Description) VALUES
+	('N', 'Not Applicable'),
+	('9', 'Excellent Condition'),
+	('8', 'Very Good Condition'),
+	('7', 'Good Condition'),
+	('6', 'Satisfactory Condition'),
+	('5', 'Fair Condition'),
+	('4', 'Poor Condition'),
+	('3', 'Serious Condition'),
+	('2', 'Critical Condition'),
+	('1', 'Imminent Failure Condition'),
+	('0', 'Failed Condition')

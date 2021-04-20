@@ -1,0 +1,27 @@
+### This item describes the overall condition rating of the deck.  Rate and code the condition in accordance with the general condition ratings.  Code N for culverts and other structures without decks e.g. filled are bridge.
+
+### Concrete decks should be inspected for cracking, scaling, spalling, leaching, chloride contamination, potholing, delaminiation, and full or partial depth failures.  Steel grid decks shouild be inspected for broken welds, broken grids, section loss, and growth of filled grids from corrosion.  Timber decks should be inspected for splitting, crushing, fastener failure, and deterioration from rot.
+
+### The condition of wearing surface/protective system, joints, espansion devices, curbs, sidewalks, papaets, fascias, bridge rail, and scuppers shall not be considered in the overall deck evaluation.  However, their condition should be noted on the inspection form.
+
+### Decks integral with the superstructure will be rated as a deck only and not how they may influence the superstructure rating (for example, rigid frame, slab, deckgirder or T-beam, voided slab, box girder, etx.).  Similarily, the superstructure of an intergral deck-type will not influence the deck rating.
+
+CREATE SCHEMA 58_Deck_Cond;
+
+CREATE TABLE 58_Deck_Cond (
+	Code text,
+	Description text
+);
+
+INSERT INTO 58_Deck_Cond (Code, Description) VALUES
+	('N', 'Not Applicable'),
+	('9', 'Excellent Condition'),
+	('8', 'Very Good Condition'),
+	('7', 'Good Condition'),
+	('6', 'Satisfactory Condition'),
+	('5', 'Fair Condition'),
+	('4', 'Poor Condition'),
+	('3', 'Serious Condition'),
+	('2', 'Critical Condition'),
+	('1', 'Imminent Failure Condition'),
+	('0', 'Failed Condition')

@@ -1,0 +1,17 @@
+### Using a 1-digit code and a 3-digit number, record and code the minimum lateral underclearance on the right to the nearest tenth of a meter (with an assumed decimal point).  When both a railroad and highway are under the structure, code the most critical dimension.
+
+###		Segment		Dimension 						Length
+		55A			Reference feature				1 digit
+		55B			Minimum Lateral Underclearance 	3 digits
+
+### In the next 3 positions, code a 3-digit number to represent the minimum lateral underclearance on the right.  The Lateral clearance should be measured form the right edge of the roadway (excluding shoulders) or from the centerline (between rails) of the righ-hand track of a railroad to the nearest substructure unit (pier, abutment, etc.), to a rigid barrier (concrete bridge rail, etc.), or to the toe of slope steeper than 1 to 3, e.g. 1 to 1 or 2 to 1.  The clearance measurements to be recorded will be the minimum after measuring the clearanc ein both directions of travel.  In the case of a dual highway this would mean the outside clearances of both roadways should be measured and the small distance recorded and coded.
+
+### If two related features are below the bridge, measure both and record the lesser of the 2.  An explanation should be written on the inspection form as to what was recorded.  When the clearance is 30 meters or greater, code 999.  Coding of actual clearances between 30 meters and 99.9 meters to an exact measurement is optional.
+
+### If the feature beneath the stucture is not a railroad or highway, code N000 to indicate not applicable.
+
+### The presence of ramps and acceleration or turning lanes is not considered in this item; therefore, the minimum lateral clearance on the right should be measured from the right edge of teh through roadway.
+
+### Example		Railroad 6.22 meters centerline to pier			R062
+				Highway 6.16 meters edge of pavemenet to pier	H062
+				Creek beneath structure 						N000

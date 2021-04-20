@@ -1,1 +1,11 @@
-### The information to be recorded is the most restrictive minimum distance between curbs or rails on the structure roadway.  For structures with closed medians and usually for double decked structures, coded data will be the sum of the most restrictive minimum distances for all roadways carried by the structure.  The data recorded for this item must be compatible with other related route and bridge data (i.e. Items 28, 29, 32, etc.)
+### The information to be recorded is the most restrictive minimum distance between curbs or rails on the structure roadway.  For structures with closed medians and usually for double decked structures, coded data will be the sum of the most restrictive minimum distances for all roadways carried by the structure.  The data recorded for this item must be compatible with other related route and bridge data (i.e. Items 28, 29, 32, etc.).  The measurment should be exclusive of flared areas for ramps.  A 4-digit number should be used to represent the distance to the nearest tenth of a meter (with an assumed decimal point).
+
+### Where traffic runs directly on the top slab (or wearing surface) of a culvert - type structure, e.g. an R/C box without fill, code the actual roadway width (curb-to-curb or rail-to-rail).  This will also apply where the fill is minimal and headwalls or parapets affect the flow of traffic.
+
+### Where the roadway is on fill carried across a structure and the headwalls or parapets do not affect the flow of traffic, code 0000.  This is considered proper inasmuch as filled section simply maintains the roadway cross-section.  However, for sidehill viaduct structures code the actual full curb-to-curb roadway width.
+
+### * Raised or non-mountable medians, open medians, and barrier widths are to be excluded form the summation along with barrier-protected bicycle and equestrian lanes.
+
+### Example		16.00 meters		0160
+				21.43 meters		0214
+				33.07 meters		0331

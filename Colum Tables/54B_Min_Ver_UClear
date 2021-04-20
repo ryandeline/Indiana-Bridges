@@ -1,0 +1,5 @@
+### Using a 1-digit code and a 4-digit number, record an code the minimum vertical clearance from the roadway (travel lanes only) or railroad track beneath the structure to the underside of the superstructure.  (When both a railroad and highway are under the structure, code the most critical dimension.)
+
+### 	Segment 	Description 					Length
+		54A			Reference feature				1 digit
+		54B			Minimum Vertical Underclearance	4 digits

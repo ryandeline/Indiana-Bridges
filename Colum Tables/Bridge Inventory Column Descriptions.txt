@@ -767,3 +767,326 @@ INSERT INTO 44B_Struc_Type_AprSpan (Code, Description) VALUES
 				3.3 meters		None 			033000
 				12.1 meters		11.5 meters		121115
 				None			None			000000
+
+
+----- Bridge Roadway Width, Curb-to-Curb  51
+
+### The information to be recorded is the most restrictive minimum distance between curbs or rails on the structure roadway.  For structures with closed medians and usually for double decked structures, coded data will be the sum of the most restrictive minimum distances for all roadways carried by the structure.  The data recorded for this item must be compatible with other related route and bridge data (i.e. Items 28, 29, 32, etc.).  The measurment should be exclusive of flared areas for ramps.  A 4-digit number should be used to represent the distance to the nearest tenth of a meter (with an assumed decimal point).
+
+### Where traffic runs directly on the top slab (or wearing surface) of a culvert - type structure, e.g. an R/C box without fill, code the actual roadway width (curb-to-curb or rail-to-rail).  This will also apply where the fill is minimal and headwalls or parapets affect the flow of traffic.
+
+### Where the roadway is on fill carried across a structure and the headwalls or parapets do not affect the flow of traffic, code 0000.  This is considered proper inasmuch as filled section simply maintains the roadway cross-section.  However, for sidehill viaduct structures code the actual full curb-to-curb roadway width.
+
+### * Raised or non-mountable medians, open medians, and barrier widths are to be excluded form the summation along with barrier-protected bicycle and equestrian lanes.
+
+### Example		16.00 meters		0160
+				21.43 meters		0214
+				33.07 meters		0331
+
+
+----- Deck Width, Out-to-Out  52
+
+### Record and code a 4-digit number to show the out-to-out width to the nearest tenth of a meter (with an assumed decimal point).  If the structure is a through structure, the number to be coded will represent the lateral clearance between superstructure mebmers.  The measuremnet shouild be exclusive of flared areas or ramps.
+
+### Where traffic runs directly on the top slab (or wearing surface) of the culvert (e.g. an R/C box without fill) code the actual width (out-to-out).  This will also apply where the fill is minimal and the culvert headwalls affect the flow of traffic.  However, for sidehill viaduct structures code the actual out-to-out structure width.
+
+### Where the roadway is on a fill carried accross a pip or box culvert and the culvert headwalls do not affect the flow of traffic, code 0000.  This is considered proper inasmuch as a filled section over a culvert simply maintains the roadway cross-section.
+
+
+----- Minimum Vertical Clearance Over Bridge Roadway  53
+
+### The information to be recorded for this item is the actual minimum vertical clearance over the bridge roadway, including shoulders, to any superstructure restriction, rounded down to the nearest hundredth of a meter (with an assumed decimal point).  For double decked structures code the minimum, regardless whether it is pertaining to the top or bottom deck.  When no superstructure restriction exists above the bridge roadway, or when a restirction is 30 meters or greater, code 9999.  Coding of actual clearances between 30 meters to 99.99 meters to an exact measuremnt is optional.  A 4-digit number should be coded to represent the clearance to the nearest hundredth of a meter (with an assumed decimal point).
+
+### Example		No restirction 	9999
+				5.25 meters		0525
+				23.00 meters	2300
+				38.50 meters	9999
+
+
+----- Minimum Vertical Underclearance, Feature  54A
+
+### Using a 1-digit code and a 4-digit number, record an code the minimum vertical clearance from the roadway (travel lanes only) or railroad track beneath the structure to the underside of the superstructure.  (When both a railroad and highway are under the structure, code the most critical dimension.)
+
+### 	Segment 	Description 					Length
+		54A			Reference feature				1 digit
+		54B			Minimum Vertical Underclearance	4 digits
+
+CREATE SCHEMA 54A_Min_Vert_UClear;
+
+CREATE TABLE 54A_Min_Vert_UClear (
+	Code text,
+	Description text
+);
+
+INSERT INTO 54A_Min_Vert_UClear (Code, Description) VALUES
+	('H', 'Highway beneath structure'),
+	('R', 'Railroad beneath structure'),
+	('N', 'Feature not a highway or railroad');
+
+
+----- Minimum Vertical Underclearance, Measurement  54B
+
+### Using a 1-digit code and a 4-digit number, record an code the minimum vertical clearance from the roadway (travel lanes only) or railroad track beneath the structure to the underside of the superstructure.  (When both a railroad and highway are under the structure, code the most critical dimension.)
+
+### 	Segment 	Description 					Length
+		54A			Reference feature				1 digit
+		54B			Minimum Vertical Underclearance	4 digits
+
+
+----- Minimum Lateral Underclearance on Right, Feature  55A
+
+### Using a 1-digit code and a 3-digit number, record and code the minimum lateral underclearance on the right to the nearest tenth of a meter (with an assumed decimal point).  When both a railroad and highway are under the structure, code the most critical dimension.
+
+###		Segment		Dimension 						Length
+		55A			Reference feature				1 digit
+		55B			Minimum Lateral Underclearance 	3 digits
+
+CREATE SCHEMA 55A_Min_Lat_UClear_Right;
+
+CREATE TABLE 55A_Min_Lat_UClear_Right (
+	Code text,
+	Description text
+);
+
+INSERT INTO 55A_Min_Lat_UClear_Right (Code, Description) VALUES
+	('H', 'Highway beneath structure'),
+	('R', 'Railroad beneath structure'),
+	('N', 'Feature not a highway or railroad');
+
+
+----- Minimum Lateral Underclearance on Right, Measurement  55B
+
+### Using a 1-digit code and a 3-digit number, record and code the minimum lateral underclearance on the right to the nearest tenth of a meter (with an assumed decimal point).  When both a railroad and highway are under the structure, code the most critical dimension.
+
+###		Segment		Dimension 						Length
+		55A			Reference feature				1 digit
+		55B			Minimum Lateral Underclearance 	3 digits
+
+### In the next 3 positions, code a 3-digit number to represent the minimum lateral underclearance on the right.  The Lateral clearance should be measured form the right edge of the roadway (excluding shoulders) or from the centerline (between rails) of the righ-hand track of a railroad to the nearest substructure unit (pier, abutment, etc.), to a rigid barrier (concrete bridge rail, etc.), or to the toe of slope steeper than 1 to 3, e.g. 1 to 1 or 2 to 1.  The clearance measurements to be recorded will be the minimum after measuring the clearanc ein both directions of travel.  In the case of a dual highway this would mean the outside clearances of both roadways should be measured and the small distance recorded and coded.
+
+### If two related features are below the bridge, measure both and record the lesser of the 2.  An explanation should be written on the inspection form as to what was recorded.  When the clearance is 30 meters or greater, code 999.  Coding of actual clearances between 30 meters and 99.9 meters to an exact measurement is optional.
+
+### If the feature beneath the stucture is not a railroad or highway, code N000 to indicate not applicable.
+
+### The presence of ramps and acceleration or turning lanes is not considered in this item; therefore, the minimum lateral clearance on the right should be measured from the right edge of teh through roadway.
+
+### Example		Railroad 6.22 meters centerline to pier			R062
+				Highway 6.16 meters edge of pavemenet to pier	H062
+				Creek beneath structure 						N000
+
+
+----- Minimum Lateral Underclearance on Left  56
+
+### Using a 3-digit number, record and code the minimum lateral underclearance on the left (median side for divided highways) to the nearest tenth of a meter (with an assumed decimal point).  The lateral clearance should be measured from the left edge of the roadway (excluding shoulders) to the nearest subtruture unit, to a rigid barrier, or to the toe of tslope steeper that 1 to 3.  
+
+### In the case of a dual highway, the median side clearances of both roadways should be measured and the smaller distance recorded and coded.  If there is no obstruction in the median area, a notation of 'open' should be recorded and 999 should be coded.  For clearances greater that 30 meters, code 998.  Coding of actual clearances greater than 30 meters to an exact measurment is optional.  Code 000 to indicate not applicable.
+
+
+----- Deck Condition  58
+
+### This item describes the overall condition rating of the deck.  Rate and code the condition in accordance with the general condition ratings.  Code N for culverts and other structures without decks e.g. filled are bridge.
+
+### Concrete decks should be inspected for cracking, scaling, spalling, leaching, chloride contamination, potholing, delaminiation, and full or partial depth failures.  Steel grid decks shouild be inspected for broken welds, broken grids, section loss, and growth of filled grids from corrosion.  Timber decks should be inspected for splitting, crushing, fastener failure, and deterioration from rot.
+
+### The condition of wearing surface/protective system, joints, espansion devices, curbs, sidewalks, papaets, fascias, bridge rail, and scuppers shall not be considered in the overall deck evaluation.  However, their condition should be noted on the inspection form.
+
+### Decks integral with the superstructure will be rated as a deck only and not how they may influence the superstructure rating (for example, rigid frame, slab, deckgirder or T-beam, voided slab, box girder, etx.).  Similarily, the superstructure of an intergral deck-type will not influence the deck rating.
+
+CREATE SCHEMA 58_Deck_Cond;
+
+CREATE TABLE 58_Deck_Cond (
+	Code text,
+	Description text
+);
+
+INSERT INTO 58_Deck_Cond (Code, Description) VALUES
+	('N', 'Not Applicable'),
+	('9', 'Excellent Condition'),
+	('8', 'Very Good Condition'),
+	('7', 'Good Condition'),
+	('6', 'Satisfactory Condition'),
+	('5', 'Fair Condition'),
+	('4', 'Poor Condition'),
+	('3', 'Serious Condition'),
+	('2', 'Critical Condition'),
+	('1', 'Imminent Failure Condition'),
+	('0', 'Failed Condition');
+
+
+----- Superstructure Condition  59
+
+### This item describes the physical condition of all structural members.  Rate and code the condition in accordance with the previously described general condition ratings.  Code N for all culverts.
+
+### The structural members should be inspected for signs of distress which may include cracking, deterioration, section loss, and malfunction and misalignment of bearings.
+
+### The condition of bearings, joints, paint systm, etc. shall not be included in this rating, except in extreme situations, but should be not on the inspection form.
+
+### On bridges where the deck is integral with the superstructure, the superstructure condition rating may be affected by the deck condition.  The sesultant superstruture condition rating may be lower than the deck condition rating where girders have deteriorated or been damaged.
+
+### Fracture critical components should recieve careful attention because failure could lead to collapse of a span or the bridge.
+
+CREATE SCHEMA 59_SupStruc_Cond;
+
+CREATE TABLE 59_SupStruc_Cond (
+	Code text,
+	Description text
+);
+
+INSERT INTO 59_SupStruc_Cond (Code, Description) VALUES
+	('N', 'Not Applicable'),
+	('9', 'Excellent Condition'),
+	('8', 'Very Good Condition'),
+	('7', 'Good Condition'),
+	('6', 'Satisfactory Condition'),
+	('5', 'Fair Condition'),
+	('4', 'Poor Condition'),
+	('3', 'Serious Condition'),
+	('2', 'Critical Condition'),
+	('1', 'Imminent Failure Condition'),
+	('0', 'Failed Condition');
+
+
+----- Substructure Condition 60
+
+This item describes the physical condition of piers, abutments, piles, fenders, footings, or other components.  Rate and code the condition in accordance with the previously described general condition ratings.  Code N for all culverts.
+
+### All substructure elements should be inspected for visible signs of distress including evidence of cracking, section loss, settlement, misalignment, scour, collision damage, and corrosion.  The rating given by Item 113 - Scour Critical Bridges, may have a significant effect on Item 60 if scour has substantially affected the overal condition of the substructure.
+
+### The subestructure condition rating shall be made independent of the deck and superstructure.
+
+### Integral-abutment wingwalls to the first construction or expansion joint shall be included in the evealuation.  For non-integral superstructure and substructure units, the substructure shall be considered as teh portion below the bearings.  For structures where the substructure and superstructure are integral, the substructure shall be considered aas the portion below the superstructure.
+
+CREATE SCHEMA 60_SubStruc_Cond;
+
+CREATE TABLE 60_SubStruc_Cond (
+	Code text,
+	Description text
+);
+
+INSERT INTO 60_SubStruc_Cond (Code, Description) VALUES
+	('N', 'Not Applicable'),
+	('9', 'Excellent Condition'),
+	('8', 'Very Good Condition'),
+	('7', 'Good Condition'),
+	('6', 'Satisfactory Condition'),
+	('5', 'Fair Condition'),
+	('4', 'Poor Condition'),
+	('3', 'Serious Condition'),
+	('2', 'Critical Condition'),
+	('1', 'Imminent Failure Condition'),
+	('0', 'Failed Condition');
+
+
+----- Channel and Channel Protection  61
+
+### This item describes the physical conditions associated with the flow of water through the bridge such as a stream stability and the condition of the channel, riprap, slope protection, or stream control devices including spur dikes.  The inspector should be particcularly concerned with visible signs of excessive water velocity which may affect undermining of slope protection, erosion of banks, and realignment of the stream which may result in immediate or potential problems.  Accumulation of drift and debris on the superstructure and substructure should be noted on the inspection form but not included in the condition rating.
+
+CREATE SCHEMA 61_Chan_ChaPro;
+
+CREATE TABLE 61_Chan_ChaPro (
+	Code text,
+	Descriptioin text
+);
+
+INSERT INTO 61_Chan_ChaPro (Code, Description) VALUES
+	('N', 'Not applicable.  Use when Bridge is not over a waterway (channel)'),
+	('9', 'There are no noticeable or noteworthy deficiencies which affect the condition of the channel.'),
+	('8', 'Banks are protected or well vegetated.  River control devices such as spur dikes and embankment protection are not required or are in a stable condition.'),
+	('7', 'Bank protection is in need of minor repairs.  River control devices and embankment protection have a little minor damage.  Banks and/or channel have minor amounts of drift.'),
+	('6', 'Bank is beginning to slump.  River control devices and embankment protection have widespread minor damage.  There is minor stream bed movement evident.  Debris is restricting the channel slightly.'),
+	('5', 'Bank protection is being eroded.  River control devices and/or embankment have major damage.  Trees and brush restrict the channel.')
+	('4', 'Bank and embankment protection is severely undermined.  River control devices have severe damage.  Large deposits of debris are in the channel.'),
+	('3', 'Bank protection has failed.  River control devivces have been destroyed.  Stream be aggradation, degradation or lateral movement has changed the channel to now threaten the bridge and/or approach roadway'),
+	('2', 'The channel has changed to the extent the bridge is near a state of collapse.'),
+	('1', 'Bridge closed because of channel failure.  Corrective action may put back in light service'),
+	('0', 'Bridge closed because of channel failure.  Replacement necessary.');
+
+
+----- Culverts Condition 62
+
+### This item evaluates the alignment, settlement, joints, structural condition, scour, and other items associated with culverts.  The rating code is intended to be an overall condition evaluation of the culvert.  Integral wingwalls to the first construction or expansion joint shall be included in the evaluation.  Fora a detailed discussion regarding the inspection and rating of culverts, consult Report No. FHWA-IP-86-1, Culvert Inspection Manual, July 1986.
+
+### Item 58 - Deck, Item 59 - Superstructure, and Item 60 - Substructure shall be coded N for all culverts.
+
+CREATE SCHEMA 62_Culv_Cond;
+
+CREATE TABLE 62_Culv_Cond (
+	Code text,
+	Description text
+);
+
+INSERT INTO 62_Culv_Cond (Code, Description) VALUES
+	('N', 'Not applicable.  Use if Structure is not a culvert.'),
+	('9', 'No deficiencies'),
+	('8', 'No noticeable or noteworthy deficiencies which affect the condition of the culvert.  Insignificant scrape marks cause by drift.'),
+	('7', 'Shrinkage cracks, light scaling, and insignificant spalling which does not expose reinforcing steel.  Insignificant damage cause by drift with no misalignment and not requiring corrective action.  Some minor scouring has occured near curtain walls, wingwalls, or pipes.  Metal culverts have a smooth symmetrical curvature with superficial corrosion and not pitting.'),
+	('6', 'Deteriorationo of initial disintegration, minor chloride contamination, cracking with some leaching, or spalls on concrete or masonry walls and slabs.  Local minor scouring at curtain calls, wingwalls, or pipes.  Metal culverts have smooth curvature, non-symetrical shape, significant corrosion or moderat pitting.'),
+	('5', 'Moderate to major deterioration or disintegration, extensive cracking and leaching, or spalls on concrete or masonry walls and slabs.  Minor settlement or misalignment. Noticeable scouring or erosion at curtain walls, wingwalls, or pipes.  Metal culverts have significant distortion and deflection in one section, significant corrosion or deep pitting.'),
+	('4', 'Large spalls, heavy scaling, wide cracks, considerable efflorescence, or opened construction joint permitting loss of backfill.  Considerable settlemenet or misalignment.  Considerable scouring or erosion at curtain walls, wingwalls, or pipes.  Metal culverts have significant distortion and deflection throughout, extensive corrosion or deep pitting.'),
+	('3', 'Any condition described in Code 4 but which is excessive in scope.  Severe movement or differenctial settlement of the segments, or loss of fill.  Holes may exist in walss or slabs. Intergal wingwalls nearly severed from culvert.  Severe scour or erosion at curtain calls, wingwalls, or pipes.  Metal culverts have extreme distortion and deflection in one section, extensive corrosion, or deep pitting with scattered perforations.'),
+	('2', 'Intergral wingwalls collapsed, severe settlemenet of roadway due to loss of fill.  Section of cluvert may have failed and can no longer support embankment.  Complete undermining at curtain walls and pipes.  Corrective action required to maintain traffic.  Metal culverts have extreme distortion and deflection throughout with extensive perforations due to corrosion.'),
+	('1', 'Bridge Closed.  Corrective action may put back in light service.'),
+	('0', 'Bridge Closed.  Replacement Necessary.');
+
+
+	----- Method Used to Determine Operating Rating  63
+
+	CREATE SCHEMA 63_Method_Used;
+
+CREATE TABLE 63_Method_Used (
+	Code int,
+	Description text
+);
+
+INSERT INTO 63_Method_Used (Code, Description) VALUES
+	(1, 'Load Factor (LF)'),
+	(2, 'Allowable Stress (AS)'),
+	(3, 'Load and Resistance Factor (LRFR)'),
+	(4, 'Load Testing'),
+	(5, 'No rating analysis performed');
+
+
+----- Operating Rating  64
+
+### This capacity rating, referred to as the operating rating, will result in the absolute maximum permissible load level to which the structure may be subjected for the vehicle type used in the rating.  Code the operating rating as a 3-digit number to represent the total mass in metric tons of the entire vehicle measured to the nearest tencth of a metric ton (with an assumed decimal point).
+
+### It should be emphasized that only MS loading shall be used to determine the operating rating.  THis is the metric equivalent of an HS loading.  The total mass in tons of the entire vehicle should be coded; that is, MS18 which has a mass of 32.4 metric tons shall be coded as 324, and likewise, as MS13.5 shall be coded as 243
+
+### The AASHTO Manueal for Condition Evaluation of Bridges provides a choice of load rating methods, such as the new load and resistance factor (LRFR) rating meathod, in addition to the traditional allowable stress (AS) and load factor (LF) methods.  Of the three rating methods, the LF method is the most suitable for use as a national standard for computing inventory and operating ratings reported to the NBI.  The highway agencies may, however, elect to us LF, AS or LRFD to establish load limits for purposes of load posting.
+
+### If the bridge will not carry a minimum of 2.7 metric tons of live load, the operating rating shall be coded 000; and consistent with the direction of the AASHTO Manual, it shall be closed.
+
+### The use or presence of a temporary bridge requires special considerations in coding.  IN such cases, since there is not permanent bridge, Items 64 and 66 should be coded as 000 even though the temporary structure is rated for as much as full legal load.
+
+### A bridge shored up or repaired on a temporary basis is considered a temporary bridge and the inventory and ooperating rating shall be coded as if the temporary shoring were not in place.  Se Item 103 - Temporary Structure Designation for definition of a temporary bridge.
+
+### Code 999 for a structure under sufficient fill such that, according to AASHTO design, the live load is insignificant in the structure load capacity.
+
+### Example		MS27												486
+				Temporary Bridge 									000
+				Shored-up Bridge 									030
+				Structure under fill (not affected by live load)	999
+
+
+----- Method Used to Determin Inventory Rating  64
+
+CREATE SCHEMA 65_Method_Used;
+
+CREATE TABLE 65_Method_Used (
+	Code int,
+	Description text
+);
+
+INSERT INTO 65_Method_Used (Code, Description) VALUES
+	(1, 'Load Factor (LF)'),
+	(2, 'Allowable Stress (AS)'),
+	(3, 'Load and Resistance Factor (LRFR)'),
+	(4, 'Load Testing'),
+	(5, 'No rating analysis performed');
+
+
+----- Inventory Rating  66
+
+### This capacity rating, referred to as the inventory rating, will result in a load level which can safely utilize and existing structure for an indefinite period of time.  Only the MS loading shall be used to determine the inventory rating.  Code the Inventory Rating as a 3-digit number to represent the total mass in metric tons of the entire vehicle measured to the nearest tenth of a metric ton (with an assumed decimal point).  The statements in Item 64 - Operating Rating apply to this item also.
+
+### Code 999 for a structure under sufficient fill such that, according to AASHTO design, the live load is insignificant in the structure load capacity.

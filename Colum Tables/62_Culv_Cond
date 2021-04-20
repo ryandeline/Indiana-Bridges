@@ -1,0 +1,23 @@
+### This item evaluates the alignment, settlement, joints, structural condition, scour, and other items associated with culverts.  The rating code is intended to be an overall condition evaluation of the culvert.  Integral wingwalls to the first construction or expansion joint shall be included in the evaluation.  Fora a detailed discussion regarding the inspection and rating of culverts, consult Report No. FHWA-IP-86-1, Culvert Inspection Manual, July 1986.
+
+### Item 58 - Deck, Item 59 - Superstructure, and Item 60 - Substructure shall be coded N for all culverts.
+
+CREATE SCHEMA 62_Culv_Cond;
+
+CREATE TABLE 62_Culv_Cond (
+	Code text,
+	Description text
+);
+
+INSERT INTO 62_Culv_Cond (Code, Description) VALUES
+	('N', 'Not applicable.  Use if Structure is not a culvert.'),
+	('9', 'No deficiencies'),
+	('8', 'No noticeable or noteworthy deficiencies which affect the condition of the culvert.  Insignificant scrape marks cause by drift.'),
+	('7', 'Shrinkage cracks, light scaling, and insignificant spalling which does not expose reinforcing steel.  Insignificant damage cause by drift with no misalignment and not requiring corrective action.  Some minor scouring has occured near curtain walls, wingwalls, or pipes.  Metal culverts have a smooth symmetrical curvature with superficial corrosion and not pitting.'),
+	('6', 'Deteriorationo of initial disintegration, minor chloride contamination, cracking with some leaching, or spalls on concrete or masonry walls and slabs.  Local minor scouring at curtain calls, wingwalls, or pipes.  Metal culverts have smooth curvature, non-symetrical shape, significant corrosion or moderat pitting.'),
+	('5', 'Moderate to major deterioration or disintegration, extensive cracking and leaching, or spalls on concrete or masonry walls and slabs.  Minor settlement or misalignment. Noticeable scouring or erosion at curtain walls, wingwalls, or pipes.  Metal culverts have significant distortion and deflection in one section, significant corrosion or deep pitting.'),
+	('4', 'Large spalls, heavy scaling, wide cracks, considerable efflorescence, or opened construction joint permitting loss of backfill.  Considerable settlemenet or misalignment.  Considerable scouring or erosion at curtain walls, wingwalls, or pipes.  Metal culverts have significant distortion and deflection throughout, extensive corrosion or deep pitting.'),
+	('3', 'Any condition described in Code 4 but which is excessive in scope.  Severe movement or differenctial settlement of the segments, or loss of fill.  Holes may exist in walss or slabs. Intergal wingwalls nearly severed from culvert.  Severe scour or erosion at curtain calls, wingwalls, or pipes.  Metal culverts have extreme distortion and deflection in one section, extensive corrosion, or deep pitting with scattered perforations.'),
+	('2', 'Intergral wingwalls collapsed, severe settlemenet of roadway due to loss of fill.  Section of cluvert may have failed and can no longer support embankment.  Complete undermining at curtain walls and pipes.  Corrective action required to maintain traffic.  Metal culverts have extreme distortion and deflection throughout with extensive perforations due to corrosion.'),
+	('1', 'Bridge Closed.  Corrective action may put back in light service.'),
+	('0', 'Bridge Closed.  Replacement Necessary.');

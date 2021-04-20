@@ -1,0 +1,17 @@
+### Using a 1-digit code and a 3-digit number, record and code the minimum lateral underclearance on the right to the nearest tenth of a meter (with an assumed decimal point).  When both a railroad and highway are under the structure, code the most critical dimension.
+
+###		Segment		Dimension 						Length
+		55A			Reference feature				1 digit
+		55B			Minimum Lateral Underclearance 	3 digits
+
+CREATE SCHEMA 55A_Min_Lat_UClear_Right;
+
+CREATE TABLE 55A_Min_Lat_UClear_Right (
+	Code text,
+	Description text
+);
+
+INSERT INTO 55A_Min_Lat_UClear_Right (Code, Description) VALUES
+	('H', 'Highway beneath structure'),
+	('R', 'Railroad beneath structure'),
+	('N', 'Feature not a highway or railroad');

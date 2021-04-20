@@ -1,0 +1,18 @@
+### This capacity rating, referred to as the operating rating, will result in the absolute maximum permissible load level to which the structure may be subjected for the vehicle type used in the rating.  Code the operating rating as a 3-digit number to represent the total mass in metric tons of the entire vehicle measured to the nearest tencth of a metric ton (with an assumed decimal point).
+
+### It should be emphasized that only MS loading shall be used to determine the operating rating.  THis is the metric equivalent of an HS loading.  The total mass in tons of the entire vehicle should be coded; that is, MS18 which has a mass of 32.4 metric tons shall be coded as 324, and likewise, as MS13.5 shall be coded as 243
+
+### The AASHTO Manueal for Condition Evaluation of Bridges provides a choice of load rating methods, such as the new load and resistance factor (LRFR) rating meathod, in addition to the traditional allowable stress (AS) and load factor (LF) methods.  Of the three rating methods, the LF method is the most suitable for use as a national standard for computing inventory and operating ratings reported to the NBI.  The highway agencies may, however, elect to us LF, AS or LRFD to establish load limits for purposes of load posting.
+
+### If the bridge will not carry a minimum of 2.7 metric tons of live load, the operating rating shall be coded 000; and consistent with the direction of the AASHTO Manual, it shall be closed.
+
+### The use or presence of a temporary bridge requires special considerations in coding.  IN such cases, since there is not permanent bridge, Items 64 and 66 should be coded as 000 even though the temporary structure is rated for as much as full legal load.
+
+### A bridge shored up or repaired on a temporary basis is considered a temporary bridge and the inventory and ooperating rating shall be coded as if the temporary shoring were not in place.  Se Item 103 - Temporary Structure Designation for definition of a temporary bridge.
+
+### Code 999 for a structure under sufficient fill such that, according to AASHTO design, the live load is insignificant in the structure load capacity.
+
+### Example		MS27												486
+				Temporary Bridge 									000
+				Shored-up Bridge 									030
+				Structure under fill (not affected by live load)	999
