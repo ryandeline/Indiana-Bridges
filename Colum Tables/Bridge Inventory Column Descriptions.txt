@@ -735,3 +735,35 @@ INSERT INTO 44B_Struc_Type_AprSpan (Code, Description) VALUES
 				542.1 meters	005421
 				333.0 meters	003330
 				10,123.5 meters	101235
+
+
+----- Curb or Sidewalk Widths, Left  50A
+
+### Record and code two contiguous 3-digit numbers to represent the widths of the left and right curbs or sidewalks to nearest thenth of a meter (with assumed decimal points).  This is a 6-digit number composed of 2 segments, with the leftmost 3 digits representing the left curb or sidewalk and rightmost 3 digits representing the right curb or sidewawlk.  'Left' and 'Right' should be determined on the basis of direction of the inventory
+
+### 	Segment 	Description 				Length
+		50A			Left curb or sidewawlk 		3 digits
+		50B			Right curb or sidewawlk 	3 digits
+
+### Example		Left Side 		Right Side 		Code
+				None			2.3 meters		000023
+				3.0 meters		4.1 meters		030041
+				3.3 meters		None 			033000
+				12.1 meters		11.5 meters		121115
+				None			None			000000
+
+
+----- Curb or Sidewalk Widths, Right 50B
+
+### Record and code two contiguous 3-digit numbers to represent the widths of the left and right curbs or sidewalks to nearest thenth of a meter (with assumed decimal points).  This is a 6-digit number composed of 2 segments, with the leftmost 3 digits representing the left curb or sidewalk and rightmost 3 digits representing the right curb or sidewawlk.  'Left' and 'Right' should be determined on the basis of direction of the inventory
+
+### 	Segment 	Description 				Length
+		50A			Left curb or sidewawlk 		3 digits
+		50B			Right curb or sidewawlk 	3 digits
+
+### Example		Left Side 		Right Side 		Code
+				None			2.3 meters		000023
+				3.0 meters		4.1 meters		030041
+				3.3 meters		None 			033000
+				12.1 meters		11.5 meters		121115
+				None			None			000000
