@@ -1,0 +1,32 @@
+### This item is calculated by the Edit/Update Program and need not be coded by the bridge inspector.
+
+### Vertical and Horizontal underlearances are measured from the through roadway to the superstructure or substructure units, respectively.  Code 'N' is used unless the bridge is over a highway or railroad.
+
+### The vertical underclearance is evalueated by using Table 3A.  The horizontal underlearance is evaluated using Table 3B.  The lower of the codes obtained from Table 3A and 3B is used by the Edit/Update Program.
+
+### Bridges seldom are closed due to deficient underclearances, however, these bridges may be good candidates for rehabilitation or replacement.
+
+### Item 54 - Minimum Vertical Underlearance, Item 55 - Minimum Lateral Underclearance on Right, and Item 56 - Minimum Lateral Underlearance on Left are used to evaluate this item.
+
+### The functional classification used in the table is for the underpassing route.  Therefore, the functional classification is obtained from the record for the route 'under' teh bridge (see Item 5 -Inventory Route).
+
+### If the underpassing route is not on a Federal-aid system, is not a defense route, or is not otherwise important, and 'under' record may not be available.  If no 'under' record exists, it is assumed that the route under the bridge is a major or minor collector or a local road for the purpose of using Tables 3A and 3B.
+
+
+### Notes (Table 3A):
+
+	1.	Use the lower rating code for values between those listed in the tables.
+
+	2. 	Dimensions are in meters.
+
+	3.  The functional classification of the underpassing route shall be used in the evaluations.  If an 'under' record is not coded, the underpassing route shall be considered a major or minor collector or a local road.
+
+### Notes (Table 3B):
+
+	1.	Use the lower rating code for values between those listed in the tables.
+
+	2.	Dimensions are in meters.
+
+	3.	When acceleration or deceleration lanes or ramps are provided under 2-way traffic, use the value from the right ramp column under 2-way traffic, use the value form the right ramp column to determine code.
+
+	4.	The funcional classification of the underpassing route shall be used in the evaluation.  If an 'under' record is not coded, teh underpassing route whall be considered a major or minor collector or a local road.

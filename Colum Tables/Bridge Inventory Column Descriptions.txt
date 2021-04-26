@@ -1186,3 +1186,80 @@ INSERT INTO 67-72_Appraisal_Ratings (Code, Description) VALUES
 
 
 ----- Underclearances, Vertical and Horizontal  69
+
+### This item is calculated by the Edit/Update Program and need not be coded by the bridge inspector.
+
+### Vertical and Horizontal underlearances are measured from the through roadway to the superstructure or substructure units, respectively.  Code 'N' is used unless the bridge is over a highway or railroad.
+
+### The vertical underclearance is evalueated by using Table 3A.  The horizontal underlearance is evaluated using Table 3B.  The lower of the codes obtained from Table 3A and 3B is used by the Edit/Update Program.
+
+### Bridges seldom are closed due to deficient underclearances, however, these bridges may be good candidates for rehabilitation or replacement.
+
+### Item 54 - Minimum Vertical Underlearance, Item 55 - Minimum Lateral Underclearance on Right, and Item 56 - Minimum Lateral Underlearance on Left are used to evaluate this item.
+
+### The functional classification used in the table is for the underpassing route.  Therefore, the functional classification is obtained from the record for the route 'under' teh bridge (see Item 5 -Inventory Route).
+
+### If the underpassing route is not on a Federal-aid system, is not a defense route, or is not otherwise important, and 'under' record may not be available.  If no 'under' record exists, it is assumed that the route under the bridge is a major or minor collector or a local road for the purpose of using Tables 3A and 3B.
+
+### Notes (Table 3A):
+
+	1.	Use the lower rating code for values between those listed in the tables.
+
+	2. 	Dimensions are in meters.
+
+	3.  The functional classification of the underpassing route shall be used in the evaluations.  If an 'under' record is not coded, the underpassing route shall be considered a major or minor collector or a local road.
+
+### Notes (Table 3B):
+
+	1.	Use the lower rating code for values between those listed in the tables.
+
+	2.	Dimensions are in meters.
+
+	3.	When acceleration or deceleration lanes or ramps are provided under 2-way traffic, use the value from the right ramp column under 2-way traffic, use the value form the right ramp column to determine code.
+
+	4.	The funcional classification of the underpassing route shall be used in the evaluation.  If an 'under' record is not coded, teh underpassing route whall be considered a major or minor collector or a local road.
+
+
+----- Bridge Posting  70
+
+### The National Bridge Inspection Standards require the posting of load limits only if the maximum legal load configurations in the State exceeds teh load permitted under the operating rating.  If the load capacity at the operating rating is such that posting is required, this item shall be coded 4 or less.  If no posting is required at the operating rating, this item shall be coded 5.
+
+### This item evaluates the load capacity of a bridge in comparison to the State legal load.  It differes from Item 67 - Structural Evaluations in that Item 67 uses Item 66 - Inventory Rating, while the bridge posting requirement is based on Item 64 - Operating Rating.
+
+### Although posting a bridge for load-carrying capacity is required only when the maximum legal load exceeds the operating rating, highway agencies may choose to post at a lower level.  This posting practice may appear to produce conflicting coding when Item 41 - Structure Open, Posted, or Closed to Traffic is coded to show the bridge is actually posted at the site and Item 70 - Bridge Posting is coded as bridge posting is not required.  Since different criteria are used for coding these 2 items, this coding is acceptable and correct when the highway agency elects to post at less than the opereating rating.  Item 70 shall be coded 4 or less only if the legal load of the State exceeds that permitted under the operating rating.
+
+### The use of presence of a temporary bridge affects the coding.  The actual operating rating of the temporary bridge should be used to determine this item.  However, the highway agency may choose to post at a lower level.  This also0 applies to bridges shored up or repaired on a temporary basis.
+
+
+### Posting Requirements
+
+CREATE SCHEMA 70_Posting_Requirements;
+
+CREATE TABLE 70_Posting_Requirements (
+	Code text,
+	Description text
+);
+
+INSERT INTO 70_Posting_Requirements (Code, Description) VALUES
+	('<4', 'Posting Required'),
+	('5', 'No Posting Required');
+
+### The degree that the operating rating is less than the maximum legal load level may be used to differentiate between codes.
+
+CREATE SCHEMA 70_Op_Rate_Over_Max_LL;
+
+CREATE TABLE 70_Op_Rate_Over_Max_LL (
+	Code int,
+	Description text
+);
+
+INSERT INTO 70_Op_Rate_Over_Max_LL (Code, Description) VALUES
+	(5, 'Equal to or above legal loads'),
+	(4, '0.1 - 9.9% below'),
+	(3, '10.0 - 19.9% below'),
+	(2, '20.0 - 29.9% below'),
+	(1, '30.0 - 39.9% below'),
+	(0, '> 39.9% below');
+
+
+----- Waterway Adequacy  71
