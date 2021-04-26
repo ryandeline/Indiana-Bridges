@@ -1400,3 +1400,142 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 
 ----- Length of Structure Improvement  76
 
+### Code a 6-digit number that represent the length of the proposed bridge improvement to the nearest tenth of a meter (with and assumed decimal point).  For replacements or rehabilitation of the entire bridge, the length should be back to bakc of backwalls of abutments or from pavement notch to pavement notch.  For replacement or rehabilitation of only part of the structure, use the length of the portion to be improved.
+
+### This item must be coded for bridges eligible for the Highway Bridge Replacement and Rehabilitation Program.  It my be coded for other bridges at the option of the highway agency.
+
+### For culvert improvements, use the proposed length measured along the centerline of the barrel tegardless of the depth below grade.  The measurement should be made between the inside faces of the top parapet or edge-stiffening beam of the top slab.
+
+### Example
+
+	Length of Sturcture Improvement 	76.2 meters		000762
+										1200 meters		012000
+										12,345 meters	123450
+
+### For substructure or channel work only, code the length of the superstructure over, or supported by the substructure or channel.
+
+### Typically, a replacement bridge is longer than the existing bridge.  Nationwide averages for the increase in bridge length with replacement as a function of the existing length are given in the following figures.  The length-expansion factors represent data for teh years 1981 to 1985.  Where site-specific data is lacking, these factors are suggested for estimating the length of replacement bridges.  For exceedingly long bridges (i.e. 300 meters or more) the length-expansion factor approaches 1.0.
+
+
+### Replacement Bridge Length = Existing Bridge Length x Length Expansion Factor
+
+
+----- Inspection Date  90
+
+### Record the month and year that the last routine inspection of the structure was performed.  This inspection date may be different from those recorded in Item 93 - Critical Feature Inspection Date.  Code a 4-digit number to represent the month and year.  The number of the month should be coded in the first 2 digits with a leading zero as required and the last 2 digits of the year coded as the third and fourth digits of the field
+
+### Example
+
+	Inspection Date 	November 1992		1192
+						March 1994			0394
+
+
+----- Designated Inspection Frequency  91
+
+### Code 2 digits to represent the number of months between designated inspections of the structure.  A leading zero shall be coded as required.  This interval is usually determined by the individual in charge of the inspection program.  For posted, understrength bridges, this interval should be substantially less than the 24-month standard.  The designated inspection interval could vary from inspection to inspection depending on the condition of the bridge at the time of inspection.
+
+### Example
+
+	Posted bridge with heavy truck traffic and 			01
+	questionable structural details which is 
+	designated to be inspected each month
+
+	Bridge is scheduled to be inspected every 			24
+	24 months
+
+### It should be noted that bridges will also require special non-scheduled inspections after unusual physical traumas such as floods, earthquakes, fires, or collisions.  These special inspections may range from a very brief visual examination to a detailed in-depth evaluation depending upon the nature of the trauma.  For example, when a substructure pier or abutment is struck by and errant vehicle, in most cases only a visual examination of the bridge is necessary.  After major collisions or earthquakes, in-depth inspections may be warranted as directed by the engineer in overall charge of the program.  After and during severe floods, the stability of the substructure of bridges may have to be determined by probing, underwater sensors or other appropriate measures. Underwater inspection by divers may be required for some scour critical bridges immediately after floods.  See Item 113 - Scour Critical Bridges.
+
+
+----- Critical Feature Inspection  92
+
+### Using a series of 3-digit code segments, denote critical features that need special inspections or special emphasis during inspections and the designated inspection interval in months as determined by the individual in charge of the inspection program.  The designated inspection interval could vary from inspection to inspection depending on the condition of the bridge at the time of inspection.
+
+###		Segment 	Description						Length
+		92A			Fracture Critical Details		3 digits
+		92B			Underwater Inspection 			3 digits
+		92C			Other Special Inspection 		3 digits
+
+### For each segment of Item 92A, B, and C, code the first digit Y for special inspection or emphasis needed and code N for not needed.  The first digit of 92A ,B, and C must be coded for all structures to designate either a yes or no answer.  Those bridges coded with a Y isn Item 92A or B should be the same bridges contained in the Master Lists of fracture critical and special underwater inspection bridges.  In the second and third digits of each segment, code a 2-digit number to indicate the number of months between inspections only if the first digit is coded Y.  If the first digit is coded N, the second and third digits are left blank.
+
+### Current guidlines for the maximum allowable interval between inspections can be summarized as follows
+
+	Fracture Critical Details			24 Months
+	Underwater Inspection 				60 Months
+	Other Special Inspections 			60 Months
+
+### Example
+
+	A 2-girder system structure which is being inspected		92A		Y12
+	yearly and no other special inspections are required.		92B		N__
+																92C		N__
+
+	A structure has been temporarily shored and is being		92A 	N__
+	being inspected on a 6-month interval. Other special 		92B		N__
+	inspections are not required.								92C		Y06
+
+
+----- Critical Feature Inspection Date 	93
+
+### Coded only if the fist digit of Item 923A, B, or C is coded Y for yeas.  Record as a series of 4-digit code segments, the month and year that th elas inspection of the denoted critical feature was performed.
+
+###		Segment 	Description					Length
+		93A 		Fracture Critical Details	4 digits
+		93B 		Underwater Inspection 		4 digits
+		93C			Other Special Inspection 	4 digits
+
+### For each segment of this item, when applicable, code a 4-digit number to represent the month and year.  The number of the month should be coded in the first 2 digits with a leading zero as required and the last 2 digits of the year coded as teh third and fourth digits af the field.  If the first digit of any part of Item 92 is coded N, then the corresponding part of this item shall be blank.
+
+### Example
+	
+	A structure has fracture critical members which 		93A 	0386
+	were last inspected in March 1986.  It does not 		93B 	(Blank)
+	require underwwater or other special feature 			93C 	(Blank)
+	inspections.
+
+	A structure has no fracture critical details, but 		93A 	(Blank)
+	requires underwater inspection and has other special 	93B		0486
+	features (for example, a temporary support) for which 	93C		1185
+	the State requires special inspection.  The last 
+	underwater inspection was done in April 1986 and the 
+	last special feature inspection was done in November 1985.
+
+
+----- Bridge Improvement Cost  94
+
+### Code a 6-digit number to represent the estimated cost of the proposed brridge or major structure improvements in thousands of dollars.  This cost shall include only bridge construction costs, excluding roadway, right fo way, detour, demolition, preliminary engieering, etc.  Code the base year for the cost in Item 97 - Year of Improvement Cost Estimate.  Do not use this item for estimating maintenancne cost.
+
+### This item must be coded for bridges eligible for the Highway Bridge Replacement and Rehabilitation Program.  It may be coded for other bridges at the option of the highway agency.
+
+### Example
+
+	Bridge Improvement Cost 	$55,850 		000056
+								$250,000		000250
+								$7,451,233		007451
+
+### Nationally, the deck area of replaced bridges is averaging 2.2 times the deck area before replacement.  The deck area of rehabilitated bridges is averaging 1.5 times the deck area before rehabilitation.  Widening square meter costs are typically 1.8 times the square meter cost of new bridges with similar spans.  For example, if the average cost of a new bridge is $500 per square meter, the average cost of the widened area would be $900 per square meter.
+
+### Each highway agency is encouraged to use its best available information and established procedures to determine bridge improvement costs.  In the absence of these procedures, the highway agency may wish to use the following procedure as a guide in preparing bridge improvemenet cost estimates.
+
+### Apply a construction unit cost to the proposed bridge area develolped by using (1) curren State deck geometry design standards and (2) proposed bridge length from Item 76 - Length of Structure Improvement.
+
+
+------ Roadway Improvement Cost  95
+
+### Code a 6-digit number to represent the cost of the proposed roadway improvemetn in thousands fo dollars.  This shall include only roadway construction costs, excluding bridge, right of way, detour, extensive roadway realignment cost, preliminary engineering, etc.  Code the base year for the cost in Item 97 - Year of Improvement Cost Estimate.  Do not use this item for estimating maintenance costs.
+
+### This item must be coded for bridges eligible for the Highway Bridge Replacement and Rehabilitation Program.  It may be coded for othe rbridges at the option of the highway agency.
+
+### In the absence of a procedure for estimating roadway improvement costs, a guide of 10 percent of the bridge cost is suggested.
+
+
+----- Total Project Cost  96
+
+### Code a 6-digit number to represent the total prooject cost in thousands of dollars, including incidental costs normally associated with the proposed bridge improvement project.  The Total Project Cost will therefore ususally be greater than the sum of Items 94 and 95.  Code the base year for the cost in Item 97 - Year of Improvmeent Cost Estimate.  Do not use this item for coding maintenancne costs.
+
+### This item must be coded for bridges eligible for the Highway Bridge Replacement and Rehabilitation Program.  It amy be coded for other bridges at the option of the highway agency.
+
+### In the absence of a procedure for estimating the total project cost, a guide of 150 percent of the bridge cost is suggested.
+
+
+----- Year of Improvement Cost Estimate  97
+

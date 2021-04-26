@@ -1,0 +1,15 @@
+### Code a 6-digit number to represent the estimated cost of the proposed brridge or major structure improvements in thousands of dollars.  This cost shall include only bridge construction costs, excluding roadway, right fo way, detour, demolition, preliminary engieering, etc.  Code the base year for the cost in Item 97 - Year of Improvement Cost Estimate.  Do not use this item for estimating maintenancne cost.
+
+### This item must be coded for bridges eligible for the Highway Bridge Replacement and Rehabilitation Program.  It may be coded for other bridges at the option of the highway agency.
+
+### Example
+
+	Bridge Improvement Cost 	$55,850 		000056
+								$250,000		000250
+								$7,451,233		007451
+
+### Nationally, the deck area of replaced bridges is averaging 2.2 times the deck area before replacement.  The deck area of rehabilitated bridges is averaging 1.5 times the deck area before rehabilitation.  Widening square meter costs are typically 1.8 times the square meter cost of new bridges with similar spans.  For example, if the average cost of a new bridge is $500 per square meter, the average cost of the widened area would be $900 per square meter.
+
+### Each highway agency is encouraged to use its best available information and established procedures to determine bridge improvement costs.  In the absence of these procedures, the highway agency may wish to use the following procedure as a guide in preparing bridge improvemenet cost estimates.
+
+### Apply a construction unit cost to the proposed bridge area develolped by using (1) curren State deck geometry design standards and (2) proposed bridge length from Item 76 - Length of Structure Improvement.

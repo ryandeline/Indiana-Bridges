@@ -1,0 +1,6 @@
+### Record the month and year that the last routine inspection of the structure was performed.  This inspection date may be different from those recorded in Item 93 - Critical Feature Inspection Date.  Code a 4-digit number to represent the month and year.  The number of the month should be coded in the first 2 digits with a leading zero as required and the last 2 digits of the year coded as the third and fourth digits of the field
+
+### Example
+
+	Inspection Date 	November 1992		1192
+						March 1994			0394

@@ -1,0 +1,12 @@
+### Code 2 digits to represent the number of months between designated inspections of the structure.  A leading zero shall be coded as required.  This interval is usually determined by the individual in charge of the inspection program.  For posted, understrength bridges, this interval should be substantially less than the 24-month standard.  The designated inspection interval could vary from inspection to inspection depending on the condition of the bridge at the time of inspection.
+
+### Example
+
+	Posted bridge with heavy truck traffic and 			01
+	questionable structural details which is 
+	designated to be inspected each month
+
+	Bridge is scheduled to be inspected every 			24
+	24 months
+
+### It should be noted that bridges will also require special non-scheduled inspections after unusual physical traumas such as floods, earthquakes, fires, or collisions.  These special inspections may range from a very brief visual examination to a detailed in-depth evaluation depending upon the nature of the trauma.  For example, when a substructure pier or abutment is struck by and errant vehicle, in most cases only a visual examination of the bridge is necessary.  After major collisions or earthquakes, in-depth inspections may be warranted as directed by the engineer in overall charge of the program.  After and during severe floods, the stability of the substructure of bridges may have to be determined by probing, underwater sensors or other appropriate measures. Underwater inspection by divers may be required for some scour critical bridges immediately after floods.  See Item 113 - Scour Critical Bridges.

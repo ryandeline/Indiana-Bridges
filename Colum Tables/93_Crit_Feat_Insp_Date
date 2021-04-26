@@ -1,0 +1,22 @@
+### Coded only if the fist digit of Item 923A, B, or C is coded Y for yeas.  Record as a series of 4-digit code segments, the month and year that th elas inspection of the denoted critical feature was performed.
+
+###		Segment 	Description					Length
+		93A 		Fracture Critical Details	4 digits
+		93B 		Underwater Inspection 		4 digits
+		93C			Other Special Inspection 	4 digits
+
+### For each segment of this item, when applicable, code a 4-digit number to represent the month and year.  The number of the month should be coded in the first 2 digits with a leading zero as required and the last 2 digits of the year coded as teh third and fourth digits af the field.  If the first digit of any part of Item 92 is coded N, then the corresponding part of this item shall be blank.
+
+### Example
+	
+	A structure has fracture critical members which 		93A 	0386
+	were last inspected in March 1986.  It does not 		93B 	(Blank)
+	require underwwater or other special feature 			93C 	(Blank)
+	inspections.
+
+	A structure has no fracture critical details, but 		93A 	(Blank)
+	requires underwater inspection and has other special 	93B		0486
+	features (for example, a temporary support) for which 	93C		1185
+	the State requires special inspection.  The last 
+	underwater inspection was done in April 1986 and the 
+	last special feature inspection was done in November 1985.

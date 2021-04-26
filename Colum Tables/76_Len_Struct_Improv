@@ -1,0 +1,18 @@
+### Code a 6-digit number that represent the length of the proposed bridge improvement to the nearest tenth of a meter (with and assumed decimal point).  For replacements or rehabilitation of the entire bridge, the length should be back to bakc of backwalls of abutments or from pavement notch to pavement notch.  For replacement or rehabilitation of only part of the structure, use the length of the portion to be improved.
+
+### This item must be coded for bridges eligible for the Highway Bridge Replacement and Rehabilitation Program.  It my be coded for other bridges at the option of the highway agency.
+
+### For culvert improvements, use the proposed length measured along the centerline of the barrel tegardless of the depth below grade.  The measurement should be made between the inside faces of the top parapet or edge-stiffening beam of the top slab.
+
+### Example
+
+	Length of Sturcture Improvement 	76.2 meters		000762
+										1200 meters		012000
+										12,345 meters	123450
+
+### For substructure or channel work only, code the length of the superstructure over, or supported by the substructure or channel.
+
+### Typically, a replacement bridge is longer than the existing bridge.  Nationwide averages for the increase in bridge length with replacement as a function of the existing length are given in the following figures.  The length-expansion factors represent data for teh years 1981 to 1985.  Where site-specific data is lacking, these factors are suggested for estimating the length of replacement bridges.  For exceedingly long bridges (i.e. 300 meters or more) the length-expansion factor approaches 1.0.
+
+
+### Replacement Bridge Length = Existing Bridge Length x Length Expansion Factor

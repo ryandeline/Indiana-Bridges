@@ -1,0 +1,24 @@
+### Using a series of 3-digit code segments, denote critical features that need special inspections or special emphasis during inspections and the designated inspection interval in months as determined by the individual in charge of the inspection program.  The designated inspection interval could vary from inspection to inspection depending on the condition of the bridge at the time of inspection.
+
+###		Segment 	Description						Length
+		92A			Fracture Critical Details		3 digits
+		92B			Underwater Inspection 			3 digits
+		92C			Other Special Inspection 		3 digits
+
+### For each segment of Item 92A, B, and C, code the first digit Y for special inspection or emphasis needed and code N for not needed.  The first digit of 92A ,B, and C must be coded for all structures to designate either a yes or no answer.  Those bridges coded with a Y isn Item 92A or B should be the same bridges contained in the Master Lists of fracture critical and special underwater inspection bridges.  In the second and third digits of each segment, code a 2-digit number to indicate the number of months between inspections only if the first digit is coded Y.  If the first digit is coded N, the second and third digits are left blank.
+
+### Current guidlines for the maximum allowable interval between inspections can be summarized as follows
+
+	Fracture Critical Details			24 Months
+	Underwater Inspection 				60 Months
+	Other Special Inspections 			60 Months
+
+### Example
+
+	A 2-girder system structure which is being inspected		92A		Y12
+	yearly and no other special inspections are required.		92B		N__
+																92C		N__
+
+	A structure has been temporarily shored and is being		92A 	N__
+	being inspected on a 6-month interval. Other special 		92B		N__
+	inspections are not required.								92C		Y06
