@@ -1,0 +1,17 @@
+### This item is calculated by the Edit/Update Program based on Table 1, and need not be coded by the bridge inspector.  The following specifications are used by the Edit/Update Program:
+
+	! 	For structures other than culverts, the lowest of the codes obtained from Item 59       	Superstructure, Item 60 - Substructure, or Table 1 is used.
+
+	!	For culverts, the lowest of the codes obtained from Item 62 - Culverts, or Table 1 is 		used.
+
+	!	If Item 59, Item 60, or Item 62 is coded 1, then Item 67 is equal to zero (0), 				regardless of whether the structure is actually closed.  However, if the structure is 		closed, it does not mean that this value is zero (0) unless the overall condition and 		appraisal ratings indicate that a code of 0 is appropriate.
+
+### Table 1 Notes:
+
+	1.	Use the lower rating code for values between those listed in the table. 
+
+	2.	Inventory Ratings are shown in metric tons with decimal point.
+
+	3.	To use Table 1, the inventory Rating must be the coded MS rating or its equivalent.  If 	the comparable MS equivalent is not calculated for the controlling rating, using 			acceptable factor to determine the MS equivalent is acceptable even though converting 		other rating loads to an MS equivalent is not a constant.
+
+	4.	All bridges with Item 26 - Functional Class coded Interstate, Freeway or Expressway 		shall be evaluated using the ADT column of >5000 regardless of the actual ADT on the 		bridge.
