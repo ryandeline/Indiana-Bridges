@@ -1,0 +1,74 @@
+### This item appraises the waterway opening with respect to passage of flow through the bridge.  The folowing codes shall be used in evaluating waterway adequacy (interpolate where appropriate).  Site conditions may warrant somewhat higher or lower ratings than indicated  by the table (e.g. flooding of an urban area due toa restricted bridg opening).
+
+### Where overtopping frequency information is available, the descriptions givin in the table for chance of overtopping mean the following:
+
+	Remote		- greater than 100 years
+	Slight		- 11 - 100 years
+	Occasional	- 3 to 10 years
+	Frequent	- less than 3 years
+
+### Adjectives describing traffic delays mean the following:
+
+	Insignificant	- Minor inconvenience.  Highway passable in a matter of hours.
+	Significant		- Traffic delays of up to several days.
+	Severe			- Long term delays to traffic with resulting hardship.
+
+### Functional Classification
+
+CREATE SCHEMA 71_FC_INST_FREE;
+
+CREATE TABLE 71_FC_INST_FREE (
+	Code text,
+	Description text
+);
+
+INSERT INTO 71_FC_INST_FREE;
+
+CREATE TABLE 71_FC_INST_FREE;
+
+INSERT INTO 71_FC_INST_FREE (Code, Description) VALUES
+	('N', 'Bridge not over waterway'),
+	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
+	('8', 'Bridge deck above roadway approaches.  Slight chance of overtoppin roadway approaches.'),
+	('6', 'Slight chance of overtopping bridge deck and roadway approaches.'),
+	('4', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with insignificant traffic delays.'),
+	('3', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with significant traffic delays.'),
+	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
+	('0', 'Bridge Closed');
+
+CREATE SCHEMA 71_FC_PRIN_ART_MAJ;
+
+CREATE TABLE 71_FC_PRIN_ART_MAJ (
+	Code text,
+	Description text
+);
+
+INSERT INTO 71_FC_PRIN_ART_MAJ (Code, Description) VALUES
+	('N', 'Bridge not over waterway'),
+	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
+	('8', 'Bridge deck above roadway approaches.  Slight chance of overtoppin roadway approaches.'),
+	('6', 'Slight chance of overtopping bridge deck and roadway approaches.'),
+	('5', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with insignificant traffic delays.'),
+	('4', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with significant traffic delays.'),
+	('3', 'Occasional overtopping of bridge deck and roadway approaches with significant traffic delays.'),
+	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
+	('0', 'Bridge Closed');	
+
+CREATE SCHEMA 71_FC_MIN_LOC;
+
+CREATE TABLE 71_FC_MIN_LOC (
+	Code text,
+	Description text
+);
+
+INSERT INTO 71_FC_MIN_LOC (Code, Description) VALUES
+	('N', 'Bridge not over waterway'),
+	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
+	('8', 'Bridge deck above roadway approaches.  Slight chance of overtoppin roadway approaches.'),
+	('7', 'Slight chance of overtopping bridge deck and roadway approaches.'),
+	('6', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with insignificant traffic delays.'),
+	('5', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with significant traffic delays.'),
+	('4', 'Occasional overtopping of bridge deck and roadway approaches with significant traffic delays.'),
+	('3', 'Frequent overtopping of bridge deck and roadway approaches with significant traffic delays'),
+	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
+	('0', 'Bridge Closed');	

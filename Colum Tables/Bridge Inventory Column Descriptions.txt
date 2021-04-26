@@ -1263,3 +1263,140 @@ INSERT INTO 70_Op_Rate_Over_Max_LL (Code, Description) VALUES
 
 
 ----- Waterway Adequacy  71
+
+### This item appraises the waterway opening with respect to passage of flow through the bridge.  The folowing codes shall be used in evaluating waterway adequacy (interpolate where appropriate).  Site conditions may warrant somewhat higher or lower ratings than indicated  by the table (e.g. flooding of an urban area due toa restricted bridg opening).
+
+### Where overtopping frequency information is available, the descriptions givin in the table for chance of overtopping mean the following:
+
+	Remote		- greater than 100 years
+	Slight		- 11 - 100 years
+	Occasional	- 3 to 10 years
+	Frequent	- less than 3 years
+
+### Adjectives describing traffic delays mean the following:
+
+	Insignificant	- Minor inconvenience.  Highway passable in a matter of hours.
+	Significant		- Traffic delays of up to several days.
+	Severe			- Long term delays to traffic with resulting hardship.
+
+### Functional Classification
+
+CREATE SCHEMA 71_FC_INST_FREE;
+
+CREATE TABLE 71_FC_INST_FREE (
+	Code text,
+	Description text
+);
+
+INSERT INTO 71_FC_INST_FREE;
+
+CREATE TABLE 71_FC_INST_FREE;
+
+INSERT INTO 71_FC_INST_FREE (Code, Description) VALUES
+	('N', 'Bridge not over waterway'),
+	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
+	('8', 'Bridge deck above roadway approaches.  Slight chance of overtoppin roadway approaches.'),
+	('6', 'Slight chance of overtopping bridge deck and roadway approaches.'),
+	('4', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with insignificant traffic delays.'),
+	('3', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with significant traffic delays.'),
+	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
+	('0', 'Bridge Closed');
+
+CREATE SCHEMA 71_FC_PRIN_ART_MAJ;
+
+CREATE TABLE 71_FC_PRIN_ART_MAJ (
+	Code text,
+	Description text
+);
+
+INSERT INTO 71_FC_PRIN_ART_MAJ (Code, Description) VALUES
+	('N', 'Bridge not over waterway'),
+	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
+	('8', 'Bridge deck above roadway approaches.  Slight chance of overtoppin roadway approaches.'),
+	('6', 'Slight chance of overtopping bridge deck and roadway approaches.'),
+	('5', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with insignificant traffic delays.'),
+	('4', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with significant traffic delays.'),
+	('3', 'Occasional overtopping of bridge deck and roadway approaches with significant traffic delays.'),
+	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
+	('0', 'Bridge Closed');	
+
+CREATE SCHEMA 71_FC_MIN_LOC;
+
+CREATE TABLE 71_FC_MIN_LOC (
+	Code text,
+	Description text
+);
+
+INSERT INTO 71_FC_MIN_LOC (Code, Description) VALUES
+	('N', 'Bridge not over waterway'),
+	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
+	('8', 'Bridge deck above roadway approaches.  Slight chance of overtoppin roadway approaches.'),
+	('7', 'Slight chance of overtopping bridge deck and roadway approaches.'),
+	('6', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with insignificant traffic delays.'),
+	('5', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with significant traffic delays.'),
+	('4', 'Occasional overtopping of bridge deck and roadway approaches with significant traffic delays.'),
+	('3', 'Frequent overtopping of bridge deck and roadway approaches with significant traffic delays'),
+	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
+	('0', 'Bridge Closed');	
+
+
+----- Approach Roadway Alignment  72
+
+### Code the rating based on the adequacy of the approach roadway alignment.  This item identifies those bridges which do not function properly or adequately due to the alignment of the approaches.  It is not intended that the approach roadway alignment be compared to current standards but rather to the existing highway aligmnent.  This concept differs from other appraisals evaluations.  The establishment of set criteria to be used at all bridges sites is not appropriate for this item.  The basic criteria is how the aligment of the roadway approaches to the bridge relate to the general highway aligment for the section of highway the bridge is on.
+
+### The individual structure shall be rated in accordance with the general appraisal rating guide described on page 453 in liew of specific design values.  The approach roadway aligment will be rated intolerable (a code of 3 or less) only if the horizontal or vertical curvature requires a substantial reduction in the vehicle operating speed from that on the highway section.  a very minor speed reduction will be rated a 6, and when a speed reduction is not required, the appraisal code will be an 8. Additional codes may be selected between these general values.
+
+### For example, if the highway section requires a substantial speed reductino due to vertical or horizontal alignment, and the roadway approach to the bridge requires only a very minor additional speed reduction at the bridge, the appropriate code would be a 6.  This concept shall be used at each bridge site.
+
+### Speed reductions necessary because of structure wiidth and not alignment shall not be considered in evaluating this item.
+
+
+----- Type of Work  75
+
+### The information to be recorded for this item will be the type of work proposed to be accomplished on the structure to improve it to the point that it will provide the type of service needed and whether the proposed work is to be done by contract or force account.  Code a 3-digitnumber composed of 2 segments.
+
+
+###		Segment 	Description 					Length
+		75A			Type of work Proposed 			2 digits
+		75B			Work Done By 					1 Digit
+
+### This item must be coded for bridges eligible for the Highway Bridge Replacement and Rehabilitation Program.  To be eligible, a bridge must carry highway traffic, be deficient and have a sufficiency rating of 80.0 or less.  This item may be coded for other bridges at the option of the highway agency.
+
+CREATE SCHEMA 75A_TOW;
+
+CREATE TABLE 75A_TOW (
+	Code int,
+	Description text
+);
+
+INSERT INTO 75A_TOW (Code, Description) VALUES
+	(31, 'Replacement of bridge or other structure because of substandard load carrying capacity or substandard bridge roadway geometry.'),
+	(32, 'Replacement of bridge or other structure because of relocation of road.'),
+	(33, 'Widening of existing bridge or other major structure without deck rehabilitation or replacement; includes culver lengthening.'),
+	(34, 'Widening of existing bridge with deck rehabilitation or replacement.'),
+	(35, 'Bridge rehabilitation because of general structure deterioration or inadequate strength.'),
+	(36, 'Bridge deck rehabilitation with only incidental widening.'),
+	(37, 'Bridge deck replacement with only incidental widening.'),
+	(38, 'Other structural work, including hydraulic replacements.');
+
+CREATE SCHEMA 75B_TOW;
+
+CREATE TABLE 75B_TOW (
+	Code int,
+	Description text
+);
+
+INSERT INTO 75B_TOW (Code, Description) VALUES
+	(1, Work to be done by contract),
+	(2, Work to be done by owner's forces);
+
+
+### Example
+	
+	A bridge is to be replaced by contract because it has deteriorated to the point that it can no longer carry legal loads.  The same code should be used if the bridge is replaced because it is not too narrow or the original design was too light to accommodate today's legal loads.		Code 311
+
+	A bridge superstructure and substructure are to be rehabilitated by State Forces to increase the bridge's load capacity.		Code 352
+
+
+----- Length of Structure Improvement  76
+

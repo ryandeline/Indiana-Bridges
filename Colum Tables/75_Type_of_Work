@@ -1,0 +1,43 @@
+### The information to be recorded for this item will be the type of work proposed to be accomplished on the structure to improve it to the point that it will provide the type of service needed and whether the proposed work is to be done by contract or force account.  Code a 3-digitnumber composed of 2 segments.
+
+
+###		Segment 	Description 					Length
+		75A			Type of work Proposed 			2 digits
+		75B			Work Done By 					1 Digit
+
+### This item must be coded for bridges eligible for the Highway Bridge Replacement and Rehabilitation Program.  To be eligible, a bridge must carry highway traffic, be deficient and have a sufficiency rating of 80.0 or less.  This item may be coded for other bridges at the option of the highway agency.
+
+CREATE SCHEMA 75A_TOW;
+
+CREATE TABLE 75A_TOW (
+	Code int,
+	Description text
+);
+
+INSERT INTO 75A_TOW (Code, Description) VALUES
+	(31, 'Replacement of bridge or other structure because of substandard load carrying capacity or substandard bridge roadway geometry.'),
+	(32, 'Replacement of bridge or other structure because of relocation of road.'),
+	(33, 'Widening of existing bridge or other major structure without deck rehabilitation or replacement; includes culver lengthening.'),
+	(34, 'Widening of existing bridge with deck rehabilitation or replacement.'),
+	(35, 'Bridge rehabilitation because of general structure deterioration or inadequate strength.'),
+	(36, 'Bridge deck rehabilitation with only incidental widening.'),
+	(37, 'Bridge deck replacement with only incidental widening.'),
+	(38, 'Other structural work, including hydraulic replacements.');
+
+CREATE SCHEMA 75B_TOW;
+
+CREATE TABLE 75B_TOW (
+	Code int,
+	Description text
+);
+
+INSERT INTO 75B_TOW (Code, Description) VALUES
+	(1, Work to be done by contract),
+	(2, Work to be done by owner's forces);
+
+
+### Example
+	
+	A bridge is to be replaced by contract because it has deteriorated to the point that it can no longer carry legal loads.  The same code should be used if the bridge is replaced because it is not too narrow or the original design was too light to accommodate today's legal loads.		Code 311
+
+	A bridge superstructure and substructure are to be rehabilitated by State Forces to increase the bridge's load capacity.		Code 352
