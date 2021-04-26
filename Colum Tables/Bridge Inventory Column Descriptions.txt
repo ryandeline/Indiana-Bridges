@@ -1068,7 +1068,7 @@ INSERT INTO 63_Method_Used (Code, Description) VALUES
 				Structure under fill (not affected by live load)	999
 
 
------ Method Used to Determin Inventory Rating  64
+----- Method Used to Determin Inventory Rating  65
 
 CREATE SCHEMA 65_Method_Used;
 
@@ -1092,3 +1092,97 @@ INSERT INTO 65_Method_Used (Code, Description) VALUES
 ### Code 999 for a structure under sufficient fill such that, according to AASHTO design, the live load is insignificant in the structure load capacity.
 
 
+----- Appraisal Ratings 67 - 72
+
+### The items in the Appraisal Section are useed to evaluate a bridge in relation to the level of service which it provides on the highwya system of which it is a part.  The structure will be compared to a new one which is built to current standarts for that particular type of road as further defined in this section except for Item 72 - Approach Roadway Alignment.  See Item 72 for special criteria for rating that item.
+
+### Items 67, 68, 69, 71, and 72 will be coded with a 1-digit code that indicates the appraisal rating for the item.
+
+CREATE SCHEMA 67-72_Appraisal_Ratings;
+
+CREATE TABLE 67-72_Appraisal_Ratings (
+	Code text,
+	Description text
+);
+
+INSERT INTO 67-72_Appraisal_Ratings (Code, Description) VALUES
+	('N', 'Not Applicable'),
+	('9', 'Superior to present desirable criteria'),
+	('8', 'Equal to present desirable criteria'),
+	('7', 'Better than present minimum criteria'),
+	('6', 'Equal to present minimum criteria'),
+	('5', 'Somewhat better than minimum adequacy to tolerate being left in place as is'),
+	('4', 'Meets minimum tolerable limits to be left in place as is'),
+	('3', 'Basically intolerable requiring high priority of corrective action'),
+	('2', 'Basically intolerable requiring high priority of replacement'),
+	('1', 'This value of rating code not used'),
+	('0', 'Bridge Closed');
+
+### The FHWA Edit/Update computer program calculates values for Items 67, 68, and 69 according to the tables provided in this manual.  These tables and the table for Item 71 shall be used by all evaluators to rate these items.  They have been developed to closely match the descriptions for the appraisal evaluation codes 0 through 9.  The tables shall be used in all instances to evaluate the item based on the designated data in the invetory, even if a table value does not appear to match the descriptive codes.  For unusual cases where the site data does not exactly agree with the talbe criteria, use the most appropriate table to evaluate the item.  The code of N is not valid for use with Items 67 and 72.
+
+### Completed bridges not yet open to traffic, if rated, shall be appraised as if open to traffic.  Design values, for example ADT, shall be used for the evaluation.  The data provided will include a code of G for Item 41 - Structure Open, Posted, or Closed to Traffic.
+
+
+----- Structural Evaluation 67
+
+### This item is calculated by the Edit/Update Program based on Table 1, and need not be coded by the bridge inspector.  The following specifications are used by the Edit/Update Program:
+
+	! 	For structures other than culverts, the lowest of the codes obtained from Item 59 Superstructure, Item 60 - Substructure, or Table 1 is used.
+
+	!	For culverts, the lowest of the codes obtained from Item 62 - Culverts, or Table 1 is used.
+
+	!	If Item 59, Item 60, or Item 62 is coded 1, then Item 67 is equal to zero (0), regardless of whether the structure is actually closed.  However, if the structure is closed, it does not mean that this value is zero (0) unless the overall condition and appraisal ratings indicate that a code of 0 is appropriate.
+
+### Table 1 Notes:
+
+	1.	Use the lower rating code for values between those listed in the table. 
+
+	2.	Inventory Ratings are shown in metric tons with decimal point.
+
+	3.	To use Table 1, the inventory Rating must be the coded MS rating or its equivalent.  If the comparable MS equivalent is not calculated for the controlling rating, using acceptable factor to determine the MS equivalent is acceptable even though converting other rating loads to an MS equivalent is not a constant.
+
+	4.	All bridges with Item 26 - Functional Class coded Interstate, Freeway or Expressway shall be evaluated using the ADT column of >5000 regardless of the actual ADT on the bridge.
+
+
+----- Deck Geometry 68
+
+### This item is calculated by the Edit/Update Program and need not be coded by the bridge inspector.
+
+### The overall rating for deck geometry includes two evaluations: (a) the curb-to-curb or face-to-face of rail bridge width using Table 2A, B, C, or D and (b) the minimum vertical clearance over the bridge roadway using Table 2E.  The lower of the codes obtained from these tables is used by the Edit/Update Program.  When an individual table lists several deck geometry rating codes for the same roadway width under a specific ADT, the lower code is used.  (For example, Table 2A lists deck geometry rating codes of 6,7, and 8 for a 13.4 meter roadway width and an ADT of >5000.  Use the code of 6.)  For values between those listed in the tables, the lower code is used.
+
+### The curb-to-curb or face-to-face of rail dimension shall be taken from Item 51 - Bridge width, Curb-to-Curb.  Item 53 - Minimum Vertical Clearance Over Bridge Roadway is used to evaluate the vertical clearance.
+
+### For culverts which have Item 51 - Bridge Roadway Width codded 000, the Deck Geometry code will be equal to N.
+
+### The values proviced in the talbes are for rating purposes only.  Current design standards must be used for structure design or rehabilitation.
+
+### Notes (Tables 2A and 2B):
+
+	1.	Use the lower rating code for values between those listed in the table.
+
+	2.	Dimensions are in meters.
+
+	3.	For 1 lane of one-way traffic Table 2A is used.
+
+	4. 	For 3 or more undivided lanes of 2-way traffic, use Table 2C, Other Multilane Divided Facilities.
+
+	5.	Do not use Table 2B for code 9 and for codes 8 through 4 inclusive when the ADT >100.  Single lane bridges less than 4.9 meters wide carrying 2-way traffic are always appraised at 3 or below if they carry more than an ADT of 100.
+
+	6.	One-Lane bridges 4.9 meters and greater in roadway width, which are not ramps, are evaluated as a 2-lane bridge using Table 2A.
+
+### Notes (Tables 2C and 2D):
+
+	1.	Use the lower rating code for values between those listed in the tables.
+
+	2.	Dimensions are in meters.
+
+	3.	Use Table 2C, other Multilane Divided Facilities, for 3 or more undivided lanes of 2-way traffic.
+
+### Notes (Table 2E):
+
+	1.	Use the lower rating code for the values between those listed in the table.
+
+	2.	Dimensions are in meters.
+
+
+----- Underclearances, Vertical and Horizontal  69

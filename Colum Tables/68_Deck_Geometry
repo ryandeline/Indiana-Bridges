@@ -1,0 +1,38 @@
+### This item is calculated by the Edit/Update Program and need not be coded by the bridge inspector.
+
+### The overall rating for deck geometry includes two evaluations: (a) the curb-to-curb or face-to-face of rail bridge width using Table 2A, B, C, or D and (b) the minimum vertical clearance over the bridge roadway using Table 2E.  The lower of the codes obtained from these tables is used by the Edit/Update Program.  When an individual table lists several deck geometry rating codes for the same roadway width under a specific ADT, the lower code is used.  (For example, Table 2A lists deck geometry rating codes of 6,7, and 8 for a 13.4 meter roadway width and an ADT of >5000.  Use the code of 6.)  For values between those listed in the tables, the lower code is used.
+
+### The curb-to-curb or face-to-face of rail dimension shall be taken from Item 51 - Bridge width, Curb-to-Curb.  Item 53 - Minimum Vertical Clearance Over Bridge Roadway is used to evaluate the vertical clearance.
+
+### For culverts which have Item 51 - Bridge Roadway Width codded 000, the Deck Geometry code will be equal to N.
+
+### The values proviced in the talbes are for rating purposes only.  Current design standards must be used for structure design or rehabilitation.
+
+
+### Notes (Tables 2A and 2B):
+
+	1.	Use the lower rating code for values between those listed in the table.
+
+	2.	Dimensions are in meters.
+
+	3.	For 1 lane of one-way traffic Table 2A is used.
+
+	4. 	For 3 or more undivided lanes of 2-way traffic, use Table 2C, Other Multilane Divided Facilities.
+
+	5.	Do not use Table 2B for code 9 and for codes 8 through 4 inclusive when the ADT >100.  Single lane bridges less than 4.9 meters wide carrying 2-way traffic are always appraised at 3 or below if they carry more than an ADT of 100.
+
+	6.	One-Lane bridges 4.9 meters and greater in roadway width, which are not ramps, are evaluated as a 2-lane bridge using Table 2A.
+
+### Notes (Tables 2C and 2D):
+
+	1.	Use the lower rating code for values between those listed in the tables.
+
+	2.	Dimensions are in meters.
+
+	3.	Use Table 2C, other Multilane Divided Facilities, for 3 or more undivided lanes of 2-way traffic.
+
+### Notes (Table 2E):
+
+	1.	Use the lower rating code for the values between those listed in the table.
+
+	2.	Dimensions are in meters.

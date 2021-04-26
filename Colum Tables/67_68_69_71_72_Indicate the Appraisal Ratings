@@ -1,3 +1,27 @@
 ### The items in the Appraisal Section are useed to evaluate a bridge in relation to the level of service which it provides on the highwya system of which it is a part.  The structure will be compared to a new one which is built to current standarts for that particular type of road as further defined in this section except for Item 72 - Approach Roadway Alignment.  See Item 72 for special criteria for rating that item.
 
 ### Items 67, 68, 69, 71, and 72 will be coded with a 1-digit code that indicates the appraisal rating for the item.
+
+CREATE SCHEMA 67-72_Appraisal_Ratings;
+
+CREATE TABLE 67-72_Appraisal_Ratings (
+	Code text,
+	Description text
+);
+
+INSERT INTO 67-72_Appraisal_Ratings (Code, Description) VALUES
+	('N', 'Not Applicable'),
+	('9', 'Superior to present desirable criteria'),
+	('8', 'Equal to present desirable criteria'),
+	('7', 'Better than present minimum criteria'),
+	('6', 'Equal to present minimum criteria'),
+	('5', 'Somewhat better than minimum adequacy to tolerate being left in place as is'),
+	('4', 'Meets minimum tolerable limits to be left in place as is'),
+	('3', 'Basically intolerable requiring high priority of corrective action'),
+	('2', 'Basically intolerable requiring high priority of replacement'),
+	('1', 'This value of rating code not used'),
+	('0', 'Bridge Closed');
+
+### The FHWA Edit/Update computer program calculates values for Items 67, 68, and 69 according to the tables provided in this manual.  These tables and the table for Item 71 shall be used by all evaluators to rate these items.  They have been developed to closely match the descriptions for the appraisal evaluation codes 0 through 9.  The tables shall be used in all instances to evaluate the item based on the designated data in the invetory, even if a table value does not appear to match the descriptive codes.  For unusual cases where the site data does not exactly agree with the talbe criteria, use the most appropriate table to evaluate the item.  The code of N is not valid for use with Items 67 and 72.
+
+### Completed bridges not yet open to traffic, if rated, shall be appraised as if open to traffic.  Design values, for example ADT, shall be used for the evaluation.  The data provided will include a code of G for Item 41 - Structure Open, Posted, or Closed to Traffic.
