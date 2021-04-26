@@ -21,3 +21,5 @@ INSERT INTO 62_Culv_Cond (Code, Description) VALUES
 	('2', 'Intergral wingwalls collapsed, severe settlemenet of roadway due to loss of fill.  Section of cluvert may have failed and can no longer support embankment.  Complete undermining at curtain walls and pipes.  Corrective action required to maintain traffic.  Metal culverts have extreme distortion and deflection throughout with extensive perforations due to corrosion.'),
 	('1', 'Bridge Closed.  Corrective action may put back in light service.'),
 	('0', 'Bridge Closed.  Replacement Necessary.');
+
+	

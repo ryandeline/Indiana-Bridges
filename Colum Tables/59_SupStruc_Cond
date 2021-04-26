@@ -26,4 +26,4 @@ INSERT INTO 59_SupStruc_Cond (Code, Description) VALUES
 	('3', 'Serious Condition'),
 	('2', 'Critical Condition'),
 	('1', 'Imminent Failure Condition'),
-	('0', 'Failed Condition')
+	('0', 'Failed Condition');

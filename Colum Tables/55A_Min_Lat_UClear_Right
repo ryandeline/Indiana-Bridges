@@ -15,3 +15,5 @@ INSERT INTO 55A_Min_Lat_UClear_Right (Code, Description) VALUES
 	('H', 'Highway beneath structure'),
 	('R', 'Railroad beneath structure'),
 	('N', 'Feature not a highway or railroad');
+
+	

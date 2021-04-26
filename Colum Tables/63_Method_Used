@@ -11,3 +11,5 @@ INSERT INTO 63_Method_Used (Code, Description) VALUES
 	(3, 'Load and Resistance Factor (LRFR)'),
 	(4, 'Load Testing'),
 	(5, 'No rating analysis performed');
+
+	

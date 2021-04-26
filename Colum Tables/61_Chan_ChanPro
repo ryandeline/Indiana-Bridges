@@ -19,3 +19,6 @@ INSERT INTO 61_Chan_ChaPro (Code, Description) VALUES
 	('2', 'The channel has changed to the extent the bridge is near a state of collapse.'),
 	('1', 'Bridge closed because of channel failure.  Corrective action may put back in light service'),
 	('0', 'Bridge closed because of channel failure.  Replacement necessary.');
+
+
+	
