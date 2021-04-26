@@ -1539,3 +1539,36 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 
 ----- Year of Improvement Cost Estimate  97
 
+### Record and code the year that the costs of work estimated in Item 94 - Bridge Improvement Cost were based upon.  This date and the data provided for Item 94 through Item 96 must be current; that is, Item 97 shall be no more than 8 years old.
+
+### Example
+
+	Year of Cost Estimate 	1994 costs		1994
+							2000 costs		2000
+
+
+----- Border Bridge  98
+
+###Use this item to indicate structures crossing boarders of States.  Code a 5-digit number composed of 2 segments specifying the percent responsibility for improvements to the existing structure when it is on a border with a neighboring State.  Code the first 3 digits with the neighboring State code useing State codes listed in Item 1 - State Code.  Code the fourth and figth digits with the percentatge of total deck area of the existing bridge that the neighboring State is responsible for funding
+
+### 		Segment 	Description 					Length
+			98A 		Neighboring State Code 			3 digits
+			98B 		Percent Resposiblity 			2 digits
+
+### If a neighboring State codes the structure and acceps 100% of the responsibility, but your State still codes a record for the structure, then Item 98B in your State's recod shoould be coded 99 to represent that your State has no responsibility for the structure.
+
+### for the special case of a structure on the border with Canada or Mexico, code the State code value = CAN or MEX respectively.  If structure is not on a border, leave blank.
+
+### Example
+
+	A structure connects your State with New Jersey			34245
+	and New Jersey is responsible for funding
+	45 percent of the future improvement costs.
+
+	A structure connects your State with Mexico				MEX00
+	and Mexico is not responsible for any
+	funding of future improvment costs.
+
+
+----- Boarder Bridge Structure Number  99
+
