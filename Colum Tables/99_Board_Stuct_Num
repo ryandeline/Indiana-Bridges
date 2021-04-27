@@ -1,1 +1,3 @@
-### Code the neighboring State's 15-digit National Bridge Inventory structure number 
+### Code the neighboring State's 15-digit National Bridge Inventory structure number for any structure noted in Item 98 - Bprder Brodge/  Tjos mi,ber ,ist ,atcj exact;u tje meogjbpromg States submitted NBI structure number.  The entire 15-digit field must be accounted for including zeros and blank spaces whether they are leading, trailing, or embedded in the 15-digit field.  If Item 98 is blank, this item is blank.
+
+### In the above example where Mexico (or a neighboring State) has 00% responsibility, and, if there is no NBI Structure Number in that State's inventory file, then the entire 15-digit field shall be coded zeros.

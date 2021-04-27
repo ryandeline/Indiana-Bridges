@@ -71,6 +71,26 @@ INSERT INTO State (Code, State) VALUES
 	(721, 'Puerto Rico'); 
 
 
+----- Inventory Route 5
+
+### The inventory route is a 9-digit code composed of 5 segments.
+
+CREATE SCHEMA Invetory_Route;
+
+CREATE TABLE Invetory_Route.Route (
+	Segment text,
+	Description text,
+	Length int
+);
+
+INSERT INTO Route (Segment, Description, Length) VALUES
+	('5A', 'Record Type', 1),
+	('5B', 'Route Signing Prefix', 1),
+	('5C', 'Designated Level of Service', 1),
+	('5D', 'Route Number', 5),
+	(5E, 'Directional Suffix', 1);
+
+
 ----- Features Intersected 6
 
 ### This iten contains a description of the features intersected by the structure and a critical facility indicator. When Item 5A indicates and "under" record, this item describes the inventory route and/or features under the structure.  There are 25 digits divided into 2 segments.
@@ -107,26 +127,6 @@ INSERT INTO Intersections (Segment, Description, Length) VALUES
 ----- Location 9
 
 ### This item contains a narrative description of the bridge location.  It is recommended dthat the location be keyed to a distinguishable feature of an official highway department map such as road junctions and topographical features. This item shall be left justified without trailing zeros
-
-
------ Inventory Route 5
-
-### The inventory route is a 9-digit code composed of 5 segments.
-
-CREATE SCHEMA Invetory_Route;
-
-CREATE TABLE Invetory_Route.Route (
-	Segment text,
-	Description text,
-	Length int
-);
-
-INSERT INTO Route (Segment, Description, Length) VALUES
-	('5A', 'Record Type', 1),
-	('5B', 'Route Signing Prefix', 1),
-	('5C', 'Designated Level of Service', 1),
-	('5D', 'Route Number', 5),
-	(5E, 'Directional Suffix', 1);
 
 
 ----- Lattitude 16
@@ -1571,4 +1571,46 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 
 
 ----- Boarder Bridge Structure Number  99
+
+### Code the neighboring State's 15-digit National Bridge Inventory structure number for any structure noted in Item 98 - Bprder Brodge/  Tjos mi,ber ,ist ,atcj exact;u tje meogjbpromg States submitted NBI structure number.  The entire 15-digit field must be accounted for including zeros and blank spaces whether they are leading, trailing, or embedded in the 15-digit field.  If Item 98 is blank, this item is blank.
+
+### In the above example where Mexico (or a neighboring State) has 00% responsibility, and, if there is no NBI Structure Number in that State's inventory file, then the entire 15-digit field shall be coded zeros.
+
+
+----- STRAHNET Highway Designation  100
+
+### This item shall be coded for all records in the inventory. For the purposes of this item, the STRAHNET Connectors are considered included in the term STRAHNET.  For teh inventory rout identified in Item 5, indicate STRAHNET highway conditions using one of the folowing codes:
+
+CREATE SCHEMA 100_STRA_Hwy_Des;
+
+CREATE TABLE 100_STRA_Hwy_Des (
+	Code int,
+	Description text
+);
+
+INSTERT INTO 100_STRA_Hwy_Des (Code, Description) VALUES
+	(0, 'The inventory route is not a STRAHNET route.'),
+	(1, 'The inventory route is on an Interstate STRAHNET route.'),
+	(2, 'The inventory route is on a Non-Interstate STRAHNET route.'),
+	(3, 'The inventory route is on a STRAHNET connector route.');
+
+
+----- Parallel Structure Designation  101
+
+### Code this item to indicate situations where separate structures carry the inventory route in opposite directions of travel over the same feature.  The lateral distance between structures has no bearing on the coding of this item.
+
+CREATE SCHEMA 101_Par_Struc_Des;
+
+CREATE TABLE 101_Par_Struc_Des (
+	Code text
+	Description text
+);
+
+INSERT INTO 101_Par_Struc_Des (Code, Description) VALUES
+	('R', 'The righ structure of parallel bridges carrying the roadway in the direction of the inventory. (For STRAHNET highway, this is west to east and south to north).'),
+	('L', 'The left structure of parallel bridges.  This structure carries traffic in the opposite direction.'),
+	('N', 'No parallel structure exists.');
+
+
+----- Direction of Traffic  102
 

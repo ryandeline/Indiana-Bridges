@@ -1,0 +1,14 @@
+### This item shall be coded for all records in the inventory. For the purposes of this item, the STRAHNET Connectors are considered included in the term STRAHNET.  For teh inventory rout identified in Item 5, indicate STRAHNET highway conditions using one of the folowing codes:
+
+CREATE SCHEMA 100_STRA_Hwy_Des;
+
+CREATE TABLE 100_STRA_Hwy_Des (
+	Code int,
+	Description text
+);
+
+INSTERT INTO 100_STRA_Hwy_Des (Code, Description) VALUES
+	(0, 'The inventory route is not a STRAHNET route.'),
+	(1, 'The inventory route is on an Interstate STRAHNET route.'),
+	(2, 'The inventory route is on a Non-Interstate STRAHNET route.'),
+	(3, 'The inventory route is on a STRAHNET connector route.');
