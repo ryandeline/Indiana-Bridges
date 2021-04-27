@@ -1,0 +1,23 @@
+### Use a single-digit code as indicated below to identify the current status of the bridge regarding its vulnerability to scour.  Scour analyses shall be made by hydraulic/geotechnical/structural engineers.  Details on conducting a scour analysis are included in the FHWA Technical Advisory 5140.23 titled, 'Evaluating Scour at Bridges.'  Whenever a rating factor of 4 or below is determined for this item, the rating factor for Item 60 - Substructure may need to be revised to reflect the severity of actual scour and resultant damage to the bridge.  A scour critical bridge is one with abutment or pier foundations which are rated as unstable due to (1) observed scour at the bridge site or (2) a scour potential as determined from a scour evalutaiton study.
+
+CREATE SCHEMA 113_Scr_Crit_Brdg;
+
+CREATE TABLE 113_Scr_Crit_Brdg (
+	Code text,
+	Description text
+);
+
+INSERT INTO 113_Scr_Crit_Brdg (Code, Description) VALUES
+	('N', 'Bridge not over waterway'),
+	('U', 'Bridge with 'unknown' foundation that has not been evaluated for scour.  Since risk cannot be determined, flag for monitoring during flood events and, if appropriate, closure.'),
+	('T', 'Bridge over "tidal" waters that has not been evaluated for scour, but considered low risk.  Bridge will be monitored with regular inspection cycle and with appropriate underwater inspections. ("Unknown" foundations in "tidal" waters should be coded U.'),
+	('9', 'Bridge foundations (including piles) on dry land well above flood water elevations.'),
+	('8', 'Bridge foundations determined to be stable for assessed or calculated scour conditions; calculated scour is above top of footing (Example A)'),
+	('7', 'Countermeasures have been installed to correct a previously existing problem with scour.  Bridge is no longer scour critical.'),
+	('6', 'Scour calculation/evaluation has not been made.  (Use only to describe case where bridge has not yet been evaluated for scour potential.)'),
+	('5', 'Bridge foundations determined to be stable for calculated scour conditions; scour within limits of footing or piles. (Example B)'),
+	('4', 'Bridge foundations determined to be stable for calculated scour conditions; field review indicates action is required to protect exposed foundations from effects of additional erosion and corrosion.'),
+	('3', 'Bridge is scour critical; bridge foundations determined to be unstable for calculated scour conditions:  - Scour within limits of footing or piles (Example B).  - Scour below spread-footing base or pile tips (Example C)'),
+	('2', 'Bridge is scour critical; field review indicates that extensive scour has occurred at bridge foundations.  Immediate action is required to provide scour countermeasures.'),
+	('1', 'Bridge is scour critical; field review indicates that failure of piers/abutments is imminent.  Bridge is closed to traffic.'),
+	('0', 'Bridge is scour crirtical; Bridge has failed and is closed to traffic.');

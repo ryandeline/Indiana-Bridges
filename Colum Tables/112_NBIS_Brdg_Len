@@ -1,0 +1,14 @@
+### Does this structure meet or exceed teh minimum length specified to be designated as a bridge for the National Bridge Inspection Standards purposes?  The following definition of a bridge is to be used:
+
+	A structure including supports erected over a depression or an obstruction, such as wate, highway, or railway, and having a track or passageway for carrying traffic or other moving loads, and having 20 feet between undercopings of abutments or spring lines of arches, or extreme ends of openings for multiple boxes; it may also include multiple pipes, where the clear distance between openings is less than half of the smaller contiguous opening.
+
+	CREATE SCHEMA 112_NBIS_Brdg_Len;
+
+	CREATE TABLE 112_NBIS_Brdg_Len (
+		Code text,
+		Description text
+	);
+
+	INSERT INTO 112_NBIS_Brdg_Len (Code, Desription) VALUES
+		('Y', 'Yes'),
+		('N', 'No');

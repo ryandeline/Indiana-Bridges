@@ -1,0 +1,12 @@
+### The national network for trucks includes most of the interstate system and those portions of Federal-Aid highways identified in the Code of Federal Regulations (23 CFR 658).  The national network for trucks is available for use by commercial motor vehicles of the dimensions and configurations described in these regulatiosn.  For the inventory route identified in Item 5, indicate conditions using one of the following codes:
+
+CREATE SCHEMA 110_Des_Nat_Net;
+
+CREATE TABLE 110_Des_Nat_Net (
+	Code int,
+	Designation text
+);
+
+INSERT INTO 110_Des_Nat_Net (Code, Description) VALUES
+	(0, 'The inventory route is not part of the national network for trucks.'),
+	(1, 'The inventory route is part of the national network for trucks.');

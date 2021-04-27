@@ -1,0 +1,15 @@
+### If Item 38 - Navigation Control has been coded 1, use the codes below to indicate the presence and adequacy of pier or abutment protection features such as fenders, dolphins, etc.  The condition of the protection devices may be a factor in the overal evaluation of Item 60 - Substructure.  If Item 38 - Navigation Control has been coded 0 or N, leave blank to indicate not applicable.
+
+CREATE SCHEMA 111_Pier_Abut_Pro;
+
+CREATE TABLE 111_Pier_Abut_Pro (
+	Code int,
+	Description text
+);
+
+INSERT INTO 111_Pier_Abut_Pro (Code, Description) VALUES
+	(1, 'Navigation protection not required'),
+	(2, 'In place and functioning'),
+	(3, 'In place but in a deteriorated condition'),
+	(4, 'In place but reevaluation of design suggested'),
+	(5, 'Non present but reevaluation suggested');

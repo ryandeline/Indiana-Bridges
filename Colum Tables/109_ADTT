@@ -1,0 +1,7 @@
+### Code a 2-digit percentage that shows the percentage of Item 29 - Average Daily Traffic that is truck truck traffic.  Do not include vans, pickup trucks and other light delivery trucks in this percentage.
+
+### If this information is not available, an estimate which represents the average percentage for the category of road carried by the bridge may be used.  May be left blank if Item 29 - Average Daily Traffic is not greater than 100.
+
+### Example
+			Average Daily Traffic 	7% Trucks 	07
+									12% Trucks 	12
