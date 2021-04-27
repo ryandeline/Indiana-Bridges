@@ -1,0 +1,67 @@
+### Information on the wearing surface and protective system of the bridge deck shall be coded using a 3-digit code composed of 3 segments.
+
+###		Segment 	Description 				Length
+		108A		Type of Wearing Surface 	1 digit
+		108B		Type of Membrane			1 digit
+		108C		Deck Protection				1 digit
+
+### 1st digit - Type of Wearing Surface
+
+CREATE SCHEMA 108A_Wear_Surf;
+
+CREATE TABLE 108A_Wear_Surf (
+	Code text,
+	Description text
+);
+
+INSERT INTO 108A_Wear_Surf (Code, Description) VALUES
+	('1', 'Monolithic Concrete (Concurrently Placed with Structural Deck)'),
+	('2', 'Integral Concrete (Separate non-modified layer of concrete added to structural deck'),
+	('3', 'Latex Concrete or similar aditive'),
+	('4', 'Low Slump Concrete'),
+	('5', 'Epoxy Overlay'),
+	('6', 'Bituminous'),
+	('7', 'Wood or Timber'),
+	('8', 'Gravel'),
+	('9', 'Other'),
+	('0', 'None (no additional concrete thickness or wearing surface is included in the bridge deck)'),
+	('N', 'Not Applicable (applies only to structures with no deck');
+
+### 2nd Digit - Type of Membrane
+
+CREATE SCHEMA 108B_Wear_Surf;
+
+CREATE TABLE 108B_Wear_Surf (
+	Code text,
+	Description text
+);
+
+INSERT INTO 108B_Wear_Surf (Code, Description) VALUES
+	('1', 'Built-up'),
+	('2', 'Performed Fabric'),
+	('3', 'Epoxy'),
+	('8', 'Unkown'),
+	('9', 'Other'),
+	('0', 'None'),
+	('N', 'Not Applicable (applies only to structures with no deck)');
+
+### 3rd Digit - Deck Protection
+
+CREATE SCHEMA 108C_Wear_Surf;
+
+CREATE TABLE 108C_Wear_Surf (
+	Code text,
+	Description text
+);
+
+INSERT INTO 108C_Wear_Surf (Code, Description) VALUES
+	('1', 'Epoxy Coated Reinforcing'),
+	('2', 'Galvanized Reinnforcing'),
+	('3', 'Other Coated Reinforcing'),
+	('4', 'Cathodic Protection'),
+	('6', 'Polymer Impregnated'),
+	('7', 'Internally Sealed'),
+	('8', 'Unkown'),
+	('9', 'Other'),
+	('0', 'None'),
+	('N', 'Not Applicable (applies only to structures with no deck');

@@ -1675,3 +1675,152 @@ INSERT INTO 103A_Temp_Struc_Des (Code, Description) VALUES
 
 ----- Highway System of the Inventory Route  104
 
+### This item is to be coded for all records in the inventory.  For the inventory route identified in Item 5, indicate whether the inventory route is on the National Highway System (NHS) or not on that system.  Initially, this code shall reflect on inventory route on the NHS "Interim System" description in Section 1006(a) of the 1991 ISTEA.  Upon approval of the NHS by Congress, the coding is to reflect the approved NHS.
+
+CREATE SCHEMA 104_Hwy_Sys;
+
+CREATE TABLE 104_Hwy_Sys (
+	Code int,
+	Description text
+);
+
+INSERT INTO 104_Hwy_Sys (Code, Description) VALUES
+	(0, 'Inventory Route is not on the NHS'),
+	(1, 'Inventory Route is on the NHS');
+
+
+----- Federal Lands Highway  105
+
+### Structures owned by State and local jurisdictions on roads which lead to an traverse through federal lands sometimes require special coded unique identification because they are eligible to recieve funding from the Federal Lands Highway Program.
+
+CREATE SCHEMA 105_Fed_Land_Hwy;
+
+CREATE TABLE 105_Fed_Land_Hwy (
+	Code int,
+	Description text
+);
+
+INSERT INTO 105_Fed_Land_Hwy (Code, Description) VALUES
+	(0, 'Not Applicable'),
+	(1, 'Indian Reservation Road (IRR)'),
+	(2, 'Forest Highway (FH)'),
+	(3, 'Land Management Highway System (LMHS)'),
+	(4, 'Both IRR and FH'),
+	(5, 'Both IRR and LMHS'),
+	(6, 'Both FH and LMHS'),
+	(9, 'Combined IRR, FH, and LMHS');
+
+
+----- Year Reconstructed  106
+
+### Record and code the year of the most recent reconstruction of the structure.  Code all 4 digits of the latest year in which reconstruction of the structure was completed.  If there has been no reconstrution code 0000.
+
+### For a bridge to be defined as reconstructed, the type of work performed, whether or not it meets current minimum standards, must have been eligible for funding under any of the Federal-aid funding categories.  The eligiblity criteria would apply to the work performed regardless of whether all State or local funds or Federal-aid funds were used.
+
+### Some types of eligible work not to be considered as reconstruction are below:
+
+	-	Safety feature replacement or upgrading (for example, bridge rail, approach guardrail or impact attenuators).
+	-	Painting of structural steel.
+	-	Overlay of bridge deck as part of a larger highway surfacing project (for example, overlay carried across bridge deck for surface uniformity without additional bridge work).
+	-	Utility work.
+	-	Emergency repair to restore structural integrity to the previous status following an accident.
+	-	Retrofitting to correct a deficiency which does not substantially alter physical geometry or increase the load-carrying capacity.
+	-	Work performed to keep a bridge operational while plans for complete rehabilitation or replacement are under preparation (for example, adding a substructure element or extra girder).
+
+### Example
+		Reconstruction completed 1970			1970
+
+
+----- Deck Structure Type  107
+
+### Record the type of deck system on the bridge.  If more than one type of deck system is on the bridge, code the most predominant.  Code N for a filled culvert or arch with the approach roadway section carried accross the structure.
+
+CREATE SCHEMA 107_Deck_Struc_Type;
+
+CREATE TABLE 107_Deck_Struc_Type (
+	Code text,
+	Description text
+);
+
+INSERT INTO 107_Deck_Struc_Type (Code, Description) VALUES
+	('1', 'Concrete Cast-in-Place')
+	('2', 'Concrete Precast Panels'),
+	('3', 'Open Grating'),
+	('4', 'Closed Grating'),
+	('5', 'Steel plate (includes orthotropic)'),
+	('6', 'Corrugated Steel'),
+	('7', 'Aluminum'),
+	('8', 'Wood or Timber'),
+	('9', 'Other'),
+	('N', 'Not Applicable');
+
+
+----- Wearing Surface/Protective System  108
+
+### Information on the wearing surface and protective system of the bridge deck shall be coded using a 3-digit code composed of 3 segments.
+
+###		Segment 	Description 				Length
+		108A		Type of Wearing Surface 	1 digit
+		108B		Type of Membrane			1 digit
+		108C		Deck Protection				1 digit
+
+### 1st digit - Type of Wearing Surface
+
+CREATE SCHEMA 108A_Wear_Surf;
+
+CREATE TABLE 108A_Wear_Surf (
+	Code text,
+	Description text
+);
+
+INSERT INTO 108A_Wear_Surf (Code, Description) VALUES
+	('1', 'Monolithic Concrete (Concurrently Placed with Structural Deck)'),
+	('2', 'Integral Concrete (Separate non-modified layer of concrete added to structural deck'),
+	('3', 'Latex Concrete or similar aditive'),
+	('4', 'Low Slump Concrete'),
+	('5', 'Epoxy Overlay'),
+	('6', 'Bituminous'),
+	('7', 'Wood or Timber'),
+	('8', 'Gravel'),
+	('9', 'Other'),
+	('0', 'None (no additional concrete thickness or wearing surface is included in the bridge deck)'),
+	('N', 'Not Applicable (applies only to structures with no deck');
+
+### 2nd Digit - Type of Membrane
+
+CREATE SCHEMA 108B_Wear_Surf;
+
+CREATE TABLE 108B_Wear_Surf (
+	Code text,
+	Description text
+);
+
+INSERT INTO 108B_Wear_Surf (Code, Description) VALUES
+	('1', 'Built-up'),
+	('2', 'Performed Fabric'),
+	('3', 'Epoxy'),
+	('8', 'Unkown'),
+	('9', 'Other'),
+	('0', 'None'),
+	('N', 'Not Applicable (applies only to structures with no deck)');
+
+### 3rd Digit - Deck Protection
+
+CREATE SCHEMA 108C_Wear_Surf;
+
+CREATE TABLE 108C_Wear_Surf (
+	Code text,
+	Description text
+);
+
+INSERT INTO 108C_Wear_Surf (Code, Description) VALUES
+	('1', 'Epoxy Coated Reinforcing'),
+	('2', 'Galvanized Reinnforcing'),
+	('3', 'Other Coated Reinforcing'),
+	('4', 'Cathodic Protection'),
+	('6', 'Polymer Impregnated'),
+	('7', 'Internally Sealed'),
+	('8', 'Unkown'),
+	('9', 'Other'),
+	('0', 'None'),
+	('N', 'Not Applicable (applies only to structures with no deck');

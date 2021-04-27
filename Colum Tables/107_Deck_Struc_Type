@@ -1,0 +1,20 @@
+### Record the type of deck system on the bridge.  If more than one type of deck system is on the bridge, code the most predominant.  Code N for a filled culvert or arch with the approach roadway section carried accross the structure.
+
+CREATE SCHEMA 107_Deck_Struc_Type;
+
+CREATE TABLE 107_Deck_Struc_Type (
+	Code text,
+	Description text
+);
+
+INSERT INTO 107_Deck_Struc_Type (Code, Description) VALUES
+	('1', 'Concrete Cast-in-Place')
+	('2', 'Concrete Precast Panels'),
+	('3', 'Open Grating'),
+	('4', 'Closed Grating'),
+	('5', 'Steel plate (includes orthotropic)'),
+	('6', 'Corrugated Steel'),
+	('7', 'Aluminum'),
+	('8', 'Wood or Timber'),
+	('9', 'Other'),
+	('N', 'Not Applicable');

@@ -1,0 +1,18 @@
+### Structures owned by State and local jurisdictions on roads which lead to an traverse through federal lands sometimes require special coded unique identification because they are eligible to recieve funding from the Federal Lands Highway Program.
+
+CREATE SCHEMA 105_Fed_Land_Hwy;
+
+CREATE TABLE 105_Fed_Land_Hwy (
+	Code int,
+	Description text
+);
+
+INSERT INTO 105_Fed_Land_Hwy (Code, Description) VALUES
+	(0, 'Not Applicable'),
+	(1, 'Indian Reservation Road (IRR)'),
+	(2, 'Forest Highway (FH)'),
+	(3, 'Land Management Highway System (LMHS)'),
+	(4, 'Both IRR and FH'),
+	(5, 'Both IRR and LMHS'),
+	(6, 'Both FH and LMHS'),
+	(9, 'Combined IRR, FH, and LMHS');

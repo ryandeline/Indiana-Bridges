@@ -1,0 +1,12 @@
+### This item is to be coded for all records in the inventory.  For the inventory route identified in Item 5, indicate whether the inventory route is on the National Highway System (NHS) or not on that system.  Initially, this code shall reflect on inventory route on the NHS "Interim System" description in Section 1006(a) of the 1991 ISTEA.  Upon approval of the NHS by Congress, the coding is to reflect the approved NHS.
+
+CREATE SCHEMA 104_Hwy_Sys;
+
+CREATE TABLE 104_Hwy_Sys (
+	Code int,
+	Description text
+);
+
+INSERT INTO 104_Hwy_Sys (Code, Description) VALUES
+	(0, 'Inventory Route is not on the NHS'),
+	(1, 'Inventory Route is on the NHS');
