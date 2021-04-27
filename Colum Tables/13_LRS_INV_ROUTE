@@ -1,13 +1,23 @@
 ### If Item 12 - Base Highway Network has been coded 1, the information to be recorded for this item is inventory route for the State's linear referencing system (LRS). This item is a 12 digit code composed of 2 segments
 
-CREATE SCHEMA LRS_INV_ROUTE;
+CREATE SCHEMA 13_LRS_INV_ROUTE;
 
-CREATE TABLE LRS_INV_ROUTE.LRS_ROUTE (
+CREATE TABLE 13_LRS_INV_ROUTE (
 	Segment text,
 	Description text,
 	Length text
 );
 
-INSERT INPUT LRS_ROUTE (Segment, Descriptioin, Length) VALUES
+INSERT INPUT 13_LRS_INV_ROUTE (Segment, Descriptioin, Length) VALUES
 	('13A', 'LRS Inventory Route', '10 Digits'),
 	('13B', 'Subroute Number', '2 Digits');
+
+### The LRS inventory route and subroute numbers to be reported in this item must correspond to the LRS inventory route and subroute numbers reported by the State for the HPMS.  The LRS inventory route number is coded in teh tem positions of segment 13A, righ justified and zero filled.  The subroute number, if it exists, is coded in the two positions of segment 13B, righjustified and zero filled.
+
+### The LRS inventory route number can be alphanumeric, but must not contain blanks.  The LRS inventory route number is not necessarily the same as that posted along the roadway, but is a number used to uniquely identify a route within at least a county and perhaps throughout the State.
+
+### The subroute number is a number that uniquely identifies postions of an inventory route sections where duplicate kilometeropints occur.  These subroute numbers, if they exist, are identified in the state's HPMS-LRS records.  If there is no subroute number, code 00 in this segment.
+
+### Example
+			Inventory Route 2775, Subroute Number 0		000000277500
+			Inventory Route 2775, Subroute Number 3		000000277503 

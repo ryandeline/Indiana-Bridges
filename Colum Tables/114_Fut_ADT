@@ -1,0 +1,8 @@
+### Code for all bridges the forcasted average daily traffic (ADT) for the inventory route identified in Item 5.  This shall be projected at least 17 years but no more than 22 years for the year of inspection.  The intent is to provide a basis for a 20-year forecast.  This item may be updated anytime, but must be updated when the forecast falls below th 17-year limit.  If planning data is not available, use the best estimate based on site familiarity.
+
+### The future ADT must be compatible with the other items coded for the bridge.  For example, parallel bridges with an open median are coded as follows: if Item 28 - Lanes on and Under the Structure and Item 51 - Bridge Roadway Width, Curb-to-Curb are coded for each bridge separately, then the future ADT must be coded for each bridge separately (not the total for the route).
+
+### Example
+			Future ADT		540			000540
+							15,600		015600
+							240,000		240000

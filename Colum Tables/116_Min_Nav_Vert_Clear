@@ -1,0 +1,5 @@
+### Record and code as a 4-digit number truncated to the tenth of a meter (with and assumed decimal point), the minimum vertical clearance imposed at the site as measured above a datum that is specified on a navigation permit issued by a control agency.  Code this item only for vertical lift bridges in the dropped or closed position, otherwise leave blank.
+
+### Examples
+			Vertical Clearance 	10.67 meters	0106
+								24.22 meters	0242

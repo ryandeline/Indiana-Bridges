@@ -1,0 +1,11 @@
+### Counties shall be identified using the Federal information Processing Standards (FIPS) codes given in the current version of the Census of Population and Housing - Geographic Identification Code Scheme.
+
+CREATE SCHEMA 3_Cnty_Code;
+
+CREATE TABLE 3_Cnty_Code (
+	Code int,
+	County text
+);
+
+INSERT INTO 3_Cnty_Code (Code, County) VALUES
+	()

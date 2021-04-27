@@ -14,3 +14,114 @@ INSERT INTO Route (Segment, Description, Length) VALUES
 	('5C', 'Designated Level of Service', 1),
 	('5D', 'Route Number', 5),
 	(5E, 'Directional Suffix', 1);
+
+### Item 5A Record Type
+
+### There are two types of National Bridge Inventory records: 'on' and 'under'. Code the first digit (leftmost) using one of the following codes:
+
+CREATE SCHEMA 5A_Rec_Type;
+
+CREATE TABLE 5A_Rec_Type (
+	Code text,
+	Description text
+);
+
+INSERT INTO 5A_Rec_Type (Code, Description) VALUES
+	('1', 'Route Carried "on" the structure'),
+	('2', 'Single route goes "under" teh structure'),
+	('A', 'First route under structure'),
+	('B', 'Second route under the structure'),
+	('C', 'Third route under the structure'),
+	('D', 'Fourth route under the structure'),
+	('E', 'Fifth route under the structure'),
+	('F', 'Sixth route under the structure'),
+	('G', 'Seventh route under the structure'),
+	('H', 'Eigth route under the structure'),
+	('I', 'Nineth route under the structure'),
+	('J', 'Tenth route under the structure'),
+	('K', 'Eleventh route under the structure'),
+	('L', 'Twelth route under the structure'),
+	('M', 'Thirteenth route under the structure'),
+	('N', 'Fourteenth route under the structure'),
+	('O', 'Fifthteenth route under the structure'),
+	('P', 'Sixteenth route under the structure'),
+	('Q', 'Seventeenth route under the structure'),
+	('R', 'Eighteenth route under the structure'),
+	('S', 'Nineteenth route under the structure'),
+	('T', 'Twentieth route under the structure'),
+	('U', 'Twenty First route under the structure'),
+	('V', 'Twenty Second route under the structure'),
+	('W', 'Twenty Third route under the structure'),
+	('X', 'Twenty Fourth route under the structure'),
+	('Y', 'Twenty Fifth route under the structure'),
+	('Z', 'Twenty Sixth route under the structure');
+
+### 'On' signifies that the inventory route is carried 'on' the structure.  Each bridge structure carrying highway traffic must have a record identified with a type code = 1 (numeric).  All of the NBI data items must be coded, unless specifically excepted, with respect to the structure and the inventory route 'on' it.
+
+### 'Under' signifies that the inventory route goes 'under' the structure.  If an inventory route beneath the structure is a Federal-Aid highway, is a STRAHNET route of connector or is otherwise important, a record must be codedto identify it.  The type code must be 2 or and alphabetic letter A through Z.  Code 2 for a single route under the structure.  If 1 or more routes go under a structure on separate roadways, the code of 2 shall not be used.  Code A, B, C, D, etc. consecutively for multiple routes on separate roadways under the same structure.  STRAHNET routes shall be listed first.  When this item is coded 2 or A through Z, only the following items must be coded: Items 1, 3-13, 16, 17, 19, 20, 26-30, 42, 43, 47-49, 100-104, 109 and 110.  All other items may remain blank.
+
+### 5B Route Signing Prefix
+
+### In the second position, identify the route signing prefix for the inventory route using one of the following codes.
+
+CREATE SCHEMA 5B_RT_Sign_Pref;
+
+CREATE TABLE 5B_RT_Sign_Pref (
+	Code int,
+	Description text
+);
+
+INSERT INTO 5B_RT_Sign_Pref (Code, Description) VALUES
+	(1, 'Interstate Highway'),
+	(2, 'U.S. Numbered Highway'),
+	(3, 'State Highway'),
+	(4, 'County Highway'),
+	(5, 'City Street'),
+	(6, 'Federal Lands Road'),
+	(7, 'State Lands Road'),
+	(8, 'Other - include toll roads not otherwise indicated or identified above');
+
+### When 2 or more routes are concurrent, the highest class of route will be used.  The hierarchy is in the order listed above.
+
+### 5C Designation Level of Service
+
+### In the third position, identify the designated level of service for the inventory route using one of the following codes:
+
+CREATE SCHEMA 5C_Des_LOS;
+
+CREATE TABLE 5C_Des_LOS (
+	Code int,
+	Description text,
+);
+
+INSERT INTO 5C_Des_LOS (Code, Description) VALUES
+	(0, 'None of the below'),
+	(1, 'Mainline'),
+	(2, 'Alternate'),
+	(3, 'Bypass'),
+	(4, 'Spur'),
+	(6, 'Business'),
+	(7, 'Ramp; Wye, Connector, etc.'),
+	(8, 'Service and/or unclassified frontage road');
+
+### 5D Route Number
+
+### Code the route number of the inventory route in the next 5 positions.  This value shall be right justified in the field with leading zeros filled in.
+
+### 5E Directional Suffix
+
+### In the last position, code the directional suffix to the route number of the inventory route when it is part of the route nuber, using one of the following codes:
+
+CREATE SCHEMA 5E_Dir_Suff;
+
+CREATE TABLE 5E_Dir_Suff (
+	Code int,
+	Description
+);
+
+INSERT INTO 5E_Dir_Suff (Code, Description) VALUES
+	(0, 'Not applicable'),
+	(1, 'North'),
+	(2, 'East'),
+	(3, 'South'),
+	(4, 'West');

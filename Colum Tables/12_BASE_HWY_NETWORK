@@ -1,12 +1,12 @@
 ### This item is to be coded for all records in the invetory. The Base Highway Network includes the through lane (mainline) portions of the NHS, rural/urban principal arterial system and rural minor arterial system.  Ramps, frontage roads and other roadways are not included in the Base Network.  For the inventory route identified in Item 5 - Inventory Route, indicate whether the inventory route is on the Base Hightway Network or not on that netwrok.  Use one of the following codes.
 
-CREATE SCHEMA Base_Hwy_Network;
+CREATE SCHEMA 12_Base_Hwy_Net;
 
-CREATE TABLE Base_Hwy_Network.Base_Network (
+CREATE TABLE 12_Base_Hwy_Net (
 	Code int,
 	Description text
 );
 
-INSERT INTO Base_Network (Code, Description) VALUES
+INSERT INTO 12_Base_Hwy_Net (Code, Description) VALUES
 	(0, 'Invetory Route is not on the Base Network'),
 	(1, 'Invetory Route is on the Base Network');
