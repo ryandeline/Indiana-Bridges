@@ -1602,7 +1602,7 @@ INSTERT INTO 100_STRA_Hwy_Des (Code, Description) VALUES
 CREATE SCHEMA 101_Par_Struc_Des;
 
 CREATE TABLE 101_Par_Struc_Des (
-	Code text
+	Code text,
 	Description text
 );
 
@@ -1613,4 +1613,65 @@ INSERT INTO 101_Par_Struc_Des (Code, Description) VALUES
 
 
 ----- Direction of Traffic  102
+
+### Code the direction of traffic of the inventory route identified in Item 5 as a 1-digit number using one of the codes below.  This item must be compatible with other traffic-related items such as Item 28A Lanes on the Structure, Item 29 - Average Daily Traffic, Item 47 - Total Horizontal Clearance and Item 51 - Bridge Roadway Width, Curb-to-Curb.
+
+CREATE SCHEMA 102_Dir_Traff;
+
+CREATE TABLE 102_Dir_Traff (
+	Code int,
+	Description text
+);
+
+INSERT INTO 102_Dir_Traff (Code, Description) VALUES
+	(0, 'Highway traffic not carried'),
+	(1, '1-way traffic'),
+	(2, '2-way traffic'),
+	(3, 'One lane bridge for 2-way traffic');
+
+
+----- Temporary Structure Designation  103
+
+### Code this item to indicate situations where temporary structures or conditions exist.  This item should be blank if no applicable.
+
+CREATE SCHEMA 103_Temp_Struc_Des;
+
+CREATE TABLE 103_Temp_Struc_Des (
+	Code text,
+	Description text
+);
+
+INSERT INTO 103_Temp_Struc_Des (Code, Description) VALUES
+	('T', 'Temporary Sturcture(s) or conditions exist.');
+
+### Temporary structures(s) or conditions are those which are required to facilitate traffic flow.  This may occur either before or during the modification or replacement of a structure found to be deficient.  Such conditions include the following:
+
+	!	Bridges shored up, including additional temporary supports.
+	!	Temporary repairs made to keep a bridge open.
+	!	Temporary structures, temporary runarounds or bypasses.
+	!	Other temporary measures, such as barricaded traffic lanes to keep the bridge open.
+
+### Any repaired structure or replacement structure which is expected to remain in place without further project activity, other than maintenance, for a significant period of time shall not be considered temporary.  Under such conditions, that structure, regardless of its type, shall be considered the minimum adequate to remain in place and evaluated accordingly.
+
+### If this item is coded T, then all data recoreded for the structure shall be for the condition of the structure without temorary measures, except for the following items which shall be for the temporary structure:
+
+CREATE SCHEMA 103A_Temp_Struc_Des;
+
+CREATE TABLE 103A_Temp_Struc_Des (
+	Code int,
+	Designation text
+);
+
+INSERT INTO 103A_Temp_Struc_Des (Code, Description) VALUES
+	(10, 'Invetory Route, Minimum Vertical Clearance'),
+	(41, 'Structure Open, Posted, or Closed to Traffic'),
+	(47, 'Inventory Route, Total Horizontal Clearance'),
+	(53, 'Minimum Vertical Clearance Over Bridge Roadway').
+	(54, 'Minimum Vertical Underclearance'),
+	(55, 'Minimum Lateral Underclearance on Right'),
+	(56, 'Minimum Lateral Underclearance on Left'),
+	(70, 'Bridge Posting');
+
+
+----- Highway System of the Inventory Route  104
 

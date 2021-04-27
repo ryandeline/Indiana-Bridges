@@ -1,0 +1,14 @@
+### Code the direction of traffic of the inventory route identified in Item 5 as a 1-digit number using one of the codes below.  This item must be compatible with other traffic-related items such as Item 28A Lanes on the Structure, Item 29 - Average Daily Traffic, Item 47 - Total Horizontal Clearance and Item 51 - Bridge Roadway Width, Curb-to-Curb.
+
+CREATE SCHEMA 102_Dir_Traff;
+
+CREATE TABLE 102_Dir_Traff (
+	Code int,
+	Description text
+);
+
+INSERT INTO 102_Dir_Traff (Code, Description) VALUES
+	(0, 'Highway traffic not carried'),
+	(1, '1-way traffic'),
+	(2, '2-way traffic'),
+	(3, 'One lane bridge for 2-way traffic');
