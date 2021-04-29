@@ -5,7 +5,7 @@
 
 ###### Beging Table Description ######
 
------ State Code 1  - 3 Digits
+----- (1) State Code  - 3 Digits
 
 ### The first 2 ints in the Code are teh Federal Information Processing Standards (FIPS)
 ### code for States, and the third int is the FHWA region code.
@@ -13,8 +13,8 @@
 CREATE SCHEMA State_Code;
 
 CREATE TABLE State_Code.State (
-	Code	int,
-	State	text
+	Code int,
+	State text
 );
 
 INSERT INTO State (Code, State) VALUES 
@@ -71,12 +71,12 @@ INSERT INTO State (Code, State) VALUES
 	(721, 'Puerto Rico'); 
 
 
------ Highway Agency District  2 - 2 Digits
+----- (2) Highway Agency District - 2 Digits
 
 ### The highway agency district (State or Federal) in which the bridge is located shall be represended by a 2-digit code.  Existing district numbers shall be used where districts are identified by number.  Where districts are identified by name, a code number shall be assigned based on an alphabetical or organizational listing of the districts.
 
 
------ County (Parish) Code  3  - 3 Digits
+----- (3) County/Parish Code (INDIANA) - 3 Digits
 
 ### Counties shall be identified using the Federal information Processing Standards (FIPS) codes given in the current version of the Census of Population and Housing - Geographic Identification Code Scheme.
 
@@ -88,7 +88,47 @@ CREATE TABLE 3_Cnty_Code (
 );
 
 INSERT INTO 3_Cnty_Code (Code, County) VALUES
+	(001, 'Adams County'),
+	(003, 'Allen County'),
+	(005, 'Bartholomew County'),
+	(007, 'Benton County'),
+	(009, 'Blackford County'),
+	(011, 'Boone County'),
+	(013, 'Brown county'),
+	(015, 'Carroll County'),
+	(017, 'Cass County'),
+	(019, 'Clark County'),
+	(021, 'Clay County'),
+	(023, 'Clinton County'),
+	(025, 'Crawford County'),
+	(027, 'Daviess County'),
+	(029, 'Dearborn County'),
+	(031, 'Decatur County'),
+	(033, 'DeKalb County'),
+	(035, 'Delaware County'),
+	(037, 'Dubois County'),
+	(039, 'Elkhart County'),
+	(041, 'Fayetter County'),
+	(043, 'Floyd County'),
+	(045, 'Fountain County'),
+	(047, 'Franklin County'),
+	(049, 'Fulton County'),
+	(051, 'Gibson County'),
+	(053, 'Grant County'),
+	(055, 'Greene County'),
+	(057, 'Hamilton County'),
+	(059, 'Hancock County'),
+	(061, 'Harrison County'),
+	(063, 'Hendricks County'),
+	(065, 'Henry County'),
+	(067, 'Howard County'),
+	(069, 'Huntington County'),
+	(071, 'Jackson County'),
+	(073, 'Jasper County'),
+	(075, 'Jay County'),
+	(077, 'Jefferson County'),
 	()
+
 
 
 ----- Place Code  4  - 5 Digits
