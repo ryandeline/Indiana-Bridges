@@ -10,14 +10,14 @@
 ### The first 2 ints in the Code are teh Federal Information Processing Standards (FIPS)
 ### code for States, and the third int is the FHWA region code.
 
-CREATE SCHEMA State_Code;
+CREATE SCHEMA 1_State_Code;
 
-CREATE TABLE State_Code.State (
+CREATE TABLE 1_State_Code (
 	Code int,
 	State text
 );
 
-INSERT INTO State (Code, State) VALUES 
+INSERT INTO 1_State_Code (Code, State) VALUES 
 	(014, 'Alabama'),
 	(020, 'Alaska'),
 	(049, 'Arizona'),
@@ -63,7 +63,7 @@ INSERT INTO State (Code, State) VALUES
 	(486, 'Texas'),
 	(498, 'Utah'),
 	(501, 'Vermont'),
-	(513, 'Washington'),
+	(513, 'Virginia'),
 	(530, 'Washington'),
 	(543, 'West Virginia'),
 	(555, 'Wisconsin'),
