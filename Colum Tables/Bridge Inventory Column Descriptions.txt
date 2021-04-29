@@ -127,16 +127,70 @@ INSERT INTO 3_Cnty_Code (Code, County) VALUES
 	(073, 'Jasper County'),
 	(075, 'Jay County'),
 	(077, 'Jefferson County'),
-	()
+	(079, 'Jennings County'),
+	(081, 'Johnson County'),
+	(083, 'Knox County'),
+	(085, 'Kosciusko County'),
+	(087, 'LaGrange County'),
+	(089, 'Lake County'),
+	(091, 'LaPorte County'),
+	(093, 'Lawrence County'),
+	(095, 'Madison Coutny'),
+	(097, 'Marion County'),
+	(099, 'Marshll County'),
+	(101, 'Martin County'),
+	(103, 'Miami County'),
+	(105, 'Monroe County'),
+	(107, 'Montgomery County'),
+	(109, 'Morgan County'),
+	(111, 'Newton County'),
+	(113, 'Noble County'),
+	(115, 'Ohio County'),
+	(117, 'Orange County'),
+	(119, 'Owen County'),
+	(121, 'Parke County'),
+	(123, 'Perry County'),
+	(125, 'Pike County'),
+	(127, 'Porter County'),
+	(129, 'Posey County'),
+	(131, 'Pulaski County'),
+	(133, 'Putnam County'),
+	(135, 'Randolph County'),
+	(137, 'Ripley County'),
+	(139, 'Rush County'),
+	(141, 'St. Joseph County'),
+	(143, 'Scott County'),
+	(145, 'Shelby County'),
+	(147, 'Spencer County'),
+	(149, 'Starke County'),
+	(151, 'Steuben County'),
+	(153, 'Sullivan County'),
+	(155, 'Switzerland County'),
+	(157, 'Tippecanoe County'),
+	(159, 'Tipton County'),
+	(161, 'Union County'),
+	(163, 'Vanderburgh County'),
+	(165, 'Vermillion County'),
+	(167, 'Vigo County'),
+	(169, 'Wabash County'),
+	(171, 'Warren County'),
+	(173, 'Warrick County'),
+	(175, 'Washington County'),
+	(177, 'Wayne County'),
+	(179, 'Wells County'),
+	(181, 'White County'),
+	(183, 'Whitley County');
 
 
 
------ Place Code  4  - 5 Digits
+----- (4) Place Code - 5 Digits
 
 ### City, towns, townships, villages, and other census-designated places shall be identified using the Federal Information Processing Standards (FIPS) codes given in the current version of the Census of Population and Housing - Geographic Identification Scheme.  If there is no FIPS place code then code all zeros.
 
+### This Field is best generated from ArcMap.
 
------ Inventory Route 5  - 9 Digits
+
+----- (5) Inventory Route - 9 Digits
 
 ### The inventory route is a 9-digit code composed of 5 segments.
 
@@ -261,7 +315,7 @@ INSERT INTO 5E_Dir_Suff (Code, Description) VALUES
 	(4, 'West');
 
 
------ Features Intersected 6 - 25 Digits
+----- (6) Features Intersected - 25 Digits
 
 ### This iten contains a description of the features intersected by the structure and a critical facility indicator. When Item 5A indicates and "under" record, this item describes the inventory route and/or features under the structure.  There are 25 digits divided into 2 segments.
 
@@ -282,12 +336,12 @@ INSERT INTO Intersections (Segment, Description, Length) VALUES
 ### The information to be recorded for this item in the first 24 digits shall be the name or names of the features intersected by the structure.  When one of the features intersected is another highway, the signed number or name of the highway shall apprear first (leftmost) in the field.  The names of any other features shall follow, separated by a semicolon or a comma.  Parentheses shall be used to provide a s second identification of the same feature.  Abbreviations may be used where necessary, but an effort shall be made to keep them meaningful.  The data in this segment shall be left justified in the first 24 positions without trailing zeros.
 
 
------ Facility Carried by Structure 7  - 18 Digits
+----- (7) Facility Carried by Structure - 18 Digits
 
 ### The facility being carried by the structure shall be recorded and coded. In all situations this iten describes the us "on" the structure. This item shall be left Justified without trailing zeros.
 
 
------ Structure Number 8  - 15 Digits
+----- (8) Structure Number - 15 Digits
 
 ### It is required that the official structure number be recorded. It is not necessary to code this number according to and arbitrary national standard. Each agency should code the structure number according to its own internal processing procedures. When recording and coding for this item and following items, any structure or structures with a closed median should be considered as one structure, not two. Closed medians may have either a mountabloe or non-mountable curds or barriers.
 
@@ -296,17 +350,17 @@ INSERT INTO Intersections (Segment, Description, Length) VALUES
 ### The identical structure number must appear on the 'on' and all 'under' records associated with a particular structure.  (Refer to Item 5 - Inventory Route)
 
 
------ Location 9  - 25 Digits
+----- (9) Location - 25 Digits
 
 ### This item contains a narrative description of the bridge location.  It is recommended dthat the location be keyed to a distinguishable feature of an official highway department map such as road junctions and topographical features. This item shall be left justified without trailing zeros.
 
 
------ Inventory Route, Minimum Vertical Clearance  10  - 8 Digits
+----- (10) Inventory Route, Minimum Vertical Clearance - 8 Digits
 
 ### Code the minimum vertical clearance over the inventory route identified in Item 5, whether the route is on the structure or under the structure. The minimum clearance for 3 meter width of the pavement of traveled part of the roadway where the clearance is the greatest shall be recorded and coded as a 4 digit number truncated to the hundredth of a meter - with an assumed decimal point. For structures having multiple openings, clearance for each opening shall be recorded, but only the greatest of the 'minimum clearances' for the two or more openings shall be coded regardless of the direction of travel. This would be the practical maximum clearance. When no restriction exists or when the restriction is 30 meters or greater, code 9999. Coding of actual clearances between 30.0 and 99.99 meters to and exact measurment is optional.
 
 
------ Kilometerpoint  11  - 7 Digits
+----- (11) Kilometerpoint - 7 Digits
 
 ### The linear referencing system (LRS) kilometerpoint is used to establish the location of the bridge on the Bse Highway Network - see item 12. It must be from the same LRS Inventory Route and kilometerpoint system as reported in the Highway Performance Monitoring System (HPMS). The kilometerpoint coded in this item directly relates to item 13 - LRS Invetory Route, Subroute Number
 
@@ -319,7 +373,7 @@ INSERT INTO Intersections (Segment, Description, Length) VALUES
 ### Example  Kilometerpoint is 130.34 = 0130340
 
 
------ Base Highway Network  12  - 1 Digit
+----- (12) Base Highway Network - 1 Digit
 
 ### This item is to be coded for all records in the invetory. The Base Highway Network includes the through lane (mainline) portions of the NHS, rural/urban principal arterial system and rural minor arterial system.  Ramps, frontage roads and other roadways are not included in the Base Network.  For the inventory route identified in Item 5 - Inventory Route, indicate whether the inventory route is on the Base Hightway Network or not on that netwrok.  Use one of the following codes.
 
@@ -335,21 +389,9 @@ INSERT INTO 12_Base_Hwy_Net (Code, Description) VALUES
 	(1, 'Invetory Route is on the Base Network');
 
 
------ LRS Inventory Route, Subroute Number  13  - 12 Digits
+----- (13) LRS Inventory Route, Subroute Number - 12 Digits
 
 ### If Item 12 - Base Highway Network has been coded 1, the information to be recorded for this item is inventory route for the State's linear referencing system (LRS). This item is a 12 digit code composed of 2 segments
-
-CREATE SCHEMA 13_LRS_INV_ROUTE;
-
-CREATE TABLE 13_LRS_INV_ROUTE (
-	Segment text,
-	Description text,
-	Length text
-);
-
-INSERT INPUT 13_LRS_INV_ROUTE (Segment, Descriptioin, Length) VALUES
-	('13A', 'LRS Inventory Route', '10 Digits'),
-	('13B', 'Subroute Number', '2 Digits');
 
 ### The LRS inventory route and subroute numbers to be reported in this item must correspond to the LRS inventory route and subroute numbers reported by the State for the HPMS.  The LRS inventory route number is coded in teh tem positions of segment 13A, righ justified and zero filled.  The subroute number, if it exists, is coded in the two positions of segment 13B, righjustified and zero filled.
 
@@ -362,7 +404,7 @@ INSERT INPUT 13_LRS_INV_ROUTE (Segment, Descriptioin, Length) VALUES
 			Inventory Route 2775, Subroute Number 3		000000277503 
 
 
------ Lattitude 16  - 8 Digits
+----- (16) Lattitude - 8 Digits
 
 ### For bridges on STRAHNET and STRAHNET Connector highways and on the NHS, record and code the latitude of each in degrees, minuts and seconds to the nearest hundredth of a second (with an assumed decimal point). The point of the coordinate may be the beginning of the bridge in the direction of the inventory or any other consisten point of reference on the bridge which is compatible with the LRS. If the bridge is not on a STRAHNET highway or the NHS, a code of all zeros is acceptable, but it is preferable to code the latitiude if abailable.
 
@@ -373,7 +415,7 @@ INSERT INPUT 13_LRS_INV_ROUTE (Segment, Descriptioin, Length) VALUES
 ###					 35°27'18.55" (GPS Reading)		   35271855
 
 
------ Longitude 17  - 9 Digits
+----- (17) Longitude - 9 Digits
 
 ### For bridges on STRAHNET and STRAHNET Connector highways and on the NHS, record and code the latitude of each in degrees, minuts and seconds to the nearest hundredth of a second (with an assumed decimal point). The point of the coordinate may be the beginning of the bridge in the direction of the inventory or any other consisten point of reference on the bridge which is compatible with the LRS. If the bridge is not on a STRAHNET highway or the NHS, a code of all zeros is acceptable, but it is preferable to code the latitiude if abailable.
 
@@ -384,7 +426,7 @@ INSERT INPUT 13_LRS_INV_ROUTE (Segment, Descriptioin, Length) VALUES
 							81°5' 50.65"	(GPS Reading)		081055065
 
 
------ Bypass Detour Length 19  - 3 Digits
+----- (19) Bypass Detour Length - 3 Digits
 
 ### Indicate the actual length to the nearest kilometer of the detour length.  The detour length should represent the total additional travel for a vehicle which would result from closing of the bridge.  The facto to consider when determining if a bypassis available at the site is the potential for moving vehicles, including military vehicles, around the structure.  This is particularly true when the structure is an interchange.  For instance, a bypass likely would be available in the case of diamond interchanges, interchanges where there are service roads available, or other interchanges where the positioning and layout of the ramps is such that they could be used without difficulty to get around the structure.  If a ground level bypass is available at the structure site for the inventory route, record and code the detour length as 000.
 
@@ -400,7 +442,7 @@ INSERT INPUT 13_LRS_INV_ROUTE (Segment, Descriptioin, Length) VALUES
 	Structure on dead end roads 					199
 
 
------ Toll 20  - 1 Digit
+----- (20) Toll - 1 Digit
 
 ### The toll status of the structure is indicated by this item.  Interstate toll segments under Secretarilal Agreement (Title 23 - United States Code - Highways Section 129 as amended by 1991 ISTEA and prior legislation) shall be identified seperately.  Use one of the following codes:
 
@@ -419,7 +461,7 @@ INSERT INTO Toll (Code, Description) VALUES
 	(5, Toll bridge is a segment under Secretarial Agreement. Structure is separate agreement from highway segment.);
 
 
------ Maintenance Responsibility 21  - 2 Digits
+----- (21) Maintenance Responsibility - 2 Digits
 
 ### The actual name(s) of the agency(s) responsible for the maintenacne of the structure shall be recorded on the inspection form.  The codes below shall be used to represent the type of agency that has primary responsibility for maintaining the structure.  If more than one agency has equal maintenance responsibility, code one agency in the hierarchy of State, Federal, county, city, railroad, and other private.
 
@@ -462,23 +504,23 @@ INSERT INTO Maint_Resp (Code, Description) VALUES
 	(80, 'Unknown');
 
 
------ Owner  22  - 2 Digits
+----- (22) Owner - 2 Digits
 
 ### The actual name(s) of the owners(s) of the bridge shall be recorded on the inspection form.  The codes used in Item 21 - Maintenance Responsibility shall be used to represent the type of agency that is the primary owner of the structure.  If more than one agency has equal owneership, code on agency in the hierarchy of State, Federal, county, city, railroad, and other private.
 
 
------ Functional Classification 26  - 2 Digits
+----- (26) Functional Classification - 2 Digits
 
 ### For the inventory route, code the functional classification using one of the following codes:
 
-CREATE SCHEMA FC;
+CREATE SCHEMA 26_FC;
 
-CREATE TABLE FC (
+CREATE TABLE 26_FC (
 	Code int,
 	Description text
 );
 
-INSERT INTO FC (Code, Description) Values
+INSERT INTO 26_FC (Code, Description) Values
 	(01, 'Rural - Principal Arterial - Interstate'),
 	(02, 'Rural - Principal Arterial - Other'),
 	(06, 'Rural - Minor Arterial'),
@@ -493,7 +535,7 @@ INSERT INTO FC (Code, Description) Values
 	(19, 'Urban - Local');
 
 
------ Year Built 27  - 4 Digits
+----- (27) Year Built - 4 Digits
 
 ### Record and code the year of constrution of the structure.  Code all 4 digits of the year in which construction of the structure was completed. If the year built is unknown provide a best estimae.  See also Item 106 - Year Reconstructed
 
@@ -501,7 +543,7 @@ INSERT INTO FC (Code, Description) Values
 										1892	189
 
 
------ Lanes On and Unders the Structure 28, 28A & 28B  - 4 Digits
+----- (28) Lanes On and Unders the Structure 28, 28A & 28B  - 4 Digits
 
 ### Record and code the number of lanes being carried by the strucuture and being crossed over by the structure as a 4-digit number composed of 2 segments.  The number of lanes should be right justified in each segment with leading zero(s) coded as required.
 
@@ -516,7 +558,7 @@ INSERT INTO FC (Code, Description) Values
 ### Record and code the number of lanes being carried by the strucuture and being crossed over by the structure as a 4-digit number composed of 2 segments.  The number of lanes should be right justified in each segment with leading zero(s) coded as required.
 
 
------ Average Daily Traffic 29  - 6 Digits
+----- (29) Average Daily Traffic - 6 Digits
 
 ###  Code a 6-digit number that shows the average daily traffic volume for the inventory route identified in Item 5.  Make certain the unit's position is coded even if estimates of ADT are determined to tens or hundreds of vehicles; that is, appropriate trailing zeros shall be coded.  The ADT coded should be the most recent ADT counts available.  Included in this item are the trucks referred to in Item 109 - Average Daily Truck Traffic.  if the bridge is closed, code the actual ADT from before the closure occured.
 
@@ -527,25 +569,25 @@ INSERT INTO FC (Code, Description) Values
 									 24,000		024000
 
 
------ Year of Average Daily Traffic 30  - 4 Digits
+----- (30) Year of Average Daily Traffic - 4 Digits
 
 ### Record the year represendted by the ADT in Item 29.  Code all four digits of the year so recorded.
 
 ### Example	Year of ADT is 1994		1994
 
 
------ Design Load 31  - 1 Digit
+----- (31) Design Load - 1 Digit
 
 ### Use the codes below to indicate the live load for which teh structure was designed.  The numerical values of the railroad loading should be recorded on the form.  Classify any other loading, when feasible, using the nearest equivalent of the loadings given below.
 
-CREATE SCHEMA Design_Load;
+CREATE SCHEMA 31_Design_Load;
 
-CREATE TABLE Design_Load (
+CREATE TABLE 31_Design_Load (
 	Code int,
 	Description, text
 );
 
-INSERT INTO Design_Load (Code, Description) VALUES
+INSERT INTO 31_Design_Load (Code, Description) VALUES
 	(1, 'H 10'),
 	(2, 'H 15'),
 	(3, 'HS 15'),
@@ -558,7 +600,7 @@ INSERT INTO Design_Load (Code, Description) VALUES
 	(0, 'Unkown');
 
 
------ Approach Roadway Width 32  - 4 Digits
+----- (32) Approach Roadway Width - 4 Digits
 
 ### Code a 4-digit number to represent the normal width of usable roadway approaching the structure measured to the nearest tenth of a meter (with an assumed decimal point).  Usabel roadway width will include the width of traffic lands and the widths of shoulders where shoulders are defined as follows:
 
@@ -574,25 +616,25 @@ INSERT INTO Design_Load (Code, Description) VALUES
 			3.6		14.4	9.0		14.4	3.6		0450
 
 
------ Bridge Median 33  - 1 Digit
+----- (33) Bridge Median - 1 Digit
 
 ### Indicate with a 1-digit code if the median is non-existent, open or closed.  The median is closed when the area between the 2 roadways at the structure is bridged over and is capable of supporting traffic.  All bridges that carry either 1-way traffic or 2-way traffic separated onlyl by a centerline will be coded 0 for no median.
 
-CREATE SCHEMA Bridge_Median;
+CREATE SCHEMA 33_Bridge_Median;
 
-CREATE TABLE Bridge_Median (
+CREATE TABLE 33_Bridge_Median (
 	Code int,
 	Description text
 );
 
-INSERT INTO Bridge_Median (Code, Description) VALUES
+INSERT INTO 33_Bridge_Median (Code, Description) VALUES
 	(0, 'No Median'),
 	(1, 'Open Median'),
 	(2, 'Closed Median (no barrier)'),
 	(3, 'Closed Median with non-mountable barriers');
 
 
------ Skew 34  - 2 Digits
+----- (34) Skew - 2 Digits
 
 ### The skew angle is the angle between the centerliine of a pier and a line normal to the roadway centerline.  When plans are available, the skew angle can be taken directly from the plans.  If no plans are available, the angle is to be field measured if possible.  Record the skew angle to the nearest degree.  If the skew angle is 0E, it should be so coded.  When the structure is on a curve or if the skew varies for some other reason, the average skew should be recorded, if reasonable.  Otherwise, record 99 to indicate a major variation in skews of substructure units.  A 2-Digit number should be coded.
 
@@ -602,23 +644,23 @@ INSERT INTO Bridge_Median (Code, Description) VALUES
 							29°		29
 
 
------ Structure Flared 35  - 1 Digit
+----- (35) Structure Flared - 1 Digit
 
 ### Code this item to indicate if the structure is flared (i.e. the width of the structure varies).  Generally, such variance will result from ramps converging with or diverging form the through lanes on the structure, but there may be other causes.  Minor flares at ends of structures should be ignored.
 
-CREATE SCHEMA Struct_Flared;
+CREATE SCHEMA 35_Struct_Flared;
 
-CREATE TABLE Struct_Flared (
+CREATE TABLE 35_Struct_Flared (
 	Code int,
 	Description text
 );
 
-INSERT INTO Struct_Flared (Code, Description) VALUES
+INSERT INTO 35_Struct_Flared (Code, Description) VALUES
 	(0, 'No Flare'),
 	(1, 'Yes, Flared');
 
 
------ Traffic Safety Features 36  - 4 Digits
+----- (36) Traffic Safety Features - 4 Digits
 
 ### Bridge inspection shall include the recording of information on the following traffic safety features so that the evealuation of their adequacy can be made.
 	
@@ -640,31 +682,31 @@ Segment 	Description
 
 ### The reporting features shall be as follows:
 
-CREATE SCHEMA Traff_Safe_Feat;
+CREATE SCHEMA 36_Traff_Safe_Feat;
 
-CREATE TABLE Traff_Safe_Feat (
+CREATE TABLE 36_Traff_Safe_Feat (
 	Code text,
 	Description text
 );
 
-INSERT INTO Traff_Safe_Feat (Code, Description) VALUES
+INSERT INTO 36_Traff_Safe_Feat (Code, Description) VALUES
 	('0', 'Inspected feature does not meet curerently acceptable standards or a safety feature is require and none is provided'),
 	('1', 'Inspected feature meets currently acceptable standards'),
 	('N', 'Not applicable or a safety feature is not required');
 
 
------ Historical Significance 37  - 1 Digit
+----- (37) Historical Significance - 1 Digit
 
 ### The historical significance of a bridge involves a variety of characteristics:  the crossing itself might be significant; the bridge might be associated with a historical property or area; or historical significance could be derived from the fact that bridge was associated with significant events or circumstances.
 
-CREATE SCHEMA Hist_Sig;
+CREATE SCHEMA 37_Hist_Sig;
 
-CREATE TABLE Hist_Sig (
+CREATE TABLE 37_Hist_Sig (
 	Code int,
 	Description text
 );
 
-INSERT INTO Hist_Sig (Code, Description) VALUES
+INSERT INTO 37_Hist_Sig (Code, Description) VALUES
 	(1, 'Bridge is on the National Register of Historic Places.'),
 	(2, 'Bridge is eligible for the National Register of Historic Places'),
 	(3, 'Bridge is possibly eligible for the National Register of Historic Places (requires further investigation before determination can be made) or bridge is on a State or local historic register.'),
@@ -672,11 +714,11 @@ INSERT INTO Hist_Sig (Code, Description) VALUES
 	(5, 'Bridge is not eligible for the National Register of Historic Places');
 
 
------ Navigation Control 38  - 1 Digit
+----- (38) Navigation Control - 1 Digit
 
 ### Indicate for this item whether or not navigation control (a bridge permit for navigation) is required.
 
-CREATE SCHEMA Nav_Cont;
+CREATE SCHEMA 38_Nav_Cont;
 
 CREATE TABLE Nav_Cont (
 	Code text,
@@ -689,7 +731,7 @@ INSERT INTO Nav_Cont (Code, Description) VALUES
 	('1', 'Navigation control on waterway (Bridge permit required)');
 
 
------ Navigation Vertical Clearance 39  - 4 Digits
+----- (39) Navigation Vertical Clearance - 4 Digits
 
 ### If Item 38 - Navigation Control has been coded 1, record the minimum vertical clearance imposed at the sitee as measured above a datum that is specified on a navigation permit issued by a control agency.  The measurement shall be coded as a 4-digit number truncated to the tenth of a meter (with an assumed decimal point).  This measurement will show the clearance that is allowable for navigational purposes.  In the case of a swing or bascule bridge, the vertical clearance shall be measured with the bridge in the raised or open position.  Also, Item 116 - Minimum Navigation Bertical Clearance Vertical Lift Bridge shall be coded to provide clearance in closed posistion.  If Item 38 - Navigation Control has been coded 0 or N, code 000 to indicate not applicable.
 
@@ -698,7 +740,7 @@ INSERT INTO Nav_Cont (Code, Description) VALUES
 				24.28 meters	0242
 
 
------ Navigation Horizontal Clearance 40  - 5 Digits
+----- (40) Navigation Horizontal Clearance - 5 Digits
 
 ### If Item 38 - Navigation Contral has been coded 1, record the horizontal clearance measurement imposed at the site that is shown on the navigation permit.  This may be less than the structure geometry allows.  If a navigation permit is required but not available, us the minimum horizontal clearance between fenders, if any, or the clear distance between piers or bents.  Code the clearance as a 5-digit number truncated to the tenth of a meter (with an assumed decimal point).  If Item 38 - Navigation Control has been coded 0 or N, code 000 to indicate not applicable.
 
@@ -707,18 +749,18 @@ INSERT INTO Nav_Cont (Code, Description) VALUES
 				202.09 meters	02020
 
 
------ Structure Open, Posted, or Closed to Traffic 41  - 1 Digit
+----- (41) Structure Open, Posted, or Closed to Traffic - 1 Digit
 
 ### This item provides information about the actual operational status of a structure.  The field review could show that a structure is posted, but Item 70 - Bridge Posting may indicate that posting is not required.  This is possible and acceptable coding since Item 70 is based on the operating stress level and the governiing agency's posting procedures may specify posting at some stress level less than the operating rating.
 
-CREATE SCHEMA Struct_OPC_Traff;
+CREATE SCHEMA 41_Struct_OPC_Traff;
 
-CREATE TABLE Struct_OPC_Traff (
+CREATE TABLE 41_Struct_OPC_Traff (
 	Code text,
 	Description text
 );
 
-INSERT INTO Struct_OPC_Traff (Code, Description) VALUES
+INSERT INTO 41_Struct_OPC_Traff (Code, Description) VALUES
 	('A', 'Open, no restriction'),
 	('B', 'Open, posting recommended but not legally implemented (all signs not in place or correctlyl implemented)'),
 	('D', 'Open, would be posted or closed except for temporary shoring, etc. to allow for unrestricted traffic'),
@@ -729,7 +771,7 @@ INSERT INTO Struct_OPC_Traff (Code, Description) VALUES
 	('R', 'Posted for other load-capacity restriction (speed, number of vehicles on bridge, etc.)')
 
 
------ Type of Service, On 42  - 2 Digits
+----- 42 Type of Service, On - 2 Digits
 
 ### The type of service on the bridge and under the bridge is indicated by a 2-digit code composed of 2 segments
 
@@ -780,7 +822,7 @@ INSERT INTO 42B_Type_Serv (Code, Description) VALUES
 	(0, 'Other');
 
 
------ Structure Type, Main 43  - 3 Digits
+----- (43) Structure Type, Main - 3 Digits
 
 ### Record the description on the inspeciton form and indicate the type of structure for the main span(s) with a 3-digit code composed of 2 segments.
 
@@ -844,7 +886,7 @@ INSERT INTO 43B_Stuc_Type_Main (Code, Description) VALUES
 	(00, 'Other');
 
 
------ Structure Type, Approach Spans 44  - 3 Digits
+----- (44) Structure Type, Approach Spans - 3 Digits
 
 ### Indicate with a 3-digit code composed of 2 segments, the type of structure for the approach spans to a major bridge or for the spans where the structural material is different.  The codes are the same as for Item 43 preceding.  However, code 000 if this item is not applicable.  Use code 20 (Item 44B) when no one type of design and/or material (Item 44A) is varied, code the most predominant.
 
@@ -904,17 +946,17 @@ INSERT INTO 44B_Struc_Type_AprSpan (Code, Description) VALUES
 	(00, 'Other');
 
 
------ Number of Spans in Main Unit 45  - 3 Digits
+----- (45) Number of Spans in Main Unit - 3 Digits
 
 ### Record the number and indicate with a 3-digit number the number of spans in the main or major unit.  This item will include all spans of most bridges, the major unit only of a sizable structure, or a unit of material or design different from that of the approach spans.
 
 
------ Number of Approach Spans 46  - 4 Digits
+----- (46) Number of Approach Spans - 4 Digits
 
 ### Record the number and indicate with a 4-digit number the number of spans in the approach spans to the major bridge, or the number of spans of material different from that of the major bridge.
 
 
------ Inventory Route, Total Horizontal Clearance 47  - 3 Digits
+----- (47) Inventory Route, Total Horizontal Clearance - 3 Digits
 
 ### The total horizontal clearance for the inventory route identified in Item 5 should be measured and recorded.  The clearance should be the available clearance measured between the restrictive features -- curbs, rails, walls, piers or other structural features limiting the roadway (surface and shoulders).  The measurement should be recorded and coded as a 3-digit number truncated to the nearest tenth of a meter (with an assumed decimal point).  When the restriction is 100 meters or greater, code 999.
 
@@ -927,7 +969,7 @@ INSERT INTO 44B_Struc_Type_AprSpan (Code, Description) VALUES
 ### For a divided facility with a raised or non-mountable median, or an 'under' route divided by piers, record the greater of the restricted widths in either direction, not both directions.
 
 
------ Length of Maximum Span 48  - 5 Digits
+----- (48) Length of Maximum Span - 5 Digits
 
 ### The length of the maximum span shall be recorded.  It shall be noted whether the measurement is center to center of bearing points or clear open distance between piers, bents, or abutments. The measurement shall be along the centerline of the bridge.  For this item, code a 5-digit number to represent the measurement to the nearest tenth of a meter (with an assumed decimal point).
 
@@ -936,7 +978,7 @@ INSERT INTO 44B_Struc_Type_AprSpan (Code, Description) VALUES
 				1219.2 meters	12192
 
 
------ Structure Length 49  - 6 Digits
+----- (49) Structure Length - 6 Digits
 
 ### Record and code a 6-digit number to represent the length of the structure to the neearest tenth of a meter (with an assumed decimal).  This shall be the length of roadway which is supported on the bridge structure.  The length should be measured back to back of the backwalls of abutments or from paving notch to paving notch.
 
@@ -948,7 +990,7 @@ INSERT INTO 44B_Struc_Type_AprSpan (Code, Description) VALUES
 				10,123.5 meters	101235
 
 
------ Curb or Sidewalk Widths, Left  50  - 6 Digits
+----- (50) Curb or Sidewalk Widths, Left - 6 Digits
 
 ### Record and code two contiguous 3-digit numbers to represent the widths of the left and right curbs or sidewalks to nearest thenth of a meter (with assumed decimal points).  This is a 6-digit number composed of 2 segments, with the leftmost 3 digits representing the left curb or sidewalk and rightmost 3 digits representing the right curb or sidewawlk.  'Left' and 'Right' should be determined on the basis of direction of the inventory
 
@@ -964,7 +1006,7 @@ INSERT INTO 44B_Struc_Type_AprSpan (Code, Description) VALUES
 				None			None			000000
 
 
------ Bridge Roadway Width, Curb-to-Curb  51  - 4 Digits
+----- (51) Bridge Roadway Width, Curb-to-Curb - 4 Digits
 
 ### The information to be recorded is the most restrictive minimum distance between curbs or rails on the structure roadway.  For structures with closed medians and usually for double decked structures, coded data will be the sum of the most restrictive minimum distances for all roadways carried by the structure.  The data recorded for this item must be compatible with other related route and bridge data (i.e. Items 28, 29, 32, etc.).  The measurment should be exclusive of flared areas for ramps.  A 4-digit number should be used to represent the distance to the nearest tenth of a meter (with an assumed decimal point).
 
@@ -979,7 +1021,7 @@ INSERT INTO 44B_Struc_Type_AprSpan (Code, Description) VALUES
 				33.07 meters		0331
 
 
------ Deck Width, Out-to-Out  52  - 4 Digits
+----- (52) Deck Width, Out-to-Out  - 4 Digits
 
 ### Record and code a 4-digit number to show the out-to-out width to the nearest tenth of a meter (with an assumed decimal point).  If the structure is a through structure, the number to be coded will represent the lateral clearance between superstructure mebmers.  The measuremnet shouild be exclusive of flared areas or ramps.
 
@@ -988,7 +1030,7 @@ INSERT INTO 44B_Struc_Type_AprSpan (Code, Description) VALUES
 ### Where the roadway is on a fill carried accross a pip or box culvert and the culvert headwalls do not affect the flow of traffic, code 0000.  This is considered proper inasmuch as a filled section over a culvert simply maintains the roadway cross-section.
 
 
------ Minimum Vertical Clearance Over Bridge Roadway  53  - 4 Digits
+----- (53) Minimum Vertical Clearance Over Bridge Roadway - 4 Digits
 
 ### The information to be recorded for this item is the actual minimum vertical clearance over the bridge roadway, including shoulders, to any superstructure restriction, rounded down to the nearest hundredth of a meter (with an assumed decimal point).  For double decked structures code the minimum, regardless whether it is pertaining to the top or bottom deck.  When no superstructure restriction exists above the bridge roadway, or when a restirction is 30 meters or greater, code 9999.  Coding of actual clearances between 30 meters to 99.99 meters to an exact measuremnt is optional.  A 4-digit number should be coded to represent the clearance to the nearest hundredth of a meter (with an assumed decimal point).
 
@@ -998,7 +1040,7 @@ INSERT INTO 44B_Struc_Type_AprSpan (Code, Description) VALUES
 				38.50 meters	9999
 
 
------ Minimum Vertical Underclearance, Feature  54  - 5 Digits
+----- (54) Minimum Vertical Underclearance, Feature - 5 Digits
 
 ### Using a 1-digit code and a 4-digit number, record an code the minimum vertical clearance from the roadway (travel lanes only) or railroad track beneath the structure to the underside of the superstructure.  (When both a railroad and highway are under the structure, code the most critical dimension.)
 
@@ -1019,7 +1061,7 @@ INSERT INTO 54A_Min_Vert_UClear (Code, Description) VALUES
 	('N', 'Feature not a highway or railroad');
 
 
------ Minimum Lateral Underclearance on Right, Feature  55  - 4 Digits
+----- (55) Minimum Lateral Underclearance on Right, Feature - 4 Digits
 
 ### Using a 1-digit code and a 3-digit number, record and code the minimum lateral underclearance on the right to the nearest tenth of a meter (with an assumed decimal point).  When both a railroad and highway are under the structure, code the most critical dimension.
 
@@ -1052,14 +1094,14 @@ INSERT INTO 55A_Min_Lat_UClear_Right (Code, Description) VALUES
 				Creek beneath structure 						N000
 
 
------ Minimum Lateral Underclearance on Left  56  - 3 Digits
+----- (56) Minimum Lateral Underclearance on Left - 3 Digits
 
 ### Using a 3-digit number, record and code the minimum lateral underclearance on the left (median side for divided highways) to the nearest tenth of a meter (with an assumed decimal point).  The lateral clearance should be measured from the left edge of the roadway (excluding shoulders) to the nearest subtruture unit, to a rigid barrier, or to the toe of tslope steeper that 1 to 3.  
 
 ### In the case of a dual highway, the median side clearances of both roadways should be measured and the smaller distance recorded and coded.  If there is no obstruction in the median area, a notation of 'open' should be recorded and 999 should be coded.  For clearances greater that 30 meters, code 998.  Coding of actual clearances greater than 30 meters to an exact measurment is optional.  Code 000 to indicate not applicable.
 
 
------ Deck Condition  58  - 1 Digit
+----- (58) Deck Condition - 1 Digit
 
 ### This item describes the overall condition rating of the deck.  Rate and code the condition in accordance with the general condition ratings.  Code N for culverts and other structures without decks e.g. filled are bridge.
 
@@ -1090,7 +1132,7 @@ INSERT INTO 58_Deck_Cond (Code, Description) VALUES
 	('0', 'Failed Condition');
 
 
------ Superstructure Condition  59  - 1 Digit
+----- (59) Superstructure Condition - 1 Digit
 
 ### This item describes the physical condition of all structural members.  Rate and code the condition in accordance with the previously described general condition ratings.  Code N for all culverts.
 
@@ -1123,7 +1165,7 @@ INSERT INTO 59_SupStruc_Cond (Code, Description) VALUES
 	('0', 'Failed Condition');
 
 
------ Substructure Condition 60  - 1 Digit 
+----- (60) Substructure Condition - 1 Digit 
 
 This item describes the physical condition of piers, abutments, piles, fenders, footings, or other components.  Rate and code the condition in accordance with the previously described general condition ratings.  Code N for all culverts.
 
@@ -1154,7 +1196,7 @@ INSERT INTO 60_SubStruc_Cond (Code, Description) VALUES
 	('0', 'Failed Condition');
 
 
------ Channel and Channel Protection  61  - 1 Digit
+----- (61) Channel and Channel Protection - 1 Digit
 
 ### This item describes the physical conditions associated with the flow of water through the bridge such as a stream stability and the condition of the channel, riprap, slope protection, or stream control devices including spur dikes.  The inspector should be particcularly concerned with visible signs of excessive water velocity which may affect undermining of slope protection, erosion of banks, and realignment of the stream which may result in immediate or potential problems.  Accumulation of drift and debris on the superstructure and substructure should be noted on the inspection form but not included in the condition rating.
 
@@ -1179,7 +1221,7 @@ INSERT INTO 61_Chan_ChaPro (Code, Description) VALUES
 	('0', 'Bridge closed because of channel failure.  Replacement necessary.');
 
 
------ Culverts Condition 62  - 1 Digit
+----- (62) Culverts Condition 62 - 1 Digit
 
 ### This item evaluates the alignment, settlement, joints, structural condition, scour, and other items associated with culverts.  The rating code is intended to be an overall condition evaluation of the culvert.  Integral wingwalls to the first construction or expansion joint shall be included in the evaluation.  Fora a detailed discussion regarding the inspection and rating of culverts, consult Report No. FHWA-IP-86-1, Culvert Inspection Manual, July 1986.
 
@@ -1206,7 +1248,7 @@ INSERT INTO 62_Culv_Cond (Code, Description) VALUES
 	('0', 'Bridge Closed.  Replacement Necessary.');
 
 
------ Method Used to Determine Operating Rating  63  - 1 Digit
+----- (63) Method Used to Determine Operating Rating - 1 Digit
 
 	CREATE SCHEMA 63_Method_Used;
 
@@ -1223,7 +1265,7 @@ INSERT INTO 63_Method_Used (Code, Description) VALUES
 	(5, 'No rating analysis performed');
 
 
------ Operating Rating  64  - 3 Digits
+----- (64) Operating Rating  64 - 3 Digits
 
 ### This capacity rating, referred to as the operating rating, will result in the absolute maximum permissible load level to which the structure may be subjected for the vehicle type used in the rating.  Code the operating rating as a 3-digit number to represent the total mass in metric tons of the entire vehicle measured to the nearest tencth of a metric ton (with an assumed decimal point).
 
@@ -1245,7 +1287,7 @@ INSERT INTO 63_Method_Used (Code, Description) VALUES
 				Structure under fill (not affected by live load)	999
 
 
------ Method Used to Determin Inventory Rating  65  - 1 Digit
+----- (65) Method Used to Determin Inventory Rating - 1 Digit
 
 CREATE SCHEMA 65_Method_Used;
 
@@ -1262,14 +1304,14 @@ INSERT INTO 65_Method_Used (Code, Description) VALUES
 	(5, 'No rating analysis performed');
 
 
------ Inventory Rating  66  - 3 Digits
+----- (66) Inventory Rating - 3 Digits
 
 ### This capacity rating, referred to as the inventory rating, will result in a load level which can safely utilize and existing structure for an indefinite period of time.  Only the MS loading shall be used to determine the inventory rating.  Code the Inventory Rating as a 3-digit number to represent the total mass in metric tons of the entire vehicle measured to the nearest tenth of a metric ton (with an assumed decimal point).  The statements in Item 64 - Operating Rating apply to this item also.
 
 ### Code 999 for a structure under sufficient fill such that, according to AASHTO design, the live load is insignificant in the structure load capacity.
 
 
------ Appraisal Ratings 67 - 72
+----- (67-72) Appraisal Ratings - 
 
 ### The items in the Appraisal Section are useed to evaluate a bridge in relation to the level of service which it provides on the highwya system of which it is a part.  The structure will be compared to a new one which is built to current standarts for that particular type of road as further defined in this section except for Item 72 - Approach Roadway Alignment.  See Item 72 for special criteria for rating that item.
 
@@ -1300,7 +1342,7 @@ INSERT INTO 67-72_Appraisal_Ratings (Code, Description) VALUES
 ### Completed bridges not yet open to traffic, if rated, shall be appraised as if open to traffic.  Design values, for example ADT, shall be used for the evaluation.  The data provided will include a code of G for Item 41 - Structure Open, Posted, or Closed to Traffic.
 
 
------ Structural Evaluation 67  - 1 Digit
+----- (67) Structural Evaluation - 1 Digit
 
 ### This item is calculated by the Edit/Update Program based on Table 1, and need not be coded by the bridge inspector.  The following specifications are used by the Edit/Update Program:
 
@@ -1321,7 +1363,7 @@ INSERT INTO 67-72_Appraisal_Ratings (Code, Description) VALUES
 	4.	All bridges with Item 26 - Functional Class coded Interstate, Freeway or Expressway shall be evaluated using the ADT column of >5000 regardless of the actual ADT on the bridge.
 
 
------ Deck Geometry 68  - 1 Digit
+----- (68) Deck Geometry - 1 Digit
 
 ### This item is calculated by the Edit/Update Program and need not be coded by the bridge inspector.
 
@@ -1362,7 +1404,7 @@ INSERT INTO 67-72_Appraisal_Ratings (Code, Description) VALUES
 	2.	Dimensions are in meters.
 
 
------ Underclearances, Vertical and Horizontal  69  - 1 Digit
+----- (69) Underclearances, Vertical and Horizontal - 1 Digit
 
 ### This item is calculated by the Edit/Update Program and need not be coded by the bridge inspector.
 
@@ -1397,7 +1439,7 @@ INSERT INTO 67-72_Appraisal_Ratings (Code, Description) VALUES
 	4.	The funcional classification of the underpassing route shall be used in the evaluation.  If an 'under' record is not coded, teh underpassing route whall be considered a major or minor collector or a local road.
 
   
------ Bridge Posting  70  - 1 Digit
+----- (70) Bridge Posting - 1 Digit
 
 ### The National Bridge Inspection Standards require the posting of load limits only if the maximum legal load configurations in the State exceeds teh load permitted under the operating rating.  If the load capacity at the operating rating is such that posting is required, this item shall be coded 4 or less.  If no posting is required at the operating rating, this item shall be coded 5.
 
@@ -1439,7 +1481,7 @@ INSERT INTO 70_Op_Rate_Over_Max_LL (Code, Description) VALUES
 	(0, '> 39.9% below');
 
 
------ Waterway Adequacy  71  - 1 Digit
+----- (71) Waterway Adequacy - 1 Digit
 
 ### This item appraises the waterway opening with respect to passage of flow through the bridge.  The folowing codes shall be used in evaluating waterway adequacy (interpolate where appropriate).  Site conditions may warrant somewhat higher or lower ratings than indicated  by the table (e.g. flooding of an urban area due toa restricted bridg opening).
 
@@ -1517,7 +1559,7 @@ INSERT INTO 71_FC_MIN_LOC (Code, Description) VALUES
 	('0', 'Bridge Closed');	
 
 
------ Approach Roadway Alignment  72  - 1 Digit
+----- (72) Approach Roadway Alignment - 1 Digit
 
 ### Code the rating based on the adequacy of the approach roadway alignment.  This item identifies those bridges which do not function properly or adequately due to the alignment of the approaches.  It is not intended that the approach roadway alignment be compared to current standards but rather to the existing highway aligmnent.  This concept differs from other appraisals evaluations.  The establishment of set criteria to be used at all bridges sites is not appropriate for this item.  The basic criteria is how the aligment of the roadway approaches to the bridge relate to the general highway aligment for the section of highway the bridge is on.
 
@@ -1528,7 +1570,7 @@ INSERT INTO 71_FC_MIN_LOC (Code, Description) VALUES
 ### Speed reductions necessary because of structure wiidth and not alignment shall not be considered in evaluating this item.
 
 
------ Type of Work  75  - 3 Digits
+----- (75) Type of Work - 3 Digits
 
 ### The information to be recorded for this item will be the type of work proposed to be accomplished on the structure to improve it to the point that it will provide the type of service needed and whether the proposed work is to be done by contract or force account.  Code a 3-digitnumber composed of 2 segments.
 
@@ -1575,7 +1617,7 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 	A bridge superstructure and substructure are to be rehabilitated by State Forces to increase the bridge's load capacity.		Code 352
 
 
------ Length of Structure Improvement  76  - 6 Digits
+----- (76) Length of Structure Improvement - 6 Digits
 
 ### Code a 6-digit number that represent the length of the proposed bridge improvement to the nearest tenth of a meter (with and assumed decimal point).  For replacements or rehabilitation of the entire bridge, the length should be back to bakc of backwalls of abutments or from pavement notch to pavement notch.  For replacement or rehabilitation of only part of the structure, use the length of the portion to be improved.
 
@@ -1597,7 +1639,7 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 ### Replacement Bridge Length = Existing Bridge Length x Length Expansion Factor
 
 
------ Inspection Date  90  - 4 Digits
+----- (90) Inspection Date - 4 Digits
 
 ### Record the month and year that the last routine inspection of the structure was performed.  This inspection date may be different from those recorded in Item 93 - Critical Feature Inspection Date.  Code a 4-digit number to represent the month and year.  The number of the month should be coded in the first 2 digits with a leading zero as required and the last 2 digits of the year coded as the third and fourth digits of the field
 
@@ -1607,7 +1649,7 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 						March 1994			0394
 
 
------ Designated Inspection Frequency  91  - 2 Digits
+----- (91) Designated Inspection Frequency - 2 Digits
 
 ### Code 2 digits to represent the number of months between designated inspections of the structure.  A leading zero shall be coded as required.  This interval is usually determined by the individual in charge of the inspection program.  For posted, understrength bridges, this interval should be substantially less than the 24-month standard.  The designated inspection interval could vary from inspection to inspection depending on the condition of the bridge at the time of inspection.
 
@@ -1623,7 +1665,7 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 ### It should be noted that bridges will also require special non-scheduled inspections after unusual physical traumas such as floods, earthquakes, fires, or collisions.  These special inspections may range from a very brief visual examination to a detailed in-depth evaluation depending upon the nature of the trauma.  For example, when a substructure pier or abutment is struck by and errant vehicle, in most cases only a visual examination of the bridge is necessary.  After major collisions or earthquakes, in-depth inspections may be warranted as directed by the engineer in overall charge of the program.  After and during severe floods, the stability of the substructure of bridges may have to be determined by probing, underwater sensors or other appropriate measures. Underwater inspection by divers may be required for some scour critical bridges immediately after floods.  See Item 113 - Scour Critical Bridges.
 
 
------ Critical Feature Inspection  92  - 9 Digits
+----- (92) Critical Feature Inspection - 9 Digits
 
 ### Using a series of 3-digit code segments, denote critical features that need special inspections or special emphasis during inspections and the designated inspection interval in months as determined by the individual in charge of the inspection program.  The designated inspection interval could vary from inspection to inspection depending on the condition of the bridge at the time of inspection.
 
@@ -1651,7 +1693,7 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 	inspections are not required.								92C		Y06
 
 
------ Critical Feature Inspection Date 	93  - 12 Digits
+----- (93) Critical Feature Inspection Date - 12 Digits
 
 ### Coded only if the fist digit of Item 923A, B, or C is coded Y for yeas.  Record as a series of 4-digit code segments, the month and year that th elas inspection of the denoted critical feature was performed.
 
@@ -1677,7 +1719,7 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 	last special feature inspection was done in November 1985.
 
 
------ Bridge Improvement Cost  94  - 6 DIgits
+----- (94) Bridge Improvement Cost - 6 Digits
 
 ### Code a 6-digit number to represent the estimated cost of the proposed brridge or major structure improvements in thousands of dollars.  This cost shall include only bridge construction costs, excluding roadway, right fo way, detour, demolition, preliminary engieering, etc.  Code the base year for the cost in Item 97 - Year of Improvement Cost Estimate.  Do not use this item for estimating maintenancne cost.
 
@@ -1696,7 +1738,7 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 ### Apply a construction unit cost to the proposed bridge area develolped by using (1) curren State deck geometry design standards and (2) proposed bridge length from Item 76 - Length of Structure Improvement.
 
 
------- Roadway Improvement Cost  95  - 6 Digits
+------ (95) Roadway Improvement Cost - 6 Digits
 
 ### Code a 6-digit number to represent the cost of the proposed roadway improvemetn in thousands fo dollars.  This shall include only roadway construction costs, excluding bridge, right of way, detour, extensive roadway realignment cost, preliminary engineering, etc.  Code the base year for the cost in Item 97 - Year of Improvement Cost Estimate.  Do not use this item for estimating maintenance costs.
 
@@ -1705,7 +1747,7 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 ### In the absence of a procedure for estimating roadway improvement costs, a guide of 10 percent of the bridge cost is suggested.
 
 
------ Total Project Cost  96  - 6 Digits
+----- (96) Total Project Cost - 6 Digits
 
 ### Code a 6-digit number to represent the total prooject cost in thousands of dollars, including incidental costs normally associated with the proposed bridge improvement project.  The Total Project Cost will therefore ususally be greater than the sum of Items 94 and 95.  Code the base year for the cost in Item 97 - Year of Improvmeent Cost Estimate.  Do not use this item for coding maintenancne costs.
 
@@ -1714,7 +1756,7 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 ### In the absence of a procedure for estimating the total project cost, a guide of 150 percent of the bridge cost is suggested.
 
 
------ Year of Improvement Cost Estimate  97  - 4 Digits
+----- (97) Year of Improvement Cost Estimate - 4 Digits
 
 ### Record and code the year that the costs of work estimated in Item 94 - Bridge Improvement Cost were based upon.  This date and the data provided for Item 94 through Item 96 must be current; that is, Item 97 shall be no more than 8 years old.
 
@@ -1724,7 +1766,7 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 							2000 costs		2000
 
 
------ Border Bridge  98  - 5 Digits
+----- (98) Border Bridge - 5 Digits
 
 ###Use this item to indicate structures crossing boarders of States.  Code a 5-digit number composed of 2 segments specifying the percent responsibility for improvements to the existing structure when it is on a border with a neighboring State.  Code the first 3 digits with the neighboring State code useing State codes listed in Item 1 - State Code.  Code the fourth and figth digits with the percentatge of total deck area of the existing bridge that the neighboring State is responsible for funding
 
@@ -1747,14 +1789,14 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 	funding of future improvment costs.
 
 
------ Boarder Bridge Structure Number  99  - 15 Digits
+----- (99) Boarder Bridge Structure Number - 15 Digits
 
 ### Code the neighboring State's 15-digit National Bridge Inventory structure number for any structure noted in Item 98 - Bprder Brodge/  Tjos mi,ber ,ist ,atcj exact;u tje meogjbpromg States submitted NBI structure number.  The entire 15-digit field must be accounted for including zeros and blank spaces whether they are leading, trailing, or embedded in the 15-digit field.  If Item 98 is blank, this item is blank.
 
 ### In the above example where Mexico (or a neighboring State) has 00% responsibility, and, if there is no NBI Structure Number in that State's inventory file, then the entire 15-digit field shall be coded zeros.
 
 
------ STRAHNET Highway Designation  100
+----- (100) STRAHNET Highway Designation - 1 Digit
 
 ### This item shall be coded for all records in the inventory. For the purposes of this item, the STRAHNET Connectors are considered included in the term STRAHNET.  For teh inventory rout identified in Item 5, indicate STRAHNET highway conditions using one of the folowing codes:
 
@@ -1772,7 +1814,7 @@ INSTERT INTO 100_STRA_Hwy_Des (Code, Description) VALUES
 	(3, 'The inventory route is on a STRAHNET connector route.');
 
 
------ Parallel Structure Designation  101
+----- (101) Parallel Structure Designation - 1 Digit
 
 ### Code this item to indicate situations where separate structures carry the inventory route in opposite directions of travel over the same feature.  The lateral distance between structures has no bearing on the coding of this item.
 
@@ -1789,7 +1831,7 @@ INSERT INTO 101_Par_Struc_Des (Code, Description) VALUES
 	('N', 'No parallel structure exists.');
 
 
------ Direction of Traffic  102
+----- (102) Direction of Traffic - 1 Digit
 
 ### Code the direction of traffic of the inventory route identified in Item 5 as a 1-digit number using one of the codes below.  This item must be compatible with other traffic-related items such as Item 28A Lanes on the Structure, Item 29 - Average Daily Traffic, Item 47 - Total Horizontal Clearance and Item 51 - Bridge Roadway Width, Curb-to-Curb.
 
@@ -1807,7 +1849,7 @@ INSERT INTO 102_Dir_Traff (Code, Description) VALUES
 	(3, 'One lane bridge for 2-way traffic');
 
 
------ Temporary Structure Designation  103
+----- (103) Temporary Structure Designation - 1 Digit
 
 ### Code this item to indicate situations where temporary structures or conditions exist.  This item should be blank if no applicable.
 
@@ -1850,7 +1892,7 @@ INSERT INTO 103A_Temp_Struc_Des (Code, Description) VALUES
 	(70, 'Bridge Posting');
 
 
------ Highway System of the Inventory Route  104
+----- (104) Highway System of the Inventory Route - 1 Digit
 
 ### This item is to be coded for all records in the inventory.  For the inventory route identified in Item 5, indicate whether the inventory route is on the National Highway System (NHS) or not on that system.  Initially, this code shall reflect on inventory route on the NHS "Interim System" description in Section 1006(a) of the 1991 ISTEA.  Upon approval of the NHS by Congress, the coding is to reflect the approved NHS.
 
@@ -1866,7 +1908,7 @@ INSERT INTO 104_Hwy_Sys (Code, Description) VALUES
 	(1, 'Inventory Route is on the NHS');
 
 
------ Federal Lands Highway  105
+----- (105) Federal Lands Highway - 1 Digit
 
 ### Structures owned by State and local jurisdictions on roads which lead to an traverse through federal lands sometimes require special coded unique identification because they are eligible to recieve funding from the Federal Lands Highway Program.
 
@@ -1888,7 +1930,7 @@ INSERT INTO 105_Fed_Land_Hwy (Code, Description) VALUES
 	(9, 'Combined IRR, FH, and LMHS');
 
 
------ Year Reconstructed  106
+----- (106) Year Reconstructed - 4 Digits
 
 ### Record and code the year of the most recent reconstruction of the structure.  Code all 4 digits of the latest year in which reconstruction of the structure was completed.  If there has been no reconstrution code 0000.
 
@@ -1908,7 +1950,7 @@ INSERT INTO 105_Fed_Land_Hwy (Code, Description) VALUES
 		Reconstruction completed 1970			1970
 
 
------ Deck Structure Type  107
+----- (107) Deck Structure Type - 1 Digit
 
 ### Record the type of deck system on the bridge.  If more than one type of deck system is on the bridge, code the most predominant.  Code N for a filled culvert or arch with the approach roadway section carried accross the structure.
 
@@ -1932,7 +1974,7 @@ INSERT INTO 107_Deck_Struc_Type (Code, Description) VALUES
 	('N', 'Not Applicable');
 
 
------ Wearing Surface/Protective System  108
+----- (108) Wearing Surface/Protective System - 3 Digits
 
 ### Information on the wearing surface and protective system of the bridge deck shall be coded using a 3-digit code composed of 3 segments.
 
@@ -2003,7 +2045,7 @@ INSERT INTO 108C_Wear_Surf (Code, Description) VALUES
 	('N', 'Not Applicable (applies only to structures with no deck');
 
 
------ Average Daily Truck Traffic  109
+----- (109) Average Daily Truck Traffic - 2 Digits
 
 ### Code a 2-digit percentage that shows the percentage of Item 29 - Average Daily Traffic that is truck truck traffic.  Do not include vans, pickup trucks and other light delivery trucks in this percentage.
 
@@ -2013,7 +2055,7 @@ INSERT INTO 108C_Wear_Surf (Code, Description) VALUES
 			Average Daily Traffic 	7% Trucks 	07
 									12% Trucks 	12
 
------ Designated National Network  110
+----- (110) Designated National Network - 1 Digit
 
 ### The national network for trucks includes most of the interstate system and those portions of Federal-Aid highways identified in the Code of Federal Regulations (23 CFR 658).  The national network for trucks is available for use by commercial motor vehicles of the dimensions and configurations described in these regulatiosn.  For the inventory route identified in Item 5, indicate conditions using one of the following codes:
 
@@ -2029,7 +2071,7 @@ INSERT INTO 110_Des_Nat_Net (Code, Description) VALUES
 	(1, 'The inventory route is part of the national network for trucks.');
 
 
------ Pier or Abutment Protection  111
+----- (111) Pier or Abutment Protection - 1 Digit
 
 ### If Item 38 - Navigation Control has been coded 1, use the codes below to indicate the presence and adequacy of pier or abutment protection features such as fenders, dolphins, etc.  The condition of the protection devices may be a factor in the overal evaluation of Item 60 - Substructure.  If Item 38 - Navigation Control has been coded 0 or N, leave blank to indicate not applicable.
 
@@ -2048,7 +2090,7 @@ INSERT INTO 111_Pier_Abut_Pro (Code, Description) VALUES
 	(5, 'Non present but reevaluation suggested');
 
 
------ NBIS Bridge Length  112
+----- (112) NBIS Bridge Length - 1 Digit
 
 ### Does this structure meet or exceed teh minimum length specified to be designated as a bridge for the National Bridge Inspection Standards purposes?  The following definition of a bridge is to be used:
 
@@ -2066,7 +2108,7 @@ INSERT INTO 111_Pier_Abut_Pro (Code, Description) VALUES
 		('N', 'No');
 
 
------ Scour Critical Bridges  113
+----- (113) Scour Critical Bridges - 1 Digit
 
 ### Use a single-digit code as indicated below to identify the current status of the bridge regarding its vulnerability to scour.  Scour analyses shall be made by hydraulic/geotechnical/structural engineers.  Details on conducting a scour analysis are included in the FHWA Technical Advisory 5140.23 titled, 'Evaluating Scour at Bridges.'  Whenever a rating factor of 4 or below is determined for this item, the rating factor for Item 60 - Substructure may need to be revised to reflect the severity of actual scour and resultant damage to the bridge.  A scour critical bridge is one with abutment or pier foundations which are rated as unstable due to (1) observed scour at the bridge site or (2) a scour potential as determined from a scour evalutaiton study.
 
@@ -2093,7 +2135,7 @@ INSERT INTO 113_Scr_Crit_Brdg (Code, Description) VALUES
 	('0', 'Bridge is scour crirtical; Bridge has failed and is closed to traffic.');
 
 
------ Future Average Daily Traffic  114  - 6 Digits
+----- (114) Future Average Daily Traffic - 6 Digits
 
 ### Code for all bridges the forcasted average daily traffic (ADT) for the inventory route identified in Item 5.  This shall be projected at least 17 years but no more than 22 years for the year of inspection.  The intent is to provide a basis for a 20-year forecast.  This item may be updated anytime, but must be updated when the forecast falls below th 17-year limit.  If planning data is not available, use the best estimate based on site familiarity.
 
@@ -2105,7 +2147,7 @@ INSERT INTO 113_Scr_Crit_Brdg (Code, Description) VALUES
 							240,000		240000
 
 
------ Year of Future Average Daily Traffic  115  - 4 Digits
+----- (115) Year of Future Average Daily Traffic - 4 Digits
 
 ### Record and code the year represented by the future ADT in Item 114.  The projected year of future ADT shall be at least 17 years but no more than 22 years from the year of inspection.
 
