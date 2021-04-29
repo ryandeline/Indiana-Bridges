@@ -446,14 +446,14 @@ INSERT INTO 12_Base_Hwy_Net (Code, Description) VALUES
 
 ### The toll status of the structure is indicated by this item.  Interstate toll segments under Secretarilal Agreement (Title 23 - United States Code - Highways Section 129 as amended by 1991 ISTEA and prior legislation) shall be identified seperately.  Use one of the following codes:
 
-CREATE SCHEMA Toll;
+CREATE SCHEMA 20_Toll;
 
-CREATE TABLE Toll (
+CREATE TABLE 20_Toll (
 	Code int,
 	Description text
 );
 
-INSERT INTO Toll (Code, Description) VALUES
+INSERT INTO 20_Toll (Code, Description) VALUES
 	(1, 'Toll Bridge.  Tolls are paid specifically to use the structure.'),
 	(2, 'On toll road.  The structure carries a toll road, that is, tolls are paid to use the facility, which includes both the highway and the structure,'),
 	(3, 'On free road.  The structure is toll-free and carries a toll-free highway.'),
@@ -465,14 +465,14 @@ INSERT INTO Toll (Code, Description) VALUES
 
 ### The actual name(s) of the agency(s) responsible for the maintenacne of the structure shall be recorded on the inspection form.  The codes below shall be used to represent the type of agency that has primary responsibility for maintaining the structure.  If more than one agency has equal maintenance responsibility, code one agency in the hierarchy of State, Federal, county, city, railroad, and other private.
 
-CREATE SCHEMA Maint_Resp;
+CREATE SCHEMA 21_Maint_Resp;
 
-CREATE TABLE Maint_Resp (
+CREATE TABLE 21_Maint_Resp (
 	Code int,
 	Description text
 );
 
-INSERT INTO Maint_Resp (Code, Description) VALUES
+INSERT INTO 21_Maint_Resp (Code, Description) VALUES
 	(01, 'State Highway Agency'),
 	(02, 'County Highway Agency'),
 	(03, 'Town or Township Highway Agency'),
@@ -1250,7 +1250,7 @@ INSERT INTO 62_Culv_Cond (Code, Description) VALUES
 
 ----- (63) Method Used to Determine Operating Rating - 1 Digit
 
-	CREATE SCHEMA 63_Method_Used;
+CREATE SCHEMA 63_Method_Used;
 
 CREATE TABLE 63_Method_Used (
 	Code int,
@@ -1455,13 +1455,16 @@ INSERT INTO 67-72_Appraisal_Ratings (Code, Description) VALUES
 CREATE SCHEMA 70_Posting_Requirements;
 
 CREATE TABLE 70_Posting_Requirements (
-	Code text,
+	Code int,
 	Description text
 );
 
 INSERT INTO 70_Posting_Requirements (Code, Description) VALUES
-	('<4', 'Posting Required'),
-	('5', 'No Posting Required');
+	(1, 'Posting Required'),
+	(2, 'Posting Required'),
+	(3, 'Posting Required'),
+	(4, 'Posting Required'),
+	(5, 'No Posting Required');
 
 ### The degree that the operating rating is less than the maximum legal load level may be used to differentiate between codes.
 
@@ -2096,16 +2099,16 @@ INSERT INTO 111_Pier_Abut_Pro (Code, Description) VALUES
 
 	A structure including supports erected over a depression or an obstruction, such as wate, highway, or railway, and having a track or passageway for carrying traffic or other moving loads, and having 20 feet between undercopings of abutments or spring lines of arches, or extreme ends of openings for multiple boxes; it may also include multiple pipes, where the clear distance between openings is less than half of the smaller contiguous opening.
 
-	CREATE SCHEMA 112_NBIS_Brdg_Len;
+CREATE SCHEMA 112_NBIS_Brdg_Len;
 
-	CREATE TABLE 112_NBIS_Brdg_Len (
-		Code text,
-		Description text
-	);
+CREATE TABLE 112_NBIS_Brdg_Len (
+	Code text,
+	Description text
+);
 
-	INSERT INTO 112_NBIS_Brdg_Len (Code, Desription) VALUES
-		('Y', 'Yes'),
-		('N', 'No');
+INSERT INTO 112_NBIS_Brdg_Len (Code, Desription) VALUES
+	('Y', 'Yes'),
+	('N', 'No');
 
 
 ----- (113) Scour Critical Bridges - 1 Digit
@@ -2155,7 +2158,7 @@ INSERT INTO 113_Scr_Crit_Brdg (Code, Description) VALUES
 			Year of Future ADT	2014	2014
 
 
------ Minimum Navigation Vertical CLearance, Vertical Lift Bridge  116  - 4 Digits
+----- (116) Minimum Navigation Vertical CLearance, Vertical Lift Bridge - 4 Digits
 
 ### Record and code as a 4-digit number truncated to the tenth of a meter (with and assumed decimal point), the minimum vertical clearance imposed at the site as measured above a datum that is specified on a navigation permit issued by a control agency.  Code this item only for vertical lift bridges in the dropped or closed position, otherwise leave blank.
 
