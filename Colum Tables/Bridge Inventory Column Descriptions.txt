@@ -1255,12 +1255,12 @@ INSERT INTO Method_Used_65 (Code, Description) VALUES
 
 ### Items 67, 68, 69, 71, and 72 will be coded with a 1-digit code that indicates the appraisal rating for the item.
 
-CREATE TABLE Appraisal_Ratings_67-72 (
+CREATE TABLE Appraisal_Ratings_67_72 (
 	Code text,
 	Description text
 );
 
-INSERT INTO Appraisal_Ratings_67-72 (Code, Description) VALUES
+INSERT INTO Appraisal_Ratings_67_72 (Code, Description) VALUES
 	('N', 'Not Applicable'),
 	('9', 'Superior to present desirable criteria'),
 	('8', 'Equal to present desirable criteria'),
