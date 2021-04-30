@@ -392,7 +392,7 @@ INSERT INTO Struct_OPC_Traff_41 (Code, Description) VALUES
 	('G', 'New structure not yet open to traffic'),
 	('K', 'Bridge closed to all traffic'),
 	('P', 'Posted for load (may include other restrictions such as temporary bridges which are load posted)'),
-	('R', 'Posted for other load-capacity restriction (speed, number of vehicles on bridge, etc.)')
+	('R', 'Posted for other load-capacity restriction (speed, number of vehicles on bridge, etc.)');
 GO
 CREATE TABLE Type_Serv_42A (
 	Code int,
@@ -656,12 +656,12 @@ INSERT INTO Method_Used_65 (Code, Description) VALUES
 	(4, 'Load Testing'),
 	(5, 'No rating analysis performed');
 GO
-CREATE TABLE Appraisal_Ratings_67-72 (
+CREATE TABLE Appraisal_Ratings_67_72 (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Appraisal_Ratings_67-72 (Code, Description) VALUES
+INSERT INTO Appraisal_Ratings_67_72 (Code, Description) VALUES
 	('N', 'Not Applicable'),
 	('9', 'Superior to present desirable criteria'),
 	('8', 'Equal to present desirable criteria'),
