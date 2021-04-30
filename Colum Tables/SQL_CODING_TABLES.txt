@@ -224,7 +224,7 @@ INSERT INTO Des_LOS_5C (Code, Description) VALUES
 
 CREATE TABLE Dir_Suff_5E (
 	Code int,
-	Description
+	Description text
 );
 
 INSERT INTO Dir_Suff_5E (Code, Description) VALUES
@@ -252,8 +252,8 @@ INSERT INTO Toll_20 (Code, Description) VALUES
 	(1, 'Toll Bridge.  Tolls are paid specifically to use the structure.'),
 	(2, 'On toll road.  The structure carries a toll road, that is, tolls are paid to use the facility, which includes both the highway and the structure,'),
 	(3, 'On free road.  The structure is toll-free and carries a toll-free highway.'),
-	(4, On Interstate toll segment under Secretarial Agreement.  Structure functions as a part of the toll segment.),
-	(5, Toll bridge is a segment under Secretarial Agreement. Structure is separate agreement from highway segment.);
+	(4, 'On Interstate toll segment under Secretarial Agreement.  Structure functions as a part of the toll segment.'),
+	(5, 'Toll bridge is a segment under Secretarial Agreement. Structure is separate agreement from highway segment.');
 
 CREATE TABLE Maint_Resp_21 (
 	Code int,
@@ -309,12 +309,12 @@ INSERT INTO FC_26 (Code, Description) Values
 	(16, 'Urban - Minor Arterial'),
 	(17, 'Urban - Collector'),
 	(19, 'Urban - Local');
-
+GO
 CREATE TABLE Design_Load_31 (
 	Code int,
-	Description, text
+	Description text
 );
-
+GO
 INSERT INTO Design_Load_31 (Code, Description) VALUES
 	(1, 'H 10'),
 	(2, 'H 15'),
@@ -326,64 +326,68 @@ INSERT INTO Design_Load_31 (Code, Description) VALUES
 	(8, 'Railroad'),
 	(9, 'HS 25'),
 	(0, 'Unkown');
+GO
+
+
+
 
 CREATE TABLE Bridge_Median_33 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Bridge_Median_33 (Code, Description) VALUES
 	(0, 'No Median'),
 	(1, 'Open Median'),
 	(2, 'Closed Median (no barrier)'),
 	(3, 'Closed Median with non-mountable barriers');
-
+GO
 CREATE TABLE Struct_Flared_35 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Struct_Flared_35 (Code, Description) VALUES
 	(0, 'No Flare'),
 	(1, 'Yes, Flared');
-
+GO
 CREATE TABLE Traff_Safe_Feat_36 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Traff_Safe_Feat_36 (Code, Description) VALUES
 	('0', 'Inspected feature does not meet curerently acceptable standards or a safety feature is require and none is provided'),
 	('1', 'Inspected feature meets currently acceptable standards'),
 	('N', 'Not applicable or a safety feature is not required');
-
+GO
 CREATE TABLE Hist_Sig_37 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Hist_Sig_37 (Code, Description) VALUES
 	(1, 'Bridge is on the National Register of Historic Places.'),
 	(2, 'Bridge is eligible for the National Register of Historic Places'),
 	(3, 'Bridge is possibly eligible for the National Register of Historic Places (requires further investigation before determination can be made) or bridge is on a State or local historic register.'),
 	(4, 'Historical significance is not determinable at this time.'),
 	(5, 'Bridge is not eligible for the National Register of Historic Places');
-
+GO
 CREATE TABLE Nav_Cont_38 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Nav_Cont_38 (Code, Description) VALUES
 	('N', 'Not applicable, no waterway.'),
 	('0', 'No navigation control on waterway (bridge permit not required)'),
 	('1', 'Navigation control on waterway (Bridge permit required)');
-
+GO
 CREATE TABLE Struct_OPC_Traff_41 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Struct_OPC_Traff_41 (Code, Description) VALUES
 	('A', 'Open, no restriction'),
 	('B', 'Open, posting recommended but not legally implemented (all signs not in place or correctlyl implemented)'),
@@ -393,12 +397,12 @@ INSERT INTO Struct_OPC_Traff_41 (Code, Description) VALUES
 	('K', 'Bridge closed to all traffic'),
 	('P', 'Posted for load (may include other restrictions such as temporary bridges which are load posted)'),
 	('R', 'Posted for other load-capacity restriction (speed, number of vehicles on bridge, etc.)')
-
+GO
 CREATE TABLE Type_Serv_42A (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Type_Serv_42A (Code, Description) VALUES
 	(1, 'Highway'),
 	(2, 'Railroad'),
@@ -415,7 +419,7 @@ CREATE TABLE Type_Serv_42B (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Type_Serv_42B (Code, Description) VALUES
 	(1, 'Highway, with or without pedestrian'),
 	(2, 'Railroad'),
@@ -427,12 +431,12 @@ INSERT INTO Type_Serv_42B (Code, Description) VALUES
 	(8, 'Highway-Waterway-Railroad'),
 	(9, 'Relief for Waterway'),
 	(0, 'Other');
-
+GO
 CREATE TABLE Struc_Type_Main_43A (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Struc_Type_Main_43A (Code, Description) VALUES
 	(1, 'Concrete'),
 	(2, 'Concrete Continuous'),
@@ -444,12 +448,12 @@ INSERT INTO Struc_Type_Main_43A (Code, Description) VALUES
 	(8, 'Masonry'),
 	(9, 'Aluminum, Wrought Iron, or Cast Iron'),
 	(0, 'Other');
-
+GO
 CREATE TABLE Stuc_Type_Main_43B (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Stuc_Type_Main_43B (Code, Description) VALUES
 	(01, 'Slab'),
 	(02, 'Stringer/Multi-beam or Girder'),
@@ -457,7 +461,7 @@ INSERT INTO Stuc_Type_Main_43B (Code, Description) VALUES
 	(04, 'Tee Beam'),
 	(05, 'Box Beam or Girders - Multiple'),
 	(06, 'Box Beam or Girders - Single or Spread'),
-	(07, 'Frame (except fram culverts)')
+	(07, 'Frame - except fram culverts'),
 	(08, 'Orthotropic'),
 	(09, 'Truss - Deck'),
 	(10, 'Truss - Thru'),
@@ -474,14 +478,12 @@ INSERT INTO Stuc_Type_Main_43B (Code, Description) VALUES
 	(21, 'Segmental Box Girder'),
 	(22, 'Channel Beam'),
 	(00, 'Other');
-
-CREATE SCHEMA Struc_Type_AprSpan_44A;
-
+GO
 CREATE TABLE Struc_Type_AprSpan_44A (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Struc_Type_AprSpan_44A (Code, Description) VALUES
 	(1, 'Concrete'),
 	(2, 'Concrete Continuous'),
@@ -493,13 +495,16 @@ INSERT INTO Struc_Type_AprSpan_44A (Code, Description) VALUES
 	(8, 'Masonry'),
 	(9, 'Aluminum, Wrought Iron, or Cast Iron'),
 	(0, 'Other');
+GO
+
+
 
 
 CREATE TABLE Struc_Type_AprSpan_44B (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Struc_Type_AprSpan_44B (Code, Description) VALUES
 	(01, 'Slab'),
 	(02, 'Stringer/Multi-beam or Girder'),
@@ -507,7 +512,7 @@ INSERT INTO Struc_Type_AprSpan_44B (Code, Description) VALUES
 	(04, 'Tee Beam'),
 	(05, 'Box Beam or Girders - Multiple'),
 	(06, 'Box Beam or Girders - Single or Spread'),
-	(07, 'Frame (except fram culverts)')
+	(07, 'Frame (except fram culverts)'),
 	(08, 'Orthotropic'),
 	(09, 'Truss - Deck'),
 	(10, 'Truss - Thru'),
@@ -524,38 +529,32 @@ INSERT INTO Struc_Type_AprSpan_44B (Code, Description) VALUES
 	(21, 'Segmental Box Girder'),
 	(22, 'Channel Beam'),
 	(00, 'Other');
-
-CREATE SCHEMA Min_Vert_UClear_54A;
-
+GO
 CREATE TABLE Min_Vert_UClear_54A (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Min_Vert_UClear_54A (Code, Description) VALUES
 	('H', 'Highway beneath structure'),
 	('R', 'Railroad beneath structure'),
 	('N', 'Feature not a highway or railroad');
-
-CREATE SCHEMA Min_Lat_UClear_Right_55A;
-
+GO
 CREATE TABLE Min_Lat_UClear_Right_55A (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Min_Lat_UClear_Right_55A (Code, Description) VALUES
 	('H', 'Highway beneath structure'),
 	('R', 'Railroad beneath structure'),
 	('N', 'Feature not a highway or railroad');
-
-CREATE SCHEMA Deck_Cond_58;
-
+GO
 CREATE TABLE Deck_Cond_58 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Deck_Cond_58 (Code, Description) VALUES
 	('N', 'Not Applicable'),
 	('9', 'Excellent Condition'),
@@ -568,14 +567,12 @@ INSERT INTO Deck_Cond_58 (Code, Description) VALUES
 	('2', 'Critical Condition'),
 	('1', 'Imminent Failure Condition'),
 	('0', 'Failed Condition');
-
-CREATE SCHEMA SupStruc_Cond_59;
-
+GO
 CREATE TABLE SupStruc_Cond_59 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO SupStruc_Cond_59 (Code, Description) VALUES
 	('N', 'Not Applicable'),
 	('9', 'Excellent Condition'),
@@ -588,14 +585,12 @@ INSERT INTO SupStruc_Cond_59 (Code, Description) VALUES
 	('2', 'Critical Condition'),
 	('1', 'Imminent Failure Condition'),
 	('0', 'Failed Condition');
-
-CREATE SCHEMA SubStruc_Cond_60;
-
+GO
 CREATE TABLE SubStruc_Cond_60 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO SubStruc_Cond_60 (Code, Description) VALUES
 	('N', 'Not Applicable'),
 	('9', 'Excellent Condition'),
@@ -608,34 +603,33 @@ INSERT INTO SubStruc_Cond_60 (Code, Description) VALUES
 	('2', 'Critical Condition'),
 	('1', 'Imminent Failure Condition'),
 	('0', 'Failed Condition');
+GO
 
-CREATE SCHEMA Chan_ChaPro_61;
+
 
 CREATE TABLE Chan_ChaPro_61 (
 	Code text,
 	Descriptioin text
 );
-
+GO
 INSERT INTO Chan_ChaPro_61 (Code, Description) VALUES
 	('N', 'Not applicable.  Use when Bridge is not over a waterway (channel)'),
 	('9', 'There are no noticeable or noteworthy deficiencies which affect the condition of the channel.'),
 	('8', 'Banks are protected or well vegetated.  River control devices such as spur dikes and embankment protection are not required or are in a stable condition.'),
 	('7', 'Bank protection is in need of minor repairs.  River control devices and embankment protection have a little minor damage.  Banks and/or channel have minor amounts of drift.'),
 	('6', 'Bank is beginning to slump.  River control devices and embankment protection have widespread minor damage.  There is minor stream bed movement evident.  Debris is restricting the channel slightly.'),
-	('5', 'Bank protection is being eroded.  River control devices and/or embankment have major damage.  Trees and brush restrict the channel.')
+	('5', 'Bank protection is being eroded.  River control devices and/or embankment have major damage.  Trees and brush restrict the channel.'),
 	('4', 'Bank and embankment protection is severely undermined.  River control devices have severe damage.  Large deposits of debris are in the channel.'),
 	('3', 'Bank protection has failed.  River control devivces have been destroyed.  Stream be aggradation, degradation or lateral movement has changed the channel to now threaten the bridge and/or approach roadway'),
 	('2', 'The channel has changed to the extent the bridge is near a state of collapse.'),
 	('1', 'Bridge closed because of channel failure.  Corrective action may put back in light service'),
 	('0', 'Bridge closed because of channel failure.  Replacement necessary.');
-
-CREATE SCHEMA Culv_Cond_62;
-
+GO
 CREATE TABLE Culv_Cond_62 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Culv_Cond_62 (Code, Description) VALUES
 	('N', 'Not applicable.  Use if Structure is not a culvert.'),
 	('9', 'No deficiencies'),
@@ -648,42 +642,36 @@ INSERT INTO Culv_Cond_62 (Code, Description) VALUES
 	('2', 'Intergral wingwalls collapsed, severe settlemenet of roadway due to loss of fill.  Section of cluvert may have failed and can no longer support embankment.  Complete undermining at curtain walls and pipes.  Corrective action required to maintain traffic.  Metal culverts have extreme distortion and deflection throughout with extensive perforations due to corrosion.'),
 	('1', 'Bridge Closed.  Corrective action may put back in light service.'),
 	('0', 'Bridge Closed.  Replacement Necessary.');
-
-CREATE SCHEMA Method_Used_63;
-
+GO
 CREATE TABLE Method_Used_63 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Method_Used_63 (Code, Description) VALUES
 	(1, 'Load Factor (LF)'),
 	(2, 'Allowable Stress (AS)'),
 	(3, 'Load and Resistance Factor (LRFR)'),
 	(4, 'Load Testing'),
 	(5, 'No rating analysis performed');
-
-CREATE SCHEMA Method_Used_65;
-
+GO
 CREATE TABLE Method_Used_65 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Method_Used_65 (Code, Description) VALUES
 	(1, 'Load Factor (LF)'),
 	(2, 'Allowable Stress (AS)'),
 	(3, 'Load and Resistance Factor (LRFR)'),
 	(4, 'Load Testing'),
 	(5, 'No rating analysis performed');
-
-CREATE SCHEMA Appraisal_Ratings_67-72;
-
+GO
 CREATE TABLE Appraisal_Ratings_67-72 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Appraisal_Ratings_67-72 (Code, Description) VALUES
 	('N', 'Not Applicable'),
 	('9', 'Superior to present desirable criteria'),
@@ -696,28 +684,24 @@ INSERT INTO Appraisal_Ratings_67-72 (Code, Description) VALUES
 	('2', 'Basically intolerable requiring high priority of replacement'),
 	('1', 'This value of rating code not used'),
 	('0', 'Bridge Closed');
-
-CREATE SCHEMA Posting_Requirements_70;
-
+GO
 CREATE TABLE Posting_Requirements_70 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Posting_Requirements_70 (Code, Description) VALUES
 	(1, 'Posting Required'),
 	(2, 'Posting Required'),
 	(3, 'Posting Required'),
 	(4, 'Posting Required'),
 	(5, 'No Posting Required');
-
-CREATE SCHEMA Op_Rate_Over_Max_LL_70;
-
+GO
 CREATE TABLE Op_Rate_Over_Max_LL_70 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Op_Rate_Over_Max_LL_70 (Code, Description) VALUES
 	(5, 'Equal to or above legal loads'),
 	(4, '0.1 - 9.9% below'),
@@ -725,14 +709,12 @@ INSERT INTO Op_Rate_Over_Max_LL_70 (Code, Description) VALUES
 	(2, '20.0 - 29.9% below'),
 	(1, '30.0 - 39.9% below'),
 	(0, '> 39.9% below');
-
-CREATE SCHEMA FC_INST_FREE_71;
-
+GO
 CREATE TABLE FC_INST_FREE_71 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO FC_INST_FREE_71 (Code, Description) VALUES
 	('N', 'Bridge not over waterway'),
 	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
@@ -742,14 +724,12 @@ INSERT INTO FC_INST_FREE_71 (Code, Description) VALUES
 	('3', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with significant traffic delays.'),
 	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
 	('0', 'Bridge Closed');
-
-CREATE SCHEMA FC_PRIN_ART_MAJ_71;
-
+GO
 CREATE TABLE FC_PRIN_ART_MAJ_71 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO FC_PRIN_ART_MAJ_71 (Code, Description) VALUES
 	('N', 'Bridge not over waterway'),
 	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
@@ -760,14 +740,12 @@ INSERT INTO FC_PRIN_ART_MAJ_71 (Code, Description) VALUES
 	('3', 'Occasional overtopping of bridge deck and roadway approaches with significant traffic delays.'),
 	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
 	('0', 'Bridge Closed');	
-
-CREATE SCHEMA FC_MIN_LOC_71;
-
+GO
 CREATE TABLE FC_MIN_LOC_71 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO FC_MIN_LOC_71 (Code, Description) VALUES
 	('N', 'Bridge not over waterway'),
 	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
@@ -779,14 +757,12 @@ INSERT INTO FC_MIN_LOC_71 (Code, Description) VALUES
 	('3', 'Frequent overtopping of bridge deck and roadway approaches with significant traffic delays'),
 	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
 	('0', 'Bridge Closed');
-
-CREATE SCHEMA TOW_75A;
-
+GO
 CREATE TABLE TOW_75A (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO TOW_75A (Code, Description) VALUES
 	(31, 'Replacement of bridge or other structure because of substandard load carrying capacity or substandard bridge roadway geometry.'),
 	(32, 'Replacement of bridge or other structure because of relocation of road.'),
@@ -796,101 +772,85 @@ INSERT INTO TOW_75A (Code, Description) VALUES
 	(36, 'Bridge deck rehabilitation with only incidental widening.'),
 	(37, 'Bridge deck replacement with only incidental widening.'),
 	(38, 'Other structural work, including hydraulic replacements.');
-
-CREATE SCHEMA TOW_75B;
-
+GO
 CREATE TABLE TOW_75B (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO TOW_75B (Code, Description) VALUES
-	(1, Work to be done by contract),
-	(2, Work to be done by owner's forces);
-
-CREATE SCHEMA STRA_Hwy_Des_100;
-
+	(1, 'Work to be done by contract'),
+	(2, 'Work to be done by owners forces');
+GO
 CREATE TABLE STRA_Hwy_Des_100 (
 	Code int,
 	Description text
 );
-
+GO
 INSTERT INTO STRA_Hwy_Des_100 (Code, Description) VALUES
 	(0, 'The inventory route is not a STRAHNET route.'),
 	(1, 'The inventory route is on an Interstate STRAHNET route.'),
 	(2, 'The inventory route is on a Non-Interstate STRAHNET route.'),
 	(3, 'The inventory route is on a STRAHNET connector route.');
-
-CREATE SCHEMA Par_Struc_Des_101;
-
+GO
 CREATE TABLE Par_Struc_Des_101 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Par_Struc_Des_101 (Code, Description) VALUES
 	('R', 'The righ structure of parallel bridges carrying the roadway in the direction of the inventory. (For STRAHNET highway, this is west to east and south to north).'),
 	('L', 'The left structure of parallel bridges.  This structure carries traffic in the opposite direction.'),
 	('N', 'No parallel structure exists.');
-
-CREATE SCHEMA Dir_Traff_102;
-
+GO
 CREATE TABLE Dir_Traff_102 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Dir_Traff_102 (Code, Description) VALUES
 	(0, 'Highway traffic not carried'),
 	(1, '1-way traffic'),
 	(2, '2-way traffic'),
 	(3, 'One lane bridge for 2-way traffic');
-
-CREATE SCHEMA Temp_Struc_Des_103;
-
+GO
 CREATE TABLE Temp_Struc_Des_103 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Temp_Struc_Des_103 (Code, Description) VALUES
 	('T', 'Temporary Sturcture(s) or conditions exist.');
-
-CREATE SCHEMA Temp_Struc_Des_103A;
-
+GO
 CREATE TABLE Temp_Struc_Des_103A (
 	Code int,
-	Designation text
+	Description text
 );
-
+GO
 INSERT INTO Temp_Struc_Des_103A (Code, Description) VALUES
 	(10, 'Invetory Route, Minimum Vertical Clearance'),
 	(41, 'Structure Open, Posted, or Closed to Traffic'),
 	(47, 'Inventory Route, Total Horizontal Clearance'),
-	(53, 'Minimum Vertical Clearance Over Bridge Roadway').
+	(53, 'Minimum Vertical Clearance Over Bridge Roadway'),
 	(54, 'Minimum Vertical Underclearance'),
 	(55, 'Minimum Lateral Underclearance on Right'),
 	(56, 'Minimum Lateral Underclearance on Left'),
 	(70, 'Bridge Posting');
-
-CREATE SCHEMA Hwy_Sys_104;
-
+GO
 CREATE TABLE Hwy_Sys_104 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Hwy_Sys_104 (Code, Description) VALUES
 	(0, 'Inventory Route is not on the NHS'),
 	(1, 'Inventory Route is on the NHS');
-
-CREATE SCHEMA Fed_Land_Hwy_105;
-
+GO
 CREATE TABLE Fed_Land_Hwy_105 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Fed_Land_Hwy_105 (Code, Description) VALUES
 	(0, 'Not Applicable'),
 	(1, 'Indian Reservation Road (IRR)'),
@@ -900,16 +860,14 @@ INSERT INTO Fed_Land_Hwy_105 (Code, Description) VALUES
 	(5, 'Both IRR and LMHS'),
 	(6, 'Both FH and LMHS'),
 	(9, 'Combined IRR, FH, and LMHS');
-
-CREATE SCHEMA Deck_Struc_Type_107;
-
+GO
 CREATE TABLE Deck_Struc_Type_107 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Deck_Struc_Type_107 (Code, Description) VALUES
-	('1', 'Concrete Cast-in-Place')
+	('1', 'Concrete Cast-in-Place'),
 	('2', 'Concrete Precast Panels'),
 	('3', 'Open Grating'),
 	('4', 'Closed Grating'),
@@ -919,14 +877,12 @@ INSERT INTO Deck_Struc_Type_107 (Code, Description) VALUES
 	('8', 'Wood or Timber'),
 	('9', 'Other'),
 	('N', 'Not Applicable');
-
-CREATE SCHEMA Wear_Surf_108A;
-
+GO
 CREATE TABLE Wear_Surf_108A (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Wear_Surf_108A (Code, Description) VALUES
 	('1', 'Monolithic Concrete (Concurrently Placed with Structural Deck)'),
 	('2', 'Integral Concrete (Separate non-modified layer of concrete added to structural deck'),
@@ -939,14 +895,12 @@ INSERT INTO Wear_Surf_108A (Code, Description) VALUES
 	('9', 'Other'),
 	('0', 'None (no additional concrete thickness or wearing surface is included in the bridge deck)'),
 	('N', 'Not Applicable (applies only to structures with no deck');
-
-CREATE SCHEMA Wear_Surf_108B;
-
+GO
 CREATE TABLE Wear_Surf_108B (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Wear_Surf_108B (Code, Description) VALUES
 	('1', 'Built-up'),
 	('2', 'Performed Fabric'),
@@ -955,14 +909,12 @@ INSERT INTO Wear_Surf_108B (Code, Description) VALUES
 	('9', 'Other'),
 	('0', 'None'),
 	('N', 'Not Applicable (applies only to structures with no deck)');
-
-CREATE SCHEMA Wear_Surf_108C;
-
+GO
 CREATE TABLE Wear_Surf_108C (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Wear_Surf_108C (Code, Description) VALUES
 	('1', 'Epoxy Coated Reinforcing'),
 	('2', 'Galvanized Reinnforcing'),
@@ -974,53 +926,50 @@ INSERT INTO Wear_Surf_108C (Code, Description) VALUES
 	('9', 'Other'),
 	('0', 'None'),
 	('N', 'Not Applicable (applies only to structures with no deck');
-
-CREATE SCHEMA Des_Nat_Net_110;
-
+GO
 CREATE TABLE Des_Nat_Net_110 (
 	Code int,
-	Designation text
+	Description text
 );
+GO
+
+
+
+
 
 INSERT INTO Des_Nat_Net_110 (Code, Description) VALUES
 	(0, 'The inventory route is not part of the national network for trucks.'),
 	(1, 'The inventory route is part of the national network for trucks.');
-
-CREATE SCHEMA Pier_Abut_Pro_111;
-
+GO
 CREATE TABLE Pier_Abut_Pro_111 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Pier_Abut_Pro_111 (Code, Description) VALUES
 	(1, 'Navigation protection not required'),
 	(2, 'In place and functioning'),
 	(3, 'In place but in a deteriorated condition'),
 	(4, 'In place but reevaluation of design suggested'),
 	(5, 'Non present but reevaluation suggested');
-
-CREATE SCHEMA NBIS_Brdg_Len_112;
-
+GO
 CREATE TABLE NBIS_Brdg_Len_112 (
 	Code text,
 	Description text
 );
-
-INSERT INTO NBIS_Brdg_Len_112 (Code, Desription) VALUES
+GO
+INSERT INTO NBIS_Brdg_Len_112 (Code, Description) VALUES
 	('Y', 'Yes'),
 	('N', 'No');
-
-CREATE SCHEMA Scr_Crit_Brdg_113;
-
+GO
 CREATE TABLE Scr_Crit_Brdg_113 (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Scr_Crit_Brdg_113 (Code, Description) VALUES
 	('N', 'Bridge not over waterway'),
-	('U', 'Bridge with 'unknown' foundation that has not been evaluated for scour.  Since risk cannot be determined, flag for monitoring during flood events and, if appropriate, closure.'),
+	('U', 'Bridge with - unknown - foundation that has not been evaluated for scour.  Since risk cannot be determined, flag for monitoring during flood events and, if appropriate, closure.'),
 	('T', 'Bridge over "tidal" waters that has not been evaluated for scour, but considered low risk.  Bridge will be monitored with regular inspection cycle and with appropriate underwater inspections. ("Unknown" foundations in "tidal" waters should be coded U.'),
 	('9', 'Bridge foundations (including piles) on dry land well above flood water elevations.'),
 	('8', 'Bridge foundations determined to be stable for assessed or calculated scour conditions; calculated scour is above top of footing (Example A)'),
@@ -1032,4 +981,4 @@ INSERT INTO Scr_Crit_Brdg_113 (Code, Description) VALUES
 	('2', 'Bridge is scour critical; field review indicates that extensive scour has occurred at bridge foundations.  Immediate action is required to provide scour countermeasures.'),
 	('1', 'Bridge is scour critical; field review indicates that failure of piers/abutments is imminent.  Bridge is closed to traffic.'),
 	('0', 'Bridge is scour crirtical; Bridge has failed and is closed to traffic.');
-
+GO
