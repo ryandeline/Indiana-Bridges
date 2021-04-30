@@ -2,6 +2,8 @@
 
 ######  This document is to aid in the understanding of the columns in the National Bridge Inventory (NBI) column structure.  Nearly all 116 fields are coded in the document.  Below you will find descritptions of the fields and appropriate coding to utilize in table creation.  Further information regarding the inventory can be found on the Federal Highway Administrations Website https://www.fhwa.dot.gov/bridge/nbi.cfm
 
+### SQL Server - T7500Win10JH
+
 
 ###### Beging Table Description ######
 
