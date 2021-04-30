@@ -12,14 +12,12 @@
 ### The first 2 ints in the Code are teh Federal Information Processing Standards (FIPS)
 ### code for States, and the third int is the FHWA region code.
 
-CREATE SCHEMA 1_State_Code;
-
-CREATE TABLE 1_State_Code (
+CREATE TABLE State_Code_1 (
 	Code int,
 	State text
 );
 
-INSERT INTO 1_State_Code (Code, State) VALUES 
+INSERT INTO State_Code_1 (Code, State) VALUES 
 	(014, 'Alabama'),
 	(020, 'Alaska'),
 	(049, 'Arizona'),
@@ -82,14 +80,12 @@ INSERT INTO 1_State_Code (Code, State) VALUES
 
 ### Counties shall be identified using the Federal information Processing Standards (FIPS) codes given in the current version of the Census of Population and Housing - Geographic Identification Code Scheme.
 
-CREATE SCHEMA 3_Cnty_Code;
-
-CREATE TABLE 3_Cnty_Code (
+CREATE TABLE Cnty_Code_3 (
 	Code int,
 	County text
 );
 
-INSERT INTO 3_Cnty_Code (Code, County) VALUES
+INSERT INTO Cnty_Code_3 (Code, County) VALUES
 	(001, 'Adams County'),
 	(003, 'Allen County'),
 	(005, 'Bartholomew County'),
@@ -209,14 +205,12 @@ INSERT INTO 3_Cnty_Code (Code, County) VALUES
 
 ### There are two types of National Bridge Inventory records: 'on' and 'under'. Code the first digit (leftmost) using one of the following codes:
 
-CREATE SCHEMA 5A_Rec_Type;
-
-CREATE TABLE 5A_Rec_Type (
+CREATE TABLE Rec_Type_5A (
 	Code text,
 	Description text
 );
 
-INSERT INTO 5A_Rec_Type (Code, Description) VALUES
+INSERT INTO Rec_Type_5A (Code, Description) VALUES
 	('1', 'Route Carried "on" the structure'),
 	('2', 'Single route goes "under" teh structure'),
 	('A', 'First route under structure'),
@@ -254,14 +248,12 @@ INSERT INTO 5A_Rec_Type (Code, Description) VALUES
 
 ### In the second position, identify the route signing prefix for the inventory route using one of the following codes.
 
-CREATE SCHEMA 5B_RT_Sign_Pref;
-
-CREATE TABLE 5B_RT_Sign_Pref (
+CREATE TABLE RT_Sign_Pref_5B (
 	Code int,
 	Description text
 );
 
-INSERT INTO 5B_RT_Sign_Pref (Code, Description) VALUES
+INSERT INTO RT_Sign_Pref_5B (Code, Description) VALUES
 	(1, 'Interstate Highway'),
 	(2, 'U.S. Numbered Highway'),
 	(3, 'State Highway'),
@@ -277,14 +269,12 @@ INSERT INTO 5B_RT_Sign_Pref (Code, Description) VALUES
 
 ### In the third position, identify the designated level of service for the inventory route using one of the following codes:
 
-CREATE SCHEMA 5C_Des_LOS;
-
-CREATE TABLE 5C_Des_LOS (
+CREATE TABLE Des_LOS_5C (
 	Code int,
 	Description text,
 );
 
-INSERT INTO 5C_Des_LOS (Code, Description) VALUES
+INSERT INTO Des_LOS_5C (Code, Description) VALUES
 	(0, 'None of the below'),
 	(1, 'Mainline'),
 	(2, 'Alternate'),
@@ -302,14 +292,12 @@ INSERT INTO 5C_Des_LOS (Code, Description) VALUES
 
 ### In the last position, code the directional suffix to the route number of the inventory route when it is part of the route nuber, using one of the following codes:
 
-CREATE SCHEMA 5E_Dir_Suff;
-
-CREATE TABLE 5E_Dir_Suff (
+CREATE TABLE Dir_Suff_5E (
 	Code int,
-	Description
+	Description text
 );
 
-INSERT INTO 5E_Dir_Suff (Code, Description) VALUES
+INSERT INTO Dir_Suff_5E (Code, Description) VALUES
 	(0, 'Not applicable'),
 	(1, 'North'),
 	(2, 'East'),
@@ -379,14 +367,12 @@ INSERT INTO Intersections (Segment, Description, Length) VALUES
 
 ### This item is to be coded for all records in the invetory. The Base Highway Network includes the through lane (mainline) portions of the NHS, rural/urban principal arterial system and rural minor arterial system.  Ramps, frontage roads and other roadways are not included in the Base Network.  For the inventory route identified in Item 5 - Inventory Route, indicate whether the inventory route is on the Base Hightway Network or not on that netwrok.  Use one of the following codes.
 
-CREATE SCHEMA 12_Base_Hwy_Net;
-
-CREATE TABLE 12_Base_Hwy_Net (
+CREATE TABLE Base_Hwy_Net_12 (
 	Code int,
 	Description text
 );
 
-INSERT INTO 12_Base_Hwy_Net (Code, Description) VALUES
+INSERT INTO Base_Hwy_Net_12 (Code, Description) VALUES
 	(0, 'Invetory Route is not on the Base Network'),
 	(1, 'Invetory Route is on the Base Network');
 
@@ -448,33 +434,29 @@ INSERT INTO 12_Base_Hwy_Net (Code, Description) VALUES
 
 ### The toll status of the structure is indicated by this item.  Interstate toll segments under Secretarilal Agreement (Title 23 - United States Code - Highways Section 129 as amended by 1991 ISTEA and prior legislation) shall be identified seperately.  Use one of the following codes:
 
-CREATE SCHEMA 20_Toll;
-
-CREATE TABLE 20_Toll (
+CREATE TABLE Toll_20 (
 	Code int,
 	Description text
 );
 
-INSERT INTO 20_Toll (Code, Description) VALUES
+INSERT INTO Toll_20 (Code, Description) VALUES
 	(1, 'Toll Bridge.  Tolls are paid specifically to use the structure.'),
 	(2, 'On toll road.  The structure carries a toll road, that is, tolls are paid to use the facility, which includes both the highway and the structure,'),
 	(3, 'On free road.  The structure is toll-free and carries a toll-free highway.'),
-	(4, On Interstate toll segment under Secretarial Agreement.  Structure functions as a part of the toll segment.),
-	(5, Toll bridge is a segment under Secretarial Agreement. Structure is separate agreement from highway segment.);
+	(4, 'On Interstate toll segment under Secretarial Agreement.  Structure functions as a part of the toll segment.'),
+	(5, 'Toll bridge is a segment under Secretarial Agreement. Structure is separate agreement from highway segment.');
 
 
 ----- (21) Maintenance Responsibility - 2 Digits
 
 ### The actual name(s) of the agency(s) responsible for the maintenacne of the structure shall be recorded on the inspection form.  The codes below shall be used to represent the type of agency that has primary responsibility for maintaining the structure.  If more than one agency has equal maintenance responsibility, code one agency in the hierarchy of State, Federal, county, city, railroad, and other private.
 
-CREATE SCHEMA 21_Maint_Resp;
-
-CREATE TABLE 21_Maint_Resp (
+CREATE TABLE Maint_Resp_21 (
 	Code int,
 	Description text
 );
 
-INSERT INTO 21_Maint_Resp (Code, Description) VALUES
+INSERT INTO Maint_Resp_21 (Code, Description) VALUES
 	(01, 'State Highway Agency'),
 	(02, 'County Highway Agency'),
 	(03, 'Town or Township Highway Agency'),
@@ -515,14 +497,12 @@ INSERT INTO 21_Maint_Resp (Code, Description) VALUES
 
 ### For the inventory route, code the functional classification using one of the following codes:
 
-CREATE SCHEMA 26_FC;
-
-CREATE TABLE 26_FC (
+CREATE TABLE FC_26 (
 	Code int,
 	Description text
 );
 
-INSERT INTO 26_FC (Code, Description) Values
+INSERT INTO FC_26 (Code, Description) Values
 	(01, 'Rural - Principal Arterial - Interstate'),
 	(02, 'Rural - Principal Arterial - Other'),
 	(06, 'Rural - Minor Arterial'),
@@ -582,14 +562,12 @@ INSERT INTO 26_FC (Code, Description) Values
 
 ### Use the codes below to indicate the live load for which teh structure was designed.  The numerical values of the railroad loading should be recorded on the form.  Classify any other loading, when feasible, using the nearest equivalent of the loadings given below.
 
-CREATE SCHEMA 31_Design_Load;
-
-CREATE TABLE 31_Design_Load (
+CREATE TABLE Design_Load_31 (
 	Code int,
-	Description, text
+	Description text
 );
 
-INSERT INTO 31_Design_Load (Code, Description) VALUES
+INSERT INTO Design_Load_31 (Code, Description) VALUES
 	(1, 'H 10'),
 	(2, 'H 15'),
 	(3, 'HS 15'),
@@ -622,14 +600,12 @@ INSERT INTO 31_Design_Load (Code, Description) VALUES
 
 ### Indicate with a 1-digit code if the median is non-existent, open or closed.  The median is closed when the area between the 2 roadways at the structure is bridged over and is capable of supporting traffic.  All bridges that carry either 1-way traffic or 2-way traffic separated onlyl by a centerline will be coded 0 for no median.
 
-CREATE SCHEMA 33_Bridge_Median;
-
-CREATE TABLE 33_Bridge_Median (
+CREATE TABLE Bridge_Median_33 (
 	Code int,
 	Description text
 );
 
-INSERT INTO 33_Bridge_Median (Code, Description) VALUES
+INSERT INTO Bridge_Median_33 (Code, Description) VALUES
 	(0, 'No Median'),
 	(1, 'Open Median'),
 	(2, 'Closed Median (no barrier)'),
@@ -650,14 +626,12 @@ INSERT INTO 33_Bridge_Median (Code, Description) VALUES
 
 ### Code this item to indicate if the structure is flared (i.e. the width of the structure varies).  Generally, such variance will result from ramps converging with or diverging form the through lanes on the structure, but there may be other causes.  Minor flares at ends of structures should be ignored.
 
-CREATE SCHEMA 35_Struct_Flared;
-
-CREATE TABLE 35_Struct_Flared (
+CREATE TABLE Struct_Flared_35 (
 	Code int,
 	Description text
 );
 
-INSERT INTO 35_Struct_Flared (Code, Description) VALUES
+INSERT INTO Struct_Flared_35 (Code, Description) VALUES
 	(0, 'No Flare'),
 	(1, 'Yes, Flared');
 
@@ -684,14 +658,12 @@ Segment 	Description
 
 ### The reporting features shall be as follows:
 
-CREATE SCHEMA 36_Traff_Safe_Feat;
-
-CREATE TABLE 36_Traff_Safe_Feat (
+CREATE TABLE Traff_Safe_Feat_36 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 36_Traff_Safe_Feat (Code, Description) VALUES
+INSERT INTO Traff_Safe_Feat_36 (Code, Description) VALUES
 	('0', 'Inspected feature does not meet curerently acceptable standards or a safety feature is require and none is provided'),
 	('1', 'Inspected feature meets currently acceptable standards'),
 	('N', 'Not applicable or a safety feature is not required');
@@ -701,14 +673,12 @@ INSERT INTO 36_Traff_Safe_Feat (Code, Description) VALUES
 
 ### The historical significance of a bridge involves a variety of characteristics:  the crossing itself might be significant; the bridge might be associated with a historical property or area; or historical significance could be derived from the fact that bridge was associated with significant events or circumstances.
 
-CREATE SCHEMA 37_Hist_Sig;
-
-CREATE TABLE 37_Hist_Sig (
+CREATE TABLE Hist_Sig_37 (
 	Code int,
 	Description text
 );
 
-INSERT INTO 37_Hist_Sig (Code, Description) VALUES
+INSERT INTO Hist_Sig_37 (Code, Description) VALUES
 	(1, 'Bridge is on the National Register of Historic Places.'),
 	(2, 'Bridge is eligible for the National Register of Historic Places'),
 	(3, 'Bridge is possibly eligible for the National Register of Historic Places (requires further investigation before determination can be made) or bridge is on a State or local historic register.'),
@@ -720,14 +690,12 @@ INSERT INTO 37_Hist_Sig (Code, Description) VALUES
 
 ### Indicate for this item whether or not navigation control (a bridge permit for navigation) is required.
 
-CREATE SCHEMA 38_Nav_Cont;
-
-CREATE TABLE Nav_Cont (
+CREATE TABLE Nav_Cont_38 (
 	Code text,
 	Description text
 );
 
-INSERT INTO Nav_Cont (Code, Description) VALUES
+INSERT INTO Nav_Cont_38 (Code, Description) VALUES
 	('N', 'Not applicable, no waterway.'),
 	('0', 'No navigation control on waterway (bridge permit not required)'),
 	('1', 'Navigation control on waterway (Bridge permit required)');
@@ -755,14 +723,12 @@ INSERT INTO Nav_Cont (Code, Description) VALUES
 
 ### This item provides information about the actual operational status of a structure.  The field review could show that a structure is posted, but Item 70 - Bridge Posting may indicate that posting is not required.  This is possible and acceptable coding since Item 70 is based on the operating stress level and the governiing agency's posting procedures may specify posting at some stress level less than the operating rating.
 
-CREATE SCHEMA 41_Struct_OPC_Traff;
-
-CREATE TABLE 41_Struct_OPC_Traff (
+CREATE TABLE Struct_OPC_Traff_41 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 41_Struct_OPC_Traff (Code, Description) VALUES
+INSERT INTO Struct_OPC_Traff_41 (Code, Description) VALUES
 	('A', 'Open, no restriction'),
 	('B', 'Open, posting recommended but not legally implemented (all signs not in place or correctlyl implemented)'),
 	('D', 'Open, would be posted or closed except for temporary shoring, etc. to allow for unrestricted traffic'),
@@ -770,7 +736,7 @@ INSERT INTO 41_Struct_OPC_Traff (Code, Description) VALUES
 	('G', 'New structure not yet open to traffic'),
 	('K', 'Bridge closed to all traffic'),
 	('P', 'Posted for load (may include other restrictions such as temporary bridges which are load posted)'),
-	('R', 'Posted for other load-capacity restriction (speed, number of vehicles on bridge, etc.)')
+	('R', 'Posted for other load-capacity restriction (speed, number of vehicles on bridge, etc.)');
 
 
 ----- 42 Type of Service, On - 2 Digits
@@ -783,14 +749,12 @@ INSERT INTO 41_Struct_OPC_Traff (Code, Description) VALUES
 
 ### The first digit indicates the type of service 'on' the bridge.
 
-CREATE SCHEMA 42A_Type_Serv;
-
-CREATE TABLE 42A_Type_Serv (
+CREATE TABLE Type_Serv_42A (
 	Code int,
 	Description text
 );
 
-INSERT INTO 42A_Type_Serv (Code, Description) VALUES
+INSERT INTO Type_Serv_42A (Code, Description) VALUES
 	(1, 'Highway'),
 	(2, 'Railroad'),
 	(3, 'Pedestrian-bicycle'),
@@ -804,14 +768,12 @@ INSERT INTO 42A_Type_Serv (Code, Description) VALUES
 
 ### The first digit indicates the type of service 'under' the bridge.
 
-CREATE SCHEMA 42B_Type_Serv;
-
-CREATE TABLE 42B_Type_Serv (
+CREATE TABLE Type_Serv_42B (
 	Code int,
 	Description text
 );
 
-INSERT INTO 42B_Type_Serv (Code, Description) VALUES
+IINSERT INTO Type_Serv_42B (Code, Description) VALUES
 	(1, 'Highway, with or without pedestrian'),
 	(2, 'Railroad'),
 	(3, 'Pedestrian-Bicycle'),
@@ -834,14 +796,12 @@ INSERT INTO 42B_Type_Serv (Code, Description) VALUES
 
 ### The first digit indicates the kind of material and/or design
 
-CREATE SCHEMA 43A_Struc_Type_Main;
-
-CREATE TABLE 43A_Struc_Type_Main (
+CREATE TABLE Struc_Type_Main_43A (
 	Code int,
 	Description text
 );
 
-INSERT INTO 43A_Struc_Type_Main (Code, Description) VALUES
+INSERT INTO Struc_Type_Main_43A (Code, Description) VALUES
 	(1, 'Concrete'),
 	(2, 'Concrete Continuous'),
 	(3, 'Steel'),
@@ -855,21 +815,19 @@ INSERT INTO 43A_Struc_Type_Main (Code, Description) VALUES
 
 ### The second and third digits indicate the predominant type of design and/or type of construction
 
-CREATE SCHEMA 43B_Stuc_Type_Main;
-
-CREATE TABLE 43B_Stuc_Type_Main (
+CREATE TABLE Stuc_Type_Main_43B (
 	Code int,
 	Description text
 );
 
-INSERT INTO 43B_Stuc_Type_Main (Code, Description) VALUES
+INSERT INTO Stuc_Type_Main_43B (Code, Description) VALUES
 	(01, 'Slab'),
 	(02, 'Stringer/Multi-beam or Girder'),
 	(03, 'Girder and Floorbeam System'),
 	(04, 'Tee Beam'),
 	(05, 'Box Beam or Girders - Multiple'),
 	(06, 'Box Beam or Girders - Single or Spread'),
-	(07, 'Frame (except fram culverts)')
+	(07, 'Frame - except fram culverts'),
 	(08, 'Orthotropic'),
 	(09, 'Truss - Deck'),
 	(10, 'Truss - Thru'),
@@ -896,14 +854,12 @@ INSERT INTO 43B_Stuc_Type_Main (Code, Description) VALUES
 		44A			Kind of material and/or design			1 digit
 		44B			Type of design and/or construction		2 digits
 
-CREATE SCHEMA 44A_Struc_Type_AprSpan;
-
-CREATE TABLE 44A_Struc_Type_AprSpan (
+CREATE TABLE Struc_Type_AprSpan_44A (
 	Code int,
 	Description text
 );
 
-INSERT INTO 44A_Struc_Type_AprSpan (Code, Description) VALUES
+INSERT INTO Struc_Type_AprSpan_44A (Code, Description) VALUES
 	(1, 'Concrete'),
 	(2, 'Concrete Continuous'),
 	(3, 'Steel'),
@@ -915,21 +871,19 @@ INSERT INTO 44A_Struc_Type_AprSpan (Code, Description) VALUES
 	(9, 'Aluminum, Wrought Iron, or Cast Iron'),
 	(0, 'Other');	
 
-CREATE SCHEMA 44B_Struc_Type_AprSpan;
-
-CREATE TABLE 44B_Struc_Type_AprSpan (
+CREATE TABLE Struc_Type_AprSpan_44B (
 	Code int,
 	Description text
 );
 
-INSERT INTO 44B_Struc_Type_AprSpan (Code, Description) VALUES
+INSERT INTO Struc_Type_AprSpan_44B (Code, Description) VALUES
 	(01, 'Slab'),
 	(02, 'Stringer/Multi-beam or Girder'),
 	(03, 'Girder and Floorbeam System'),
 	(04, 'Tee Beam'),
 	(05, 'Box Beam or Girders - Multiple'),
 	(06, 'Box Beam or Girders - Single or Spread'),
-	(07, 'Frame (except fram culverts)')
+	(07, 'Frame (except fram culverts)'),
 	(08, 'Orthotropic'),
 	(09, 'Truss - Deck'),
 	(10, 'Truss - Thru'),
@@ -1050,14 +1004,12 @@ INSERT INTO 44B_Struc_Type_AprSpan (Code, Description) VALUES
 		54A			Reference feature				1 digit
 		54B			Minimum Vertical Underclearance	4 digits
 
-CREATE SCHEMA 54A_Min_Vert_UClear;
-
-CREATE TABLE 54A_Min_Vert_UClear (
+CREATE TABLE Min_Vert_UClear_54A (
 	Code text,
 	Description text
 );
 
-INSERT INTO 54A_Min_Vert_UClear (Code, Description) VALUES
+INSERT INTO Min_Vert_UClear_54A (Code, Description) VALUES
 	('H', 'Highway beneath structure'),
 	('R', 'Railroad beneath structure'),
 	('N', 'Feature not a highway or railroad');
@@ -1071,14 +1023,12 @@ INSERT INTO 54A_Min_Vert_UClear (Code, Description) VALUES
 		55A			Reference feature				1 digit
 		55B			Minimum Lateral Underclearance 	3 digits
 
-CREATE SCHEMA 55A_Min_Lat_UClear_Right;
-
-CREATE TABLE 55A_Min_Lat_UClear_Right (
+CREATE TABLE Min_Lat_UClear_Right_55A (
 	Code text,
 	Description text
 );
 
-INSERT INTO 55A_Min_Lat_UClear_Right (Code, Description) VALUES
+INSERT INTO Min_Lat_UClear_Right_55A (Code, Description) VALUES
 	('H', 'Highway beneath structure'),
 	('R', 'Railroad beneath structure'),
 	('N', 'Feature not a highway or railroad');
@@ -1113,14 +1063,12 @@ INSERT INTO 55A_Min_Lat_UClear_Right (Code, Description) VALUES
 
 ### Decks integral with the superstructure will be rated as a deck only and not how they may influence the superstructure rating (for example, rigid frame, slab, deckgirder or T-beam, voided slab, box girder, etx.).  Similarily, the superstructure of an intergral deck-type will not influence the deck rating.
 
-CREATE SCHEMA 58_Deck_Cond;
-
-CREATE TABLE 58_Deck_Cond (
+CREATE TABLE Deck_Cond_58 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 58_Deck_Cond (Code, Description) VALUES
+INSERT INTO Deck_Cond_58 (Code, Description) VALUES
 	('N', 'Not Applicable'),
 	('9', 'Excellent Condition'),
 	('8', 'Very Good Condition'),
@@ -1146,14 +1094,12 @@ INSERT INTO 58_Deck_Cond (Code, Description) VALUES
 
 ### Fracture critical components should recieve careful attention because failure could lead to collapse of a span or the bridge.
 
-CREATE SCHEMA 59_SupStruc_Cond;
-
-CREATE TABLE 59_SupStruc_Cond (
+CREATE TABLE SupStruc_Cond_59 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 59_SupStruc_Cond (Code, Description) VALUES
+INSERT INTO SupStruc_Cond_59 (Code, Description) VALUES
 	('N', 'Not Applicable'),
 	('9', 'Excellent Condition'),
 	('8', 'Very Good Condition'),
@@ -1177,14 +1123,12 @@ This item describes the physical condition of piers, abutments, piles, fenders, 
 
 ### Integral-abutment wingwalls to the first construction or expansion joint shall be included in the evealuation.  For non-integral superstructure and substructure units, the substructure shall be considered as teh portion below the bearings.  For structures where the substructure and superstructure are integral, the substructure shall be considered aas the portion below the superstructure.
 
-CREATE SCHEMA 60_SubStruc_Cond;
-
-CREATE TABLE 60_SubStruc_Cond (
+CREATE TABLE SubStruc_Cond_60 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 60_SubStruc_Cond (Code, Description) VALUES
+INSERT INTO SubStruc_Cond_60 (Code, Description) VALUES
 	('N', 'Not Applicable'),
 	('9', 'Excellent Condition'),
 	('8', 'Very Good Condition'),
@@ -1202,20 +1146,18 @@ INSERT INTO 60_SubStruc_Cond (Code, Description) VALUES
 
 ### This item describes the physical conditions associated with the flow of water through the bridge such as a stream stability and the condition of the channel, riprap, slope protection, or stream control devices including spur dikes.  The inspector should be particcularly concerned with visible signs of excessive water velocity which may affect undermining of slope protection, erosion of banks, and realignment of the stream which may result in immediate or potential problems.  Accumulation of drift and debris on the superstructure and substructure should be noted on the inspection form but not included in the condition rating.
 
-CREATE SCHEMA 61_Chan_ChaPro;
-
-CREATE TABLE 61_Chan_ChaPro (
+CREATE TABLE Chan_ChaPro_61 (
 	Code text,
 	Descriptioin text
 );
 
-INSERT INTO 61_Chan_ChaPro (Code, Description) VALUES
+INSERT INTO Chan_ChaPro_61 (Code, Description) VALUES
 	('N', 'Not applicable.  Use when Bridge is not over a waterway (channel)'),
 	('9', 'There are no noticeable or noteworthy deficiencies which affect the condition of the channel.'),
 	('8', 'Banks are protected or well vegetated.  River control devices such as spur dikes and embankment protection are not required or are in a stable condition.'),
 	('7', 'Bank protection is in need of minor repairs.  River control devices and embankment protection have a little minor damage.  Banks and/or channel have minor amounts of drift.'),
 	('6', 'Bank is beginning to slump.  River control devices and embankment protection have widespread minor damage.  There is minor stream bed movement evident.  Debris is restricting the channel slightly.'),
-	('5', 'Bank protection is being eroded.  River control devices and/or embankment have major damage.  Trees and brush restrict the channel.')
+	('5', 'Bank protection is being eroded.  River control devices and/or embankment have major damage.  Trees and brush restrict the channel.'),
 	('4', 'Bank and embankment protection is severely undermined.  River control devices have severe damage.  Large deposits of debris are in the channel.'),
 	('3', 'Bank protection has failed.  River control devivces have been destroyed.  Stream be aggradation, degradation or lateral movement has changed the channel to now threaten the bridge and/or approach roadway'),
 	('2', 'The channel has changed to the extent the bridge is near a state of collapse.'),
@@ -1229,14 +1171,12 @@ INSERT INTO 61_Chan_ChaPro (Code, Description) VALUES
 
 ### Item 58 - Deck, Item 59 - Superstructure, and Item 60 - Substructure shall be coded N for all culverts.
 
-CREATE SCHEMA 62_Culv_Cond;
-
-CREATE TABLE 62_Culv_Cond (
+CREATE TABLE Culv_Cond_62 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 62_Culv_Cond (Code, Description) VALUES
+INSERT INTO Culv_Cond_62 (Code, Description) VALUES
 	('N', 'Not applicable.  Use if Structure is not a culvert.'),
 	('9', 'No deficiencies'),
 	('8', 'No noticeable or noteworthy deficiencies which affect the condition of the culvert.  Insignificant scrape marks cause by drift.'),
@@ -1252,14 +1192,12 @@ INSERT INTO 62_Culv_Cond (Code, Description) VALUES
 
 ----- (63) Method Used to Determine Operating Rating - 1 Digit
 
-CREATE SCHEMA 63_Method_Used;
-
-CREATE TABLE 63_Method_Used (
+CREATE TABLE Method_Used_63 (
 	Code int,
 	Description text
 );
 
-INSERT INTO 63_Method_Used (Code, Description) VALUES
+INSERT INTO Method_Used_63 (Code, Description) VALUES
 	(1, 'Load Factor (LF)'),
 	(2, 'Allowable Stress (AS)'),
 	(3, 'Load and Resistance Factor (LRFR)'),
@@ -1291,14 +1229,12 @@ INSERT INTO 63_Method_Used (Code, Description) VALUES
 
 ----- (65) Method Used to Determin Inventory Rating - 1 Digit
 
-CREATE SCHEMA 65_Method_Used;
-
-CREATE TABLE 65_Method_Used (
+CREATE TABLE Method_Used_65 (
 	Code int,
 	Description text
 );
 
-INSERT INTO 65_Method_Used (Code, Description) VALUES
+INSERT INTO Method_Used_65 (Code, Description) VALUES
 	(1, 'Load Factor (LF)'),
 	(2, 'Allowable Stress (AS)'),
 	(3, 'Load and Resistance Factor (LRFR)'),
@@ -1319,14 +1255,12 @@ INSERT INTO 65_Method_Used (Code, Description) VALUES
 
 ### Items 67, 68, 69, 71, and 72 will be coded with a 1-digit code that indicates the appraisal rating for the item.
 
-CREATE SCHEMA 67-72_Appraisal_Ratings;
-
-CREATE TABLE 67-72_Appraisal_Ratings (
+CREATE TABLE Appraisal_Ratings_67-72 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 67-72_Appraisal_Ratings (Code, Description) VALUES
+INSERT INTO Appraisal_Ratings_67-72 (Code, Description) VALUES
 	('N', 'Not Applicable'),
 	('9', 'Superior to present desirable criteria'),
 	('8', 'Equal to present desirable criteria'),
@@ -1454,9 +1388,7 @@ INSERT INTO 67-72_Appraisal_Ratings (Code, Description) VALUES
 
 ### Posting Requirements
 
-CREATE SCHEMA 70_Posting_Requirements;
-
-CREATE TABLE 70_Posting_Requirements (
+CREATE TABLE Posting_Requirements_70 (
 	Code int,
 	Description text
 );
@@ -1470,14 +1402,12 @@ INSERT INTO 70_Posting_Requirements (Code, Description) VALUES
 
 ### The degree that the operating rating is less than the maximum legal load level may be used to differentiate between codes.
 
-CREATE SCHEMA 70_Op_Rate_Over_Max_LL;
-
-CREATE TABLE 70_Op_Rate_Over_Max_LL (
+CREATE TABLE Op_Rate_Over_Max_LL_70 (
 	Code int,
 	Description text
 );
 
-INSERT INTO 70_Op_Rate_Over_Max_LL (Code, Description) VALUES
+INSERT INTO Op_Rate_Over_Max_LL_70 (Code, Description) VALUES
 	(5, 'Equal to or above legal loads'),
 	(4, '0.1 - 9.9% below'),
 	(3, '10.0 - 19.9% below'),
@@ -1505,18 +1435,12 @@ INSERT INTO 70_Op_Rate_Over_Max_LL (Code, Description) VALUES
 
 ### Functional Classification
 
-CREATE SCHEMA 71_FC_INST_FREE;
-
-CREATE TABLE 71_FC_INST_FREE (
+CREATE TABLE FC_INST_FREE_71 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 71_FC_INST_FREE;
-
-CREATE TABLE 71_FC_INST_FREE;
-
-INSERT INTO 71_FC_INST_FREE (Code, Description) VALUES
+INSERT INTO FC_INST_FREE_71 (Code, Description) VALUES
 	('N', 'Bridge not over waterway'),
 	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
 	('8', 'Bridge deck above roadway approaches.  Slight chance of overtoppin roadway approaches.'),
@@ -1526,14 +1450,12 @@ INSERT INTO 71_FC_INST_FREE (Code, Description) VALUES
 	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
 	('0', 'Bridge Closed');
 
-CREATE SCHEMA 71_FC_PRIN_ART_MAJ;
-
-CREATE TABLE 71_FC_PRIN_ART_MAJ (
+CREATE TABLE FC_PRIN_ART_MAJ_71 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 71_FC_PRIN_ART_MAJ (Code, Description) VALUES
+INSERT INTO FC_PRIN_ART_MAJ_71 (Code, Description) VALUES
 	('N', 'Bridge not over waterway'),
 	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
 	('8', 'Bridge deck above roadway approaches.  Slight chance of overtoppin roadway approaches.'),
@@ -1542,16 +1464,14 @@ INSERT INTO 71_FC_PRIN_ART_MAJ (Code, Description) VALUES
 	('4', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with significant traffic delays.'),
 	('3', 'Occasional overtopping of bridge deck and roadway approaches with significant traffic delays.'),
 	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
-	('0', 'Bridge Closed');	
+	('0', 'Bridge Closed');		
 
-CREATE SCHEMA 71_FC_MIN_LOC;
-
-CREATE TABLE 71_FC_MIN_LOC (
+CREATE TABLE FC_MIN_LOC_71 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 71_FC_MIN_LOC (Code, Description) VALUES
+INSERT INTO FC_MIN_LOC_71 (Code, Description) VALUES
 	('N', 'Bridge not over waterway'),
 	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
 	('8', 'Bridge deck above roadway approaches.  Slight chance of overtoppin roadway approaches.'),
@@ -1561,7 +1481,7 @@ INSERT INTO 71_FC_MIN_LOC (Code, Description) VALUES
 	('4', 'Occasional overtopping of bridge deck and roadway approaches with significant traffic delays.'),
 	('3', 'Frequent overtopping of bridge deck and roadway approaches with significant traffic delays'),
 	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
-	('0', 'Bridge Closed');	
+	('0', 'Bridge Closed');
 
 
 ----- (72) Approach Roadway Alignment - 1 Digit
@@ -1586,14 +1506,12 @@ INSERT INTO 71_FC_MIN_LOC (Code, Description) VALUES
 
 ### This item must be coded for bridges eligible for the Highway Bridge Replacement and Rehabilitation Program.  To be eligible, a bridge must carry highway traffic, be deficient and have a sufficiency rating of 80.0 or less.  This item may be coded for other bridges at the option of the highway agency.
 
-CREATE SCHEMA 75A_TOW;
-
-CREATE TABLE 75A_TOW (
+CREATE TABLE TOW_75A (
 	Code int,
 	Description text
 );
 
-INSERT INTO 75A_TOW (Code, Description) VALUES
+INSERT INTO TOW_75A (Code, Description) VALUES
 	(31, 'Replacement of bridge or other structure because of substandard load carrying capacity or substandard bridge roadway geometry.'),
 	(32, 'Replacement of bridge or other structure because of relocation of road.'),
 	(33, 'Widening of existing bridge or other major structure without deck rehabilitation or replacement; includes culver lengthening.'),
@@ -1603,16 +1521,14 @@ INSERT INTO 75A_TOW (Code, Description) VALUES
 	(37, 'Bridge deck replacement with only incidental widening.'),
 	(38, 'Other structural work, including hydraulic replacements.');
 
-CREATE SCHEMA 75B_TOW;
-
-CREATE TABLE 75B_TOW (
+CREATE TABLE TOW_75B (
 	Code int,
 	Description text
 );
 
-INSERT INTO 75B_TOW (Code, Description) VALUES
-	(1, Work to be done by contract),
-	(2, Work to be done by owner's forces);
+INSERT INTO TOW_75B (Code, Description) VALUES
+	(1, 'Work to be done by contract'),
+	(2, 'Work to be done by owners forces');
 
 
 ### Example
@@ -1805,14 +1721,12 @@ INSERT INTO 75B_TOW (Code, Description) VALUES
 
 ### This item shall be coded for all records in the inventory. For the purposes of this item, the STRAHNET Connectors are considered included in the term STRAHNET.  For teh inventory rout identified in Item 5, indicate STRAHNET highway conditions using one of the folowing codes:
 
-CREATE SCHEMA 100_STRA_Hwy_Des;
-
-CREATE TABLE 100_STRA_Hwy_Des (
+CREATE TABLE STRA_Hwy_Des_100 (
 	Code int,
 	Description text
 );
 
-INSTERT INTO 100_STRA_Hwy_Des (Code, Description) VALUES
+INSTERT INTO STRA_Hwy_Des_100 (Code, Description) VALUES
 	(0, 'The inventory route is not a STRAHNET route.'),
 	(1, 'The inventory route is on an Interstate STRAHNET route.'),
 	(2, 'The inventory route is on a Non-Interstate STRAHNET route.'),
@@ -1823,14 +1737,12 @@ INSTERT INTO 100_STRA_Hwy_Des (Code, Description) VALUES
 
 ### Code this item to indicate situations where separate structures carry the inventory route in opposite directions of travel over the same feature.  The lateral distance between structures has no bearing on the coding of this item.
 
-CREATE SCHEMA 101_Par_Struc_Des;
-
-CREATE TABLE 101_Par_Struc_Des (
+CREATE TABLE Par_Struc_Des_101 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 101_Par_Struc_Des (Code, Description) VALUES
+INSERT INTO Par_Struc_Des_101 (Code, Description) VALUES
 	('R', 'The righ structure of parallel bridges carrying the roadway in the direction of the inventory. (For STRAHNET highway, this is west to east and south to north).'),
 	('L', 'The left structure of parallel bridges.  This structure carries traffic in the opposite direction.'),
 	('N', 'No parallel structure exists.');
@@ -1840,14 +1752,12 @@ INSERT INTO 101_Par_Struc_Des (Code, Description) VALUES
 
 ### Code the direction of traffic of the inventory route identified in Item 5 as a 1-digit number using one of the codes below.  This item must be compatible with other traffic-related items such as Item 28A Lanes on the Structure, Item 29 - Average Daily Traffic, Item 47 - Total Horizontal Clearance and Item 51 - Bridge Roadway Width, Curb-to-Curb.
 
-CREATE SCHEMA 102_Dir_Traff;
-
-CREATE TABLE 102_Dir_Traff (
+CREATE TABLE Dir_Traff_102 (
 	Code int,
 	Description text
 );
 
-INSERT INTO 102_Dir_Traff (Code, Description) VALUES
+INSERT INTO Dir_Traff_102 (Code, Description) VALUES
 	(0, 'Highway traffic not carried'),
 	(1, '1-way traffic'),
 	(2, '2-way traffic'),
@@ -1858,14 +1768,12 @@ INSERT INTO 102_Dir_Traff (Code, Description) VALUES
 
 ### Code this item to indicate situations where temporary structures or conditions exist.  This item should be blank if no applicable.
 
-CREATE SCHEMA 103_Temp_Struc_Des;
-
-CREATE TABLE 103_Temp_Struc_Des (
+CREATE TABLE Temp_Struc_Des_103 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 103_Temp_Struc_Des (Code, Description) VALUES
+INSERT INTO Temp_Struc_Des_103 (Code, Description) VALUES
 	('T', 'Temporary Sturcture(s) or conditions exist.');
 
 ### Temporary structures(s) or conditions are those which are required to facilitate traffic flow.  This may occur either before or during the modification or replacement of a structure found to be deficient.  Such conditions include the following:
@@ -1879,18 +1787,16 @@ INSERT INTO 103_Temp_Struc_Des (Code, Description) VALUES
 
 ### If this item is coded T, then all data recoreded for the structure shall be for the condition of the structure without temorary measures, except for the following items which shall be for the temporary structure:
 
-CREATE SCHEMA 103A_Temp_Struc_Des;
-
-CREATE TABLE 103A_Temp_Struc_Des (
+CREATE TABLE Temp_Struc_Des_103A (
 	Code int,
-	Designation text
+	Description text
 );
 
-INSERT INTO 103A_Temp_Struc_Des (Code, Description) VALUES
+INSERT INTO Temp_Struc_Des_103A (Code, Description) VALUES
 	(10, 'Invetory Route, Minimum Vertical Clearance'),
 	(41, 'Structure Open, Posted, or Closed to Traffic'),
 	(47, 'Inventory Route, Total Horizontal Clearance'),
-	(53, 'Minimum Vertical Clearance Over Bridge Roadway').
+	(53, 'Minimum Vertical Clearance Over Bridge Roadway'),
 	(54, 'Minimum Vertical Underclearance'),
 	(55, 'Minimum Lateral Underclearance on Right'),
 	(56, 'Minimum Lateral Underclearance on Left'),
@@ -1901,14 +1807,12 @@ INSERT INTO 103A_Temp_Struc_Des (Code, Description) VALUES
 
 ### This item is to be coded for all records in the inventory.  For the inventory route identified in Item 5, indicate whether the inventory route is on the National Highway System (NHS) or not on that system.  Initially, this code shall reflect on inventory route on the NHS "Interim System" description in Section 1006(a) of the 1991 ISTEA.  Upon approval of the NHS by Congress, the coding is to reflect the approved NHS.
 
-CREATE SCHEMA 104_Hwy_Sys;
-
-CREATE TABLE 104_Hwy_Sys (
+CREATE TABLE Hwy_Sys_104 (
 	Code int,
 	Description text
 );
 
-INSERT INTO 104_Hwy_Sys (Code, Description) VALUES
+INSERT INTO Hwy_Sys_104 (Code, Description) VALUES
 	(0, 'Inventory Route is not on the NHS'),
 	(1, 'Inventory Route is on the NHS');
 
@@ -1917,14 +1821,12 @@ INSERT INTO 104_Hwy_Sys (Code, Description) VALUES
 
 ### Structures owned by State and local jurisdictions on roads which lead to an traverse through federal lands sometimes require special coded unique identification because they are eligible to recieve funding from the Federal Lands Highway Program.
 
-CREATE SCHEMA 105_Fed_Land_Hwy;
-
-CREATE TABLE 105_Fed_Land_Hwy (
+CREATE TABLE Fed_Land_Hwy_105 (
 	Code int,
 	Description text
 );
 
-INSERT INTO 105_Fed_Land_Hwy (Code, Description) VALUES
+INSERT INTO Fed_Land_Hwy_105 (Code, Description) VALUES
 	(0, 'Not Applicable'),
 	(1, 'Indian Reservation Road (IRR)'),
 	(2, 'Forest Highway (FH)'),
@@ -1959,15 +1861,13 @@ INSERT INTO 105_Fed_Land_Hwy (Code, Description) VALUES
 
 ### Record the type of deck system on the bridge.  If more than one type of deck system is on the bridge, code the most predominant.  Code N for a filled culvert or arch with the approach roadway section carried accross the structure.
 
-CREATE SCHEMA 107_Deck_Struc_Type;
-
-CREATE TABLE 107_Deck_Struc_Type (
+CREATE TABLE Deck_Struc_Type_107 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 107_Deck_Struc_Type (Code, Description) VALUES
-	('1', 'Concrete Cast-in-Place')
+INSERT INTO Deck_Struc_Type_107 (Code, Description) VALUES
+	('1', 'Concrete Cast-in-Place'),
 	('2', 'Concrete Precast Panels'),
 	('3', 'Open Grating'),
 	('4', 'Closed Grating'),
@@ -1990,14 +1890,12 @@ INSERT INTO 107_Deck_Struc_Type (Code, Description) VALUES
 
 ### 1st digit - Type of Wearing Surface
 
-CREATE SCHEMA 108A_Wear_Surf;
-
-CREATE TABLE 108A_Wear_Surf (
+CREATE TABLE Wear_Surf_108A (
 	Code text,
 	Description text
 );
 
-INSERT INTO 108A_Wear_Surf (Code, Description) VALUES
+INSERT INTO Wear_Surf_108A (Code, Description) VALUES
 	('1', 'Monolithic Concrete (Concurrently Placed with Structural Deck)'),
 	('2', 'Integral Concrete (Separate non-modified layer of concrete added to structural deck'),
 	('3', 'Latex Concrete or similar aditive'),
@@ -2012,14 +1910,12 @@ INSERT INTO 108A_Wear_Surf (Code, Description) VALUES
 
 ### 2nd Digit - Type of Membrane
 
-CREATE SCHEMA 108B_Wear_Surf;
-
-CREATE TABLE 108B_Wear_Surf (
+CREATE TABLE Wear_Surf_108B (
 	Code text,
 	Description text
 );
 
-INSERT INTO 108B_Wear_Surf (Code, Description) VALUES
+INSERT INTO Wear_Surf_108B (Code, Description) VALUES
 	('1', 'Built-up'),
 	('2', 'Performed Fabric'),
 	('3', 'Epoxy'),
@@ -2030,14 +1926,12 @@ INSERT INTO 108B_Wear_Surf (Code, Description) VALUES
 
 ### 3rd Digit - Deck Protection
 
-CREATE SCHEMA 108C_Wear_Surf;
-
-CREATE TABLE 108C_Wear_Surf (
+CREATE TABLE Wear_Surf_108C (
 	Code text,
 	Description text
 );
 
-INSERT INTO 108C_Wear_Surf (Code, Description) VALUES
+INSERT INTO Wear_Surf_108C (Code, Description) VALUES
 	('1', 'Epoxy Coated Reinforcing'),
 	('2', 'Galvanized Reinnforcing'),
 	('3', 'Other Coated Reinforcing'),
@@ -2064,14 +1958,12 @@ INSERT INTO 108C_Wear_Surf (Code, Description) VALUES
 
 ### The national network for trucks includes most of the interstate system and those portions of Federal-Aid highways identified in the Code of Federal Regulations (23 CFR 658).  The national network for trucks is available for use by commercial motor vehicles of the dimensions and configurations described in these regulatiosn.  For the inventory route identified in Item 5, indicate conditions using one of the following codes:
 
-CREATE SCHEMA 110_Des_Nat_Net;
-
-CREATE TABLE 110_Des_Nat_Net (
+CREATE TABLE Des_Nat_Net_110 (
 	Code int,
-	Designation text
+	Description text
 );
 
-INSERT INTO 110_Des_Nat_Net (Code, Description) VALUES
+INSERT INTO Des_Nat_Net_110 (Code, Description) VALUES
 	(0, 'The inventory route is not part of the national network for trucks.'),
 	(1, 'The inventory route is part of the national network for trucks.');
 
@@ -2080,14 +1972,12 @@ INSERT INTO 110_Des_Nat_Net (Code, Description) VALUES
 
 ### If Item 38 - Navigation Control has been coded 1, use the codes below to indicate the presence and adequacy of pier or abutment protection features such as fenders, dolphins, etc.  The condition of the protection devices may be a factor in the overal evaluation of Item 60 - Substructure.  If Item 38 - Navigation Control has been coded 0 or N, leave blank to indicate not applicable.
 
-CREATE SCHEMA 111_Pier_Abut_Pro;
-
-CREATE TABLE 111_Pier_Abut_Pro (
+CREATE TABLE Pier_Abut_Pro_111 (
 	Code int,
 	Description text
 );
 
-INSERT INTO 111_Pier_Abut_Pro (Code, Description) VALUES
+INSERT INTO Pier_Abut_Pro_111 (Code, Description) VALUES
 	(1, 'Navigation protection not required'),
 	(2, 'In place and functioning'),
 	(3, 'In place but in a deteriorated condition'),
@@ -2101,14 +1991,12 @@ INSERT INTO 111_Pier_Abut_Pro (Code, Description) VALUES
 
 	A structure including supports erected over a depression or an obstruction, such as wate, highway, or railway, and having a track or passageway for carrying traffic or other moving loads, and having 20 feet between undercopings of abutments or spring lines of arches, or extreme ends of openings for multiple boxes; it may also include multiple pipes, where the clear distance between openings is less than half of the smaller contiguous opening.
 
-CREATE SCHEMA 112_NBIS_Brdg_Len;
-
-CREATE TABLE 112_NBIS_Brdg_Len (
+CREATE TABLE NBIS_Brdg_Len_112 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 112_NBIS_Brdg_Len (Code, Desription) VALUES
+INSERT INTO NBIS_Brdg_Len_112 (Code, Description) VALUES
 	('Y', 'Yes'),
 	('N', 'No');
 
@@ -2117,16 +2005,14 @@ INSERT INTO 112_NBIS_Brdg_Len (Code, Desription) VALUES
 
 ### Use a single-digit code as indicated below to identify the current status of the bridge regarding its vulnerability to scour.  Scour analyses shall be made by hydraulic/geotechnical/structural engineers.  Details on conducting a scour analysis are included in the FHWA Technical Advisory 5140.23 titled, 'Evaluating Scour at Bridges.'  Whenever a rating factor of 4 or below is determined for this item, the rating factor for Item 60 - Substructure may need to be revised to reflect the severity of actual scour and resultant damage to the bridge.  A scour critical bridge is one with abutment or pier foundations which are rated as unstable due to (1) observed scour at the bridge site or (2) a scour potential as determined from a scour evalutaiton study.
 
-CREATE SCHEMA 113_Scr_Crit_Brdg;
-
-CREATE TABLE 113_Scr_Crit_Brdg (
+CREATE TABLE Scr_Crit_Brdg_113 (
 	Code text,
 	Description text
 );
 
-INSERT INTO 113_Scr_Crit_Brdg (Code, Description) VALUES
+INSERT INTO Scr_Crit_Brdg_113 (Code, Description) VALUES
 	('N', 'Bridge not over waterway'),
-	('U', 'Bridge with 'unknown' foundation that has not been evaluated for scour.  Since risk cannot be determined, flag for monitoring during flood events and, if appropriate, closure.'),
+	('U', 'Bridge with - unknown - foundation that has not been evaluated for scour.  Since risk cannot be determined, flag for monitoring during flood events and, if appropriate, closure.'),
 	('T', 'Bridge over "tidal" waters that has not been evaluated for scour, but considered low risk.  Bridge will be monitored with regular inspection cycle and with appropriate underwater inspections. ("Unknown" foundations in "tidal" waters should be coded U.'),
 	('9', 'Bridge foundations (including piles) on dry land well above flood water elevations.'),
 	('8', 'Bridge foundations determined to be stable for assessed or calculated scour conditions; calculated scour is above top of footing (Example A)'),

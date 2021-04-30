@@ -392,7 +392,7 @@ INSERT INTO Struct_OPC_Traff_41 (Code, Description) VALUES
 	('G', 'New structure not yet open to traffic'),
 	('K', 'Bridge closed to all traffic'),
 	('P', 'Posted for load (may include other restrictions such as temporary bridges which are load posted)'),
-	('R', 'Posted for other load-capacity restriction (speed, number of vehicles on bridge, etc.)')
+	('R', 'Posted for other load-capacity restriction (speed, number of vehicles on bridge, etc.)');
 GO
 CREATE TABLE Type_Serv_42A (
 	Code int,
