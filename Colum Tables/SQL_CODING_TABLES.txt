@@ -1,11 +1,11 @@
 CREATE DATABASE Indiana_Bridges;
 GO
-CREATE TABLE State_Code_1 (
+CREATE TABLE STATE_CODE_001 (
 	Code int,
 	State text
 );
 GO
-INSERT INTO State_Code_1 (Code, State) VALUES 
+INSERT INTO STATE_CODE_001 (Code, State) VALUES 
 	(014, 'Alabama'),
 	(020, 'Alaska'),
 	(049, 'Arizona'),
@@ -58,12 +58,17 @@ INSERT INTO State_Code_1 (Code, State) VALUES
 	(568, 'Wyoming'),
 	(721, 'Puerto Rico'); 
 GO
-CREATE TABLE Cnty_Code_3 (
+CREATE TABLE HIGHWAY_DISTRICT_002 (
+	Code int,
+	Description text
+);
+Go
+CREATE TABLE COUNTY_CODE_003 (
 	Code int,
 	County text
 );
 GO
-INSERT INTO Cnty_Code_3 (Code, County) VALUES
+INSERT INTO COUNTY_CODE_003 (Code, County) VALUES
 	(001, 'Adams County'),
 	(003, 'Allen County'),
 	(005, 'Bartholomew County'),
@@ -157,12 +162,17 @@ INSERT INTO Cnty_Code_3 (Code, County) VALUES
 	(181, 'White County'),
 	(183, 'Whitley County');
 GO
-CREATE TABLE Rec_Type_5A (
+CREATE TABLE RECORD_TYPE_005A (
+	Code int,
+	Description text
+);
+GO
+CREATE TABLE RECORD_TYPE_005A (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Rec_Type_5A (Code, Description) VALUES
+INSERT INTO RECORD_TYPE_005A (Code, Description) VALUES
 	('1', 'Route Carried "on" the structure'),
 	('2', 'Single route goes "under" teh structure'),
 	('A', 'First route under structure'),
@@ -192,12 +202,12 @@ INSERT INTO Rec_Type_5A (Code, Description) VALUES
 	('Y', 'Twenty Fifth route under the structure'),
 	('Z', 'Twenty Sixth route under the structure');
 GO
-CREATE TABLE RT_Sign_Pref_5B (
+CREATE TABLE ROUTE_PREFIX_005B (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO RT_Sign_Pref_5B (Code, Description) VALUES
+INSERT INTO ROUTE_PREFIX_005B (Code, Description) VALUES
 	(1, 'Interstate Highway'),
 	(2, 'U.S. Numbered Highway'),
 	(3, 'State Highway'),
@@ -207,12 +217,12 @@ INSERT INTO RT_Sign_Pref_5B (Code, Description) VALUES
 	(7, 'State Lands Road'),
 	(8, 'Other - include toll roads not otherwise indicated or identified above');
 GO
-CREATE TABLE Des_LOS_5C (
+CREATE TABLE SERVICE_LEVEL_005C (
 	Code int,
 	Description text,
 );
 GO
-INSERT INTO Des_LOS_5C (Code, Description) VALUES
+INSERT INTO SERVICE_LEVEL_005C (Code, Description) VALUES
 	(0, 'None of the below'),
 	(1, 'Mainline'),
 	(2, 'Alternate'),
@@ -222,45 +232,45 @@ INSERT INTO Des_LOS_5C (Code, Description) VALUES
 	(7, 'Ramp; Wye, Connector, etc.'),
 	(8, 'Service and/or unclassified frontage road');
 GO
-CREATE TABLE Dir_Suff_5E (
+CREATE TABLE DIRECTION_005E (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Dir_Suff_5E (Code, Description) VALUES
+INSERT INTO DIRECTION_005E (Code, Description) VALUES
 	(0, 'Not applicable'),
 	(1, 'North'),
 	(2, 'East'),
 	(3, 'South'),
 	(4, 'West');
 GO
-CREATE TABLE Base_Hwy_Net_12 (
+CREATE TABLE BASE_HWY_NETWORK_012 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Base_Hwy_Net_12 (Code, Description) VALUES
+INSERT INTO BASE_HWY_NETWORK_012 (Code, Description) VALUES
 	(0, 'Invetory Route is not on the Base Network'),
 	(1, 'Invetory Route is on the Base Network');
 GO
-CREATE TABLE Toll_20 (
+CREATE TABLE TOLL_020 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Toll_20 (Code, Description) VALUES
+INSERT INTO TOLL_020 (Code, Description) VALUES
 	(1, 'Toll Bridge.  Tolls are paid specifically to use the structure.'),
 	(2, 'On toll road.  The structure carries a toll road, that is, tolls are paid to use the facility, which includes both the highway and the structure,'),
 	(3, 'On free road.  The structure is toll-free and carries a toll-free highway.'),
 	(4, 'On Interstate toll segment under Secretarial Agreement.  Structure functions as a part of the toll segment.'),
 	(5, 'Toll bridge is a segment under Secretarial Agreement. Structure is separate agreement from highway segment.');
 GO
-CREATE TABLE Maint_Resp_21 (
+CREATE TABLE MAINTENANCE_021 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Maint_Resp_21 (Code, Description) VALUES
+INSERT INTO MAINTENANCE_021 (Code, Description) VALUES
 	(01, 'State Highway Agency'),
 	(02, 'County Highway Agency'),
 	(03, 'Town or Township Highway Agency'),
@@ -291,12 +301,48 @@ INSERT INTO Maint_Resp_21 (Code, Description) VALUES
 	(76, 'Metropolitan Washington Airports Service'),
 	(80, 'Unknown');
 GO
-CREATE TABLE FC_26 (
+CREATE TABLE OWNER_022 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO FC_26 (Code, Description) Values
+INSERT INTO MAINTENANCE_021 (Code, Description) VALUES
+	(01, 'State Highway Agency'),
+	(02, 'County Highway Agency'),
+	(03, 'Town or Township Highway Agency'),
+	(04, 'City of Municipal Highway Agency'),
+	(11, 'State Park, Forest, of Reservation Agency'),
+	(12, 'Local Park, Forest, of Reservation Agency'),
+	(21, 'Other State Agencies'),
+	(25, 'Other Local Agencies'),
+	(26, 'Private (other than railroad'),
+	(27, 'Railroad'),
+	(31, 'State Toll Authority'),
+	(32, 'Local Toll Authority'),
+	(60, 'Other Federal Agencies (not listed below'),
+	(61, 'Indian Tribal Government'),
+	(62, 'Bureau of Indian Affairs'),
+	(63, 'Bureau of Fish and Wildlife'),
+	(64, 'U.S. Forest Service'),
+	(66, 'National Park Service'),
+	(67, 'Tennessee Valley Authority'),
+	(68, 'Bureau of Land Management'),
+	(69, 'Bureau of Reclamation'),
+	(70, 'Corps of Engineers (Civil)'),
+	(71, 'Corps of Engineers (Military)'),
+	(72, 'Air Force'),
+	(73, 'Navy/Marines'),
+	(74, 'Army'),
+	(75, 'NASA'),
+	(76, 'Metropolitan Washington Airports Service'),
+	(80, 'Unknown');
+GO
+CREATE TABLE FUNCTIONAL_CLASS_026 (
+	Code int,
+	Description text
+);
+GO
+INSERT INTO FUNCTIONAL_CLASS_026 (Code, Description) Values
 	(01, 'Rural - Principal Arterial - Interstate'),
 	(02, 'Rural - Principal Arterial - Other'),
 	(06, 'Rural - Minor Arterial'),
@@ -310,12 +356,12 @@ INSERT INTO FC_26 (Code, Description) Values
 	(17, 'Urban - Collector'),
 	(19, 'Urban - Local');
 GO
-CREATE TABLE Design_Load_31 (
+CREATE TABLE DESIGN_LOAD_031 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Design_Load_31 (Code, Description) VALUES
+INSERT INTO DESIGN_LOAD_031 (Code, Description) VALUES
 	(1, 'H 10'),
 	(2, 'H 15'),
 	(3, 'HS 15'),
@@ -327,64 +373,94 @@ INSERT INTO Design_Load_31 (Code, Description) VALUES
 	(9, 'HS 25'),
 	(0, 'Unkown');
 GO
-CREATE TABLE Bridge_Median_33 (
+CREATE TABLE MEDIAN_CODE_033 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Bridge_Median_33 (Code, Description) VALUES
+INSERT INTO MEDIAN_CODE_033 (Code, Description) VALUES
 	(0, 'No Median'),
 	(1, 'Open Median'),
 	(2, 'Closed Median (no barrier)'),
 	(3, 'Closed Median with non-mountable barriers');
 GO
-CREATE TABLE Struct_Flared_35 (
+CREATE TABLE STRUCTURE_FLARED_035 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Struct_Flared_35 (Code, Description) VALUES
+INSERT INTO STRUCTURE_FLARED_035 (Code, Description) VALUES
 	(0, 'No Flare'),
 	(1, 'Yes, Flared');
 GO
-CREATE TABLE Traff_Safe_Feat_36 (
+CREATE TABLE RAILINGS_036A (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Traff_Safe_Feat_36 (Code, Description) VALUES
+INSERT INTO RAILINGS_036A (Code, Description) VALUES
 	('0', 'Inspected feature does not meet curerently acceptable standards or a safety feature is require and none is provided'),
 	('1', 'Inspected feature meets currently acceptable standards'),
 	('N', 'Not applicable or a safety feature is not required');
 GO
-CREATE TABLE Hist_Sig_37 (
+CREATE TABLE TRANSITIONS_036B (
+	Code text,
+	Description text
+);
+GO
+INSERT INTO TRANSITIONS_036B (Code, Description) VALUES
+	('0', 'Inspected feature does not meet curerently acceptable standards or a safety feature is require and none is provided'),
+	('1', 'Inspected feature meets currently acceptable standards'),
+	('N', 'Not applicable or a safety feature is not required');
+GO
+CREATE TABLE APPR_RAIL_036C (
+	Code text,
+	Description text
+);
+GO
+INSERT INTO APPR_RAIL_036C (Code, Description) VALUES
+	('0', 'Inspected feature does not meet curerently acceptable standards or a safety feature is require and none is provided'),
+	('1', 'Inspected feature meets currently acceptable standards'),
+	('N', 'Not applicable or a safety feature is not required');
+GO
+CREATE TABLE APPR_RAIL_END_036D (
+	Code text,
+	Description text
+);
+GO
+INSERT INTO APPR_RAIL_END_036D (Code, Description) VALUES
+	('0', 'Inspected feature does not meet curerently acceptable standards or a safety feature is require and none is provided'),
+	('1', 'Inspected feature meets currently acceptable standards'),
+	('N', 'Not applicable or a safety feature is not required');
+GO
+CREATE TABLE HISTORY_037 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Hist_Sig_37 (Code, Description) VALUES
+INSERT INTO HISTORY_037 (Code, Description) VALUES
 	(1, 'Bridge is on the National Register of Historic Places.'),
 	(2, 'Bridge is eligible for the National Register of Historic Places'),
 	(3, 'Bridge is possibly eligible for the National Register of Historic Places (requires further investigation before determination can be made) or bridge is on a State or local historic register.'),
 	(4, 'Historical significance is not determinable at this time.'),
 	(5, 'Bridge is not eligible for the National Register of Historic Places');
 GO
-CREATE TABLE Nav_Cont_38 (
+CREATE TABLE NAVIGATION_038 (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Nav_Cont_38 (Code, Description) VALUES
+INSERT INTO NAVIGATION_038 (Code, Description) VALUES
 	('N', 'Not applicable, no waterway.'),
 	('0', 'No navigation control on waterway (bridge permit not required)'),
 	('1', 'Navigation control on waterway (Bridge permit required)');
 GO
-CREATE TABLE Struct_OPC_Traff_41 (
+CREATE TABLE OPEN_CLOSED_POSTED_041 (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Struct_OPC_Traff_41 (Code, Description) VALUES
+INSERT INTO OPEN_CLOSED_POSTED_041 (Code, Description) VALUES
 	('A', 'Open, no restriction'),
 	('B', 'Open, posting recommended but not legally implemented (all signs not in place or correctlyl implemented)'),
 	('D', 'Open, would be posted or closed except for temporary shoring, etc. to allow for unrestricted traffic'),
@@ -394,12 +470,12 @@ INSERT INTO Struct_OPC_Traff_41 (Code, Description) VALUES
 	('P', 'Posted for load (may include other restrictions such as temporary bridges which are load posted)'),
 	('R', 'Posted for other load-capacity restriction (speed, number of vehicles on bridge, etc.)');
 GO
-CREATE TABLE Type_Serv_42A (
+CREATE TABLE SERVICE_ON_042A (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Type_Serv_42A (Code, Description) VALUES
+INSERT INTO SERVICE_ON_042A (Code, Description) VALUES
 	(1, 'Highway'),
 	(2, 'Railroad'),
 	(3, 'Pedestrian-bicycle'),
@@ -411,12 +487,12 @@ INSERT INTO Type_Serv_42A (Code, Description) VALUES
 	(9, 'Building or plaza'),
 	(0, 'Other');
 
-CREATE TABLE Type_Serv_42B (
+CREATE TABLE SERVICE_UND_042B (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Type_Serv_42B (Code, Description) VALUES
+INSERT INTO SERVICE_UND_042B (Code, Description) VALUES
 	(1, 'Highway, with or without pedestrian'),
 	(2, 'Railroad'),
 	(3, 'Pedestrian-Bicycle'),
@@ -428,12 +504,12 @@ INSERT INTO Type_Serv_42B (Code, Description) VALUES
 	(9, 'Relief for Waterway'),
 	(0, 'Other');
 GO
-CREATE TABLE Struc_Type_Main_43A (
+CREATE TABLE STRUCTURE_KIND_043A (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Struc_Type_Main_43A (Code, Description) VALUES
+INSERT INTO STRUCTURE_KIND_043A (Code, Description) VALUES
 	(1, 'Concrete'),
 	(2, 'Concrete Continuous'),
 	(3, 'Steel'),
@@ -445,12 +521,12 @@ INSERT INTO Struc_Type_Main_43A (Code, Description) VALUES
 	(9, 'Aluminum, Wrought Iron, or Cast Iron'),
 	(0, 'Other');
 GO
-CREATE TABLE Stuc_Type_Main_43B (
+CREATE TABLE STRUCTURE_TYPE_043B (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Stuc_Type_Main_43B (Code, Description) VALUES
+INSERT INTO STRUCTURE_TYPE_043B (Code, Description) VALUES
 	(01, 'Slab'),
 	(02, 'Stringer/Multi-beam or Girder'),
 	(03, 'Girder and Floorbeam System'),
@@ -475,12 +551,12 @@ INSERT INTO Stuc_Type_Main_43B (Code, Description) VALUES
 	(22, 'Channel Beam'),
 	(00, 'Other');
 GO
-CREATE TABLE Struc_Type_AprSpan_44A (
+CREATE TABLE APPR_KIND_044A (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Struc_Type_AprSpan_44A (Code, Description) VALUES
+INSERT INTO APPR_KIND_044A (Code, Description) VALUES
 	(1, 'Concrete'),
 	(2, 'Concrete Continuous'),
 	(3, 'Steel'),
@@ -492,12 +568,12 @@ INSERT INTO Struc_Type_AprSpan_44A (Code, Description) VALUES
 	(9, 'Aluminum, Wrought Iron, or Cast Iron'),
 	(0, 'Other');
 GO
-CREATE TABLE Struc_Type_AprSpan_44B (
+CREATE TABLE APPR_TYPE_044B (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Struc_Type_AprSpan_44B (Code, Description) VALUES
+INSERT INTO APPR_TYPE_044B (Code, Description) VALUES
 	(01, 'Slab'),
 	(02, 'Stringer/Multi-beam or Girder'),
 	(03, 'Girder and Floorbeam System'),
@@ -522,32 +598,33 @@ INSERT INTO Struc_Type_AprSpan_44B (Code, Description) VALUES
 	(22, 'Channel Beam'),
 	(00, 'Other');
 GO
-CREATE TABLE Min_Vert_UClear_54A (
+CREATE TABLE VERT_CLR_UND_REF_054A (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Min_Vert_UClear_54A (Code, Description) VALUES
+INSERT INTO VERT_CLR_UND_REF_054A
+ (Code, Description) VALUES
 	('H', 'Highway beneath structure'),
 	('R', 'Railroad beneath structure'),
 	('N', 'Feature not a highway or railroad');
 GO
-CREATE TABLE Min_Lat_UClear_Right_55A (
+CREATE TABLE LAT_UND_REF_055A (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Min_Lat_UClear_Right_55A (Code, Description) VALUES
+INSERT INTO LAT_UND_REF_055A (Code, Description) VALUES
 	('H', 'Highway beneath structure'),
 	('R', 'Railroad beneath structure'),
 	('N', 'Feature not a highway or railroad');
 GO
-CREATE TABLE Deck_Cond_58 (
+CREATE TABLE DECK_COND_058 (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Deck_Cond_58 (Code, Description) VALUES
+INSERT INTO DECK_COND_058 (Code, Description) VALUES
 	('N', 'Not Applicable'),
 	('9', 'Excellent Condition'),
 	('8', 'Very Good Condition'),
@@ -560,12 +637,12 @@ INSERT INTO Deck_Cond_58 (Code, Description) VALUES
 	('1', 'Imminent Failure Condition'),
 	('0', 'Failed Condition');
 GO
-CREATE TABLE SupStruc_Cond_59 (
+CREATE TABLE SUPERSTRUCTURE_COND_059 (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO SupStruc_Cond_59 (Code, Description) VALUES
+INSERT INTO SUPERSTRUCTURE_COND_059 (Code, Description) VALUES
 	('N', 'Not Applicable'),
 	('9', 'Excellent Condition'),
 	('8', 'Very Good Condition'),
@@ -578,12 +655,12 @@ INSERT INTO SupStruc_Cond_59 (Code, Description) VALUES
 	('1', 'Imminent Failure Condition'),
 	('0', 'Failed Condition');
 GO
-CREATE TABLE SubStruc_Cond_60 (
+CREATE TABLE SUBSTRUCTURE_COND_060 (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO SubStruc_Cond_60 (Code, Description) VALUES
+INSERT INTO SUBSTRUCTURE_COND_060 (Code, Description) VALUES
 	('N', 'Not Applicable'),
 	('9', 'Excellent Condition'),
 	('8', 'Very Good Condition'),
@@ -596,12 +673,12 @@ INSERT INTO SubStruc_Cond_60 (Code, Description) VALUES
 	('1', 'Imminent Failure Condition'),
 	('0', 'Failed Condition');
 GO
-CREATE TABLE Chan_ChaPro_61 (
+CREATE TABLE CHANNEL_COND_061 (
 	Code text,
 	Descriptioin text
 );
 GO
-INSERT INTO Chan_ChaPro_61 (Code, Description) VALUES
+INSERT INTO CHANNEL_COND_061 (Code, Description) VALUES
 	('N', 'Not applicable.  Use when Bridge is not over a waterway (channel)'),
 	('9', 'There are no noticeable or noteworthy deficiencies which affect the condition of the channel.'),
 	('8', 'Banks are protected or well vegetated.  River control devices such as spur dikes and embankment protection are not required or are in a stable condition.'),
@@ -614,12 +691,12 @@ INSERT INTO Chan_ChaPro_61 (Code, Description) VALUES
 	('1', 'Bridge closed because of channel failure.  Corrective action may put back in light service'),
 	('0', 'Bridge closed because of channel failure.  Replacement necessary.');
 GO
-CREATE TABLE Culv_Cond_62 (
+CREATE TABLE CULVERT_COND_062 (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Culv_Cond_62 (Code, Description) VALUES
+INSERT INTO CULVERT_COND_062 (Code, Description) VALUES
 	('N', 'Not applicable.  Use if Structure is not a culvert.'),
 	('9', 'No deficiencies'),
 	('8', 'No noticeable or noteworthy deficiencies which affect the condition of the culvert.  Insignificant scrape marks cause by drift.'),
@@ -632,36 +709,36 @@ INSERT INTO Culv_Cond_62 (Code, Description) VALUES
 	('1', 'Bridge Closed.  Corrective action may put back in light service.'),
 	('0', 'Bridge Closed.  Replacement Necessary.');
 GO
-CREATE TABLE Method_Used_63 (
+CREATE TABLE OPR_RATING_METH_063 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Method_Used_63 (Code, Description) VALUES
+INSERT INTO OPR_RATING_METH_063 (Code, Description) VALUES
 	(1, 'Load Factor (LF)'),
 	(2, 'Allowable Stress (AS)'),
 	(3, 'Load and Resistance Factor (LRFR)'),
 	(4, 'Load Testing'),
 	(5, 'No rating analysis performed');
 GO
-CREATE TABLE Method_Used_65 (
+CREATE TABLE INV_RATING_METH_065 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Method_Used_65 (Code, Description) VALUES
+INSERT INTO INV_RATING_METH_065 (Code, Description) VALUES
 	(1, 'Load Factor (LF)'),
 	(2, 'Allowable Stress (AS)'),
 	(3, 'Load and Resistance Factor (LRFR)'),
 	(4, 'Load Testing'),
 	(5, 'No rating analysis performed');
 GO
-CREATE TABLE Appraisal_Ratings_67_72 (
+CREATE TABLE STRUCTURAL_EVAL_067 (
 	Code text,
-	Description text
+	Description
 );
 GO
-INSERT INTO Appraisal_Ratings_67_72 (Code, Description) VALUES
+INSERT INTO STRUCTURAL_EVAL_067 (Code, Description) VALUES
 	('N', 'Not Applicable'),
 	('9', 'Superior to present desirable criteria'),
 	('8', 'Equal to present desirable criteria'),
@@ -674,44 +751,71 @@ INSERT INTO Appraisal_Ratings_67_72 (Code, Description) VALUES
 	('1', 'This value of rating code not used'),
 	('0', 'Bridge Closed');
 GO
-CREATE TABLE Posting_Requirements_70 (
+CREATE TABLE DECK_GEOMETRY_EVAL_068 (
+	Code text,
+	Description
+);
+GO
+INSERT INTO DECK_GEOMETRY_EVAL_068 (Code, Description) VALUES
+	('N', 'Not Applicable'),
+	('9', 'Superior to present desirable criteria'),
+	('8', 'Equal to present desirable criteria'),
+	('7', 'Better than present minimum criteria'),
+	('6', 'Equal to present minimum criteria'),
+	('5', 'Somewhat better than minimum adequacy to tolerate being left in place as is'),
+	('4', 'Meets minimum tolerable limits to be left in place as is'),
+	('3', 'Basically intolerable requiring high priority of corrective action'),
+	('2', 'Basically intolerable requiring high priority of replacement'),
+	('1', 'This value of rating code not used'),
+	('0', 'Bridge Closed');
+GO
+CREATE TABLE UNDCLRENCE_EVAL_069 (
+	Code text,
+	Description
+);
+GO
+INSERT INTO UNDCLRENCE_EVAL_069 (Code, Description) VALUES
+	('N', 'Not Applicable'),
+	('9', 'Superior to present desirable criteria'),
+	('8', 'Equal to present desirable criteria'),
+	('7', 'Better than present minimum criteria'),
+	('6', 'Equal to present minimum criteria'),
+	('5', 'Somewhat better than minimum adequacy to tolerate being left in place as is'),
+	('4', 'Meets minimum tolerable limits to be left in place as is'),
+	('3', 'Basically intolerable requiring high priority of corrective action'),
+	('2', 'Basically intolerable requiring high priority of replacement'),
+	('1', 'This value of rating code not used'),
+	('0', 'Bridge Closed');
+GO
+CREATE TABLE POSTING_EVAL_070 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Posting_Requirements_70 (Code, Description) VALUES
-	(1, 'Posting Required'),
-	(2, 'Posting Required'),
-	(3, 'Posting Required'),
-	(4, 'Posting Required'),
-	(5, 'No Posting Required');
+INSERT INTO POSTING_EVAL_070 (Code, Description) VALUES
+	(5, 'Equal to or above legal loads - No Posting Required'),
+	(4, '0.1 - 9.9% below - Posting Required'),
+	(3, '10.0 - 19.9% below - Posting Required'),
+	(2, '20.0 - 29.9% below - Posting Required'),
+	(1, '30.0 - 39.9% below - Posting Required'),
+	(0, '> 39.9% below - Posting Required');
 GO
-CREATE TABLE Op_Rate_Over_Max_LL_70 (
-	Code int,
-	Description text
-);
-GO
-INSERT INTO Op_Rate_Over_Max_LL_70 (Code, Description) VALUES
-	(5, 'Equal to or above legal loads'),
-	(4, '0.1 - 9.9% below'),
-	(3, '10.0 - 19.9% below'),
-	(2, '20.0 - 29.9% below'),
-	(1, '30.0 - 39.9% below'),
-	(0, '> 39.9% below');
-GO
-CREATE TABLE FC_INST_FREE_71 (
+CREATE TABLE WATERWAY_EVAL_071 (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO FC_INST_FREE_71 (Code, Description) VALUES
+INSERT INTO WATERWAY_EVAL_071 (Code, Description) VALUES
 	('N', 'Bridge not over waterway'),
 	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
 	('8', 'Bridge deck above roadway approaches.  Slight chance of overtoppin roadway approaches.'),
+	('7', ''),
 	('6', 'Slight chance of overtopping bridge deck and roadway approaches.'),
+	('5', ''),
 	('4', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with insignificant traffic delays.'),
 	('3', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with significant traffic delays.'),
 	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
+	('1', ''),
 	('0', 'Bridge Closed');
 GO
 CREATE TABLE FC_PRIN_ART_MAJ_71 (
