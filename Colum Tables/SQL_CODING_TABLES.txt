@@ -1,10 +1,10 @@
 CREATE DATABASE Indiana_Bridges;
-
+GO
 CREATE TABLE State_Code_1 (
 	Code int,
 	State text
 );
-
+GO
 INSERT INTO State_Code_1 (Code, State) VALUES 
 	(014, 'Alabama'),
 	(020, 'Alaska'),
@@ -57,12 +57,12 @@ INSERT INTO State_Code_1 (Code, State) VALUES
 	(555, 'Wisconsin'),
 	(568, 'Wyoming'),
 	(721, 'Puerto Rico'); 
-
+GO
 CREATE TABLE Cnty_Code_3 (
 	Code int,
 	County text
 );
-
+GO
 INSERT INTO Cnty_Code_3 (Code, County) VALUES
 	(001, 'Adams County'),
 	(003, 'Allen County'),
@@ -156,12 +156,12 @@ INSERT INTO Cnty_Code_3 (Code, County) VALUES
 	(179, 'Wells County'),
 	(181, 'White County'),
 	(183, 'Whitley County');
-
+GO
 CREATE TABLE Rec_Type_5A (
 	Code text,
 	Description text
 );
-
+GO
 INSERT INTO Rec_Type_5A (Code, Description) VALUES
 	('1', 'Route Carried "on" the structure'),
 	('2', 'Single route goes "under" teh structure'),
@@ -191,12 +191,12 @@ INSERT INTO Rec_Type_5A (Code, Description) VALUES
 	('X', 'Twenty Fourth route under the structure'),
 	('Y', 'Twenty Fifth route under the structure'),
 	('Z', 'Twenty Sixth route under the structure');
-
+GO
 CREATE TABLE RT_Sign_Pref_5B (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO RT_Sign_Pref_5B (Code, Description) VALUES
 	(1, 'Interstate Highway'),
 	(2, 'U.S. Numbered Highway'),
@@ -206,12 +206,12 @@ INSERT INTO RT_Sign_Pref_5B (Code, Description) VALUES
 	(6, 'Federal Lands Road'),
 	(7, 'State Lands Road'),
 	(8, 'Other - include toll roads not otherwise indicated or identified above');
-
+GO
 CREATE TABLE Des_LOS_5C (
 	Code int,
 	Description text,
 );
-
+GO
 INSERT INTO Des_LOS_5C (Code, Description) VALUES
 	(0, 'None of the below'),
 	(1, 'Mainline'),
@@ -221,45 +221,45 @@ INSERT INTO Des_LOS_5C (Code, Description) VALUES
 	(6, 'Business'),
 	(7, 'Ramp; Wye, Connector, etc.'),
 	(8, 'Service and/or unclassified frontage road');
-
+GO
 CREATE TABLE Dir_Suff_5E (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Dir_Suff_5E (Code, Description) VALUES
 	(0, 'Not applicable'),
 	(1, 'North'),
 	(2, 'East'),
 	(3, 'South'),
 	(4, 'West');
-
+GO
 CREATE TABLE Base_Hwy_Net_12 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Base_Hwy_Net_12 (Code, Description) VALUES
 	(0, 'Invetory Route is not on the Base Network'),
 	(1, 'Invetory Route is on the Base Network');
-
+GO
 CREATE TABLE Toll_20 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Toll_20 (Code, Description) VALUES
 	(1, 'Toll Bridge.  Tolls are paid specifically to use the structure.'),
 	(2, 'On toll road.  The structure carries a toll road, that is, tolls are paid to use the facility, which includes both the highway and the structure,'),
 	(3, 'On free road.  The structure is toll-free and carries a toll-free highway.'),
 	(4, 'On Interstate toll segment under Secretarial Agreement.  Structure functions as a part of the toll segment.'),
 	(5, 'Toll bridge is a segment under Secretarial Agreement. Structure is separate agreement from highway segment.');
-
+GO
 CREATE TABLE Maint_Resp_21 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO Maint_Resp_21 (Code, Description) VALUES
 	(01, 'State Highway Agency'),
 	(02, 'County Highway Agency'),
@@ -290,12 +290,12 @@ INSERT INTO Maint_Resp_21 (Code, Description) VALUES
 	(75, 'NASA'),
 	(76, 'Metropolitan Washington Airports Service'),
 	(80, 'Unknown');
-
+GO
 CREATE TABLE FC_26 (
 	Code int,
 	Description text
 );
-
+GO
 INSERT INTO FC_26 (Code, Description) Values
 	(01, 'Rural - Principal Arterial - Interstate'),
 	(02, 'Rural - Principal Arterial - Other'),
@@ -327,10 +327,6 @@ INSERT INTO Design_Load_31 (Code, Description) VALUES
 	(9, 'HS 25'),
 	(0, 'Unkown');
 GO
-
-
-
-
 CREATE TABLE Bridge_Median_33 (
 	Code int,
 	Description text
@@ -496,10 +492,6 @@ INSERT INTO Struc_Type_AprSpan_44A (Code, Description) VALUES
 	(9, 'Aluminum, Wrought Iron, or Cast Iron'),
 	(0, 'Other');
 GO
-
-
-
-
 CREATE TABLE Struc_Type_AprSpan_44B (
 	Code int,
 	Description text
@@ -604,9 +596,6 @@ INSERT INTO SubStruc_Cond_60 (Code, Description) VALUES
 	('1', 'Imminent Failure Condition'),
 	('0', 'Failed Condition');
 GO
-
-
-
 CREATE TABLE Chan_ChaPro_61 (
 	Code text,
 	Descriptioin text
@@ -932,11 +921,6 @@ CREATE TABLE Des_Nat_Net_110 (
 	Description text
 );
 GO
-
-
-
-
-
 INSERT INTO Des_Nat_Net_110 (Code, Description) VALUES
 	(0, 'The inventory route is not part of the national network for trucks.'),
 	(1, 'The inventory route is part of the national network for trucks.');
