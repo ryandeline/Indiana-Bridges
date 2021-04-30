@@ -163,18 +163,13 @@ INSERT INTO COUNTY_CODE_003 (Code, County) VALUES
 	(183, 'Whitley County');
 GO
 CREATE TABLE RECORD_TYPE_005A (
-	Code int,
-	Description text
-);
-GO
-CREATE TABLE RECORD_TYPE_005A (
 	Code text,
 	Description text
 );
 GO
 INSERT INTO RECORD_TYPE_005A (Code, Description) VALUES
 	('1', 'Route Carried "on" the structure'),
-	('2', 'Single route goes "under" teh structure'),
+	('2', 'Single route goes "under" the structure'),
 	('A', 'First route under structure'),
 	('B', 'Second route under the structure'),
 	('C', 'Third route under the structure'),
@@ -306,7 +301,7 @@ CREATE TABLE OWNER_022 (
 	Description text
 );
 GO
-INSERT INTO MAINTENANCE_021 (Code, Description) VALUES
+INSERT INTO OWNER_022 (Code, Description) VALUES
 	(01, 'State Highway Agency'),
 	(02, 'County Highway Agency'),
 	(03, 'Town or Township Highway Agency'),
@@ -675,7 +670,7 @@ INSERT INTO SUBSTRUCTURE_COND_060 (Code, Description) VALUES
 GO
 CREATE TABLE CHANNEL_COND_061 (
 	Code text,
-	Descriptioin text
+	Description text
 );
 GO
 INSERT INTO CHANNEL_COND_061 (Code, Description) VALUES
@@ -735,7 +730,7 @@ INSERT INTO INV_RATING_METH_065 (Code, Description) VALUES
 GO
 CREATE TABLE STRUCTURAL_EVAL_067 (
 	Code text,
-	Description
+	Description text
 );
 GO
 INSERT INTO STRUCTURAL_EVAL_067 (Code, Description) VALUES
@@ -753,7 +748,7 @@ INSERT INTO STRUCTURAL_EVAL_067 (Code, Description) VALUES
 GO
 CREATE TABLE DECK_GEOMETRY_EVAL_068 (
 	Code text,
-	Description
+	Description text
 );
 GO
 INSERT INTO DECK_GEOMETRY_EVAL_068 (Code, Description) VALUES
@@ -771,7 +766,7 @@ INSERT INTO DECK_GEOMETRY_EVAL_068 (Code, Description) VALUES
 GO
 CREATE TABLE UNDCLRENCE_EVAL_069 (
 	Code text,
-	Description
+	Description text
 );
 GO
 INSERT INTO UNDCLRENCE_EVAL_069 (Code, Description) VALUES
@@ -818,45 +813,17 @@ INSERT INTO WATERWAY_EVAL_071 (Code, Description) VALUES
 	('1', ''),
 	('0', 'Bridge Closed');
 GO
-CREATE TABLE FC_PRIN_ART_MAJ_71 (
-	Code text,
-	Description text
-);
-GO
-INSERT INTO FC_PRIN_ART_MAJ_71 (Code, Description) VALUES
-	('N', 'Bridge not over waterway'),
-	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
-	('8', 'Bridge deck above roadway approaches.  Slight chance of overtoppin roadway approaches.'),
-	('6', 'Slight chance of overtopping bridge deck and roadway approaches.'),
-	('5', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with insignificant traffic delays.'),
-	('4', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with significant traffic delays.'),
-	('3', 'Occasional overtopping of bridge deck and roadway approaches with significant traffic delays.'),
-	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
-	('0', 'Bridge Closed');	
-GO
-CREATE TABLE FC_MIN_LOC_71 (
-	Code text,
-	Description text
-);
-GO
-INSERT INTO FC_MIN_LOC_71 (Code, Description) VALUES
-	('N', 'Bridge not over waterway'),
-	('9', 'Bridge deck and roadway approaches above flood water elevations (high water). Chance of overtopping is remote.'),
-	('8', 'Bridge deck above roadway approaches.  Slight chance of overtoppin roadway approaches.'),
-	('7', 'Slight chance of overtopping bridge deck and roadway approaches.'),
-	('6', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with insignificant traffic delays.'),
-	('5', 'Bridge deck above roadway approaches.  Occasional overtopping of roadway approaches with significant traffic delays.'),
-	('4', 'Occasional overtopping of bridge deck and roadway approaches with significant traffic delays.'),
-	('3', 'Frequent overtopping of bridge deck and roadway approaches with significant traffic delays'),
-	('2', 'Occasional or frequent overtopping of bridge deck and roadway approaches with severe traffic delays.'),
-	('0', 'Bridge Closed');
-GO
-CREATE TABLE TOW_75A (
+CREATE TABLE APPR_ROAD_EVAL_072 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO TOW_75A (Code, Description) VALUES
+CREATE TABLE WORK_PROPOSED_075A (
+	Code int,
+	Description text
+);
+GO
+INSERT INTO WORK_PROPOSED_075A (Code, Description) VALUES
 	(31, 'Replacement of bridge or other structure because of substandard load carrying capacity or substandard bridge roadway geometry.'),
 	(32, 'Replacement of bridge or other structure because of relocation of road.'),
 	(33, 'Widening of existing bridge or other major structure without deck rehabilitation or replacement; includes culver lengthening.'),
@@ -866,85 +833,128 @@ INSERT INTO TOW_75A (Code, Description) VALUES
 	(37, 'Bridge deck replacement with only incidental widening.'),
 	(38, 'Other structural work, including hydraulic replacements.');
 GO
-CREATE TABLE TOW_75B (
+CREATE TABLE WORK_DONE_BY_075B (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO TOW_75B (Code, Description) VALUES
+INSERT INTO WORK_DONE_BY_075B (Code, Description) VALUES
 	(1, 'Work to be done by contract'),
 	(2, 'Work to be done by owners forces');
 GO
-CREATE TABLE STRA_Hwy_Des_100 (
+CREATE TABLE OTHER_STATE_CODE_098A (
+	Code int,
+	State text
+);
+GO
+INSERT INTO OTHER_STATE_CODE_098A (Code, State) VALUES 
+	(014, 'Alabama'),
+	(020, 'Alaska'),
+	(049, 'Arizona'),
+	(056, 'Arkansas'),
+	(069, 'California'),
+	(088, 'Colorado'),
+	(091, 'Connecticut'),
+	(103, 'Delaware'),
+	(113, 'District of Columbia'),
+	(124, 'Florida'),
+	(134, 'Georgia'),
+	(159, 'Hawaii'),
+	(160, 'Idaho'),
+	(175, 'Illinois'),
+	(185, 'Indiana'),
+	(197, 'Iowa'),
+	(207, 'Kansas'),
+	(214, 'Kentucky'),
+	(226, 'Louisiana'),
+	(231, 'Maine'),
+	(243, 'Maryland'),
+	(251, 'Massachusetts'),
+	(265, 'Michigan'),
+	(275, 'Minnesota'),
+	(284, 'Mississippi'),
+	(297, 'Missouri'),
+	(308, 'Montana'),
+	(317, 'Nebraska'),
+	(329, 'Nevada'),
+	(331, 'New Hampshire'),
+	(342, 'New Jersey'),
+	(356, 'New Mexico'),
+	(374, 'North Carolina'),
+	(388, 'North Dakota'),
+	(395, 'Ohio'),
+	(406, 'Oklahoma'),
+	(410, 'Oregon'),
+	(423, 'Pennsylvania'),
+	(441, 'Rhode Island'),
+	(454, 'South Carolina'),
+	(468, 'South Dakota'),
+	(474, 'Tennessee'),
+	(486, 'Texas'),
+	(498, 'Utah'),
+	(501, 'Vermont'),
+	(513, 'Virginia'),
+	(530, 'Washington'),
+	(543, 'West Virginia'),
+	(555, 'Wisconsin'),
+	(568, 'Wyoming'),
+	(721, 'Puerto Rico'); 
+GO
+CREATE TABLE STRAHNET_HIGHWAY_100 (
 	Code int,
 	Description text
 );
 GO
-INSTERT INTO STRA_Hwy_Des_100 (Code, Description) VALUES
+INSTERT INTO STRAHNET_HIGHWAY_100 (Code, Description) VALUES
 	(0, 'The inventory route is not a STRAHNET route.'),
 	(1, 'The inventory route is on an Interstate STRAHNET route.'),
 	(2, 'The inventory route is on a Non-Interstate STRAHNET route.'),
 	(3, 'The inventory route is on a STRAHNET connector route.');
 GO
-CREATE TABLE Par_Struc_Des_101 (
+CREATE TABLE PARALLEL_STRUCTURE_101 (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Par_Struc_Des_101 (Code, Description) VALUES
+INSERT INTO PARALLEL_STRUCTURE_101 (Code, Description) VALUES
 	('R', 'The righ structure of parallel bridges carrying the roadway in the direction of the inventory. (For STRAHNET highway, this is west to east and south to north).'),
 	('L', 'The left structure of parallel bridges.  This structure carries traffic in the opposite direction.'),
 	('N', 'No parallel structure exists.');
 GO
-CREATE TABLE Dir_Traff_102 (
+CREATE TABLE TRAFFIC_DIRECTION_102 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Dir_Traff_102 (Code, Description) VALUES
+INSERT INTO TRAFFIC_DIRECTION_102 (Code, Description) VALUES
 	(0, 'Highway traffic not carried'),
 	(1, '1-way traffic'),
 	(2, '2-way traffic'),
 	(3, 'One lane bridge for 2-way traffic');
 GO
-CREATE TABLE Temp_Struc_Des_103 (
+CREATE TABLE TEMP_STRUCTURE_103 (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Temp_Struc_Des_103 (Code, Description) VALUES
+INSERT INTO TEMP_STRUCTURE_103 (Code, Description) VALUES
 	('T', 'Temporary Sturcture(s) or conditions exist.');
 GO
-CREATE TABLE Temp_Struc_Des_103A (
+CREATE TABLE HIGHWAY_SYSTEM_104 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Temp_Struc_Des_103A (Code, Description) VALUES
-	(10, 'Invetory Route, Minimum Vertical Clearance'),
-	(41, 'Structure Open, Posted, or Closed to Traffic'),
-	(47, 'Inventory Route, Total Horizontal Clearance'),
-	(53, 'Minimum Vertical Clearance Over Bridge Roadway'),
-	(54, 'Minimum Vertical Underclearance'),
-	(55, 'Minimum Lateral Underclearance on Right'),
-	(56, 'Minimum Lateral Underclearance on Left'),
-	(70, 'Bridge Posting');
-GO
-CREATE TABLE Hwy_Sys_104 (
-	Code int,
-	Description text
-);
-GO
-INSERT INTO Hwy_Sys_104 (Code, Description) VALUES
+INSERT INTO HIGHWAY_SYSTEM_104 (Code, Description) VALUES
 	(0, 'Inventory Route is not on the NHS'),
 	(1, 'Inventory Route is on the NHS');
 GO
-CREATE TABLE Fed_Land_Hwy_105 (
+CREATE TABLE FEDERAL_LANDS_105 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Fed_Land_Hwy_105 (Code, Description) VALUES
+INSERT INTO FEDERAL_LANDS_105 (Code, Description) VALUES
 	(0, 'Not Applicable'),
 	(1, 'Indian Reservation Road (IRR)'),
 	(2, 'Forest Highway (FH)'),
@@ -954,12 +964,12 @@ INSERT INTO Fed_Land_Hwy_105 (Code, Description) VALUES
 	(6, 'Both FH and LMHS'),
 	(9, 'Combined IRR, FH, and LMHS');
 GO
-CREATE TABLE Deck_Struc_Type_107 (
+CREATE TABLE DECK_STRUCTURE_TYPE_107 (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Deck_Struc_Type_107 (Code, Description) VALUES
+INSERT INTO DECK_STRUCTURE_TYPE_107 (Code, Description) VALUES
 	('1', 'Concrete Cast-in-Place'),
 	('2', 'Concrete Precast Panels'),
 	('3', 'Open Grating'),
@@ -971,12 +981,12 @@ INSERT INTO Deck_Struc_Type_107 (Code, Description) VALUES
 	('9', 'Other'),
 	('N', 'Not Applicable');
 GO
-CREATE TABLE Wear_Surf_108A (
+CREATE TABLE SURFACE_TYPE_108A (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Wear_Surf_108A (Code, Description) VALUES
+INSERT INTO SURFACE_TYPE_108A (Code, Description) VALUES
 	('1', 'Monolithic Concrete (Concurrently Placed with Structural Deck)'),
 	('2', 'Integral Concrete (Separate non-modified layer of concrete added to structural deck'),
 	('3', 'Latex Concrete or similar aditive'),
@@ -989,12 +999,12 @@ INSERT INTO Wear_Surf_108A (Code, Description) VALUES
 	('0', 'None (no additional concrete thickness or wearing surface is included in the bridge deck)'),
 	('N', 'Not Applicable (applies only to structures with no deck');
 GO
-CREATE TABLE Wear_Surf_108B (
+CREATE TABLE MEMBRANE_TYPE_108B (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Wear_Surf_108B (Code, Description) VALUES
+INSERT INTO MEMBRANE_TYPE_108B (Code, Description) VALUES
 	('1', 'Built-up'),
 	('2', 'Performed Fabric'),
 	('3', 'Epoxy'),
@@ -1003,12 +1013,12 @@ INSERT INTO Wear_Surf_108B (Code, Description) VALUES
 	('0', 'None'),
 	('N', 'Not Applicable (applies only to structures with no deck)');
 GO
-CREATE TABLE Wear_Surf_108C (
+CREATE TABLE DECK_PROTECTION_108C (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Wear_Surf_108C (Code, Description) VALUES
+INSERT INTO DECK_PROTECTION_108C (Code, Description) VALUES
 	('1', 'Epoxy Coated Reinforcing'),
 	('2', 'Galvanized Reinnforcing'),
 	('3', 'Other Coated Reinforcing'),
@@ -1020,42 +1030,42 @@ INSERT INTO Wear_Surf_108C (Code, Description) VALUES
 	('0', 'None'),
 	('N', 'Not Applicable (applies only to structures with no deck');
 GO
-CREATE TABLE Des_Nat_Net_110 (
+CREATE TABLE NATIONAL_NETWORK_110 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Des_Nat_Net_110 (Code, Description) VALUES
+INSERT INTO NATIONAL_NETWORK_110 (Code, Description) VALUES
 	(0, 'The inventory route is not part of the national network for trucks.'),
 	(1, 'The inventory route is part of the national network for trucks.');
 GO
-CREATE TABLE Pier_Abut_Pro_111 (
+CREATE TABLE PIER_PROTECTION_111 (
 	Code int,
 	Description text
 );
 GO
-INSERT INTO Pier_Abut_Pro_111 (Code, Description) VALUES
+INSERT INTO PIER_PROTECTION_111 (Code, Description) VALUES
 	(1, 'Navigation protection not required'),
 	(2, 'In place and functioning'),
 	(3, 'In place but in a deteriorated condition'),
 	(4, 'In place but reevaluation of design suggested'),
 	(5, 'Non present but reevaluation suggested');
 GO
-CREATE TABLE NBIS_Brdg_Len_112 (
+CREATE TABLE BRIDGE_LEN_IND_112 (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO NBIS_Brdg_Len_112 (Code, Description) VALUES
+INSERT INTO BRIDGE_LEN_IND_112 (Code, Description) VALUES
 	('Y', 'Yes'),
 	('N', 'No');
 GO
-CREATE TABLE Scr_Crit_Brdg_113 (
+CREATE TABLE SCOUR_CRITICAL_113 (
 	Code text,
 	Description text
 );
 GO
-INSERT INTO Scr_Crit_Brdg_113 (Code, Description) VALUES
+INSERT INTO SCOUR_CRITICAL_113 (Code, Description) VALUES
 	('N', 'Bridge not over waterway'),
 	('U', 'Bridge with - unknown - foundation that has not been evaluated for scour.  Since risk cannot be determined, flag for monitoring during flood events and, if appropriate, closure.'),
 	('T', 'Bridge over "tidal" waters that has not been evaluated for scour, but considered low risk.  Bridge will be monitored with regular inspection cycle and with appropriate underwater inspections. ("Unknown" foundations in "tidal" waters should be coded U.'),
