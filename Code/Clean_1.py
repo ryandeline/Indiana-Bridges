@@ -17,7 +17,7 @@ winfile = "Y:/GitHub/Indiana-Bridges/NBI_Files/NBI_2010.csv"
 woutfile = "Y:/GitHub/Indiana-Bridges/NBI_Files/Clean/NBI_****.csv"
 codefile = "Y:/GitHub/Indiana-Bridges/Column_Tables/Coding.csv"
 
-df = pd.read_csv(winfile, Low_memory = False, encoding = "ISO-8859-1")
+df = pd.read_csv(winfile, encoding = "ISO-8859-1")
 df2 = pd.read_csv(codefile)
 
 ### Drop columns which are not consistant year to year.
