@@ -25,6 +25,18 @@ df = df.drop(['FED_AGENCY', 'DATE_LAST_UPDATE', 'TYPE_LAST_UPDATE', 'DEDUCT_CODE
 					'PROJ_NO', 'PROJ_SUFFIX', 'NBI_TYPE_OF_IMP', 'DTL_TYPE_OF_IMP', 'SPECIAL_CODE', 'STEP_CODE', 
 					'STATUS_WITH_10YR_RULE', 'SUFFICIENCY_ASTERC', 'SUFFICIENCY_RATING',	'STATUS_NO_10YR_RULE'])
 
+woutfile = "Y:/GitHub/Indiana-Bridges/NBI_Files/Clean/NBI_2010c.csv"
+codefile = "Y:/GitHub/Indiana-Bridges/Column_Tables/Coding.csv"
+
+df = pd.read_csv(winfile, low_memory = False, encoding = "ISO-8859-1")
+df2 = pd.read_csv(codefile)
+
+### Drop columns which are not consistant year to year.
+df = df.drop(['FED_AGENCY', 'DATE_LAST_UPDATE', 'TYPE_LAST_UPDATE', 'DEDUCT_CODE', 'REMARKS', 'PROGRAM_CODE',
+					'PROJ_NO', 'PROJ_SUFFIX', 'NBI_TYPE_OF_IMP', 'DTL_TYPE_OF_IMP',	'STEP_CODE', 'STATUS_WITH_10YR_RULE', 
+					'SUFFICIENCY_ASTERC', 'SUFFICIENCY_RATING',	'STATUS_NO_10YR_RULE'], axis = 1)
+
+
 df3 = pd.concat([df, df2], axis = 1)
 
 print(df3)
