@@ -11,37 +11,43 @@ import csv
 import pandas as pd
 import numpy as np
 
-winfile = "X:/Users/rdeline/Documents/GitHub/Indiana Bridge/NBI_Files/NBI_2010.csv"
+winfile = "X:/Users/rdeline/Documents/GitHub/Indiana Bridge/NBI_Files/NBI_2020.csv"
 ### Database Connection
-woutfile = "X:/Users/rdeline/Documents/GitHub/Indiana Bridge/NBI_Files/Clean/NBI_2010c.csv"
-codefile = "X:/Users/rdeline/Documents/GitHub/Indiana Bridge/Column_Tables/Coding.csv"
-
-df = pd.read_csv(winfile, low_memory = False, encoding = "ISO-8859-1")
-df2 = pd.read_csv(codefile)
-
-woutfile = "X:/Users/rdeline/Documents/GitHub/Indiana Bridge/NBI_Files/Clean/NBI_2010c.csv"
+woutfile = "X:/Users/rdeline/Documents/GitHub/Indiana Bridge/NBI_Files/Clean/NBI_2020c.csv"
 codefile = "X:/Users/rdeline/Documents/GitHub/Indiana Bridge/Column_Tables/Coding.csv"
 
 df = pd.read_csv(winfile, low_memory = False, encoding = "ISO-8859-1")
 df2 = pd.read_csv(codefile)
 
 ### Drop columns which are not consistant year to year.
-df = df.drop(['HIGHWAY_DISTRICT_002', 'PLACE_CODE_004', 'LAT_016', 'LONG_017', 'FED_AGENCY', 'DATE_LAST_UPDATE', 'TYPE_LAST_UPDATE', 
-				'DEDUCT_CODE', 'REMARKS', 'PROGRAM_CODE', 'PROJ_NO', 'PROJ_SUFFIX', 'NBI_TYPE_OF_IMP', 'DTL_TYPE_OF_IMP', 'SPECIAL_CODE',
-				'STEP_CODE', 'STATUS_WITH_10YR_RULE', 'SUFFICIENCY_ASTERC', 'SUFFICIENCY_RATING',	'STATUS_NO_10YR_RULE'], axis = 1)
+df = df.drop(['HIGHWAY_DISTRICT_002', 'PLACE_CODE_004', 'LAT_016', 'LONG_017', 'FED_AGENCY', 'SUBMITTED_BY', 'BRIDGE_CONDITION', 'LOWEST_RATING', 'DECK_AREA'], axis = 1)
 
-df3 = df.set_index('STRUCTURE_NUMBER_008').join(df2.set_index('NBI Number'))
+### Join Code file df2 with annual NBI file
+df['key'] = df['STRUCTURE_NUMBER_008']
+df3 = df.set_index('key').join(df2.set_index('NBI Number'))
 
+print(df['FEATURES_DESC_006A'].dtypes)
+
+### Remove apostrophe's and white space from colums
+df3['FEATURES_DESC_006A'] = df3['FEATURES_DESC_006A'].astype(str)
 df3['FEATURES_DESC_006A'] = df3['FEATURES_DESC_006A'].map(lambda x: x.lstrip("'").rstrip("'"))
 df3['FEATURES_DESC_006A'] = df3['FEATURES_DESC_006A'].map(lambda x: x.rstrip(" "))
+df3['FACILITY_CARRIED_007'] = df3['FACILITY_CARRIED_007'].astype(str)
 df3['FACILITY_CARRIED_007'] = df3['FACILITY_CARRIED_007'].map(lambda x: x.lstrip("'").rstrip("'"))
 df3['FACILITY_CARRIED_007'] = df3['FACILITY_CARRIED_007'].map(lambda x: x.rstrip(" "))
+df3['STRUCTURE_NUMBER_008'] = df3['STRUCTURE_NUMBER_008'].map(lambda x: x.lstrip(" ").rstrip(" "))
+df3['LOCATION_009'] = df3['LOCATION_009'].astype(str)
 df3['LOCATION_009'] = df3['LOCATION_009'].map(lambda x: x.lstrip("'").rstrip("'"))
 df3['LOCATION_009'] = df3['LOCATION_009'].map(lambda x: x.rstrip(" "))
 
+# df3 = df3.reset_index(drop = True, inplace = True)
+
+print(df3)
+
 df = df3
 
-df = df[['YEAR', 'STATE_CODE_001', 'RECORD_TYPE_005A', 'ROUTE_PREFIX_005B', 'SERVICE_LEVEL_005C', 'ROUTE_NUMBER_005D', 'DIRECTION_005E', 'Place (Decoded)',
+### Order columns to fit sql schema
+df = df[['STRUCTURE_NUMBER_008', 'YEAR', 'STATE_CODE_001', 'RECORD_TYPE_005A', 'ROUTE_PREFIX_005B', 'SERVICE_LEVEL_005C', 'ROUTE_NUMBER_005D', 'DIRECTION_005E', 'Place (Decoded)',
 		'COUNTY_CODE_003', 'INDOT District', 'Lattitude', 'Longitude', 'FEATURES_DESC_006A', 'CRITICAL_FACILITY_006B', 'FACILITY_CARRIED_007', 'LOCATION_009', 'MIN_VERT_CLR_010', 
 		'KILOPOINT_011', 'BASE_HWY_NETWORK_012', 'LRS_INV_ROUTE_013A', 'SUBROUTE_NO_013B', 'DETOUR_KILOS_019', 'TOLL_020', 'MAINTENANCE_021', 'OWNER_022', 'FUNCTIONAL_CLASS_026', 
 		'YEAR_BUILT_027', 'TRAFFIC_LANES_ON_028A', 'TRAFFIC_LANES_UND_028B', 'ADT_029', 'YEAR_ADT_030', 'DESIGN_LOAD_031', 'APPR_WIDTH_MT_032', 'MEDIAN_CODE_033', 'DEGREES_SKEW_034', 
