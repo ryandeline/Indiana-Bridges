@@ -10,7 +10,7 @@ CREATE TABLE NBI (
 	Place text,
 	COUNTY_CODE_003 int,
 	INDOT_District text,
-	Lattitude float,
+	Latitude float,
 	Longitude float,
 	FEATURES_DESC_006A text,
 	CRITICAL_FACILITY_006B text,
