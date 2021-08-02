@@ -26,7 +26,7 @@ df = df.drop(['HIGHWAY_DISTRICT_002', 'PLACE_CODE_004', 'LAT_016', 'LONG_017', '
 df['key'] = df['STRUCTURE_NUMBER_008']
 df3 = df.set_index('key').join(df2.set_index('NBI Number'))
 
-print(df['FEATURES_DESC_006A'].dtypes)
+# print(df['FEATURES_DESC_006A'].dtypes)
 
 ### Remove apostrophe's and white space from colums
 df3['FEATURES_DESC_006A'] = df3['FEATURES_DESC_006A'].astype(str)
@@ -42,7 +42,7 @@ df3['LOCATION_009'] = df3['LOCATION_009'].map(lambda x: x.rstrip(" "))
 
 # df3 = df3.reset_index(drop = True, inplace = True)
 
-print(df3)
+# print(df3)
 
 df = df3
 
