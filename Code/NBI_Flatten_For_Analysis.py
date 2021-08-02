@@ -47,7 +47,7 @@ df = df.drop(['STATE_CODE_001', 'RECORD_TYPE_005A', 'ROUTE_PREFIX_005B', 'SERVIC
 df = df.rename(columns = {'STRUCTURE_NUMBER_008':'NBI Number', 'Year':'Rating Year', 'Latitude':'Latitude',
 							'Longitude':'Longitude', 'DATE_OF_INSPECT_090':'Inspection Date', 'INSPECT_FREQ_MONTHS_091':'Inspection Frequency',
 							'YEAR_BUILT_027':'Year Built', 'YEAR_RECONSTRUCTED_106':'Year Reconstructed',
-							'INDOT_District':'INDOT District', 'MPO':'MPO', 'COUNTY_CODE_003':'County', 'OWNER_022':'Owner',
+							'INDOT_District':'INDOT District', 'MPO':'MPO', 'COUNTY_CODE_003':'County', 'OWNER_022':'Owner', 'MAINTENANCE_021':'Maintenance Responsibility',
 							'FACILITY_CARRIED_007':'Facility Carried', 'FEATURES_DESC_006A':'Feature Intersected',
 							'Place':'Place', 'OPEN_CLOSED_POSTED_041':'Structure Posting', 'ADT_029':'Inspection ADT', 'YEAR_ADT_030':'ADT Year',
 							'DECK_COND_058':'Deck', 'SUPERSTRUCTURE_COND_059':'Superstructure', 'SUBSTRUCTURE_COND_060':'Substructure',
@@ -58,7 +58,18 @@ df = df.rename(columns = {'STRUCTURE_NUMBER_008':'NBI Number', 'Year':'Rating Ye
 							'MAX_SPAN_LEN_MT_048':'Maximum Span (m)', 'STRUCTURE_LEN_MT_049':'Structure Length (m)',
 							'MAIN_UNIT_SPANS_045':'Number of Spans', 'OPERATING_RATING_064':'Operating Rating', 'OPR_RATING_METH_063':'Operating Rating Method',
 							'INVENTORY_RATING_066':'Inventory Rating', 'INV_RATING_METH_065':'Inventory Rating Method',
-							'LOCATION_009':'Location', 'STRUCTURE_TYPE_043B':'Structure Type', ''})
+							'LOCATION_009':'Location', 'STRUCTURE_TYPE_043B':'Structure Type', 'ROADWAY_WIDTH_MT_051':'Road Width (m)',
+							'DECK_WIDTH_MT_052':'Deck Width (m)', 'VERT_CLR_OVER_MT_053':'Vertical Clearance Above Bridge (m)',
+							'VERT_CLR_UND_REF_054A':'Vertical Underclearance Reference','VERT_CLR_UND_054B':'Vertical Underclearance (m)',
+							'DECK_GEOMETRY_EVAL_068':'Deck Geometry Evaluation', 'UNDCLRENCE_EVAL_069':'Underclearance Evaluation',
+							'POSTING_EVAL_070':'Posting Evaluation', 'WATERWAY_EVAL_071':'Waterway Evaluation', 'APPR_ROAD_EVAL_072':'Approach Road Evaluation',
+							'DECK_STRUCTURE_TYPE_107':'Deck Material', 'FRACTURE_092A':'Fracture Critical Inspection Rate',
+							'SCOUR_CRITICAL_113':'Scour Critical Bridges', 'DESIGN_LOAD_031':'Design Load', 'MEDIAN_CODE_033':'MEDIAN_CODE_033',
+							'RAILINGS_036A':'RAILINGS_036A', 'TRANSITIONS_036B':'TRANSITIONS_036B', 'APPR_RAIL_036C':'APPR_RAIL_036C',
+							'APPR_RAIL_END_036D':'APPR_RAIL_END_036D', 'SERVICE_ON_042A':'SERVICE_ON_042A', 'SERVICE_UND_042B':'SERVICE_UND_042B',
+							'STRUCTURE_KIND_043A':'STRUCURE_KIND_043A', 'APPR_KIND_044A':'APPR_KIND_044A', 'APPR_TYPE_044B':'APPR_TYPE_044B',
+							'APPR_SPANS_046':'APPR_SPANS_046', 'HORR_CLR_MT_047':'HORR_CLR_MT_047', 'WORK_PROPOSED_075A':'WORK_PROPOSED_075A',
+							'WORK_DONE_BY_075B':'WORK_DONE_BY_075B'})
 
 ### Output to Master Bridge Analysis Record
 
