@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import pyodbc
 
-woutfile = "X:/Users/rdeline/Documents/_BridgeCleaning_TempOut/BridgeDashOut_tmp.csv"
+woutfile = "F:/Tableau/Transportation/Bridge Condition/table/_BridgeCleaning_TempOut/BridgeDashOut_tmp.csv"
 
 ### Connect to Indiana Bridges DB
 
@@ -16,19 +16,19 @@ cnxn = pyodbc.connect(conn_str)
 
 ### Set sql Command
 
-cursor = cnxn.cursor()
-sql = """Select TOP 10 * FROM Indiana_Bridges.dbo.NBI"""
-cursor.execute(sql)
+# cursor = cnxn.cursor()
+sql = """Select * FROM Indiana_Bridges.dbo.NBI"""
+# cursor.execute(sql)
 
 ### Verify output in terminal
 
-for row in cursor:
-	print(row)
+# for row in cursor:
+# 	print(row)
 
 ### Convert database stream into pandas dataframe
 
 df = pd.read_sql(sql, cnxn)
-# print(df.head(5))
+print(df.head(5))
 
 
 
