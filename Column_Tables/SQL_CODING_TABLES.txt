@@ -3,8 +3,8 @@ GO
 USE Indiana_Bridges;
 GO
 CREATE TABLE STATE_CODE_001 (
-	Code int,
-	State text
+	Code int (3) not null,
+	State varchar
 );
 GO
 INSERT INTO STATE_CODE_001 (Code, State) VALUES 
