@@ -11,6 +11,7 @@ import pandas as pd
 import numpy as np
 
 winfile = "X:/Users/rdeline/Documents/GitHub/Indiana Bridge/NBI_Files/NBI_2020.csv"
+
 ### Database Connection
 woutfile = "X:/Users/rdeline/Documents/GitHub/Indiana Bridge/NBI_Files/Clean/NBI_2020c.csv"
 codefile = "X:/Users/rdeline/Documents/GitHub/Indiana Bridge/Column_Tables/Coding.csv"
