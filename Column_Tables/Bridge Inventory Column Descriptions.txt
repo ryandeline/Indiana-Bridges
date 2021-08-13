@@ -9,6 +9,8 @@
 
 ###### Beging Table Description ######
 
+----- MASTER Cleaned NBI Data
+
 CREATE TABLE NBI (
 	STRUCTURE_NUMBER_008 text,
 	Year int,
@@ -130,6 +132,34 @@ CREATE TABLE NBI (
 	YEAR_OF_FUTURE_ADT_115 int,
 	MIN_NAV_CLR_MT_116 text
 );
+
+----- Geography of bridge locations
+
+CREATE TABLE BridgeGeography (
+	NBI_NUMBER text,
+	Latitude float,
+	Longitude float
+);
+
+BULK INSERT Indiana_Bridges.dbo.BridgeGeography
+From 'F:\Tableau\Transportation\Bridge Condition\table\Dictionaries\BridgeGeography.csv'
+With (Format ='CSV'
+);
+
+----- Bridge by INDOT District
+
+CREATE TABLE INDOT_DIST (
+	NBI_NUMBER text,
+	INDOT District text,
+);
+
+BULK INSERT Indiana_Bridges.dbo.INDOT_DIST
+From 'F:\Tableau\Transportation\Bridge Condition\table\Dictionaries\INDOT_Dist.csv'
+With (Format ='CSV'
+);
+
+----- Bridge by MPO Regions
+
 
 ----- (1) State Code  - 3 Digits
 
