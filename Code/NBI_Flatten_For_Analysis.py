@@ -122,7 +122,7 @@ df16.drop(df16.index, inplace = True)
 # ### Substructure Condition
 sql17 = """Select * FROM Indiana_Bridges.dbo.SUBSTRUCTURE_COND_060"""
 df17 = pd.read_sql(sql17, cnxn)
-df['SUBSTRUCTURE_COND_060'] = df['SUPERSTRUCTURE_COND_059'].map(df17.set_index('Code')['Description'])
+df['SUBSTRUCTURE_COND_060'] = df['SUBSTRUCTURE_COND_060'].map(df17.set_index('Code')['Description'])
 df17.drop(df17.index, inplace = True)
 
 # ### Channel Condition
@@ -152,8 +152,9 @@ df21.drop(df21.index, inplace = True)
 # ### Structural Evaluation
 sql22 = """Select * FROM Indiana_Bridges.dbo.STRUCTURAL_EVAL_067"""
 df22 = pd.read_sql(sql22, cnxn)
-df['STUCTURAL_EVAL_067'] = df['STUCTURAL_EVAL_067'].map(df22.set_index('Code')['Description'])
+df['STRUCTURAL_EVAL_067'] = df['STRUCTURAL_EVAL_067'].map(df22.set_index('Code')['Description'])
 df22.drop(df22.index, inplace = True)
+print(df['STRUCTURAL_EVAL_067'])
 
 # ### Deck Geometry Evaluation
 sql23 = """Select * FROM Indiana_Bridges.dbo.DECK_GEOMETRY_EVAL_068"""
@@ -162,7 +163,7 @@ df['DECK_GEOMETRY_EVAL_068'] = df['DECK_GEOMETRY_EVAL_068'].map(df23.set_index('
 df23.drop(df23.index, inplace = True)
 
 # ### Underclearance Evaluation
-sql24 = """Select * FROM Indiana_Bridges.dbo.UNDERCLEARANCE_EVAL_069"""
+sql24 = """Select * FROM Indiana_Bridges.dbo.UNDCLRENCE_EVAL_069"""
 df24 = pd.read_sql(sql24, cnxn)
 df['UNDCLRENCE_EVAL_069'] = df['UNDCLRENCE_EVAL_069'].map(df24.set_index('Code')['Description'])
 df24.drop(df24.index, inplace = True)
@@ -258,7 +259,7 @@ df = df.rename(columns = {'STRUCTURE_NUMBER_008':'NBI Number', 'Year':'Rating Ye
 							'FACILITY_CARRIED_007':'Facility Carried', 'FEATURES_DESC_006A':'Feature Intersected',
 							'Place':'Place', 'OPEN_CLOSED_POSTED_041':'Structure Posting', 'ADT_029':'Inspection ADT', 'YEAR_ADT_030':'ADT Year',
 							'DECK_COND_058':'Deck', 'SUPERSTRUCTURE_COND_059':'Superstructure', 'SUBSTRUCTURE_COND_060':'Substructure',
-							'CULVERT_COND_062':'Culverts', 'CHANNEL_COND_061':'Channel Condition', 'STUCTURAL_EVAL_067':'NBI Condition',
+							'CULVERT_COND_062':'Culverts', 'CHANNEL_COND_061':'Channel Condition', 'STRUCTURAL_EVAL_067':'NBI Condition',
 							'DETOUR_KILOS_019':'Detour (k)', 'FUNCTIONAL_CLASS_026':'Functional Classification',
 							'HISTORY_037':'Historical Significance', 'TRAFFUC_LANES_ON_028A':'Lanes on Structure',
 							'TRAFFIC_LANES_UND_028B':'Lanes Under Structure', 'APPR_WIDTH_MT_032':'Approach Width (m)',
