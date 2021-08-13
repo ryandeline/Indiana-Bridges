@@ -5,6 +5,7 @@ import pyodbc
 from tqdm import tqdm
 
 woutfile = "F:/Tableau/Transportation/Bridge Condition/table/_BridgeCleaning_TempOut/BridgeDashOut_tmp.csv"
+outfile = "F:/Tableau/Transportation/Bridge Condition/table/_BridgeCleaning_TempOut/BridgeDashOut_tmp-JOIN.csv"
 
 ### Connect to Indiana Bridges DB
 conn_str = (
@@ -28,7 +29,20 @@ cnxn = pyodbc.connect(conn_str)
 ### Convert database streams into pandas dataframe
 sql = """Select * FROM Indiana_Bridges.dbo.NBI"""
 df = pd.read_sql(sql, cnxn)
-df.set_index('STRUCTURE_NUMBER_008')
+# df.set_index('STRUCTURE_NUMBER_008')
+
+### Begining Cleaning Analyst Output
+df = df.drop(['STATE_CODE_001', 'RECORD_TYPE_005A', 'ROUTE_PREFIX_005B', 'SERVICE_LEVEL_005C',
+				'ROUTE_NUMBER_005D', 'CRITICAL_FACILITY_006B', 'MIN_VERT_CLR_010', 'KILOPOINT_011',
+				'BASE_HWY_NETWORK_012', 'LRS_INV_ROUTE_013A', 'SUBROUTE_NO_013B', 'DEGREES_SKEW_034',
+				'STRUCTURE_FLARED_035', 'NAVIGATION_038', 'NAV_VERT_CLR_MT_039', 'NAV_HORR_CLR_MT_040',
+				'LEFT_CURB_MT_050A', 'RIGHT_CURB_MT_050B', 'LAT_UND_REF_055A', 'LAT_UND_MT_055B', 
+				'LEFT_LAT_UND_MT_056', 'IMP_LEN_MT_076', 'BRIDGE_IMP_COST_094', 'ROADWAY_IMP_COST_095',
+				'OTHER_STATE_CODE_098A', 'OTHER_STATE_PCNT_098B', 'OTHR_STATE_STRUC_NO_099', 
+				'PARALLEL_STRUCTURE_101', 'TRAFFIC_DIRECTION_102', 'PIER_PROTECTION_111', 'BRIDGE_LEN_IND_112',
+				'FUTURE_ADT_114', 'YEAR_OF_FUTURE_ADT_115', 'MIN_NAV_CLR_MT_116', 'DIRECTION_005E', 'TOLL_020',
+				'Latitude', 'Longitude'
+				], axis=1)
 
 ### Function Classification Decoded
 sql2 = """Select * FROM Indiana_Bridges.dbo.FUNCTIONAL_CLASS_026"""
@@ -241,22 +255,21 @@ df['SCOUR_CRITICAL_113'] = df['SCOUR_CRITICAL_113'].map(df36.set_index('Code')['
 df36.drop(df36.index, inplace = True)
 
 sql37 = """Select * FROM Indiana_Bridges.dbo.BridgeGeography"""
-df37 = pd.read_sql(sql, cnxn)
-df['Latitude'] = df['Latitude'].map(df37.set_index('NBI_Number')['Latitude'])
-print(df['Latitude'].head(5))
+df37 = pd.read_sql(sql37, cnxn)
+df['Latitude1'] = df37.apply(lambda x: x['Latitude']
+	if x['Latitude'] == "" else x['Latitude'], axis = 1)
+df['Latitude'] = df['Latitude1']
 
+# df.join(df37.set_index('NBI_NUMBER'), on = 'STRUCTURE_NUMBER_008')
 
-### Begining Cleaning Analyst Output
-df = df.drop(['STATE_CODE_001', 'RECORD_TYPE_005A', 'ROUTE_PREFIX_005B', 'SERVICE_LEVEL_005C',
-				'ROUTE_NUMBER_005D', 'CRITICAL_FACILITY_006B', 'MIN_VERT_CLR_010', 'KILOPOINT_011',
-				'BASE_HWY_NETWORK_012', 'LRS_INV_ROUTE_013A', 'SUBROUTE_NO_013B', 'DEGREES_SKEW_034',
-				'STRUCTURE_FLARED_035', 'NAVIGATION_038', 'NAV_VERT_CLR_MT_039', 'NAV_HORR_CLR_MT_040',
-				'LEFT_CURB_MT_050A', 'RIGHT_CURB_MT_050B', 'LAT_UND_REF_055A', 'LAT_UND_MT_055B', 
-				'LEFT_LAT_UND_MT_056', 'IMP_LEN_MT_076', 'BRIDGE_IMP_COST_094', 'ROADWAY_IMP_COST_095',
-				'OTHER_STATE_CODE_098A', 'OTHER_STATE_PCNT_098B', 'OTHR_STATE_STRUC_NO_099', 
-				'PARALLEL_STRUCTURE_101', 'TRAFFIC_DIRECTION_102', 'PIER_PROTECTION_111', 'BRIDGE_LEN_IND_112',
-				'FUTURE_ADT_114', 'YEAR_OF_FUTURE_ADT_115', 'MIN_NAV_CLR_MT_116', 'DIRECTION_005E', 'TOLL_020',
-				], axis=1)
+# df.set_index('STRUCTURE_NUMBER_008').join(df37.set_index('NBI_NUMBER'), how = 'left')
+
+# df.join(df37, how = 'left')
+df['Latitude'] = df['Latitude'].map(df37.set_index('NBI_NUMBER')['Latitude'])
+# print(df['STRUCTURE_NUMBER_008']['Latitude'].head(5))
+
+df = df.head(50)
+df.to_csv(outfile, sep = ',')
 
 df = df.rename(columns = {'STRUCTURE_NUMBER_008':'NBI Number', 'Year':'Rating Year', 'Latitude':'Latitude',
 							'Longitude':'Longitude', 'DATE_OF_INSPECT_090':'Inspection Date', 'INSPECT_FREQ_MONTHS_091':'Inspection Frequency',
