@@ -28,6 +28,7 @@ cnxn = pyodbc.connect(conn_str)
 ### Convert database streams into pandas dataframe
 sql = """Select * FROM Indiana_Bridges.dbo.NBI"""
 df = pd.read_sql(sql, cnxn)
+df.set_index('STRUCTURE_NUMBER_008')
 
 ### Function Classification Decoded
 sql2 = """Select * FROM Indiana_Bridges.dbo.FUNCTIONAL_CLASS_026"""
@@ -154,7 +155,6 @@ sql22 = """Select * FROM Indiana_Bridges.dbo.STRUCTURAL_EVAL_067"""
 df22 = pd.read_sql(sql22, cnxn)
 df['STRUCTURAL_EVAL_067'] = df['STRUCTURAL_EVAL_067'].map(df22.set_index('Code')['Description'])
 df22.drop(df22.index, inplace = True)
-print(df['STRUCTURAL_EVAL_067'])
 
 # ### Deck Geometry Evaluation
 sql23 = """Select * FROM Indiana_Bridges.dbo.DECK_GEOMETRY_EVAL_068"""
@@ -240,6 +240,12 @@ df36 = pd.read_sql(sql36, cnxn)
 df['SCOUR_CRITICAL_113'] = df['SCOUR_CRITICAL_113'].map(df36.set_index('Code')['Description'])
 df36.drop(df36.index, inplace = True)
 
+sql37 = """Select * FROM Indiana_Bridges.dbo.BridgeGeography"""
+df37 = pd.read_sql(sql, cnxn)
+df['Latitude'] = df['Latitude'].map(df37.set_index('NBI_Number')['Latitude'])
+print(df['Latitude'].head(5))
+
+
 ### Begining Cleaning Analyst Output
 df = df.drop(['STATE_CODE_001', 'RECORD_TYPE_005A', 'ROUTE_PREFIX_005B', 'SERVICE_LEVEL_005C',
 				'ROUTE_NUMBER_005D', 'CRITICAL_FACILITY_006B', 'MIN_VERT_CLR_010', 'KILOPOINT_011',
@@ -287,6 +293,6 @@ df = df.rename(columns = {'STRUCTURE_NUMBER_008':'NBI Number', 'Year':'Rating Ye
 
 
 ### Output to Master Bridge Analysis Record
-df = df.head(5)
+df = df.head(50)
 df.to_csv(woutfile, sep = ',')
 tqdm.pandas()

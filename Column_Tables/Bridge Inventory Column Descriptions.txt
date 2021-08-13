@@ -150,7 +150,7 @@ With (Format ='CSV'
 
 CREATE TABLE INDOT_DIST (
 	NBI_NUMBER text,
-	INDOT District text,
+	INDOT_District text
 );
 
 BULK INSERT Indiana_Bridges.dbo.INDOT_DIST
@@ -160,6 +160,15 @@ With (Format ='CSV'
 
 ----- Bridge by MPO Regions
 
+CREATE TABLE MPO_Dict (
+	NBI_NUMBER text,
+	MPO text
+);
+
+BULK INSERT Indiana_Bridges.dbo.MPO_Dict
+From 'F:\Tableau\Transportation\Bridge Condition\table\Dictionaries\MPO_Dict.csv'
+With (Format ='CSV'
+);
 
 ----- (1) State Code  - 3 Digits
 
