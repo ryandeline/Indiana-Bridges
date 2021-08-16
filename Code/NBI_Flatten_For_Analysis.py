@@ -254,21 +254,31 @@ df36 = pd.read_sql(sql36, cnxn)
 df['SCOUR_CRITICAL_113'] = df['SCOUR_CRITICAL_113'].map(df36.set_index('Code')['Description'])
 df36.drop(df36.index, inplace = True)
 
+### Bridge Geography in X,Y points (WGS84)
 sql37 = """Select * FROM Indiana_Bridges.dbo.BridgeGeography"""
 df37 = pd.read_sql(sql37, cnxn)
-df['Latitude1'] = df37.apply(lambda x: x['Latitude']
-	if x['Latitude'] == "" else x['Latitude'], axis = 1)
-df['Latitude'] = df['Latitude1']
+df['key'] = df['STRUCTURE_NUMBER_008'].map(lambda x: x.lstrip().rstrip())
+df37['key2'] = df37['NBI_NUMBER'].map(lambda x: x.lstrip().rstrip())
+df = df.drop_duplicates()
+df = df.set_index('key').join(df37.set_index('key2').drop_duplicates())
 
-# df.join(df37.set_index('NBI_NUMBER'), on = 'STRUCTURE_NUMBER_008')
+### MPO Region bridges are within
+sql38 = """Select * FROM Indiana_Bridges.dbo.MPO_Dict"""
+df38 = pd.read_sql(sql38, cnxn)
+df['key'] = df['STRUCTURE_NUMBER_008'].map(lambda x: x.lstrip().rstrip())
+df38['key2'] = df37['NBI_NUMBER'].map(lambda x: x.lstrip().rstrip())
+print(df38)
+df = df.drop_duplicates()
+df = df.set_index('key').join(df38.set_index('key2').drop_duplicates(), lsuffix = 'left1', rsuffix = 'right1')
 
-# df.set_index('STRUCTURE_NUMBER_008').join(df37.set_index('NBI_NUMBER'), how = 'left')
+### INDOT Districts bridges are within
+sql39 = """Select * FROM Indiana_Bridges.dbo.INDOT_Dist"""
+df39 = pd.read_sql(sql39, cnxn)
+df['key'] = df['STRUCTURE_NUMBER_008'].map(lambda x: x.lstrip().rstrip())
+df = df.drop_duplicates()
+df = df.set_index('key').join(df39.set_index('key2').drop_duplicates(), lsuffix = 'left2', rsuffix = 'right2')
 
-# df.join(df37, how = 'left')
-df['Latitude'] = df['Latitude'].map(df37.set_index('NBI_NUMBER')['Latitude'])
-# print(df['STRUCTURE_NUMBER_008']['Latitude'].head(5))
-
-df = df.head(50)
+df = df.head(10000)
 df.to_csv(outfile, sep = ',')
 
 df = df.rename(columns = {'STRUCTURE_NUMBER_008':'NBI Number', 'Year':'Rating Year', 'Latitude':'Latitude',
