@@ -172,10 +172,10 @@ df['INV_RATING_METH_065'] = df['INV_RATING_METH_065'].map(df21.set_index('Code')
 df21.drop(df21.index, inplace = True)
 
 # ### Structural Evaluation
-sql22 = """Select * FROM Indiana_Bridges.dbo.STRUCTURAL_EVAL_067"""
-df22 = pd.read_sql(sql22, cnxn)
-df['STRUCTURAL_EVAL_067'] = df['STRUCTURAL_EVAL_067'].map(df22.set_index('Code')['Description'])
-df22.drop(df22.index, inplace = True)
+# sql22 = """Select * FROM Indiana_Bridges.dbo.STRUCTURAL_EVAL_067"""
+# df22 = pd.read_sql(sql22, cnxn)
+# df['STRUCTURAL_EVAL_067'] = df['STRUCTURAL_EVAL_067'].map(df22.set_index('Code')['Description'])
+# df22.drop(df22.index, inplace = True)
 
 # ### Deck Geometry Evaluation
 sql23 = """Select * FROM Indiana_Bridges.dbo.DECK_GEOMETRY_EVAL_068"""
@@ -270,7 +270,7 @@ df = df.drop_duplicates()
 df = df.set_index('key').join(df37.set_index('key2').drop_duplicates(), lsuffix = '_left1', rsuffix = '_right1')
 
 ### Reasign NBI bridge locations if no current updated X,Y is available -- Update -- Drop Records that do not have a geoloacation
-df['Latitude'] = df[df.latitude.notnull()]
+# df['Latitude'] = df[df.latitude.notnull()]
 
 # df['Latitude'] = df['Latitude'].notnull()
 # df['Latitude'] = df.loc[df['Latitude'] == True] = df['Latitude_NBI']
@@ -301,6 +301,22 @@ df = df.set_index('key').join(df39.set_index('key2').drop_duplicates(), lsuffix 
 
 ### Add Dashboard Calculated Columns
 
+### Condition (Good, Fair, Poor)
+print(df['STRUCTURAL_EVAL_067'].dtypes)
+
+# df.astype({'STRUCTURAL_EVAL_067': 'int64'})
+
+def condition (row):
+	if row['STRUCTURAL_EVAL_067'].values[] > 6:
+		return 'Good'
+	if row['STRUCTURAL_EVAL_067'].values[] < 4:
+		return 'Poor'
+	return 'Fair'
+# tqdm.pandas()
+
+df['Condition Rating'] = df.apply(lambda row: condition(row), axis = 1)
+
+
 ### Color Hard Coded
 
 
@@ -310,11 +326,11 @@ df = df.set_index('key').join(df39.set_index('key2').drop_duplicates(), lsuffix 
 ### Percent of Whole
 
 
-### Condition (Good, Fair, Poor)
+
 
 
 ### Link
-
+df['Link'] = 'Link'
 
 ###
 
@@ -345,7 +361,7 @@ df = df.rename(columns = {'STRUCTURE_NUMBER_008':'NBI Number', 'Year':'Rating Ye
 							'FACILITY_CARRIED_007':'Facility Carried', 'FEATURES_DESC_006A':'Feature Intersected',
 							'Place':'Place', 'OPEN_CLOSED_POSTED_041':'Structure Posting', 'ADT_029':'ADT', 'YEAR_ADT_030':'Year ADT',
 							'DECK_COND_058':'Deck', 'SUPERSTRUCTURE_COND_059':'Superstructure', 'SUBSTRUCTURE_COND_060':'Substructure',
-							'CULVERT_COND_062':'Culverts', 'CHANNEL_COND_061':'Channel Condition', 'STRUCTURAL_EVAL_067':'Structural Evaluation',
+							'CULVERT_COND_062':'Culverts', 'CHANNEL_COND_061':'Channel Condition', 'STRUCTURAL_EVAL_067':'NBI Condition',
 							'DETOUR_KILOS_019':'Detour (k)', 'FUNCTIONAL_CLASS_026':'Functional Classification',
 							'HISTORY_037':'Historical Significance', 'TRAFFUC_LANES_ON_028A':'Lanes on Structure',
 							'TRAFFIC_LANES_UND_028B':'Lanes Under Structure', 'APPR_WIDTH_MT_032':'Approach Width (m)',
@@ -376,4 +392,3 @@ df = df.rename(columns = {'STRUCTURE_NUMBER_008':'NBI Number', 'Year':'Rating Ye
 ### Output to Master Bridge Analysis Record
 # df = df.head(1000)
 df.to_csv(woutfile, sep = ',')
-tqdm.pandas()
