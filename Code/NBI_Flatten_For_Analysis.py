@@ -6,6 +6,7 @@ from tqdm import tqdm
 
 woutfile = "F:/Tableau/Transportation/Bridge Condition/table/_BridgeCleaning_TempOut/BridgeDashOut_tmp.csv"
 outfile = "F:/Tableau/Transportation/Bridge Condition/table/_BridgeCleaning_TempOut/BridgeDashOut_tmp-JOIN.csv"
+testfile = "F:/Tableau/Transportation/Bridge Condition/table/_BridgeCleaning_TempOut/BridgeDashOut_tmp-test.csv"
 
 ### Connect to Indiana Bridges DB
 conn_str = (
@@ -264,10 +265,19 @@ df37['key2'] = df37['NBI_NUMBER'].map(lambda x: x.lstrip().rstrip())
 df = df.drop_duplicates()
 df = df.set_index('key').join(df37.set_index('key2').drop_duplicates(), lsuffix = '_left1', rsuffix = '_right1')
 
-### !!! Reasign NBI bridge locations if no current updated X,Y is available
-# df['Latitude'] = df['Latitude'].replace({[''] : df['Latitude_NBI']}, inplace = True)
-# df['Longitude'] = df['Longitude'].replace({[''] : df['Longitude_NBI']}, inplace = True)
+### Reasign NBI bridge locations if no current updated X,Y is available -- Update -- Drop Records that do not have a geoloacation
+# df['Latitude'] = df['Latitude'].notnull()
+# df['Latitude'] = df.loc[df['Latitude'] == True] = df['Latitude_NBI']
+# df.to_csv(testfile, sep = ',')
+# df['Latitude'].fillna(np.nan).replace([np.nan], 1)
+# df['Latitude'].replace(r'^\s*$', np.nan, regex = True)
+# df['Latitude'] = df['Latitude'].fillna(1, inplace = True)
+# df['Latitude'] = df.loc[df['Latitude'] == 1] = df['Latitude_NBI']
+# df['Longitude'] = df['Longitude'].fillna(1, inplace  = True)
+# df['Longitude'] = df.loc[df['Longitude'] == 1] = df['Longitude_NBI']
 
+# df.dropna(subset= ['Latitude', 'Longitude'])
+df.to_csv(outfile, sep = ',')
 ### MPO Region bridges are within
 sql38 = """Select * FROM Indiana_Bridges.dbo.MPO_Dict"""
 df38 = pd.read_sql(sql38, cnxn)
@@ -335,6 +345,6 @@ df = df.rename(columns = {'STRUCTURE_NUMBER_008':'NBI Number', 'Year':'Rating Ye
 							'PERCENT_ADT_TRUCK_109':'PERCENT_ADT_TRUCK_109', 'NATIONAL_NETWORK_110':'NATIONAL_NETWORK_110', 'INDOT_Districtright2' : 'INDOT District'})
 
 ### Output to Master Bridge Analysis Record
-df = df.head(1000)
+# df = df.head(1000)
 df.to_csv(woutfile, sep = ',')
 tqdm.pandas()
