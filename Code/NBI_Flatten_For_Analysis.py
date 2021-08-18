@@ -265,11 +265,8 @@ df = df.drop_duplicates()
 df = df.set_index('key').join(df37.set_index('key2').drop_duplicates(), lsuffix = '_left1', rsuffix = '_right1')
 
 ### !!! Reasign NBI bridge locations if no current updated X,Y is available
-# cols = list(df.columns.values)
-# print(cols)
-# df = df.drop(['INDOT_District', 'Latitude_NBI', 'Longitude_NBI', 'NBI_NUMBER'], axis = 1)
-# print(df.head(10))
-# df.to_csv(outfile, sep = ',')
+# df['Latitude'] = df['Latitude'].replace({[''] : df['Latitude_NBI']}, inplace = True)
+# df['Longitude'] = df['Longitude'].replace({[''] : df['Longitude_NBI']}, inplace = True)
 
 ### MPO Region bridges are within
 sql38 = """Select * FROM Indiana_Bridges.dbo.MPO_Dict"""
@@ -287,14 +284,10 @@ df39['key2'] = df39['NBI_NUMBER'].map(lambda x: x.lstrip().rstrip())
 df = df.drop_duplicates()
 df = df.set_index('key').join(df39.set_index('key2').drop_duplicates(), lsuffix = '_left3', rsuffix = '_right3')
 
-print(df.head(10))
-
 ### Finalize Clean Output Format
-df = df.head(100)
-df.to_csv(outfile, sep = ',')
-df = df[['STRUCTURE_NUMBER_008', 'Year', 'Latitude', 'Longitude', 'DATE_OF_INSPECT_090', 'INSPECT_FREQ_MONTHS_091',
-							'YEAR_BUILT_027', 'YEAR_RECONSTRUCTED_106', 'INDOT_District_left3', 'MPO', 'COUNTY_CODE_003', 'OWNER_022', 'MAINTENANCE_021',
-							'FACILITY_CARRIED_007', 'FEATURES_DESC_006A', 'Place', 'OPEN_CLOSED_POSTED_041', 'ADT_029', 'YEAR_ADT_030',
+df = df[['STRUCTURE_NUMBER_008', 'Year', 'Latitude', 'Longitude', 'COUNTY_CODE_003', 'MPO', 'INDOT_District_left3', 'Place', 'DATE_OF_INSPECT_090', 'INSPECT_FREQ_MONTHS_091',
+							'YEAR_BUILT_027', 'YEAR_RECONSTRUCTED_106', 'OWNER_022', 'MAINTENANCE_021', 'FACILITY_CARRIED_007', 'FEATURES_DESC_006A', 
+							'OPEN_CLOSED_POSTED_041', 'ADT_029', 'YEAR_ADT_030',
 							'DECK_COND_058', 'SUPERSTRUCTURE_COND_059', 'SUBSTRUCTURE_COND_060', 'CULVERT_COND_062', 'CHANNEL_COND_061', 'STRUCTURAL_EVAL_067',
 							'DETOUR_KILOS_019', 'FUNCTIONAL_CLASS_026', 'HISTORY_037', 'TRAFFIC_LANES_ON_028A',
 							'TRAFFIC_LANES_UND_028B', 'APPR_WIDTH_MT_032', 'MAX_SPAN_LEN_MT_048', 'STRUCTURE_LEN_MT_049',
@@ -334,17 +327,14 @@ df = df.rename(columns = {'STRUCTURE_NUMBER_008':'NBI Number', 'Year':'Rating Ye
 							'APPR_RAIL_END_036D':'APPR_RAIL_END_036D', 'SERVICE_ON_042A':'SERVICE_ON_042A', 'SERVICE_UND_042B':'SERVICE_UND_042B',
 							'STRUCTURE_KIND_043A':'STRUCURE_KIND_043A', 'APPR_KIND_044A':'APPR_KIND_044A', 'APPR_TYPE_044B':'APPR_TYPE_044B',
 							'APPR_SPANS_046':'APPR_SPANS_046', 'HORR_CLR_MT_047':'HORR_CLR_MT_047', 'WORK_PROPOSED_075A':'WORK_PROPOSED_075A',
-							'WORK_DONE_BY_075B':'WORK_DONE_BY_075B', 
-							'SPEC_INSPECT_092C':'SPEC_INSPEC_092C', 'FRACTURE_LAST_DATE_093A':'FRACTURE_LAST_DATE_093', 
+							'WORK_DONE_BY_075B':'WORK_DONE_BY_075B', 'SPEC_INSPECT_092C':'SPEC_INSPEC_092C', 'FRACTURE_LAST_DATE_093A':'FRACTURE_LAST_DATE_093', 
 							'UNDERWATER_LAST_DATE_093B':'UNDERWATER_LOOK_SEE_092B', 'SPEC_LAST_DATE_093C':'SPEC_LAST_DATE_093C',
 							'TOTAL_IMP_COST_096':'TOTAL_IMP_COST_096','YEAR_OF_IMP_097':'YEAR_OF_IMP_097', 'STRAHNET_HIGHWAY_100':'STRAHNET_HIGHWAY_100',
 							'TEMP_STRUCTURE_103':'TEMP_STRUCTURE_103', 'HIGHWAY_SYSTEM_104':'HIGHWAY_SYSTEM_104', 'FEDERAL_LANDS_105':'FEDERAL_LANDS_105',
 							'SURFACE_TYPE_108A':'SURFACE_TYPE_108A', 'MEMBRANE_TYPE_108B':'MEMBRANE_TYPE_108B', 'DECK_PROTECTION_108C':'DECK_PROTECTION_108C',
 							'PERCENT_ADT_TRUCK_109':'PERCENT_ADT_TRUCK_109', 'NATIONAL_NETWORK_110':'NATIONAL_NETWORK_110', 'INDOT_Districtright2' : 'INDOT District'})
 
-cols = df.columns.tolist()
-print(cols)
-
 ### Output to Master Bridge Analysis Record
+df = df.head(1000)
 df.to_csv(woutfile, sep = ',')
 tqdm.pandas()
