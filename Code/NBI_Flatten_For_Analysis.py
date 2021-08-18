@@ -32,6 +32,10 @@ sql = """Select * FROM Indiana_Bridges.dbo.NBI"""
 df = pd.read_sql(sql, cnxn)
 # df.set_index('STRUCTURE_NUMBER_008')
 
+# Only keep the most recent inspection
+df = df.sort_values(by=['STRUCTURE_NUMBER_008', 'Year'])
+df = df.drop_duplicates(subset=['STRUCTURE_NUMBER_008'], keep='last')
+
 ### Begining Cleaning Analyst Output
 df = df.drop(['STATE_CODE_001', 'RECORD_TYPE_005A', 'ROUTE_PREFIX_005B', 'SERVICE_LEVEL_005C',
 				'ROUTE_NUMBER_005D', 'CRITICAL_FACILITY_006B', 'MIN_VERT_CLR_010', 'KILOPOINT_011',
@@ -266,6 +270,8 @@ df = df.drop_duplicates()
 df = df.set_index('key').join(df37.set_index('key2').drop_duplicates(), lsuffix = '_left1', rsuffix = '_right1')
 
 ### Reasign NBI bridge locations if no current updated X,Y is available -- Update -- Drop Records that do not have a geoloacation
+df['Latitude'] = df[df.latitude.notnull()]
+
 # df['Latitude'] = df['Latitude'].notnull()
 # df['Latitude'] = df.loc[df['Latitude'] == True] = df['Latitude_NBI']
 # df.to_csv(testfile, sep = ',')
@@ -276,8 +282,7 @@ df = df.set_index('key').join(df37.set_index('key2').drop_duplicates(), lsuffix 
 # df['Longitude'] = df['Longitude'].fillna(1, inplace  = True)
 # df['Longitude'] = df.loc[df['Longitude'] == 1] = df['Longitude_NBI']
 
-# df.dropna(subset= ['Latitude', 'Longitude'])
-df.to_csv(outfile, sep = ',')
+
 ### MPO Region bridges are within
 sql38 = """Select * FROM Indiana_Bridges.dbo.MPO_Dict"""
 df38 = pd.read_sql(sql38, cnxn)
@@ -294,6 +299,27 @@ df39['key2'] = df39['NBI_NUMBER'].map(lambda x: x.lstrip().rstrip())
 df = df.drop_duplicates()
 df = df.set_index('key').join(df39.set_index('key2').drop_duplicates(), lsuffix = '_left3', rsuffix = '_right3')
 
+### Add Dashboard Calculated Columns
+
+### Color Hard Coded
+
+
+### Comdition #
+
+
+### Percent of Whole
+
+
+### Condition (Good, Fair, Poor)
+
+
+### Link
+
+
+###
+
+
+
 ### Finalize Clean Output Format
 df = df[['STRUCTURE_NUMBER_008', 'Year', 'Latitude', 'Longitude', 'COUNTY_CODE_003', 'MPO', 'INDOT_District_left3', 'Place', 'DATE_OF_INSPECT_090', 'INSPECT_FREQ_MONTHS_091',
 							'YEAR_BUILT_027', 'YEAR_RECONSTRUCTED_106', 'OWNER_022', 'MAINTENANCE_021', 'FACILITY_CARRIED_007', 'FEATURES_DESC_006A', 
@@ -301,7 +327,7 @@ df = df[['STRUCTURE_NUMBER_008', 'Year', 'Latitude', 'Longitude', 'COUNTY_CODE_0
 							'DECK_COND_058', 'SUPERSTRUCTURE_COND_059', 'SUBSTRUCTURE_COND_060', 'CULVERT_COND_062', 'CHANNEL_COND_061', 'STRUCTURAL_EVAL_067',
 							'DETOUR_KILOS_019', 'FUNCTIONAL_CLASS_026', 'HISTORY_037', 'TRAFFIC_LANES_ON_028A',
 							'TRAFFIC_LANES_UND_028B', 'APPR_WIDTH_MT_032', 'MAX_SPAN_LEN_MT_048', 'STRUCTURE_LEN_MT_049',
-							'MAIN_UNIT_SPANS_045', 'OPERATING_RATING_064', 'OPR_RATING_METH_063', 'INVENTORY_RATING_066', 'INV_RATING_METH_065',
+							'MAIN_UNIT_SPANS_045', 'OPERATING_RATING_064', 'INVENTORY_RATING_066', 'INV_RATING_METH_065',
 							'LOCATION_009', 'STRUCTURE_TYPE_043B', 'ROADWAY_WIDTH_MT_051', 'DECK_WIDTH_MT_052', 'VERT_CLR_OVER_MT_053',
 							'VERT_CLR_UND_REF_054A','VERT_CLR_UND_054B', 'DECK_GEOMETRY_EVAL_068', 'UNDCLRENCE_EVAL_069',
 							'POSTING_EVAL_070', 'WATERWAY_EVAL_071', 'APPR_ROAD_EVAL_072', 'DECK_STRUCTURE_TYPE_107', 'FRACTURE_092A',
@@ -315,18 +341,18 @@ df = df[['STRUCTURE_NUMBER_008', 'Year', 'Latitude', 'Longitude', 'COUNTY_CODE_0
 df = df.rename(columns = {'STRUCTURE_NUMBER_008':'NBI Number', 'Year':'Rating Year', 'Latitude':'Latitude',
 							'Longitude':'Longitude', 'DATE_OF_INSPECT_090':'Inspection Date', 'INSPECT_FREQ_MONTHS_091':'Inspection Frequency',
 							'YEAR_BUILT_027':'Year Built', 'YEAR_RECONSTRUCTED_106':'Year Reconstructed',
-							'INDOT_District_left3':'INDOT District', 'MPO':'MPO', 'COUNTY_CODE_003':'County', 'OWNER_022':'Owner', 'MAINTENANCE_021':'Maintenance Responsibility',
+							'INDOT_District_left3':'INDOT District', 'MPO':'MPO', 'COUNTY_CODE_003':'County', 'LOCATION_009':'Location', 'OWNER_022':'Owner', 'MAINTENANCE_021':'Maintenance Responsibility',
 							'FACILITY_CARRIED_007':'Facility Carried', 'FEATURES_DESC_006A':'Feature Intersected',
-							'Place':'Place', 'OPEN_CLOSED_POSTED_041':'Structure Posting', 'ADT_029':'Inspection ADT', 'YEAR_ADT_030':'ADT Year',
+							'Place':'Place', 'OPEN_CLOSED_POSTED_041':'Structure Posting', 'ADT_029':'ADT', 'YEAR_ADT_030':'Year ADT',
 							'DECK_COND_058':'Deck', 'SUPERSTRUCTURE_COND_059':'Superstructure', 'SUBSTRUCTURE_COND_060':'Substructure',
-							'CULVERT_COND_062':'Culverts', 'CHANNEL_COND_061':'Channel Condition', 'STRUCTURAL_EVAL_067':'NBI Condition',
+							'CULVERT_COND_062':'Culverts', 'CHANNEL_COND_061':'Channel Condition', 'STRUCTURAL_EVAL_067':'Structural Evaluation',
 							'DETOUR_KILOS_019':'Detour (k)', 'FUNCTIONAL_CLASS_026':'Functional Classification',
 							'HISTORY_037':'Historical Significance', 'TRAFFUC_LANES_ON_028A':'Lanes on Structure',
 							'TRAFFIC_LANES_UND_028B':'Lanes Under Structure', 'APPR_WIDTH_MT_032':'Approach Width (m)',
 							'MAX_SPAN_LEN_MT_048':'Maximum Span (m)', 'STRUCTURE_LEN_MT_049':'Structure Length (m)',
-							'MAIN_UNIT_SPANS_045':'Number of Spans', 'OPERATING_RATING_064':'Operating Rating', 'OPR_RATING_METH_063':'Operating Rating Method',
+							'MAIN_UNIT_SPANS_045':'Total Spans', 'OPERATING_RATING_064':'Operating Rating', 
 							'INVENTORY_RATING_066':'Inventory Rating', 'INV_RATING_METH_065':'Inventory Rating Method',
-							'LOCATION_009':'Location', 'STRUCTURE_TYPE_043B':'Structure Type', 'ROADWAY_WIDTH_MT_051':'Road Width (m)',
+							'STRUCTURE_TYPE_043B':'Structure Type', 'ROADWAY_WIDTH_MT_051':'Road Width (m)',
 							'DECK_WIDTH_MT_052':'Deck Width (m)', 'VERT_CLR_OVER_MT_053':'Vertical Clearance Above Bridge (m)',
 							'VERT_CLR_UND_REF_054A':'Vertical Underclearance Reference','VERT_CLR_UND_054B':'Vertical Underclearance (m)',
 							'DECK_GEOMETRY_EVAL_068':'Deck Geometry Evaluation', 'UNDCLRENCE_EVAL_069':'Underclearance Evaluation',
@@ -341,8 +367,11 @@ df = df.rename(columns = {'STRUCTURE_NUMBER_008':'NBI Number', 'Year':'Rating Ye
 							'UNDERWATER_LAST_DATE_093B':'UNDERWATER_LOOK_SEE_092B', 'SPEC_LAST_DATE_093C':'SPEC_LAST_DATE_093C',
 							'TOTAL_IMP_COST_096':'TOTAL_IMP_COST_096','YEAR_OF_IMP_097':'YEAR_OF_IMP_097', 'STRAHNET_HIGHWAY_100':'STRAHNET_HIGHWAY_100',
 							'TEMP_STRUCTURE_103':'TEMP_STRUCTURE_103', 'HIGHWAY_SYSTEM_104':'HIGHWAY_SYSTEM_104', 'FEDERAL_LANDS_105':'FEDERAL_LANDS_105',
-							'SURFACE_TYPE_108A':'SURFACE_TYPE_108A', 'MEMBRANE_TYPE_108B':'MEMBRANE_TYPE_108B', 'DECK_PROTECTION_108C':'DECK_PROTECTION_108C',
+							'SURFACE_TYPE_108A':'Wearing Protection System', 'MEMBRANE_TYPE_108B':'Membrane Type', 'DECK_PROTECTION_108C':'Deck Protection',
 							'PERCENT_ADT_TRUCK_109':'PERCENT_ADT_TRUCK_109', 'NATIONAL_NETWORK_110':'NATIONAL_NETWORK_110', 'INDOT_Districtright2' : 'INDOT District'})
+
+
+
 
 ### Output to Master Bridge Analysis Record
 # df = df.head(1000)
