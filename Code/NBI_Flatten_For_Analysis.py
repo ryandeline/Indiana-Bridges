@@ -130,34 +130,34 @@ df['APPR_TYPE_044B'] = df['APPR_TYPE_044B'].map(df14.set_index('Code')['Descript
 df14.drop(df14.index, inplace = True)
 
 # ### Deck Condition
-sql15 = """Select * FROM Indiana_Bridges.dbo.DECK_COND_058"""
-df15 = pd.read_sql(sql15, cnxn)
-df['DECK_COND_058'] = df['DECK_COND_058'].map(df15.set_index('Code')['Description'])
-df15.drop(df15.index, inplace = True)
+# sql15 = """Select * FROM Indiana_Bridges.dbo.DECK_COND_058"""
+# df15 = pd.read_sql(sql15, cnxn)
+# df['DECK_COND_058'] = df['DECK_COND_058'].map(df15.set_index('Code')['Description'])
+# df15.drop(df15.index, inplace = True)
 
-# ### Superstructure Condition
-sql16 = """Select * FROM Indiana_Bridges.dbo.SUPERSTRUCTURE_COND_059"""
-df16 = pd.read_sql(sql16, cnxn)
-df['SUPERSTRUCTURE_COND_059'] = df['SUPERSTRUCTURE_COND_059'].map(df16.set_index('Code')['Description'])
-df16.drop(df16.index, inplace = True)
+# # ### Superstructure Condition
+# sql16 = """Select * FROM Indiana_Bridges.dbo.SUPERSTRUCTURE_COND_059"""
+# df16 = pd.read_sql(sql16, cnxn)
+# df['SUPERSTRUCTURE_COND_059'] = df['SUPERSTRUCTURE_COND_059'].map(df16.set_index('Code')['Description'])
+# df16.drop(df16.index, inplace = True)
 
-# ### Substructure Condition
-sql17 = """Select * FROM Indiana_Bridges.dbo.SUBSTRUCTURE_COND_060"""
-df17 = pd.read_sql(sql17, cnxn)
-df['SUBSTRUCTURE_COND_060'] = df['SUBSTRUCTURE_COND_060'].map(df17.set_index('Code')['Description'])
-df17.drop(df17.index, inplace = True)
+# # ### Substructure Condition
+# sql17 = """Select * FROM Indiana_Bridges.dbo.SUBSTRUCTURE_COND_060"""
+# df17 = pd.read_sql(sql17, cnxn)
+# df['SUBSTRUCTURE_COND_060'] = df['SUBSTRUCTURE_COND_060'].map(df17.set_index('Code')['Description'])
+# df17.drop(df17.index, inplace = True)
 
-# ### Channel Condition
-sql18 = """Select * FROM Indiana_Bridges.dbo.CHANNEL_COND_061"""
-df18 = pd.read_sql(sql18, cnxn)
-df['CHANNEL_COND_061'] = df['CHANNEL_COND_061'].map(df18.set_index('Code')['Description'])
-df18.drop(df18.index, inplace = True)
+# # ### Channel Condition
+# sql18 = """Select * FROM Indiana_Bridges.dbo.CHANNEL_COND_061"""
+# df18 = pd.read_sql(sql18, cnxn)
+# df['CHANNEL_COND_061'] = df['CHANNEL_COND_061'].map(df18.set_index('Code')['Description'])
+# df18.drop(df18.index, inplace = True)
 
-# ### Culvert Condition
-sql19 = """Select * FROM Indiana_Bridges.dbo.CULVERT_COND_062"""
-df19 = pd.read_sql(sql19, cnxn)
-df['CULVERT_COND_062'] = df['CULVERT_COND_062'].map(df19.set_index('Code')['Description'])
-df19.drop(df19.index, inplace = True)
+# # ### Culvert Condition
+# sql19 = """Select * FROM Indiana_Bridges.dbo.CULVERT_COND_062"""
+# df19 = pd.read_sql(sql19, cnxn)
+# df['CULVERT_COND_062'] = df['CULVERT_COND_062'].map(df19.set_index('Code')['Description'])
+# df19.drop(df19.index, inplace = True)
 
 # ### Operating Rating Method
 sql20 = """Select * FROM Indiana_Bridges.dbo.OPR_RATING_METH_063"""
@@ -171,11 +171,11 @@ df21 = pd.read_sql(sql21, cnxn)
 df['INV_RATING_METH_065'] = df['INV_RATING_METH_065'].map(df21.set_index('Code')['Description'])
 df21.drop(df21.index, inplace = True)
 
-# ### Structural Evaluation
-# sql22 = """Select * FROM Indiana_Bridges.dbo.STRUCTURAL_EVAL_067"""
-# df22 = pd.read_sql(sql22, cnxn)
-# df['STRUCTURAL_EVAL_067'] = df['STRUCTURAL_EVAL_067'].map(df22.set_index('Code')['Description'])
-# df22.drop(df22.index, inplace = True)
+### Structural Evaluation
+sql22 = """Select * FROM Indiana_Bridges.dbo.STRUCTURAL_EVAL_067"""
+df22 = pd.read_sql(sql22, cnxn)
+df['STRUCTURAL_EVAL_067'] = df['STRUCTURAL_EVAL_067'].map(df22.set_index('Code')['Description'])
+df22.drop(df22.index, inplace = True)
 
 # ### Deck Geometry Evaluation
 sql23 = """Select * FROM Indiana_Bridges.dbo.DECK_GEOMETRY_EVAL_068"""
@@ -299,48 +299,57 @@ df39['key2'] = df39['NBI_NUMBER'].map(lambda x: x.lstrip().rstrip())
 df = df.drop_duplicates()
 df = df.set_index('key').join(df39.set_index('key2').drop_duplicates(), lsuffix = '_left3', rsuffix = '_right3')
 
+### Inspection Date into date format
+df['DATE_OF_INSPECT_090'] = df['DATE_OF_INSPECT_090'].applymap(np.int64)
+print(df['DATE_OF_INSPECT_090'].head(10))
+df['DATE_OF_INSPECT_090'] = df['DATE_OF_INSPECT_090'].astype(str)
+print(df['DATE_OF_INSPECT_090'].head(10))
+day = df['DATE_OF_INSPECT_090'].str[-2:]
+month = df['DATE_OF_INSPECT_090'].str[:0]
+year = df['Year'].astype(str)
+df['Inspection Date'] = month + "/" + day + "/" + year
+print(df['Inspection Date'].head(10))
+
+
 ### Add Dashboard Calculated Columns
 
-### Condition (Good, Fair, Poor)
-print(df['STRUCTURAL_EVAL_067'].dtypes)
+### Extract the Condition of the Structure through the works of the 4 column scores
+df['Condition'] = df[['DECK_COND_058', 'SUPERSTRUCTURE_COND_059', 'SUBSTRUCTURE_COND_060']].min(axis = 1)
+df['NBI Condition'] = np.where(df['Condition'] == 'N', df['CULVERT_COND_062'], df['Condition'])
 
-# df.astype({'STRUCTURAL_EVAL_067': 'int64'})
+### Aggregate Condition Coded as a number (1, 2, 3 = Poor, Fair, Good)
+sql40 = """Select * FROM Indiana_Bridges.dbo.CONDITION_AGGREGATE"""
+df40 = pd.read_sql(sql40, cnxn)
+df['Condition Number'] = df['NBI Condition'].map(df40.set_index('Code')['Description'])
+df40.drop(df40.index, inplace = True)
 
-def condition (row):
-	if row['STRUCTURAL_EVAL_067'].values[] > 6:
-		return 'Good'
-	if row['STRUCTURAL_EVAL_067'].values[] < 4:
-		return 'Poor'
-	return 'Fair'
-# tqdm.pandas()
+### Aggregate Condition Coded as Good, Fair, Poor
+sql41 = """Select * FROM Indiana_Bridges.dbo.CONDITION_SIMPLIFIED"""
+df41 = pd.read_sql(sql41, cnxn)
+df['Condition'] = df['NBI Condition'].map(df41.set_index('Code')['Description'])
+df41.drop(df41.index, inplace = True)
 
-df['Condition Rating'] = df.apply(lambda row: condition(row), axis = 1)
-
-
-### Color Hard Coded
-
-
-### Comdition #
+### Hardcoded Color based on Aggregate Condition - for dashboard gauges
+sql42 = """Select * FROM Indiana_Bridges.dbo.CONDITION_COLOR_HARDCODED"""
+df42 = pd.read_sql(sql42, cnxn)
+df['Color Hard Coded'] = df['NBI Condition'].map(df42.set_index('Code')['Description'])
+df42.drop(df42.index, inplace = True)
 
 
 ### Percent of Whole
-
-
-
-
 
 ### Link
 df['Link'] = 'Link'
 
 ###
-
-
+df.reset_index(drop = True, inplace = True)
 
 ### Finalize Clean Output Format
-df = df[['STRUCTURE_NUMBER_008', 'Year', 'Latitude', 'Longitude', 'COUNTY_CODE_003', 'MPO', 'INDOT_District_left3', 'Place', 'DATE_OF_INSPECT_090', 'INSPECT_FREQ_MONTHS_091',
+df = df[['STRUCTURE_NUMBER_008', 'Year', 'Latitude', 'Longitude', 'COUNTY_CODE_003', 'MPO', 'INDOT_District_left3', 'Place', 'Inspection Date', 'INSPECT_FREQ_MONTHS_091',
 							'YEAR_BUILT_027', 'YEAR_RECONSTRUCTED_106', 'OWNER_022', 'MAINTENANCE_021', 'FACILITY_CARRIED_007', 'FEATURES_DESC_006A', 
 							'OPEN_CLOSED_POSTED_041', 'ADT_029', 'YEAR_ADT_030',
-							'DECK_COND_058', 'SUPERSTRUCTURE_COND_059', 'SUBSTRUCTURE_COND_060', 'CULVERT_COND_062', 'CHANNEL_COND_061', 'STRUCTURAL_EVAL_067',
+							'DECK_COND_058', 'SUPERSTRUCTURE_COND_059', 'SUBSTRUCTURE_COND_060', 'CULVERT_COND_062', 'CHANNEL_COND_061', 'NBI Condition', 
+							'Condition Number', 'Condition', 'Color Hard Coded', 'Link', 'STRUCTURAL_EVAL_067',
 							'DETOUR_KILOS_019', 'FUNCTIONAL_CLASS_026', 'HISTORY_037', 'TRAFFIC_LANES_ON_028A',
 							'TRAFFIC_LANES_UND_028B', 'APPR_WIDTH_MT_032', 'MAX_SPAN_LEN_MT_048', 'STRUCTURE_LEN_MT_049',
 							'MAIN_UNIT_SPANS_045', 'OPERATING_RATING_064', 'INVENTORY_RATING_066', 'INV_RATING_METH_065',
@@ -355,13 +364,13 @@ df = df[['STRUCTURE_NUMBER_008', 'Year', 'Latitude', 'Longitude', 'COUNTY_CODE_0
 							'SURFACE_TYPE_108A', 'MEMBRANE_TYPE_108B', 'DECK_PROTECTION_108C', 'PERCENT_ADT_TRUCK_109', 'NATIONAL_NETWORK_110']]
 
 df = df.rename(columns = {'STRUCTURE_NUMBER_008':'NBI Number', 'Year':'Rating Year', 'Latitude':'Latitude',
-							'Longitude':'Longitude', 'DATE_OF_INSPECT_090':'Inspection Date', 'INSPECT_FREQ_MONTHS_091':'Inspection Frequency',
+							'Longitude':'Longitude', 'Inspection Date':'Inspection Date', 'INSPECT_FREQ_MONTHS_091':'Inspection Frequency',
 							'YEAR_BUILT_027':'Year Built', 'YEAR_RECONSTRUCTED_106':'Year Reconstructed',
 							'INDOT_District_left3':'INDOT District', 'MPO':'MPO', 'COUNTY_CODE_003':'County', 'LOCATION_009':'Location', 'OWNER_022':'Owner', 'MAINTENANCE_021':'Maintenance Responsibility',
 							'FACILITY_CARRIED_007':'Facility Carried', 'FEATURES_DESC_006A':'Feature Intersected',
 							'Place':'Place', 'OPEN_CLOSED_POSTED_041':'Structure Posting', 'ADT_029':'ADT', 'YEAR_ADT_030':'Year ADT',
 							'DECK_COND_058':'Deck', 'SUPERSTRUCTURE_COND_059':'Superstructure', 'SUBSTRUCTURE_COND_060':'Substructure',
-							'CULVERT_COND_062':'Culverts', 'CHANNEL_COND_061':'Channel Condition', 'STRUCTURAL_EVAL_067':'NBI Condition',
+							'CULVERT_COND_062':'Culverts', 'CHANNEL_COND_061':'Channel Condition', 'STRUCTURAL_EVAL_067':'Structural Condition',
 							'DETOUR_KILOS_019':'Detour (k)', 'FUNCTIONAL_CLASS_026':'Functional Classification',
 							'HISTORY_037':'Historical Significance', 'TRAFFUC_LANES_ON_028A':'Lanes on Structure',
 							'TRAFFIC_LANES_UND_028B':'Lanes Under Structure', 'APPR_WIDTH_MT_032':'Approach Width (m)',
