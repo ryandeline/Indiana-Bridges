@@ -17,6 +17,17 @@ conn_str = (
 
 cnxn = pyodbc.connect(conn_str)
 
+# def execute_query(con, q):
+# 	con = conn_str
+# 	try:
+# 		cnxn = pyodbc.connect(con)
+# 		print("Query executed successfully")
+# 	except Error as e:
+# 		print(f"the error '{e}' occurred")
+
+
+
+
 ### Set sql Command
 
 # cursor = cnxn.cursor()
@@ -56,6 +67,8 @@ sql2 = """Select * FROM Indiana_Bridges.dbo.FUNCTIONAL_CLASS_026"""
 df2 = pd.read_sql(sql2, cnxn)
 df['FUNCTIONAL_CLASS_026'] = df['FUNCTIONAL_CLASS_026'].map(df2.set_index('Code')['Description'])
 df2.drop(df2.index, inplace = True)
+
+df.to_csv()
 
 ### County Decoded
 sql3 = """Select * FROM Indiana_Bridges.dbo.COUNTY_CODE_003"""
