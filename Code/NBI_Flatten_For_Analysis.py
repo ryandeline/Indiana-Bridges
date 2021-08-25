@@ -4,7 +4,7 @@ import re
 import pyodbc
 from tqdm import tqdm
 
-woutfile = "F:/Tableau/Transportation/Bridge Condition/table/_BridgeCleaning_TempOut/BridgeDashOut_tmp.csv"
+woutfile = "F:/Tableau/Transportation/Bridge Condition/table/Dashboard Files/BridgeDash.csv"
 outfile = "F:/Tableau/Transportation/Bridge Condition/table/_BridgeCleaning_TempOut/BridgeDashOut_tmp-JOIN.csv"
 testfile = "F:/Tableau/Transportation/Bridge Condition/table/_BridgeCleaning_TempOut/BridgeDashOut_tmp-test.csv"
 
@@ -201,11 +201,12 @@ df26 = pd.read_sql(sql26, cnxn)
 df['WATERWAY_EVAL_071'] = df['WATERWAY_EVAL_071'].map(df26.set_index('Code')['Description'])
 df26.drop(df26.index, inplace = True)
 
-# ### Approach Road Evaluation
-sql27 = """Select * FROM Indiana_Bridges.dbo.APPR_ROAD_EVAL_072"""
-df27 = pd.read_sql(sql27, cnxn)
-df['APPR_ROAD_EVAL_072'] = df['APPR_ROAD_EVAL_072'].map(df27.set_index('Code')['Description'])
-df27.drop(df27.index, inplace = True)
+### Approach Road Evaluation
+# sql27 = """Select * FROM Indiana_Bridges.dbo.APPR_ROAD_EVAL_072"""
+# df27 = pd.read_sql(sql27, cnxn)
+# df['APPR_ROAD_EVAL_072'] = df['APPR_ROAD_EVAL_072'].map(df27.set_index('Code')['Description'])
+# df27.drop(df27.index, inplace = True)
+# print(df['APPR_ROAD_EVAL_072'].head(10))
 
 # ### Work Proposed
 sql28 = """Select * FROM Indiana_Bridges.dbo.WORK_PROPOSED_075A"""
@@ -287,28 +288,30 @@ df = df.set_index('key').join(df37.set_index('key2').drop_duplicates(), lsuffix 
 sql38 = """Select * FROM Indiana_Bridges.dbo.MPO_Dict"""
 df38 = pd.read_sql(sql38, cnxn)
 df['key'] = df['STRUCTURE_NUMBER_008'].map(lambda x: x.lstrip().rstrip())
-df38['key2'] = df37['NBI_NUMBER'].map(lambda x: x.lstrip().rstrip())
+df38['key2'] = df38['NBI_NUMBER'].map(lambda x: x.lstrip().rstrip())
 df = df.drop_duplicates()
 df = df.set_index('key').join(df38.set_index('key2').drop_duplicates(), lsuffix = '_left2', rsuffix = '_right2')
+df38.drop(df38.index, inplace = True)
 
 ### INDOT Districts bridges are within
-sql39 = """Select * FROM Indiana_Bridges.dbo.INDOT_Dist"""
+sql39 = """Select * FROM Indiana_Bridges.dbo.INDOT_DIST"""
 df39 = pd.read_sql(sql39, cnxn)
+# print(df39.loc[df39['INDOT_District'] == 'No MPO'])
 df['key'] = df['STRUCTURE_NUMBER_008'].map(lambda x: x.lstrip().rstrip())
 df39['key2'] = df39['NBI_NUMBER'].map(lambda x: x.lstrip().rstrip())
 df = df.drop_duplicates()
 df = df.set_index('key').join(df39.set_index('key2').drop_duplicates(), lsuffix = '_left3', rsuffix = '_right3')
+df39.drop(df39.index, inplace = True)
+# df.to_csv(testfile, sep = ',')
 
 ### Inspection Date into date format
-df['DATE_OF_INSPECT_090'] = df['DATE_OF_INSPECT_090'].applymap(np.int64)
-print(df['DATE_OF_INSPECT_090'].head(10))
+df['DATE_OF_INSPECT_090'] = df['DATE_OF_INSPECT_090'].apply(lambda x: int(x) if x == x else "")
+df['DATE_OF_INSPECT_090'] = df['DATE_OF_INSPECT_090'].apply(lambda x: '{0:0>4}'.format(x))
 df['DATE_OF_INSPECT_090'] = df['DATE_OF_INSPECT_090'].astype(str)
-print(df['DATE_OF_INSPECT_090'].head(10))
 day = df['DATE_OF_INSPECT_090'].str[-2:]
-month = df['DATE_OF_INSPECT_090'].str[:0]
+month = df['DATE_OF_INSPECT_090'].str[0:2]
 year = df['Year'].astype(str)
 df['Inspection Date'] = month + "/" + day + "/" + year
-print(df['Inspection Date'].head(10))
 
 
 ### Add Dashboard Calculated Columns
@@ -320,7 +323,7 @@ df['NBI Condition'] = np.where(df['Condition'] == 'N', df['CULVERT_COND_062'], d
 ### Aggregate Condition Coded as a number (1, 2, 3 = Poor, Fair, Good)
 sql40 = """Select * FROM Indiana_Bridges.dbo.CONDITION_AGGREGATE"""
 df40 = pd.read_sql(sql40, cnxn)
-df['Condition Number'] = df['NBI Condition'].map(df40.set_index('Code')['Description'])
+df['Condition #'] = df['NBI Condition'].map(df40.set_index('Code')['Description'])
 df40.drop(df40.index, inplace = True)
 
 ### Aggregate Condition Coded as Good, Fair, Poor
@@ -341,15 +344,17 @@ df42.drop(df42.index, inplace = True)
 ### Link
 df['Link'] = 'Link'
 
-###
+### Primarily Temarary Clean Up Until New Values are added to dictionaries
 df.reset_index(drop = True, inplace = True)
+df['Latitude'].replace('', np.nan, inplace = True)
+df.dropna(subset=['Latitude'], inplace = True)
 
 ### Finalize Clean Output Format
-df = df[['STRUCTURE_NUMBER_008', 'Year', 'Latitude', 'Longitude', 'COUNTY_CODE_003', 'MPO', 'INDOT_District_left3', 'Place', 'Inspection Date', 'INSPECT_FREQ_MONTHS_091',
+df = df[['STRUCTURE_NUMBER_008', 'Year', 'Latitude', 'Longitude', 'COUNTY_CODE_003', 'MPO', 'INDOT_District_right3', 'Place', 'Inspection Date', 'INSPECT_FREQ_MONTHS_091',
 							'YEAR_BUILT_027', 'YEAR_RECONSTRUCTED_106', 'OWNER_022', 'MAINTENANCE_021', 'FACILITY_CARRIED_007', 'FEATURES_DESC_006A', 
 							'OPEN_CLOSED_POSTED_041', 'ADT_029', 'YEAR_ADT_030',
 							'DECK_COND_058', 'SUPERSTRUCTURE_COND_059', 'SUBSTRUCTURE_COND_060', 'CULVERT_COND_062', 'CHANNEL_COND_061', 'NBI Condition', 
-							'Condition Number', 'Condition', 'Color Hard Coded', 'Link', 'STRUCTURAL_EVAL_067',
+							'Condition #', 'Condition', 'Color Hard Coded', 'Link', 'STRUCTURAL_EVAL_067',
 							'DETOUR_KILOS_019', 'FUNCTIONAL_CLASS_026', 'HISTORY_037', 'TRAFFIC_LANES_ON_028A',
 							'TRAFFIC_LANES_UND_028B', 'APPR_WIDTH_MT_032', 'MAX_SPAN_LEN_MT_048', 'STRUCTURE_LEN_MT_049',
 							'MAIN_UNIT_SPANS_045', 'OPERATING_RATING_064', 'INVENTORY_RATING_066', 'INV_RATING_METH_065',
@@ -366,13 +371,13 @@ df = df[['STRUCTURE_NUMBER_008', 'Year', 'Latitude', 'Longitude', 'COUNTY_CODE_0
 df = df.rename(columns = {'STRUCTURE_NUMBER_008':'NBI Number', 'Year':'Rating Year', 'Latitude':'Latitude',
 							'Longitude':'Longitude', 'Inspection Date':'Inspection Date', 'INSPECT_FREQ_MONTHS_091':'Inspection Frequency',
 							'YEAR_BUILT_027':'Year Built', 'YEAR_RECONSTRUCTED_106':'Year Reconstructed',
-							'INDOT_District_left3':'INDOT District', 'MPO':'MPO', 'COUNTY_CODE_003':'County', 'LOCATION_009':'Location', 'OWNER_022':'Owner', 'MAINTENANCE_021':'Maintenance Responsibility',
+							'INDOT_District_right3':'INDOT District', 'MPO':'MPO', 'COUNTY_CODE_003':'County', 'LOCATION_009':'Location', 'OWNER_022':'Owner', 'MAINTENANCE_021':'Maintenance Responsibility',
 							'FACILITY_CARRIED_007':'Facility Carried', 'FEATURES_DESC_006A':'Feature Intersected',
 							'Place':'Place', 'OPEN_CLOSED_POSTED_041':'Structure Posting', 'ADT_029':'ADT', 'YEAR_ADT_030':'Year ADT',
 							'DECK_COND_058':'Deck', 'SUPERSTRUCTURE_COND_059':'Superstructure', 'SUBSTRUCTURE_COND_060':'Substructure',
 							'CULVERT_COND_062':'Culverts', 'CHANNEL_COND_061':'Channel Condition', 'STRUCTURAL_EVAL_067':'Structural Condition',
-							'DETOUR_KILOS_019':'Detour (k)', 'FUNCTIONAL_CLASS_026':'Functional Classification',
-							'HISTORY_037':'Historical Significance', 'TRAFFUC_LANES_ON_028A':'Lanes on Structure',
+							'DETOUR_KILOS_019':'Detour (k)', 'FUNCTIONAL_CLASS_026':'Functional Class',
+							'HISTORY_037':'Historical Significance', 'TRAFFIC_LANES_ON_028A':'Lanes on Structure',
 							'TRAFFIC_LANES_UND_028B':'Lanes Under Structure', 'APPR_WIDTH_MT_032':'Approach Width (m)',
 							'MAX_SPAN_LEN_MT_048':'Maximum Span (m)', 'STRUCTURE_LEN_MT_049':'Structure Length (m)',
 							'MAIN_UNIT_SPANS_045':'Total Spans', 'OPERATING_RATING_064':'Operating Rating', 
