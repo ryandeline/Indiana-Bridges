@@ -15,19 +15,19 @@ conn_str = (
 	r'Database=Indiana_Bridges;'
 	r'Trusted_Connection=yes;')
 
-cnxn = pyodbc.connect(conn_str)
+# cnxn = pyodbc.connect(conn_str)
 
-def execute_query(con, q):
-	con = conn_str
+def execute_query(pyodbc, q):
+	cnxn = pyodbc.connect(conn_str)
+	result = None
 	try:
-		cnxn = pyodbc.connect(con)
-		query = pd.read_sql(q, cnxn)
-		print("Query executed successfully")
+		result = pd.read_sql(q, cnxn)
+		return result
 	except Error as e:
 		print(f"the error '{e}' occurred")
 
-sql = """Select * FROM Indiana_Bridges.dbo.NBI"""
-df = execute_query(con, sql)
+sql = """Select * FROM Indiana_Bridges.dbo.FUNCTIONAL_CLASS_026"""
+df = execute_query(pyodbc, sql)
 
 df.to_csv(woutfile, sep = ',')
 
