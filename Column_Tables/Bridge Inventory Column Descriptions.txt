@@ -2416,6 +2416,3 @@ INSERT INTO CONDITION_COLOR_HARDCODED (Code, Description) VALUES
 	('8', 'Green'),
 	('9', 'Green'),
 	('N', 'Green');
-
-
----- 
