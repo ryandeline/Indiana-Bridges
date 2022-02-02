@@ -17,26 +17,13 @@ conn_str = (
 
 cnxn = pyodbc.connect(conn_str)
 
-# def execute_query(con, q):
-# 	con = conn_str
-# 	try:
-# 		cnxn = pyodbc.connect(con)
-# 		print("Query executed successfully")
-# 	except Error as e:
-# 		print(f"the error '{e}' occurred")
-
-
-
-
-### Set sql Command
-
-# cursor = cnxn.cursor()
-# cursor.execute(sql)
-
-### Verify output in terminal
-
-# for row in cursor:
-# 	print(row)
+def execute_query(con, q):
+	con = conn_str
+	try:
+		cnxn = pyodbc.connect(con)
+		print("Query executed successfully")
+	except Error as e:
+		print(f"the error '{e}' occurred")
 
 ### Convert database streams into pandas dataframe
 sql = """Select * FROM Indiana_Bridges.dbo.NBI"""
